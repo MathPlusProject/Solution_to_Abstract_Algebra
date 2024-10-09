@@ -1,0 +1,298 @@
+\subsection{教材p17-p18}
+
+\begin{problem}\label{ex:1.3.1}
+    设$G$是一个群, 对于任意的$a, b \in G$, 证明$ab$的阶和$ba$的阶相等.
+\end{problem}
+
+\begin{solution}
+    若$|ab| = n < \infty$, 则
+\[
+    (ba)^n = b \cdot (ab)^n \cdot b^{-1} = bb^{-1} = e.
+\] 
+    且对$1 \leqslant k < n$, $(ba)^k = b(ab)^kb^{-1} \neq e$.
+因此$|ba| = n$. 反之亦然.
+    
+    若$|ab| = \infty$, 则
+\[
+    \forall n \in \mathbb{Z}_{\geqslant 1}, \quad (ba)^n = b(ab)^nb^{-1} \neq e.
+\]
+    故$|ba| = \infty$. 反之亦然.
+
+    事实上, 群$G$内$g$和$h = aga^{-1}$阶相等. $h$称为$g$的一个共轭(conjugate, 教材p77).
+\[
+    \sigma_a: G \to G, \quad g \mapsto aga^{-1}
+\]
+是群$G$的一个自同构. 而对一般的群同态$\varphi: G \to G'$, $|g| < \infty \implies |\varphi(g)| < \infty$
+且$|\varphi(g)| \Big| |g|$. 因此若$\varphi$为同构, 则$|g| = |\varphi(g)|$(包括左右为无穷的情况).
+\end{solution}
+
+\begin{problem}\label{ex:1.3.2}
+    设$R$是一个环, $U(R)$表示$R$中所有可逆元集合, 试证明：$U(R)$关
+于环$R$的乘法是一个群(称为$R$的单位群).
+\end{problem}
+
+\begin{solution}
+    \begin{enumerate}[(1)]
+        \item 这里首先需要验证运算的封闭性, $\forall a, b \in U(R)$, 有
+    $(b^{-1}a^{-1})(ab) = b^{-1}(a^{-1}a)b = 1$, 故$ab \in U(R)$且
+    $(ab)^{-1} = b^{-1}a^{-1}$.
+        \item $1 \in U(R)$, 因为$1 \cdot 1 = 1$的确可逆;
+        \item 由于乘法是$R$上的乘法, 故结合律成立;
+        \item 若$a \in U(R)$, 则由\ref{ex:1.1.1}的(3), $a^{-1} \in U(R)$且$(a^{-1})^{-1} = a$;
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}
+    证明除了单位元之外所有元素的阶都是$2$的群一定是交换群.
+\end{problem}
+
+\begin{solution}
+    由于任意$a^2 = e$, 故$a = a^{-1}$.
+
+    考虑
+\[
+    (ab)^2 = e \implies ab = b^{-1}a^{-1} = ba.
+\]
+    或直接验证
+\[
+    ab = ab \cdot (ba)^2 = abbaba = ba
+\]
+\end{solution}
+
+\begin{problem}
+    令$C(\mathbb{R} ) = \left\{\text{所有连续函数: } \mathbb{R} \overset{f}\to \mathbb{R} \right\}$,
+$\forall f ,\, g \in C(\mathbb{R})$,
+\[
+    f + g \in C(\mathbb{R}),\quad f \cdot g \in C(\mathbb{R})
+\]
+定义：$\forall x \in \mathbb{R}, (f + g)(x) = f(x) + g(x), (f \cdot g)(x) = f(g(x))$,
+证明$(C(\mathbb{R}), +)$是交换群. $(C(\mathbb{R}), +, \cdot)$是否为环？
+\end{problem}
+
+\begin{solution}
+    $(C(\mathbb{R}), +)$的零元为零函数$\mathbf{0}: \mathbb{R} \to \mathbb{R},\, x \mapsto 0$,
+$(f + \mathbf{0})(x) = f(x) + 0 = f(x) = 0 + f(x) = (\mathbf{0} + f)(x),\, \forall x \in \mathbb{R}$.
+
+    $f \in C(\mathbb{R})$的负元为$-f: \mathbb{R} \to \mathbb{R},\, x \mapsto -f(x)$,
+$(f + (-f))(x) = ((-f) + f)(x) = f(x) - f(x) = 0 = \mathbf{0}(x)$.
+
+    由于$f + g$为逐点定义, 故交换律和结合律依赖于$\mathbb{R}$的加法, 是平凡的.
+故$(C(\mathbb{R}), +)$是Abel群.
+
+    若$f$不是$\mathbb{R}$-线性函数, 如$f(x) = x^2$, 则$(f \cdot (g + h))(x) = f((g + h)(x)) = f(g(x) + h(x)) \neq f(g(x)) + f(h(x))$.
+故$C(\mathbb{R}, +, \cdot)$不是环.
+\end{solution}
+
+\begin{problem}\label{ex:1.3.5}
+    写出对称群$S_3$的乘法表.
+\end{problem}
+
+\begin{solution}
+    记$\mathrm{id}_{S_3} = e$, 令$a = (1\:2)$, $b = (1\:2\:3)$, 有
+$a^2 = e$, $b^3 = e$, $abab = e \iff ba = ab^2$. 乘法表如下：
+\[
+\begin{array}{c|cccccc}
+  & e   & a   & b   & b^2 & ab  & ab^2 \\
+\hline
+e  & e   & a   & b   & b^2 & ab  & ab^2 \\
+a  & a   & e   & ab  & ab^2 & b^2 & b \\
+b  & b   & ab^2 & b^2 & e   & a   & ab \\
+b^2 & b^2 & ab  & e   & b   & ab^2 & a \\
+ab & ab  & b^2 & a   & ab^2 & e   & b \\
+ab^2 & ab^2 & b   & ab  & a   & b^2 & e \\
+\end{array}
+\]
+注: 可以看到$S_3$, 若取$a = (1\:2),\, b = (1\:2\:3)$,
+则$S_3$可以由$a, b$生成, 即考虑所有可能的乘积, 一般可以表示
+为$S_3 = \langle a, b \rangle,\, a = (1\:2),\, b = (1\:2\:3)$.
+
+若不给$a, b$加任何限制, 便得到一个自由群(free group)$F(\{a, b\})$.
+一般地, 任意一个集合$A$都可以生成一个自由群$F(A)$, $A$就是生成元组成
+的集合. 可以证明任何一个群都同构于某个自由群的商群, 而对应的正规子群便是由
+生成元满足的某些关系确定(将$A$看成字母表, $\Sigma_A$表示单词的集合,
+这些关系可以表示为一些满足$w = e$单词$w \in \Sigma_A$).
+把这些$w$组成的集合记为$\mathscr{R}$,
+$A$和$\mathscr{R}$将唯一确定一个群$G$, $(A \mid \mathscr{R})$
+称为$G$的一个展示(presentation). 以$S_3$为例, $S_3$的一个展示
+为$(\{a, b\} \mid a^2, b^3, abab)$.
+
+由于这本教材没有讲自由群, 所以想要了解的话需要查阅别的教材.
+\end{solution}
+
+\begin{problem}
+    证明：一个群$G$不会是两个真子群(不等于$G$的子群)的并.
+\end{problem}
+
+\begin{solution}
+    反证, 假设$H_1, H_2 \lvertneqq G$且$G = H_1 \cup H_2$,
+则$\exists h_1 \in G \setminus H_2 \subseteq H_1, h_2 \in G \setminus H_1 \subseteq H_2$,
+有$h_1h_2 \in G = H_1 \cup H_2$, 矛盾.(不妨设$h_1h_2 \in H_1 \implies h_2 \in H_1$)
+\end{solution}
+
+\ref{ex:1.3.7}-\ref{ex:1.3.9}为群的其他三种定义.
+
+\begin{problem}\label{ex:1.3.7}
+    一个非空集合$G$带有满足结合律的“乘法”运算, 我们称之为半群.
+如果$G$是一个半群, 且满足如下性质：
+\begin{enumerate}[(1)]
+    \item $G$含有右单位元$1_r$(即：$a \cdot 1_r = a$, $\forall a \in G)$;
+    \item $G$中的每个元素$a$有右逆(即：存在$b \in G$, 使得$a \cdot b = 1_r)$.
+\end{enumerate}
+试证明：$G$是一个群.
+\end{problem}
+
+\begin{solution}
+    先证右逆为逆, 
+\[
+\begin{gathered}
+    \forall a \in G \, \exists b \in G, ab = 1_r,\\
+    \implies \exists c \in G, bc = 1_r,\\
+    \implies ba = (ba)1_r = (ba)(bc) = b(ab)c = b1_rc = bc = 1_r.
+\end{gathered}
+\]
+    再证右单位为单位, 
+\[
+    1_ra = (ab)a = a(ba) = a1_r = a.
+\]
+\end{solution}
+
+\begin{problem}\label{ex:1.3.8}
+    证明：半群$G$是群的充要条件是：$\forall a, b \in G$, $ax = b$和$ya = b$都有
+(唯一)解.
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+    \item "$\impliedby$": 取定一个$a \in G$, 方程$ax = a$的解设为$e_a$.
+对$\forall b \in G$, 方程$ya = b$有解$y_b$, 则有
+\[
+    be_a = (y_ba)e_a = y_b(ae_a) = y_ba = b.
+\]
+即$e_a$是$G$的右单位, 记为$1_r$, 又因为$\forall a \in G$,
+方程$ax = 1_r$有解, 即$a$有右逆, 由\ref{ex:1.3.7}知$G$是群.
+    \item "$\implies$": 若$G$是群, 则方程$ax = b$的唯一解为$a^{-1}b$,
+方程$ya = b$的唯一解为$ba^{-1}$.
+\end{enumerate}
+    
+\end{solution}
+
+\begin{problem}\label{ex:1.3.9}
+    证明：
+\begin{enumerate}[(1)]
+    \item 在群中左右消去律都成立：如果$ax = ay$, 则$x = y$; 如果$xa = ya$,则$x = y$.
+    \item 左右消去律都成立的有限半群一定是群.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+    设$G = \{a_1, a_2, \cdots a_n\}$. 对$\forall 1 \leqslant i, j \leqslant n$,
+\[
+    a_ia_1, a_ia_2, \cdots, a_ia_n
+\]
+互异, 否则存在$a_k \neq a_l$使得$a_ia_k = a_ia_l$, 由消去律得$a_k = a_l$矛盾.
+因此$\exists 1 \leqslant t \leqslant n$, $a_ia_t = a_j$, 即方程$a_ix = a_j$有解.
+同理方程$ya_i = a_j$也有解, 由\ref{ex:1.3.8}, $G$是群.
+\end{solution}
+
+\begin{problem}
+    证明:偶数阶有限群$G$中必有$2$阶元.
+\end{problem}
+
+\begin{solution}
+    设$|G| = 2n$. 对$e \neq g \in G$, $|g| = 2 \iff g = g^{-1}$.
+定义$G$上的一个等价关系
+\[
+    g \sim g' \iff g = g' \lor g' = g^{-1}.
+\]
+考虑商集$G/\sim = \{\overline{g} \mid g \in G\}$,
+用$\#S$表示集合$S$的元素个数(基数)防止混淆.
+若$|g| = 2$或$g = e$, 则$\#\, \overline{g} = 1$, 否则$\#\, \overline{g} = 2$.
+因此若$m$为$G$中阶为$2$的元素的个数, 则$2n = m + 1 + 2(\#\, (G/\sim) - m - 1)$
+$2n - m - 1$为偶数. 因此$m > 0$.    
+
+注：当然可以用Sylow定理一步到位.
+\end{solution}
+
+\begin{problem}
+    证明:$GL_2(\mathbb{R})$中的元素
+\(
+x = \begin{pmatrix}
+        0 & 1\\
+        -1 & 0
+\end{pmatrix}, 
+y = \begin{pmatrix}
+        0 & 1\\
+        -1 & -1
+\end{pmatrix}
+\)
+的阶分别是$4$和$3$. 但$xy$是无限阶元.
+\end{problem}
+
+\begin{solution}
+    用$I_n$表示$n$阶单位阵, 计算可得
+\[
+x^2 = \begin{pmatrix} 
+    -1 & 0 \\
+    0 & -1
+\end{pmatrix},
+x^3 = \begin{pmatrix}
+    0 & -1 \\
+    1 & 0
+\end{pmatrix},
+x^4 = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+\end{pmatrix} = I_2.
+\]
+故$|x| = 4$, 同理,
+\[
+y^2 = \begin{pmatrix}
+    -1 & -1 \\
+    1 & 0
+\end{pmatrix},
+y^3 = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+\end{pmatrix} = I_2.
+\]
+$|y| = 3$.
+最后是$xy$,
+\[
+xy = \begin{pmatrix}
+    -1 & -1 \\
+    0 & -1
+\end{pmatrix},
+(xy)^2 = \begin{pmatrix}
+    1 & 2 \\
+    0 & 1
+\end{pmatrix},
+(xy)^3 = \begin{pmatrix}
+    -1 & -3 \\
+    0 & -1
+\end{pmatrix}, \cdots
+\]
+可以用归纳法证明
+\[
+    (xy)^n = (-1)^n\begin{pmatrix}
+        1 & n \\
+        0 & 1
+    \end{pmatrix} \neq I_2, \forall n \in \mathbb{Z}_{\geqslant 1}.
+\]
+故$|xy| = \infty$.
+\end{solution}
+    
+\begin{problem}
+    证明群的任意多个子群的交仍是子群.
+\end{problem}
+
+\begin{solution}
+    设$G$是群, 记$I$为指标集, $H_i < G,\, \forall \in I$.
+验证\(H = \displaystyle\bigcap_{i \in I} H_i < G\):
+\[
+\begin{gathered}
+    \forall a, b \in H = \bigcap_{i \in I} H_i \implies \forall i \in I,\,a, b \in H_i\\
+    \implies ab^{-1} \in H_i, \quad \forall i \in I\\
+    \implies ab^{-1} \in \bigcap_{i \in I} H_i = H.
+\end{gathered}
+\]
+\end{solution}
