@@ -109,7 +109,7 @@ $f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$
 矛盾.
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:1.4.7}
     证明有理数域$\mathbb{Q}$和实数域$\mathbb{R}$的自同构都只有恒等映射.
 \end{problem}
 
@@ -158,7 +158,7 @@ $\varphi: \mathbb{Q}[\sqrt{2}] \to \mathbb{Q}[\sqrt{5}]$,
 这要求$a^2 + 5b^2 = 2$且$ab = 0$, 这是不可能的, 矛盾.
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:1.4.9}
     设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域,
 $K \supset L$称为域扩张, 试证明：
 \begin{enumerate}[(1)]
@@ -199,7 +199,16 @@ $K \supset L$称为域扩张, 试证明：
     \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
     设同构$f: \mathbb{C} \to \mathbb{C}$, 则有
     $f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且
-    保持乘法, 可得$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
+    保持乘法, 即
+    \[
+    \begin{gathered}
+        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1) = (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
+        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right) = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i) = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies f(i) \cdot f(i) = -1.
+    \end{gathered}  
+    \]
+    因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
     恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
 
     由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的,
@@ -230,8 +239,22 @@ $K \supset L$称为域扩张, 试证明：
 \end{problem}
 
 \begin{solution}
-    $sqrt{d}$满足多项式$f(x) = x^2 - d \in \mathbb{Q}[x]$,
-    因此在$\mathbb{Q}[\sqrt{d}]$中.
+    只需验证$\mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\}$确实是一个域.
+    
+    加法:
+    \[
+        (a_1 + b_1\sqrt{d}) + (a_2 + b_2\sqrt{d}) = (a_1 + a_2) + (b_1 + b_2)\sqrt{d}
+    \]
+    容易验证结合律, $0 = 0 + 0\sqrt{d},\, -(a + b\sqrt{d}) = (-a) + (-b)\sqrt{d}$.
+    乘法:
+    \[
+        (a_1 + b_1\sqrt{d}) \cdot (a_2 + b_2\sqrt{d}) = a_1a_2 + b_1b_2d + (a_1b_2 + a_2b_1)\sqrt{d}
+    \]
+    其中$1 = 1 + 0\sqrt{d}$, 逆元做一次分母有理化
+    \[
+        (a + b\sqrt{d})^{-1} = \frac{1}{a + b\sqrt{d}} = \frac{a - b\sqrt{d}}{a^2 + b^2d} = \frac{a}{a^2 + b^2d} + \frac{- b}{a^2 + b^2d}\sqrt{d}
+    \],
+    结合律是容易验证的(计算出的结果是轮换对称的, 参考\ref{ex:1.1.4}和\ref{ex:1.2.3}).
 \end{solution}
 
 \begin{problem}
@@ -258,10 +281,13 @@ $K \supset L$称为域扩张, 试证明：
 \end{problem}
 
 \begin{solution}
-    
+    同\ref{ex:1.4.9}, 若$\sigma \in \mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$, 则$\sigma \in \mathrm{Aut}_{\mathbb{Q}-\mathsf{Vect}}\left(\mathbb{Q}[\sqrt{d}]\right)$, 因此$\sigma(a + b\sqrt{d}) = a + b\sigma(\sqrt{d})$. 然后由于保持乘法得到$\sigma(\sqrt{d}) \cdot \sigma(\sqrt{d}) = d$, 得到$\sigma(\sqrt{d}) = \pm\sqrt{d}$.
+
+    因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z}$,
+    两个同构分别为$\mathrm{id}$和共轭.
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:1.4.13}
     设$V = (V, +)$ 是一个加法群, $\mathrm{Hom}(V)$表示它的自同态环.
 对任意域$K$, 如果存在一个数乘运算
 $K \times V \to V,\, (\lambda,v) \mapsto \lambda \cdot v$,
@@ -284,7 +310,43 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
 \end{problem}
 
 \begin{solution}
+\begin{enumerate}[(1)]
+    \item 验证数乘的四条:
+    \begin{enumerate}[(i)]
+        \item 由于$\varphi$是环同态, 因此$\varphi(1_K) = 1_{\mathrm{Hom(V)}} = \mathrm{id}_V$. 故$\forall v \in V$有$1_Kv = \varphi(1_K)(v) = \mathrm{id}_V(v) = v$.
+        \item \(
+            \forall a, b \in K,\, v \in V\, (a + b)v = (\varphi(a + b))(v) = (\varphi(a) + \varphi(b))(v) = \varphi(a)(v) + \varphi(b)(v) = av + bv.
+        \)
+        \item \(
+            \forall a \in K,\, v, w \in V\, a(v + w) = \varphi(a)(v + w) = \varphi(a)(v) + \varphi(a)(w) = av + aw.
+        \)
+        \item \(
+            \forall a, b \in K,\, v \in V\, (ab)v = \varphi(ab)(v) = (\varphi(a) \circ \varphi(b))(v) = \varphi(a)(\varphi(b)(v)) = a(bv).
+        \)
+    \end{enumerate}
+    \item (1)的反向.
+    \begin{enumerate}[(i)]
+        \item \(
+            \forall a \in K,\, v, w \in V\, \varphi(a)(v + w) = \phi(a, v + w) = a(v + w) = av + aw = \phi(a, v) + \phi(a, w) = \varphi(a)(v) + \varphi(a)(w)
+        \)这说明$\varphi(a)$保持加法.
+        \item \(
+            \forall a \in K,\, v \in V\, \varphi(a)(kv) = \phi(a, kv) = a(kv) = (ka)v = \phi(ka, a) = \varphi(ka)(v)
+        \)这说明$\varphi(a)$保持数乘.
+
+        由(i)(ii)知$\varphi$是良定义的(well-defined). 同时(ii)也说明$\varphi(ab) = \varphi(a) \circ \varphi(b)$.
+        \item 由$\phi$是数乘, 即$1_Kv = v,\, \forall v \in V$. 也就是说$\phi(1_K, \cdot) = \mathrm{id}_V$.
+        \item \(
+            \forall a, b \in K,\, v \in V,\, \varphi(a + b)(v) = \phi(a + b, v) = (a + b)v = av + bv = \phi(a, v) + \phi(b, v) = \varphi(a) + \varphi(b)
+        \)
+    \end{enumerate}
+    \item 用反证法, 假设$(\mathbb{Z}, +)$上存在一个$K$-线性空间结构, 即存在一个环同态$\varphi: K \to \mathrm{Hom}(\mathbb{Z})$.
     
+    但是$\mathrm{Hom}(\mathbb{Z})$和整数环$\mathbb{Z}$是同构的(教材例1.4.4). 我们又知道域出发的环同态一定是单的(教材命题1.4.1的(9)), 也就是说存在一个域$K$到$\mathbb{Z}$的单同态, 这是不可能的.
+    由\ref{ex:1.4.7}, 一定有$n1_K \mapsto n,\, \forall n \in \mathbb{Z}$, 而同态一定会把单位映到单位, 但$\mathbb{Z}$中只有$\pm1$是单位.
+    
+    \ref{ex:1.4.7}也说明了环同态是保特征的, 因此$\mathrm{Char}(K) = \mathrm{Char}(\mathbb{Z}) = 0$, 从而$\mathbb{Q} \subseteq K$. 这样也可以看出矛盾.
+\end{enumerate}
+注:(1)(2)即一个模结构的两种等价表述, 在群作用(教材4.5节)也会看到类似的定义.
 \end{solution}
 
 \begin{problem}
@@ -295,5 +357,12 @@ $(\mathbb{Z}, +)$不同构. 提示：利用$\mathbb{Q}$是可数集和上题中�
 \end{problem}
 
 \begin{solution}
+    类似\ref{ex:1.1.4}, 存在一个可数集之间的双射$f: \mathbb{Z} \to \mathbb{Q}$, 由$\mathbb{Q}$的环结构导出$(\mathbb{Z}, \oplus, \star)$.
     
+    则同态
+    \[
+        f^{-1}: \mathbb{Q} \to (\mathbb{Z}, \oplus, \star)
+    \]
+    会自然诱导出一个$\mathbb{Q}$-线性空间结构(\ref{ex:1.4.9}的(1)). 由\ref{ex:1.4.13}的(3),
+    $(\mathbb{Z}, \oplus)$和$(\mathbb{Z}, +)$不同构.
 \end{solution}
