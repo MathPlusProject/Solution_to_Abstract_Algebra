@@ -135,7 +135,30 @@
     (mn)a &= m(na),\\
 \end{aligned}
 \]
-这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(见教材5.1节).
+这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(见教材5.1节). 再反过来看\ref{ex:1.1.1}的(6), 加上$(ab)^n = a^nb^n$, 也是在说$K^*$是$\mathbb{Z}$-模, 因为$K^*$关于域的乘法是Abel群.
+
+另一方面, 可以先定义
+\[
+    N: \mathbb{Z} \to R,\quad n \mapsto n1_R
+\]
+这是一个自然的环同态(使用归纳法证明)
+\[
+    \begin{aligned}
+        N(m + n) &= N(m) + N(n);\\
+        N(mn) &= N(m) \cdot N(n).
+    \end{aligned}
+\]
+然后利用这个环同态得到(注意用到的$n(ab) = (na)b$的证明是直接使用分配律的, 因此不存在循环论证. $N$表示使用了这个环同态, $dis$表示使用了分配律, $ass$表示使用了结合律):
+\[
+    \begin{aligned}
+        n(a + b) &= n(1_R(a + b)) = (n1_R)(a + b) \overset{dis}= (n1_R)a + (n1_R)b = na + nb.\\
+        (m + n)a &= (m + n)(1_Ra) = ((m + n)1_R)a \overset{N}= (m1_R + n1_R)a \overset{dis}= (m1_R)a + (n1_R)a\\
+        &= ma + na.\\
+        (mn)a &= (mn)(1_Ra) = (mn1_R)a \overset{N}= (m1_Rn1_R)a \overset{ass}= (m1_R)((n1_R)a)\\
+        &= (m1_R)(na) = m(1_R(na)) = m(na).
+    \end{aligned}
+\]
+这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴.
 \end{solution}
 
 \begin{problem}
@@ -391,8 +414,6 @@ $R = A\tilde{R} + A_0$即可.
 
 注：有限群$G$内任一元素$a$, 有$|a| \Big| |G|$(教材4.1节p70推论4.1.3),
 因此必有$a^{|G|} = e$, 在这道题就是$na = 0$.
-
-另外, $n$称为环$R$的特征(characteristic), 见教材p27.
 \end{solution}
 
 \begin{problem}

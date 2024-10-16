@@ -56,9 +56,9 @@
         
         严格来说, 这是定义了一个映射
     \[
-        \mathbb{Z} \times K \to K, n \mapsto a^n,
+        \mathbb{Z} \times K^* \to K^*, (n, a) \mapsto a^n,
     \]
-        自然数的部分应由递归定义给出, 
+        这里$K^* = K \setminus \{0_K\}$(见\ref{ex:1.3.2}), 自然数的部分应由递归定义给出, 
     \[
         a^0 \defeq 1_K,\, a^{n + 1} \defeq a^n \cdot a,\, n \in \mathbb{N},
     \]

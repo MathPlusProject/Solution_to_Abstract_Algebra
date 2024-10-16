@@ -1,0 +1,146 @@
+\documentclass[UTF8,fontset=windows]{ctexart}
+\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
+\usepackage{enumerate,tcolorbox}
+\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
+\tcbuselibrary{breakable}
+\everymath{\displaystyle}
+
+\newcommand{\defeq}{\mathrel{\coloneqq}}
+\newcommand{\eqdef}{\mathrel{\eqqcolon}}
+\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
+
+\newcounter{problem}
+\newenvironment{problem}[1][]
+{
+    \refstepcounter{problem}
+    \noindent\textbf{\theproblem.}
+    \ifx\relax#1\relax
+    \else
+        (#1)
+    \fi
+    \par\vspace{0.5em}
+}
+{\vspace{1em}}
+
+\newcounter{additional}
+\newenvironment{additional}[1][]
+{
+    \refstepcounter{additional}
+    \noindent\textbf{\theadditional.}
+    \ifx\relax#1\relax
+    \else
+        (#1)
+    \fi
+    \par\vspace{0.5em}}
+{\vspace{1em}}
+
+\newenvironment{solution}
+{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
+{\end{tcolorbox}}
+
+\begin{document}
+\section*{第五周作业参考解答及补充}
+
+\subsection*{作业}
+
+\begin{problem}[习题2.2.6]
+    令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明：
+\begin{enumerate}[(1)]
+    \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
+则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
+    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示：证明其为ED);
+    \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
+\end{enumerate}
+\end{problem}
+
+\begin{solution}
+\begin{enumerate}[(1)]
+    \item 考虑同态
+    \[
+        \varphi: \mathbb{R}[x, y] \to R = \mathbb{R}[\cos t, \sin t],\, x \mapsto \cos t, y \mapsto \sin t,
+    \]
+    这自然是一个满同态, 由同态基本定理, 关键在于证明
+    \[
+        \ker(\varphi) = (x^2 + y^2 - 1)
+    \]
+    若多项式$f(x, y)$满足$\varphi(f) = f(\cos t, \sin t) = 0$, 将$f$看成是关于$y$的多项式
+    \[
+        f(x, y) = a_0(x) + a_1(x)y + \cdots + a_n(x)y^n,\, a_i(x) \in \mathbb{R}[x],\, 0 \leqslant i \leqslant n
+    \]
+    由于$x^2 + y^n - 1$关于$y$是首一的, 因此可以做带余除法, 得$f = gq + r$, 其中$r(x, y) = r_0(x) + r_1(x)y$. 带入$x = \cos t, y = \sin t$得$r(\cos t, \sin t) = 0$, 即
+    \[
+        r_0(\cos t) + r_1(\cos t)\sin t = 0
+    \]
+    做代换$t \mapsto -t$, 得
+    \[
+        r_0(\cos t) - r_1(\cos t)\sin t = 0
+    \]
+    两式相加得$r_0 = 0$, 相减得$r_1 = 0$, 从而$r = 0$. 因此$f \in (x^2 + y^2 - 1)$, 即$\ker(\varphi) \subseteq (x^2 + y^2 - 1)$. 另一方面$x^2 + y^2 - 1 \in \ker(\varphi)$, 故$\ker(\varphi) = (x^2 + y^2 - 1)$
+    \item 做基变换$u = x + iy, v = x - iy$, 他有逆变换$x = \frac{u + v}{2}, y = \frac{u - v}{2i}$. 因此有同构$\mathbb{C}[u, v] \cong \mathbb{C}[x, y]$. 从而
+    \[
+        \mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, v]/(uv - 1)
+    \]
+    而同态
+    \[
+        \mathbb{C}[u, v] \to \mathbb{C}[u, u^{-1}],\, u \mapsto u, v \mapsto u^{-1}
+    \]
+    是满的, 且kernel是$(uv - 1)$, 证明类似于(1). 因此
+    \[
+        \mathbb{C}[u, v]/(uv - 1) \cong \mathbb{C}[u, u^{-1}]
+    \]
+    这个环称为Laurent多项式环, 这个环上可以做带余除法, 非零多项式的次数定义为最高次数$-$最低次数. 即$f = a_nu^n + a_{n + 1}u^{n + 1} + \cdots + a_mu^m, n, m \in \mathbb{Z}, n < m$的次数为$\deg(f) = m - n$.
+    因此这是一个ED, 从而是UFD.
+    \item 由(2), $\mathbb{C}[\cos t, \sin t]$是UFD, 用待定系数, 假设
+    \[
+        \cos t = (a_1\cos t + a_2\sin t + a_3)(b_1\cos t + b_2\sin t + b_3)
+    \]
+    其中$a_i, b_i \in \mathbb{C}, i = 1, 2, 3$. 我们要忽略掉$a_1 = b_3 = 1$其余都是$0$这种平凡的情况, 左右展开得到
+    \[
+        \begin{aligned}
+            a_1b_1 - a_2b_2 &= 0,\\
+            a_1b_2 + a_2b_1 &= 0,\\
+            a_1b_1 + a_3b_3 &= 0,\\
+            a_1b_3 + a_3b_1 &= 1,\\
+            a_2b_3 + a_3b_2 &= 0.
+        \end{aligned}
+    \]
+    由第一个式子得$b_1 = \frac{a_2}{a_1}b_2$, 带入第二个式子得$a_2 = \pm ia_1$, 从而$b_1 = \pm ib_2$.
+    
+    由一, 三又能得到$a_2b_2 = -a_3b_3$, 类似地, 带入第五个式子, 有$a_3 = \pm a_2$, $b_2 = \pm b_3$.
+
+    再用四, 五得$a_1b_3 = a_3b_1 = \frac{1}{2}$.
+
+    把上述关系带入
+    \[
+    \begin{aligned}
+        \cos t &= a_1b_3(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)\\
+        &= \frac{1}{2}(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)
+    \end{aligned}
+    \]
+    检查正负号, 得到结果
+    \[
+        \cos t = \frac{1}{2}(\cos t + i\sin t - i)(i\cos t + \sin t + 1)  
+    \]
+    类似有
+    \[
+        1 - \sin t = \frac{1}{2}(\cos t + i\sin t - i)(\cos t - i\sin t + i).
+    \]
+    带入$-t$就是$1 + \sin t$的分解.
+    
+    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解. 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
+\end{enumerate}
+注: (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+\end{solution}
+
+\subsection*{课上的补充内容}
+\begin{additional}[Noetherian $\iff$ a.c.c.]
+    $R$是诺特环当且仅当$R$满足a.c.c.
+
+    其中a.c.c.指若有环$R$的理想升链
+\[
+    I_1 \subseteq I_2 \subseteq \cdots
+\]
+则该链必稳定, 即$\exists n \in \mathbb{Z}_{>0}$
+使得$I_n$后的理想都相等, $I_n = I_{n + 1} = \cdot$.
+\end{additional}
+\end{document}

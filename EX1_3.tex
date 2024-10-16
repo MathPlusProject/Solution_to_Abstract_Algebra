@@ -40,6 +40,7 @@
         \item 由于乘法是$R$上的乘法, 故结合律成立;
         \item 若$a \in U(R)$, 则由\ref{ex:1.1.1}的(3), $a^{-1} \in U(R)$且$(a^{-1})^{-1} = a$;
     \end{enumerate}
+注: 一般$U(R)$也记作$R^*$, 比如$K$是域时, $K^* = K \setminus \{0\}$.
 \end{solution}
 
 \begin{problem}
@@ -116,7 +117,7 @@ $A$和$\mathscr{R}$将唯一确定一个群$G$, $(A \mid \mathscr{R})$
 称为$G$的一个展示(presentation). 以$S_3$为例, $S_3$的一个展示
 为$(\{a, b\} \mid a^2, b^3, abab)$.
 
-由于这本教材没有讲自由群, 所以想要了解的话需要查阅别的教材.
+由于这本教材没有讲自由群, 所以想要了解的话需要查阅别的教材.(可参考\cite{aluffi2009algebra}II.\S5和II.\S8.2)
 \end{solution}
 
 \begin{problem}
@@ -207,8 +208,8 @@ $A$和$\mathscr{R}$将唯一确定一个群$G$, $(A \mid \mathscr{R})$
 考虑商集$G/\sim = \{\overline{g} \mid g \in G\}$,
 用$\#S$表示集合$S$的元素个数(基数)防止混淆.
 若$|g| = 2$或$g = e$, 则$\#\, \overline{g} = 1$, 否则$\#\, \overline{g} = 2$.
-因此若$m$为$G$中阶为$2$的元素的个数, 则$2n = m + 1 + 2(\#\, (G/\sim) - m - 1)$
-$2n - m - 1$为偶数. 因此$m > 0$.    
+因此若$m$为$G$中阶为$2$的元素的个数, 则$2n = m + 1 + 2(\#\, (G/\sim) - m - 1)$, 故
+$2n - m - 1$为偶数, 因此$m > 0$.    
 
 注：当然可以用Sylow定理一步到位.
 \end{solution}
@@ -287,7 +288,7 @@ xy = \begin{pmatrix}
 
 \begin{solution}
     设$G$是群, 记$I$为指标集, $H_i < G,\, \forall \in I$.
-验证\(H = \displaystyle\bigcap_{i \in I} H_i < G\):
+验证\(H = \displaystyle\bigcap_{i \in I} H_i < G\): 首先$e_G \in H$, $H \neq \varnothing$,
 \[
 \begin{gathered}
     \forall a, b \in H = \bigcap_{i \in I} H_i \implies \forall i \in I,\,a, b \in H_i\\
@@ -295,4 +296,14 @@ xy = \begin{pmatrix}
     \implies ab^{-1} \in \bigcap_{i \in I} H_i = H.
 \end{gathered}
 \]
+注: 教材中并未提及这个判断子群的命题, 但其实是最常用的.
+
+\begin{propstar}[子群的判定]
+    设$G$是一个群, $\varnothing \neq S \subseteq G$, 则
+$S < G$($S$是$G$的子群的记号)当且仅当
+\[
+    \forall a, b \in S \iff ab^{-1} \in S.
+\]
+\end{propstar}
+证明可参考\cite{aluffi2009algebra}p79.
 \end{solution}

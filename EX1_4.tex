@@ -135,7 +135,7 @@ $\mathbb{R}$上的拓扑结构, $\phi$是连续的). 由于$\mathbb{Q}$在$R$中
     综上可得,
 $\mathrm{Aut}_{\mathsf{Ring}}(\mathbb{R}) = \mathrm{Aut}_{\mathbb{Q}}(\mathbb{R})$
 是平凡群.(由于$\mathbb{R}/\mathbb{Q}$并不是Galois扩张, 因此没有用符号
-$\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, 另外$\mathsf{Ring}$表示环范畴)
+$\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, $\mathsf{Ring}$表示环范畴)
 \end{solution}
 
 \begin{problem}
@@ -193,8 +193,10 @@ $K \supset L$称为域扩张, 试证明：
     事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
     $R$-模结构
     \[
-        R \times S \to S, \quad (r, s) \mapsto \varphi(r)s
+        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
     \]
+    $rs$是数乘, $\varphi(r)s$是$S$中的乘法.
+    
     这道题对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
     \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
     设同构$f: \mathbb{C} \to \mathbb{C}$, 则有
@@ -239,7 +241,7 @@ $K \supset L$称为域扩张, 试证明：
 \end{problem}
 
 \begin{solution}
-    只需验证$\mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\}$确实是一个域.
+    只需验证$\mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\}$确实是一个域. 这样它自动就是一个$2$维的$\mathbb{Q}$-线性空间.
     
     加法:
     \[
@@ -365,4 +367,6 @@ $(\mathbb{Z}, +)$不同构. 提示：利用$\mathbb{Q}$是可数集和上题中�
     \]
     会自然诱导出一个$\mathbb{Q}$-线性空间结构(\ref{ex:1.4.9}的(1)). 由\ref{ex:1.4.13}的(3),
     $(\mathbb{Z}, \oplus)$和$(\mathbb{Z}, +)$不同构.
+
+注: 对于$\mathbb{Z}$还有一个重要的结论, $\mathbb{Z}$的(含幺)环结构是唯一的. 更严格来说, 在$(\mathbb{Z}, +)$上添加乘法, 那么只能得到唯一的环结构.(可参考\cite{aluffi2009algebra}III.2.15, 2.16)
 \end{solution}

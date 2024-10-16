@@ -2,4 +2,6 @@
 This is a solution I made for exercises in an abstract algebra textbook
 (ISBN:9787030728456).
 
-孙笑涛《抽象代数》自制习题解答.
+孙笑涛《抽象代数》自制习题解答(更新中).
+
+其中Week*/是对应周的作业.

@@ -3,13 +3,31 @@
 \begin{problem}
     设$R$是一个交换环, $I \subset R$是一个理想. 证明
 \[
-    \sqrt{I} = \{r \in R \mid \exists m \in \mathbb{Z} \text{ 使得 } r^m \in I\}
+    \sqrt{I} = \{r \in R \mid \exists m \in \mathbb{N} \text{ 使得 } r^m \in I\}
 \]
 也是$R$的理想 (称为理想$I$的根).
 \end{problem}
 
+注: 这题的根理想定义有误, 应是$\mathbb{N}$而不是$\mathbb{Z}$. 一旦出现负整数意味着有可逆元, 从而$\sqrt{I}$是单位理想了.
+
 \begin{solution}
-    
+    可以清楚地看出$I \subseteq \sqrt{I}$. 先验证加法子群, 
+    \[
+    \begin{gathered}
+        \forall a, b \in \sqrt{I},\, \exists m, n \in \mathbb{N},\, a^m, b^n \in I,\\
+        \implies (a - b)^{m + n} \in I
+    \end{gathered}
+    \]
+    这是因为单项$a^ib^j$的指数$i + j = m + n$, 故$i < m$和$j < n$不能同时成立, 即$i \geqslant m$或$j \geqslant n$, i.e. $a^i \in I$或$b^j \in I$.
+    从而$(a - b)^{m + n} \in I$, $a - b \in \sqrt{I}$.
+
+    再验证吸收律(交换验证单边即可),
+    \[
+        \forall a \in \sqrt{I}, r \in R,\, \exists m \in \mathbb{N},\, a^m \in I \implies (ar)^m = a^mr^m \in I
+    \]
+    因此$ar \in \sqrt{I}$.
+
+注: 零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.(可以参考\cite{atiyah1994introduction}p5)
 \end{solution}
 
 \begin{problem}
@@ -19,7 +37,28 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
 \begin{solution}
+    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p1_R = 0_R$, $\mathrm{Char}(R) < p$.
+    那么$(p, \mathrm{Char}(R)) = 1$, 有Bezout's Theorem得到$1_R = 0_R$, 这就没什么考虑的必要了.
+
+    对特征$p$的交换环, 有一个特别的同态$F$称为Frobenius自同态,
+    \[
+        F: R \to R, \quad a \mapsto a^p
+    \]
+    我们说明这确实是一个同态.
     
+    保持乘法是因为交换环, 不平凡的是保持加法.
+    \[
+        (a + b)^p = a^p + \binom{p}{1}a^{p - 1}b + \cdots + b^p.
+    \]
+    其中$1 \leqslant i \leqslant $时,
+    \[
+        \binom{p}{i} = \frac{p(p - 1) \cdots (p - i + 1)}{1 \cdot 2 \cdots i} 
+    \]
+    由于$p$是素数, $1, 2, \cdots i$都不整除$p$, 而$\binom{p}{i}$是整数, 因此只能是$i! \mid (p - 1) \cdots (p - i + 1)$. 所以$p \mid \binom{p}{i}$. 而$px = 0,\, \forall x \in R$, 故$(a + b)^p = a^p + b^p$.
+
+    因此$\varphi: R \to R,\, x \mapsto x^{p^m}$也是自同态, $\varphi = F^m$, 这里$F^m$表示复合$m$次.
+
+注: Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
 \end{solution}
 
 \begin{problem}
@@ -27,7 +66,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
 \begin{solution}
-    
+    整环$R$有乘法消去律\ref{ex:1.1.1}, 而\ref{ex:1.3.9}告诉我们, 满足消去律的有限半群是群. 因此$(R \setminus \{0\}, \cdot)$是群, 即$R$是一个域.
 \end{solution}
 
 \begin{problem}
@@ -35,31 +74,93 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
 \begin{solution}
-    
+    事实上条件可以再减弱一点, 一个Artinian整环一定是域.
+
+    设$a \neq 0$, 考虑理想降链
+    \[
+        (a) \supseteq (a^2) \supseteq \cdots 
+    \]
+    因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1_R$.
+
+注: Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
+\[
+    I_1 \supseteq I_2 \supseteq \cdots 
+\]
+则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
+这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
 \end{solution}
 
-\begin{problem}
-    理想$P \subset R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
+\begin{problem}\label{ex:2.1.5}
+    理想$P \subsetneq R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
 或$b \in P$. 试证明：
-$P \subset R$是素理想当且仅当$R/P$没有零因子.
+$P \subsetneq R$是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item "$\implies$":
+        \[
+            \forall \overline{a}, \overline{b} \in R/P,\, \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies ab \in P \implies a \in P \text{ or } b \in P \implies \overline{a} = \overline{0} \text{ or } \overline{b} = \overline{0}.
+        \]
+        \item "$\impliedby$":
+        \[
+            ab \in P \implies \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies \overline{a} = 0 \text{ or } \overline{b} = 0 \implies a \in P \text{ or } b \in P.
+        \]
+    \end{enumerate}
+
+注: \begin{enumerate}[1.]
+    \item 零理想$(0)$是素理想.
+    \item 一个交换环的(Krull) dimension定义为最长素理想链的长度, 其中, 若有素理想链
+    \[
+    \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n
+    \]
+    他的长度定义为$n$.(可参考\cite{atiyah1994introduction}p89, \cite{aluffi2009algebra}p153)
+    \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
+\end{enumerate} 
 \end{solution}
 
-\begin{problem}
-    理想$m \subset R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
+\begin{problem}\label{ex:2.1.6}
+    理想$m \subsetneq R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
 (即：如果$I \supsetneq m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
-$m \subset R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
+$m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item "$\implies$":
+        \[
+        \begin{aligned}
+            \forall \overline{0} \neq \overline{a} \in R/m &\implies a \notin m \implies m \subsetneq m + (a) \implies m + (a) = R = (1)\\
+            &\implies \exists x \in m, b \in R,\, x + ab = 1 \implies \overline{ab} = \overline{1 - x} = \overline{1}.
+        \end{aligned}
+        \]
+        \item "$\impliedby$":
+        \[
+        \begin{aligned}
+            m \subsetneq I \underset{\text{ideal}}{\subseteq} R &\implies \exists a \in I \setminus m \text{ i.e. } \overline{a} \neq 0 \implies \exists b \in R,\, \overline{a}\overline{b} = \overline{ab} = \overline{1}\\
+            &\implies \exists x \in m \subsetneq I,\, ab = 1 + x \implies 1 = ab - x \in I \implies I = (1) = R.
+        \end{aligned}
+        \]
+        或者用同态基本定理, 包含$m$的理想和$R/m$的理想有一个一一对应, 而域的理想只有$\{0\}$和本身.
+    \end{enumerate}
+注: (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
+\[
+    \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big|i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\} 
+\]
+即考虑所有可能的有限和.
+
+    另外$\bigcap_{\alpha \in A} I_\alpha$也是一个理想. 还有一个是理想的积, 相对要复杂一些,
+\[
+\begin{aligned}
+    IJ &\defeq (\{ij \mid i \in I, j \in J\})\\
+    &= \left\{\sum_{k = 1}^{n} i_kj_k \Big| \exists n \in \mathbb{N},\, 1 \leqslant k \leqslant n,\, i_k \in I, j_k \in J, \right\}
+\end{aligned}  
+\]
+他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
 \end{solution}
 
 \begin{problem}
-    设 $I \subset \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
+    设 $I \subseteq \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
 \begin{enumerate}[(1)]
     \item $I$是极大理想;
     \item $I$是素理想;
@@ -68,17 +169,51 @@ $m \subset R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中�
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[1.]
+        \item (1)$\implies$(2): 由于域一定是整环, 由\ref{ex:2.1.5}和\ref{ex:2.1.6}知极大理想是素理想.
+        \item (2)$\implies$(3): 由于$\mathbb{Z}$是PID(带余除法可证), 故存在整数$p$使得$I = (p)$. 由于是素理想, 因此$ab \in (p) \implies a \in (p)$或$b \in (p)$. 即
+        \[
+            p \mid ab \implies p \mid a \text{ or } p \mid b
+        \]
+        则$p$是素数(若不然, $p = qr$, 取$a = q, b = r$即导出矛盾).
+        \item (3)$\implies$(1): 设$I = (p) \subsetneq J$, 则存在$n \in J \setminus I$. 由于$p$是素数, 故有$(n, p) = 1$. 由Bezout's Theorem, $\exists u, v \in \mathbb{Z}$使得$nu + pv = 1$, 从而$1 \in J,\, J = \mathbb{Z}$.(这和\ref{ex:2.1.6}的证明是类似的)
+        
+        或直接用$\mathbb{Z}/(p) = \mathbb{Z}/p\mathbb{Z}$是域.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
     设$p \in \mathbb{Z}$是素数, 证明
-$(p)\mathbb{Z}[x]=\{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
+$(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
 项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
 \end{problem}
 
 \begin{solution}
-    
+    事实上若$I$是$R$的理想, 我们有
+\[
+    \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
+\]
+这是根据同态基本定理得到, 考虑同态
+\[
+    \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
+\]
+可以验证这确实是一个同态. 事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.
+
+回到原题, 有
+\[
+    \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
+\]
+这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+
+注: 给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(\ref{ex:2.1.11}), 根据我们之前\ref{ex:1.4.9}说过的, 首先$S$上有一个$R$-模结构. 其次有
+\[
+    (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
+\]
+即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
+
+当$S$本身就是交换环时, 即乘法是交换的, 且$C(S) = S$, 此时会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
+
+而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
 \end{solution}
 
 \begin{problem}
@@ -87,7 +222,7 @@ $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
 \[
     D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
 \]
-$\forall$ $a\in R$, $f, g\in$ $R[ x]$, 试证明：
+$\forall$ $a \in R$, $f, g \in R[x]$, 试证明：
 \begin{enumerate}[(1)]
     \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
     \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
@@ -111,7 +246,7 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.11}
     设$R$是一个环, 子环
 $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 称为$R$的中心. 试证明:
@@ -125,7 +260,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
     
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.12}
     设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
 为$K$-代数. 试证明：加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
 \end{problem}
@@ -170,12 +305,10 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \(
     \mathbb{F}_{3^2} =
     \left\{
-        \left(
         \begin{pmatrix}
             a & b\\
             -b & a
-        \end{pmatrix}
-        \right) 
+        \end{pmatrix} 
     \bigg| a, b \in \mathbb{F}_3 = \mathbb{Z}/(3)
     \right\}
 \)
