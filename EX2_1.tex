@@ -1,9 +1,9 @@
 \subsection{教材p28-p29}
 
 \begin{problem}
-    设$R$是一个交换环, $I \subset R$是一个理想. 证明
+    设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
 \[
-    \sqrt{I} = \{r \in R \mid \exists m \in \mathbb{N} \text{ 使得 } r^m \in I\}
+    \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
 \]
 也是$R$的理想 (称为理想$I$的根).
 \end{problem}
@@ -37,8 +37,8 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
 \begin{solution}
-    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p1_R = 0_R$, $\mathrm{Char}(R) < p$.
-    那么$(p, \mathrm{Char}(R)) = 1$, 有Bezout's Theorem得到$1_R = 0_R$, 这就没什么考虑的必要了.
+    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p = 0$, $\mathrm{Char}(R) < p$.
+    那么$(p, \mathrm{Char}(R)) = 1$, 有Bezout's Theorem得到$1 = 0$, 这就没什么考虑的必要了.
 
     对特征$p$的交换环, 有一个特别的同态$F$称为Frobenius自同态,
     \[
@@ -50,11 +50,11 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     \[
         (a + b)^p = a^p + \binom{p}{1}a^{p - 1}b + \cdots + b^p.
     \]
-    其中$1 \leqslant i \leqslant $时,
+    其中$1 \leqslant i \leqslant p - 1$时,
     \[
         \binom{p}{i} = \frac{p(p - 1) \cdots (p - i + 1)}{1 \cdot 2 \cdots i} 
     \]
-    由于$p$是素数, $1, 2, \cdots i$都不整除$p$, 而$\binom{p}{i}$是整数, 因此只能是$i! \mid (p - 1) \cdots (p - i + 1)$. 所以$p \mid \binom{p}{i}$. 而$px = 0,\, \forall x \in R$, 故$(a + b)^p = a^p + b^p$.
+    由于$p$是素数, $1, 2, \cdots i$都不整除$p$, 而$\binom{p}{i}$是整数, 因此只能是$i! \mid (p - 1) \cdots (p - i + 1)$. 所以$p \mid \binom{p}{i}$. 而$p = 0$, 故$(a + b)^p = a^p + b^p$.
 
     因此$\varphi: R \to R,\, x \mapsto x^{p^m}$也是自同态, $\varphi = F^m$, 这里$F^m$表示复合$m$次.
 
@@ -69,12 +69,12 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     整环$R$有乘法消去律\ref{ex:1.1.1}, 而\ref{ex:1.3.9}告诉我们, 满足消去律的有限半群是群. 因此$(R \setminus \{0\}, \cdot)$是群, 即$R$是一个域.
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.4}
     证明：只有有限个理想的整环是一个域.
 \end{problem}
 
 \begin{solution}
-    事实上条件可以再减弱一点, 一个Artinian整环一定是域.
+    事实上条件可以再减弱一点, 一个Artin整环一定是域.
 
     设$a \neq 0$, 考虑理想降链
     \[
@@ -91,9 +91,9 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{solution}
 
 \begin{problem}\label{ex:2.1.5}
-    理想$P \subsetneq R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
+    理想$P \,\red{\subsetneq}\, R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
 或$b \in P$. 试证明：
-$P \subsetneq R$是素理想当且仅当$R/P$没有零因子.
+$P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
 \begin{solution}
@@ -115,14 +115,16 @@ $P \subsetneq R$是素理想当且仅当$R/P$没有零因子.
     \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n
     \]
     他的长度定义为$n$.(可参考\cite{atiyah1994introduction}p89, \cite{aluffi2009algebra}p153)
+
+    交换Artin环(\ref{ex:2.1.4})是$0$维的Noether环. $0$维即意味着所有的素理想都是极大理想.
     \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
 \end{enumerate} 
 \end{solution}
 
 \begin{problem}\label{ex:2.1.6}
-    理想$m \subsetneq R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即：如果$I \supsetneq m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
-$m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
+    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
+(即：如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
+$m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
 \begin{solution}
@@ -160,7 +162,7 @@ $m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环�
 \end{solution}
 
 \begin{problem}
-    设 $I \subseteq \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
+    设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
 \begin{enumerate}[(1)]
     \item $I$是极大理想;
     \item $I$是素理想;
@@ -182,7 +184,7 @@ $m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环�
     \end{enumerate}
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.8}
     设$p \in \mathbb{Z}$是素数, 证明
 $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
 项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
@@ -211,12 +213,12 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 \]
 即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
 
-当$S$本身就是交换环时, 即乘法是交换的, 且$C(S) = S$, 此时会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
+当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
 
 而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
 \end{solution}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.9}
     映射$D:R[x] \longrightarrow R[x]$定义如下：
 $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
 \[
@@ -233,7 +235,25 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
 \end{problem}
 
 \begin{solution}
-    
+    按定义验证. 设$f = a_nx^n + \cdots + a_1x + a_0$, $g = b_mx^m + \cdots + b_1x + b_0$.
+    \begin{enumerate}[(1)]
+        \item 不妨设$n \geqslant m$, 且令$b_k = 0, k > m$.
+        \[
+        \begin{aligned}
+            D(f + g) &= D\left(\sum_{k = 0}^{n} (a_k + b_k)x^k\right) = \sum_{k = 1}^{n} k(a_k + b_k)x^{k - 1}\\ 
+            &= \sum_{k = 1}^{n} ka_kx^{k - 1} + \sum_{k = 1}^{m} kb_kx^{k - 1} = D(f) + D(g).
+        \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
+                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (i + j)a_ib_jx^{i + j - 1}\\
+                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (ia_ix^{i - 1})b_jx^j + a_ix^i(jb_jx^{j - 1})\\
+                &= \sum_{k = 0}^{n + m - 1} \sum_{(i - 1) + j = k} (ia_i)b_jx^{k} + a_i(jb_j)x^k\\
+                &= D(f) \cdot g + f \cdot D(g).
+            \end{aligned}
+        \]
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -243,7 +263,22 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 
 \begin{solution}
-    
+    $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(\ref{ex:1.2.1}的注记), 那么
+\[
+    f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
+\]
+故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
+
+    若$\mathrm{Char}(F) = p$, 则$p = 0$, 那么设$\deg(f) = n = kp + r, 0 \leqslant r < p, k \in \mathbb{N}$,
+\[
+\begin{aligned}
+    f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
+    \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
+    &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
+    &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
+\end{aligned}
+\]
+此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
 \end{solution}
 
 \begin{problem}\label{ex:2.1.11}
@@ -257,7 +292,17 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item 除环的子环自然是除环, $C(R)$和$R$中所有元素交换, 故$C(R)$本身是交换环, 从而是域.
+        \item 设$\alpha = a + ib + jc + kd \in C(\mathbb{H})$, 则有
+        \[
+        \begin{aligned}
+            \alpha \cdot i &= i \cdot \alpha\\
+            \alpha \cdot j &= j \cdot \alpha
+        \end{aligned}
+        \]
+        得到$b = c = d = 0$, 即$\alpha \in \mathbb{R}$.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}\label{ex:2.1.12}
@@ -266,7 +311,9 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{problem}
 
 \begin{solution}
-    
+    见\ref{ex:1.4.9}和\ref{ex:2.1.8}的注记. 域上的模就是线性空间.
+
+注: $C(R)$包含一个同构于$K$的子域, 即存在同态$K \overset{\varphi}\to R$使得$\varphi(K) \subseteq C(R)$(这是因为域出发的同态一定是单的). 这和之前说的是一样的.
 \end{solution}
 
 \begin{problem}
@@ -280,13 +327,27 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item $M_n(K)$是$n^2$维$K$-线性空间, 只需验证
+        \[
+            k_1M_1k_2M_2 = k_1k_2M_1M_2, k_1, k_2 \in K, M_1, M_2 \in M_n(K).
+        \]
+        这是根据$M_n(K)$的定义. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
+        \item 由教材例1.4.3, 对任意的环$R$, 我们用$\mathrm{End}_{\mathsf{Ab}}(R)$表示加法群的自同态环(关于加法和复合). 有一个自然的环同态,
+        \[
+            R \to \mathrm{End}_{\mathsf{Ab}}(R),\quad r \mapsto \lambda_r
+        \]
+        其中$\lambda_r: R \to R,\, a \mapsto ra$, 即左乘$r$这个自同态(这里换成右乘也是一样的). 这是一个单同态, 所以$R$同构于$\mathrm{End}_{\mathsf{Ab}}(R)$的一个子环.
+
+        那么当$R$是$n$维$K$-代数时, $\lambda_r$还是$K$-线性映射. 因此有单射$R \hookrightarrow \mathrm{Hom}_K(R) \cong M_n(K)$.
+        \item $R$是有限除环, 因此$C(R)$是有限域(\ref{ex:2.1.11}). 根据定义$R$是一个$C(R)$-代数, 且$R$有限, 故是有限维的($|R| = [R:C(R)]|C(R)|$).
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
     设$K$是一个域, $R$是一个有限维$K$-代数.试证明：
 \begin{enumerate}[(1)]
-    \item $\forall \alpha \in R$, 存在多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
+    \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
     \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
     \item 如果$R$是除环, $K$是代数闭域(即$K[x]$中次数大于零的多项式在$K$中
 必有根),则$R = K$.
@@ -296,8 +357,14 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
 \end{problem}
 
+零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item 设$\mathrm{dim}_K R = n$. 则$1, \alpha, \alpha^2, \cdots, \alpha^n$线性相关. 或者考虑线性映射$r \mapsto \alpha r$. 那么它对应的矩阵的特征多项式满足条件(Cayley-Hamilton Theorem).
+        \item 按定义, $\mu_\alpha$是满足$\alpha$的次数最小的(首一)多项式. 假设$\mu_\alpha$可约, 即$\mu_\alpha(x) = f(x)g(x),\, \deg(f),\, \deg(g)> 0$, 则$0 = \mu_\alpha(\alpha) = f(\alpha)g(\alpha)$. 由于除环无零因子, 故$\deg(\mu_\alpha) = \deg(f) + \deg(g)$, 且$f(\alpha) = 0$或$g(\alpha) = 0$. 不妨设$f(\alpha) = 0$, 但$\deg(f) < \deg (\mu_\alpha)$与极小矛盾.
+        \item 代数闭域等价于任意多项式可分解成一次多项式的乘积. 这和代数基本定理是类似的. 此时$K[x]$中的不可约多项式即为所有一次多项式. 由(2), $\forall \alpha \in R$, 极小多项式$\mu_\alpha(x) = x - k_\alpha, k_\alpha \in K$. 因此$\alpha = k_\alpha \in K$. 即$R = K$.
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
@@ -318,5 +385,24 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{problem}
 
 \begin{solution}
-    
+    这个集合是$\mathbb{F}_3$上的$2$维线性空间.
+\[
+    \mathbb{F}_{3^2} = \left\{ a\lambda + b\xi \mid
+    \lambda = I_2 = 
+    \begin{pmatrix}
+        1 & 0\\
+        0 & 1
+    \end{pmatrix},
+    \xi = 
+    \begin{pmatrix} 
+        0 & 1\\
+        -1 & 0
+    \end{pmatrix}, a, b \in \mathbb{F}_3 \right\}
+\]
+其中$\xi$的特征多项式为$x^2 + 1$, 可以验证它是不可约的. 又因为$\mathbb{F}_3[x]$是PID($\mathbb{F}_3[x]$是域), 故$(x^2 + 1)$是极大理想, $x^2 + 1$就是$\xi$的极小多项式. 则$\mathbb{F}_{3^2} = \mathbb{F}_3[x]/(x^2 + 1)$是域.
+
+但$x^2 + 1$在$\mathbb{F}_5[x]$中是可约的: 在$\mathbb{F}_5[x]$中, 
+\[
+    x^2 + 1 = x^2 - 4 = (x - 2)(x + 2).
+\]
 \end{solution}

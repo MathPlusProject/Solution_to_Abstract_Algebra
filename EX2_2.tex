@@ -5,13 +5,21 @@
 和它们在$\mathbb{Z}[i]$中的最大公因数相同.
 \end{problem}
 
+注意这里的相同指的在相伴的意义下相同.
+
 \begin{solution}
-    
+    由于$U(\mathbb{Z}[i]) = \{\pm 1, \pm i\}$, 在相伴的意义下, 可以假设$(m, n)$在$\mathbb{Z}$和$\mathbb{Z}[i]$中都是正整数, 分别记为$d$和$d'$.
+
+    那么PID上Bezout's Theorem成立, 有
+    \[
+        d = mu + nv,\quad d' = m\alpha + n\beta.
+    \]
+    其中$u, v \in \mathbb{Z},\, \alpha, \beta \in \mathbb{Z}[i]$. 设$\alpha = a_1 + ia_2,\, \beta = b_1 + ib_2$, 由于我们假设的是$d' \in \mathbb{Z}_{>0}$, 故$d' = ma_1 + nb_1$, 从而$d \mid m, d \mid n \implies d \mid d'$. 反过来也有$d' \mid d$, 所以$d = d'$.
 \end{solution}
 
 \begin{problem}\label{ex:2.2.2}
     设$R$是整环, $p \in R$称为一个素元如果它生成的理想
-$P=(p)R$是素理想. 证明：$R$中素元必为不可约元.
+$P = (p)R$是素理想. 证明：$R$中素元必为不可约元.
 \end{problem}
 
 \begin{solution}
@@ -104,7 +112,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \begin{enumerate}[(1)]
     \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
 则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
-    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示：证明其为ED);
+    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示: 证明其为ED);
     \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
 \end{enumerate}
 \end{problem}
@@ -123,7 +131,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     \[
         f(x, y) = a_0(x) + a_1(x)y + \cdots + a_n(x)y^n,\, a_i(x) \in \mathbb{R}[x],\, 0 \leqslant i \leqslant n
     \]
-    由于$x^2 + y^n - 1$关于$y$是首一的, 因此可以做带余除法, 得$f = gq + r$, 其中$r(x, y) = r_0(x) + r_1(x)y$. 带入$x = \cos t, y = \sin t$得$r(\cos t, \sin t) = 0$, 即
+    由于$x^2 + y^2 - 1$关于$y$是首一的, 因此可以做带余除法, 得$f = gq + r$, 其中$r(x, y) = r_0(x) + r_1(x)y$. 带入$x = \cos t, y = \sin t$得$r(\cos t, \sin t) = 0$, 即
     \[
         r_0(\cos t) + r_1(\cos t)\sin t = 0
     \]

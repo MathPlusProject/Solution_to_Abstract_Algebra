@@ -9,6 +9,8 @@
 \newcommand{\eqdef}{\mathrel{\eqqcolon}}
 \newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \newcounter{problem}
 \newenvironment{problem}[1][]
 {
@@ -41,13 +43,13 @@
 \begin{document}
 \section*{第三周作业参考解答及补充}
 
-教材的符号有不清晰的地方, 主要是素理想那一块, 我进行了修正, 用$\subseteq$表示子集, $\subsetneq$表示真子集.
+教材的符号有不清晰的地方, 主要是素理想那一块, 我进行了修正, 用$\subseteq$表示子集, $\subsetneq$表示真子集. 其他有错误的地方也会修改, 用\red{红色}表示.
 
 \subsection*{作业}
 \begin{problem}[习题2.1.1]
-    设$R$是一个交换环, $I \subset R$是一个理想. 证明
+    设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
 \[
-    \sqrt{I} = \{r \in R \mid \exists m \in \mathbb{N} \text{ 使得 } r^m \in I\}
+    \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
 \]
 也是$R$的理想 (称为理想$I$的根).
 \end{problem}
@@ -94,7 +96,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     \[
         (a + b)^p = a^p + \binom{p}{1}a^{p - 1}b + \cdots + b^p.
     \]
-    其中$1 \leqslant i \leqslant $时,
+    其中$1 \leqslant i \leqslant p - 1$时,
     \[
         \binom{p}{i} = \frac{p(p - 1) \cdots (p - i + 1)}{1 \cdot 2 \cdots i} 
     \]
@@ -106,9 +108,9 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{solution}
 
 \begin{problem}[习题2.1.5]
-    理想$P \subsetneq R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
+    理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果：$ab \in P \Rightarrow a \in P$
 或$b \in P$. 试证明：
-$P \subsetneq R$是素理想当且仅当$R/P$没有零因子.
+\(P \,\red{\subsetneq}\, R\)是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
 \begin{solution}
@@ -125,9 +127,9 @@ $P \subsetneq R$是素理想当且仅当$R/P$没有零因子.
 \end{solution}
 
 \begin{problem}[习题2.1.6]
-    理想$m \subsetneq R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即：如果$I \supsetneq m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
-$m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
+    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
+(即：如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
+$m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
 \begin{solution}
@@ -165,7 +167,7 @@ $m \subsetneq R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环�
 \end{solution}
 
 \begin{problem}[习题2.1.7]
-    设 $I \subseteq \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
+    设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
 \begin{enumerate}[(1)]
     \item $I$是极大理想;
     \item $I$是素理想;
@@ -216,7 +218,7 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 \]
 即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是习题2.1.12介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
 
-当$S$本身就是交换环时, 即乘法是交换的, 且$C(S) = S$, 此时会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
+当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
 
 而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.
 \end{solution}

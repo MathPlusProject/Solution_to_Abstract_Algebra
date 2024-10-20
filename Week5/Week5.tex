@@ -43,12 +43,121 @@
 
 \subsection*{作业}
 
+\begin{problem}[习题2.1.3]
+    证明：只有有限个元素的整环一定是一个域.
+\end{problem}
+
+\begin{solution}
+    整环$R$有乘法消去律(习题1.1.1的(1), 证明乘法消去律事实上只需要分配律加无零因子), 而习题1.3.9告诉我们, 满足消去律的有限半群是群. 因此$(R \setminus \{0\}, \cdot)$是群, 即$R$是一个域.
+\end{solution}
+
+\begin{problem}[习题2.1.4]
+    证明：只有有限个理想的整环是一个域.
+\end{problem}
+
+\begin{solution}
+    事实上条件可以再减弱一点, 一个Artin整环一定是域.
+
+    设$a \neq 0$, 考虑理想降链
+    \[
+        (a) \supseteq (a^2) \supseteq \cdots 
+    \]
+    因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1_R$.
+
+注: Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
+\[
+    I_1 \supseteq I_2 \supseteq \cdots 
+\]
+则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
+这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
+\end{solution}
+
+\begin{problem}[习题2.1.9]
+    映射$D:R[x] \longrightarrow R[x]$定义如下：
+$\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
+\[
+    D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
+\]
+$\forall$ $a \in R$, $f, g \in R[x]$, 试证明：
+\begin{enumerate}[(1)]
+    \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
+    \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
+\end{enumerate}
+($D(f)$称为$f(x)$的导数. 记为
+$f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
+称为$f(x)$的$m$次导数).
+\end{problem}
+
+\begin{solution}
+    按定义验证. 设$f = a_nx^n + \cdots + a_1x + a_0$, $g = b_mx^m + \cdots + b_1x + b_0$.
+    \begin{enumerate}[(1)]
+        \item 不妨设$n \geqslant m$, 且令$b_k = 0, k > m$.
+        \[
+        \begin{aligned}
+            D(f + g) &= D\left(\sum_{k = 0}^{n} (a_k + b_k)x^k\right) = \sum_{k = 1}^{n} k(a_k + b_k)x^{k - 1}\\ 
+            &= \sum_{k = 1}^{n} ka_kx^{k - 1} + \sum_{k = 1}^{m} kb_kx^{k - 1} = D(f) + D(g).
+        \end{aligned}
+        \]
+        \item \[
+            \begin{aligned}
+                D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
+                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (i + j)a_ib_jx^{i + j - 1}\\
+                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (ia_ix^{i - 1})b_jx^j + a_ix^i(jb_jx^{j - 1})\\
+                &= \sum_{k = 0}^{n + m - 1} \sum_{(i - 1) + j = k} (ia_i)b_jx^{k} + a_i(jb_j)x^k\\
+                &= D(f) \cdot g + f \cdot D(g).
+            \end{aligned}
+        \]
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}[习题2.1.10]
+    如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$
+或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则
+$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
+\end{problem}
+
+\begin{solution}
+    $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(这里$n$看做$n1_F$, 见1.2.1后最新添加的部分), 那么
+\[
+    f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
+\]
+故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
+
+    若$\mathrm{Char}(F) = p$, 则$p = 0$, 那么设$\deg(f) = n = kp + r, 0 \leqslant r < p, k \in \mathbb{N}$,
+\[
+\begin{aligned}
+    f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
+    \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
+    &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
+    &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
+\end{aligned}
+\]
+此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
+\end{solution}
+
+\begin{problem}[习题2.2.1]
+    设$m, n$是两个正整数, 证明它们在$\mathbb{Z}$中的最大公因数
+和它们在$\mathbb{Z}[i]$中的最大公因数相同.
+\end{problem}
+
+注意这里的相同指的在相伴的意义下相同.
+
+\begin{solution}
+    由于$U(\mathbb{Z}[i]) = \{\pm 1, \pm i\}$, 在相伴的意义下, 可以假设$(m, n)$在$\mathbb{Z}$和$\mathbb{Z}[i]$中都是正整数, 分别记为$d$和$d'$.
+
+    那么PID上Bezout's Theorem成立, 有
+    \[
+        d = mu + nv,\quad d' = m\alpha + n\beta.
+    \]
+    其中$u, v \in \mathbb{Z},\, \alpha, \beta \in \mathbb{Z}[i]$. 设$\alpha = a_1 + ia_2,\, \beta = b_1 + ib_2$, 由于我们假设的是$d' \in \mathbb{Z}_{>0}$, 故$d' = ma_1 + nb_1$, 从而$d \mid m, d \mid n \implies d \mid d'$. 反过来也有$d' \mid d$, 所以$d = d'$.
+\end{solution}
+
 \begin{problem}[习题2.2.6]
     令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明：
 \begin{enumerate}[(1)]
     \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
 则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
-    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示：证明其为ED);
+    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示: 证明其为ED);
     \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
 \end{enumerate}
 \end{problem}
@@ -141,6 +250,6 @@
     I_1 \subseteq I_2 \subseteq \cdots
 \]
 则该链必稳定, 即$\exists n \in \mathbb{Z}_{>0}$
-使得$I_n$后的理想都相等, $I_n = I_{n + 1} = \cdot$.
+使得$I_n$后的理想都相等, $I_n = I_{n + 1} = \cdots$.
 \end{additional}
 \end{document}

@@ -315,7 +315,7 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
 \begin{enumerate}[(1)]
     \item 验证数乘的四条:
     \begin{enumerate}[(i)]
-        \item 由于$\varphi$是环同态, 因此$\varphi(1_K) = 1_{\mathrm{Hom(V)}} = \mathrm{id}_V$. 故$\forall v \in V$有$1_Kv = \varphi(1_K)(v) = \mathrm{id}_V(v) = v$.
+        \item 由于$\varphi$是环同态, 因此$\varphi(1) = 1_{\mathrm{Hom(V)}} = \mathrm{id}_V$. 故$\forall v \in V$有$1v = \varphi(1)(v) = \mathrm{id}_V(v) = v$.
         \item \(
             \forall a, b \in K,\, v \in V\, (a + b)v = (\varphi(a + b))(v) = (\varphi(a) + \varphi(b))(v) = \varphi(a)(v) + \varphi(b)(v) = av + bv.
         \)
@@ -336,7 +336,7 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
         \)这说明$\varphi(a)$保持数乘.
 
         由(i)(ii)知$\varphi$是良定义的(well-defined). 同时(ii)也说明$\varphi(ab) = \varphi(a) \circ \varphi(b)$.
-        \item 由$\phi$是数乘, 即$1_Kv = v,\, \forall v \in V$. 也就是说$\phi(1_K, \cdot) = \mathrm{id}_V$.
+        \item 由$\phi$是数乘, 即$1v = v,\, \forall v \in V$. 也就是说$\phi(1, \cdot) = \mathrm{id}_V$.
         \item \(
             \forall a, b \in K,\, v \in V,\, \varphi(a + b)(v) = \phi(a + b, v) = (a + b)v = av + bv = \phi(a, v) + \phi(b, v) = \varphi(a) + \varphi(b)
         \)
@@ -344,7 +344,7 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
     \item 用反证法, 假设$(\mathbb{Z}, +)$上存在一个$K$-线性空间结构, 即存在一个环同态$\varphi: K \to \mathrm{Hom}(\mathbb{Z})$.
     
     但是$\mathrm{Hom}(\mathbb{Z})$和整数环$\mathbb{Z}$是同构的(教材例1.4.4). 我们又知道域出发的环同态一定是单的(教材命题1.4.1的(9)), 也就是说存在一个域$K$到$\mathbb{Z}$的单同态, 这是不可能的.
-    由\ref{ex:1.4.7}, 一定有$n1_K \mapsto n,\, \forall n \in \mathbb{Z}$, 而同态一定会把单位映到单位, 但$\mathbb{Z}$中只有$\pm1$是单位.
+    由\ref{ex:1.4.7}, 一定有$n \mapsto n,\, \forall n \in \mathbb{Z}$, 而同态一定会把单位映到单位, 但$\mathbb{Z}$中只有$\pm1$是单位.
     
     \ref{ex:1.4.7}也说明了环同态是保特征的, 因此$\mathrm{Char}(K) = \mathrm{Char}(\mathbb{Z}) = 0$, 从而$\mathbb{Q} \subseteq K$. 这样也可以看出矛盾.
 \end{enumerate}

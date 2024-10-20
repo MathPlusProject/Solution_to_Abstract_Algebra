@@ -1,6 +1,6 @@
 \documentclass[UTF8,fontset=windows]{ctexart}
 \usepackage{amsthm,amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{hyperref,enumerate,tcolorbox}
+\usepackage{hyperref,enumerate,tcolorbox,xcolor}
 \usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
 \tcbuselibrary{breakable}
@@ -29,6 +29,8 @@
 \newcommand{\eqdef}{\mathrel{\eqqcolon}}
 \newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \newtheoremstyle{dotless}{3pt}{3pt}{\songti}{2em}{\bfseries}{}{\ccwd}{}
 \theoremstyle{dotless}
 \newtheorem{problem}{}[subsection]
@@ -44,7 +46,7 @@
 \date{
     \today
     \\[2em]
-    仅供学习交流使用, 本人对此未做出任何学术贡献。
+    仅供学习交流使用, 本人对此未做出任何学术贡献.
 }
 
 \begin{document}
