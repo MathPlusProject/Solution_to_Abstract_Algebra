@@ -9,6 +9,8 @@
 \newcommand{\eqdef}{\mathrel{\eqqcolon}}
 \newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \newcounter{problem}
 \newenvironment{problem}[1][]
 {
@@ -98,6 +100,10 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
             &= \sum_{k = 1}^{n} ka_kx^{k - 1} + \sum_{k = 1}^{m} kb_kx^{k - 1} = D(f) + D(g).
         \end{aligned}
         \]
+        \[
+            D(af) = D\left(\sum_{k = 0}^{n} aa_kx^k\right) = \sum_{k = 1}^{n} kaa_kx^{k - 1} = a\sum_{k = 1}^{n} ka_kx^{k - 1} = aD(f).
+        \]
+        这里能把$a$提出来是因为$k$作为$k1_R$(见习题1.2.1的新增的注记), 有$ka = ak$.
         \item \[
             \begin{aligned}
                 D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
@@ -117,7 +123,7 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 
 \begin{solution}
-    $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(这里$n$看做$n1_F$, 见1.2.1后最新添加的部分), 那么
+    $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(这里$n$看做$n1_F$, 见习题1.2.1的新增的注记), 那么
 \[
     f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
 \]
@@ -236,9 +242,19 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     \]
     带入$-t$就是$1 + \sin t$的分解.
     
-    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解. 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
+    但这种方法比较难检查等式右边的因式确实为不可约元, 我们可以利用同构$\mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, u^{-1}]$, 那么等式变为
+    \[
+        x = \frac{1}{2}(u + u^{-1}) = \frac{u^{-1}}{2}(u - i)(u + i)
+    \]
+    注意到$U(\mathbb{C}[u, u^{-1}]) = \mathbb{C} \cup \{u^n \mid n \in \mathbb{Z}\}$. 右边为两个都是一次的且常数项不为$0$, 容易验证不可逆(注意这里$x = \frac{1}{2}(u + u^{-1})$次数为$2$). 对$1 - \sin t$同理.
+    
+    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
 \end{enumerate}
 注: (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+
+    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点或点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
+
+    域扩张中的极小多项式和不可约是一样的, 这是由于$K[x]$是一个PID, 不可约元对应极大理想, 从而对应极小多项式.
 \end{solution}
 
 \subsection*{课上的补充内容}

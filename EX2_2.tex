@@ -139,7 +139,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     \[
         r_0(\cos t) - r_1(\cos t)\sin t = 0
     \]
-    两式相加得$r_0 = 0$, 相减得$r_1 = 0$, 从而$r = 0$. 因此$f \in (x^2 + y^2 - 1)$, 即$\ker(\varphi) \subseteq (x^2 + y^2 - 1)$. 另一方面$x^2 + y^2 - 1 \in \ker(\varphi)$, 故$\ker(\varphi) = (x^2 + y^2 - 1)$
+    两式相加得$r_0 = 0$, 相减得$r_1 = 0$, 从而$r = 0$. 因此$f \in (x^2 + y^2 - 1)$, 即$\ker(\varphi) \subseteq (x^2 + y^2 - 1)$. 另一方面$x^2 + y^2 - 1 \in \ker(\varphi)$, 故$\ker(\varphi) = (x^2 + y^2 - 1)$.
     \item 做基变换$u = x + iy, v = x - iy$, 他有逆变换$x = \frac{u + v}{2}, y = \frac{u - v}{2i}$. 因此有同构$\mathbb{C}[u, v] \cong \mathbb{C}[x, y]$. 从而
     \[
         \mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, v]/(uv - 1)
@@ -154,7 +154,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     \]
     这个环称为Laurent多项式环, 这个环上可以做带余除法, 非零多项式的次数定义为最高次数$-$最低次数. 即$f = a_nu^n + a_{n + 1}u^{n + 1} + \cdots + a_mu^m, n, m \in \mathbb{Z}, n < m$的次数为$\deg(f) = m - n$.
     因此这是一个ED, 从而是UFD.
-    \item (*此处的解答有待商榷*) 由(2), $\mathbb{C}[\cos t, \sin t]$是UFD, 用待定系数, 假设
+    \item 由(2), $\mathbb{C}[\cos t, \sin t]$是UFD, 用待定系数, 假设
     \[
         \cos t = (a_1\cos t + a_2\sin t + a_3)(b_1\cos t + b_2\sin t + b_3)
     \]
@@ -190,8 +190,18 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
         1 - \sin t = \frac{1}{2}(\cos t + i\sin t - i)(\cos t - i\sin t + i).
     \]
     带入$-t$就是$1 + \sin t$的分解.
+
+    但这种方法比较难检查等式右边的因式确实为不可约元, 我们可以利用同构$\mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, u^{-1}]$, 那么等式变为
+    \[
+        x = \frac{1}{2}(u + u^{-1}) = \frac{u^{-1}}{2}(u - i)(u + i)
+    \]
+    注意到$U(\mathbb{C}[u, u^{-1}]) = \mathbb{C} \cup \{u^n \mid n \in \mathbb{Z}\}$. 右边为两个都是一次的且常数项不为$0$, 容易验证不可逆(注意这里$x = \frac{1}{2}(u + u^{-1})$次数为$2$). 对$1 - \sin t$同理.
     
-    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解. 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
+    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
 \end{enumerate}
 注: (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+
+    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点或点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
+
+    域扩张中的极小多项式和不可约是一样的, 这是由于$K[x]$是一个PID, 不可约元对应极大理想, 从而对应极小多项式.
 \end{solution}

@@ -9,6 +9,8 @@
 \newcommand{\eqdef}{\mathrel{\eqqcolon}}
 \newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
 
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
 \newcounter{problem}
 \newenvironment{problem}[1][]
 {
@@ -148,8 +150,10 @@ $K \supset L$称为域扩张, 试证明：
     事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
     $R$-模结构
     \[
-        R \times S \to S, \quad (r, s) \mapsto \varphi(r)s
+        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
     \]
+    $rs$是数乘, $\varphi(r)s$是$S$中的乘法.
+    
     这道题对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
     \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
     设同构$f: \mathbb{C} \to \mathbb{C}$, 则有

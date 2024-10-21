@@ -1,6 +1,6 @@
 \documentclass[UTF8,fontset=windows]{ctexart}
 \usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{enumerate,tcolorbox,xcolor}
+\usepackage{enumerate,tcolorbox}
 \usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
 \tcbuselibrary{breakable}
 \everymath{\displaystyle}
@@ -8,6 +8,8 @@
 \newcommand{\defeq}{\mathrel{\coloneqq}}
 \newcommand{\eqdef}{\mathrel{\eqqcolon}}
 \newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
 
 \newcounter{problem}
 \newenvironment{problem}[1][]
@@ -216,7 +218,30 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
         (mn)a &= m(na),\\
     \end{aligned}
 \]
-这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(见教材5.1节).
+这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(见教材5.1节). 再反过来看1.1.1的(6), 加上$(ab)^n = a^nb^n$, 也是在说$K^*$是$\mathbb{Z}$-模, 因为$K^*$关于域的乘法是Abel群.
+
+另一方面, 可以先定义
+\[
+    N: \mathbb{Z} \to R,\quad n \mapsto n1_R
+\]
+这是一个自然的环同态(使用归纳法证明)
+\[
+    \begin{aligned}
+        N(m + n) &= N(m) + N(n);\\
+        N(mn) &= N(m) \cdot N(n).
+    \end{aligned}
+\]
+然后利用这个环同态得到(注意用到的$n(ab) = (na)b$的证明是直接使用分配律的, 因此不存在循环论证. $N$表示使用了这个环同态, $dis$表示使用了分配律, $ass$表示使用了结合律):
+\[
+    \begin{aligned}
+        n(a + b) &= n(1_R(a + b)) = (n1_R)(a + b) \overset{dis}= (n1_R)a + (n1_R)b = na + nb.\\
+        (m + n)a &= (m + n)(1_Ra) = ((m + n)1_R)a \overset{N}= (m1_R + n1_R)a \overset{dis}= (m1_R)a + (n1_R)a\\
+        &= ma + na.\\
+        (mn)a &= (mn)(1_Ra) = (mn1_R)a \overset{N}= (m1_Rn1_R)a \overset{ass}= (m1_R)((n1_R)a)\\
+        &= (m1_R)(na) = m(1_R(na)) = m(na).
+    \end{aligned}
+\]
+这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴. 因此$\mathbb{Z}$可以认为是任意环$R$的一个子环, $n$可看作是$R$中的元素$n1_R$. 所以此后在没有歧义的情况下, 默认$0$就指零元, $1$指幺元.
 \end{solution}
 
 \begin{problem}[习题1.2.9]

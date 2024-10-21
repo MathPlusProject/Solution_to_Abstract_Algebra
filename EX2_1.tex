@@ -244,6 +244,10 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
             &= \sum_{k = 1}^{n} ka_kx^{k - 1} + \sum_{k = 1}^{m} kb_kx^{k - 1} = D(f) + D(g).
         \end{aligned}
         \]
+        \[
+            D(af) = D\left(\sum_{k = 0}^{n} aa_kx^k\right) = \sum_{k = 1}^{n} kaa_kx^{k - 1} = a\sum_{k = 1}^{n} ka_kx^{k - 1} = aD(f).
+        \]
+        这里能把$a$提出来是因为$k$作为$k1$(\ref{ex:1.2.1}的注记), 有$ka = ak$.
         \item \[
             \begin{aligned}
                 D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
