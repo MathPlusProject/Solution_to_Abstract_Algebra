@@ -1,0 +1,50 @@
+\documentclass[UTF8,fontset=windows]{ctexart}
+\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
+\usepackage{enumerate,tcolorbox}
+\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
+\tcbuselibrary{breakable}
+\everymath{\displaystyle}
+
+\newcommand{\defeq}{\mathrel{\coloneqq}}
+\newcommand{\eqdef}{\mathrel{\eqqcolon}}
+\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\newcounter{problem}
+\newenvironment{problem}[1][]
+{
+    \refstepcounter{problem}
+    \noindent\textbf{\theproblem.}
+    \ifx\relax#1\relax
+    \else
+        (#1)
+    \fi
+    \par\vspace{0.5em}
+}
+{\vspace{1em}}
+
+\newcounter{additional}
+\newenvironment{additional}[1][]
+{
+    \refstepcounter{additional}
+    \noindent\textbf{\theadditional.}
+    \ifx\relax#1\relax
+    \else
+        (#1)
+    \fi
+    \par\vspace{0.5em}}
+{\vspace{1em}}
+
+\newenvironment{solution}
+{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
+{\end{tcolorbox}}
+
+\begin{document}
+\section*{第六周作业参考解答及补充}
+
+\subsection*{作业}
+
+\subsection*{课上的补充内容}
+
+\end{document}

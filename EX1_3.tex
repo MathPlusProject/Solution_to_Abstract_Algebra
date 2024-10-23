@@ -118,6 +118,18 @@ $A$和$\mathscr{R}$将唯一确定一个群$G$, $(A \mid \mathscr{R})$
 为$(\{a, b\} \mid a^2, b^3, abab)$.
 
 由于这本教材没有讲自由群, 所以想要了解的话需要查阅别的教材.(可参考\cite{aluffi2009algebra}II.\S5和II.\S8.2)
+
+BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘法写成$f \cdot g \defeq f \circ g$, 这个其实会有一点不舒服. 正常我们习惯于说: 映射$f:X \to Y$和$g:Y \to Z$的复合是$g \circ f$. 这在范畴的定义也是习惯于这样, 复合会写成这样:
+\[
+    \mathrm{Hom}_{\mathcal{C}}(X, Y) \times \mathrm{Hom}_{\mathcal{C}}(Y, Z) \to \mathrm{Hom}_{\mathcal{C}}(X, Z),\, (f, g) \mapsto g \circ f.
+\]
+这样说的好处在于一眼能感觉出这个运算是不交换的(个人感觉). 如果引入范畴的记号, $S_A$会记作$\mathrm{Aut}_{\mathsf{Set}(A)}$, 其中$\mathsf{Set}$表示集合范畴. 那么$S_A$上的乘法按范畴的定义来写应该是:
+\[
+    S_A \times S_A \to S_A,\quad (f, g) \mapsto f \cdot g \defeq g \circ f
+\]
+可以看到和$f \cdot g \defeq f \circ g$刚好是反过来的. 没有使用范畴语言的话就还好, 不会出现前后不自洽的问题, 但如果介绍了范畴语言, 那应该注意$S_A$上乘法的定义要和范畴定义不能冲突, 这一点\cite{hungerford2003algebra}就做的很好. 它的范畴定义故意反了过来, 它写成$\mathrm{Hom}_{\mathcal{C}}(Y, Z) \times \mathrm{Hom}_{\mathcal{C}}(X, Y) \to \mathrm{Hom}_{\mathcal{C}}(X, Z)$.
+
+那么哪一个才对呢, 事实上都是对的, 你总能验证$S_A$确实时一个群. 原因在于, 当你只考虑所有的同构时, 就得到一个子范畴, 这是一个群胚(groupoid), 它是一个自反范畴, 所以顺序就没区别了. 但我个人认为还是统一一下比较好, 主要是复合是非交换的, $f \circ g$和$g \circ f$一般不等. 为了方便还是按照教材为准吧, 使用$f \cdot g = f \circ g$.(尽管我是有点不习惯的)
 \end{solution}
 
 \begin{problem}

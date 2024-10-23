@@ -221,7 +221,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 \end{solution}
 
 \begin{problem}
-    设$R$是一个环, $S \subset R$是一个非空子集合. 试证明
+    设$R$是一个环, $S \,\red{\subseteq}\, R$是一个非空子集合. 试证明
 \[
     C(S) \defeq \{a \in R \mid ax = xa, \forall x \in S \}
 \]
@@ -229,7 +229,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 \end{problem}
 
 \begin{solution}
-    该子环称为子集$S$的中心化子(centralizer).
+    该子环称为子集$S$的中心化子(centralizer). 当$S = R$时就是中心(\ref{ex:2.1.11}).
 
     $\forall a, b \in C(S)$, 需要验证
     \[
@@ -394,7 +394,7 @@ $R = A\tilde{R} + A_0$即可.
 \begin{aligned}
     &\iff \exists \overline{b} \in \mathbb{Z}, \quad \overline{a}\overline{b} = \overline{1}\\
     &\iff ab = 1 + km, \quad k \in \mathbb{Z},\\
-    &\iff (a, m) = 1. \quad \text{(Bezout's Theorem)}
+    &\iff (a, m) = 1. \quad \text{(Bézout's Identity)}
 \end{aligned}
 \]
 注：一般用记号$\mathbb{Z}/m\mathbb{Z}$表示模$m$剩余类环.(理想和商环, 教材2.1节p25)

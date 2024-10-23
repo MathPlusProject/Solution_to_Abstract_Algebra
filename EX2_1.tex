@@ -38,7 +38,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 
 \begin{solution}
     事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p = 0$, $\mathrm{Char}(R) < p$.
-    那么$(p, \mathrm{Char}(R)) = 1$, 有Bezout's Theorem得到$1 = 0$, 这就没什么考虑的必要了.
+    那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1 = 0$, 这就没什么考虑的必要了.
 
     对特征$p$的交换环, 有一个特别的同态$F$称为Frobenius自同态,
     \[
@@ -178,7 +178,7 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
             p \mid ab \implies p \mid a \text{ or } p \mid b
         \]
         则$p$是素数(若不然, $p = qr$, 取$a = q, b = r$即导出矛盾).
-        \item (3)$\implies$(1): 设$I = (p) \subsetneq J$, 则存在$n \in J \setminus I$. 由于$p$是素数, 故有$(n, p) = 1$. 由Bezout's Theorem, $\exists u, v \in \mathbb{Z}$使得$nu + pv = 1$, 从而$1 \in J,\, J = \mathbb{Z}$.(这和\ref{ex:2.1.6}的证明是类似的)
+        \item (3)$\implies$(1): 设$I = (p) \subsetneq J$, 则存在$n \in J \setminus I$. 由于$p$是素数, 故有$(n, p) = 1$. 由Bézout's Identity, $\exists u, v \in \mathbb{Z}$使得$nu + pv = 1$, 从而$1 \in J,\, J = \mathbb{Z}$.(这和\ref{ex:2.1.6}的证明是类似的)
         
         或直接用$\mathbb{Z}/(p) = \mathbb{Z}/p\mathbb{Z}$是域.
     \end{enumerate}

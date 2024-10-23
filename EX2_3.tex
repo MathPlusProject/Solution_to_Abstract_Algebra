@@ -10,7 +10,32 @@
 \end{problem}
 
 \begin{solution}
-    
+    \begin{enumerate}[(1)]
+        \item 按定义, 存在$g = \sum_{k = 0}^{\infty} b_kx^k$使得$fg = 1$. 则
+        \[
+        \begin{aligned}
+            a_0b_0 &= 1,\\
+            a_1b_0 + a_0b_1 &= 0,\\
+            a_2b_0 + a_1b_1 + a_0b_2 &= 0,\\
+            \vdots
+        \end{aligned}
+        \]
+        因此$a_0 \neq 0$.
+        
+        反过来, 若$a_0 \neq 0$, 由$F$是域, $a_0$可逆. 即存在$b_0 \in F$, $a_0b_0 = 1$. 我们可以通过上面的无穷个方程组递归的解出$b_k(k \geqslant 1)$.
+        \[
+        \begin{aligned}
+            b_1 &= -a_1b_0^2,\\
+            b_2 &= -a_2b_0^2 - a_1b_1b_0,\\
+            \vdots\\
+            b_k &= -\sum_{i = 1}^{k} a_ib_{k - i}b_0,\\
+            \vdots
+        \end{aligned}
+        \]
+        从而存在$g = \sum_{k = 0}^{\infty} b_kx^k$为$f$的逆.
+        \item 设$p(x) = \sum_{k = 0}^{\infty} a_kx^k$. $p$不可约则不是可逆元, 由(1), $a_0 = 0$, 因此$p(x) = xp_1(x)$. 又因为不可约, 且$x$不是可逆元, 因此$p_1$是可逆元, 故$p(x) \sim x$.
+        \item 
+    \end{enumerate}
 \end{solution}
 
 \begin{problem}
