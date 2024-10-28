@@ -1,4 +1,4 @@
-\documentclass{../proofs-cn}
+\documentclass{../solutions-cn}
 
 \begin{document}
 \section*{第五周作业参考解答及补充}
@@ -215,7 +215,31 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{proof}
 
 \begin{remark}
+    (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+
+    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
     
+    一般地设$k$是一个域, $S \subseteq k[x_1, x_2, \cdots, x_n]$, 那么可以定义$S$中所有多项式的公共零点集
+    \[
+        Z(S) = \{(a_1, a_2, \cdots, a_n) \in k^n \mid \forall f \in S,\, f(a_1, a_2, \cdots a_n) = 0\}
+    \]
+    按定义有$S \subseteq S' \implies Z(S') \subseteq Z(S)$. 考虑$S$生成的理想$I = (S)$(见\ref{ex:2.1.6}的注记), 则有$Z(I) \subseteq Z(S)$. 另一方面, 根据$I = \left\{\sum f_ig_i \Big| f_i \in k[x_1, x_2, \cdots, x_n], g_i \in S\right\}$, 立刻得到$Z(S) \subseteq Z(I)$. 从而$Z(S) = Z(I)$. 我们称$Z(S)$这种点集为代数集(algebraic set), 用$\mathbb{A}_k^n$代替的$k^n$表示将它看作一个代数集(因为按定义$Z(\varnothing) = k^n$), 而Hilbert's Basis Theorem告诉我们$k[x_1, x_2, \cdots, x_n]$是Noether环, 所以理想都是有限生成的, 那么总有$Z(I) = Z(f_1, f_2, \cdots, f_r)$.
+    
+    反过来, 对$X \subseteq \mathbb{A}_k^n$, 定义
+    \[
+        \mathscr{I}(X) = \{f \in k[x_1, x_2, \cdots x_n] \mid \forall (a_1, a_2, \cdots a_n) \in X, f(a_1, a_2, \cdots a_n) = 0\}
+    \]
+    可以验证$\mathscr{I}(X)$是根理想(\ref{ex:2.1.1}的注记). 当$k$是代数闭域(algebraic closed field)时, 有一一对应
+    \[
+        \begin{tikzcd}
+            \{\mathbb{A}_k^n \text{ 的代数集}\}  \arrow[r, "\mathscr{I}", shift left] & {\{k[x_1, x_2, \cdots x_n] \text{ 的根理想}\}} \arrow[l, "Z", shift left]
+        \end{tikzcd}
+    \]
+    这就是Strong Nullstellensatz.
+
+    那么(1)中$I = (x^2 + y^2 - 1)$, $Z(I) = \{(x, y) \in \mathbb{R}^2 \mid \forall f \in I,\, f(x, y) = 0\} = \{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 = 1\}$, 恰好是单位圆. 那么(1)的关键在于说明$\mathscr{I}(Z(I)) = I$. 可惜的是一般情况下这个并不成立, 比如还是在$\mathbb{R}[x, y]$上考虑, 记$J = (x^2 + y^2)$, 那么$Z(J) = {(0,0)}$, $\mathscr{I}(Z(J)) = (x, y) \neq J$. 这里$x^2 + y^2$是不可约的, 所以即使是单独一个不可约多项式也不一定可以有这个等式, $x^2 + y^2 - 1$这个不可约多项式还是比较特殊的.
+
+    域扩张中的极小多项式和不可约是一样的, 这是由于$K[x]$是一个PID, 不可约元对应极大理想, 从而对应极小多项式.
 \end{remark}
 
 \subsection*{课上的补充内容}

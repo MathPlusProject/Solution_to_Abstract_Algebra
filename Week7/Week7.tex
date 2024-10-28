@@ -5,5 +5,93 @@
 
 \subsection*{作业}
 
+\begin{exercise}[习题2.1.11]
+    设$R$是一个环, 子环
+$C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
+称为$R$的中心. 试证明:
+\begin{enumerate}[(1)]
+    \item 如果$R$是一个除环, 则$C(R)$是一个域;
+    \item 令$\mathbb{H}$表示Hamilton四元数环,则$C(\mathbb{H}) = \mathbb{R}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item 除环的子环自然是除环, $C(R)$和$R$中所有元素交换, 故$C(R)$本身是交换环, 从而是域.
+        \item 设$\alpha = a + ib + jc + kd \in C(\mathbb{H})$, 则有
+        \[
+        \begin{aligned}
+            \alpha \cdot i &= i \cdot \alpha\\
+            \alpha \cdot j &= j \cdot \alpha
+        \end{aligned}
+        \]
+        得到$b = c = d = 0$, 即$\alpha \in \mathbb{R}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}[习题2.1.12]
+    设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
+为$K$-代数. 试证明：加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
+\end{exercise}
+
+\begin{proof}
+    见1.4.9和2.1.8的注记. $C(R)$包含一个和$K$同构的子域, 等价地说就是有一个域同态$K \to R$.
+\end{proof}
+
+\begin{remark}
+    $C(R)$包含一个同构于$K$的子域, 即存在同态$K \overset{\varphi}\to R$使得$\varphi(K) \subseteq C(R)$(这是因为域出发的同态一定是单的). 这和之前说的是一样的.
+\end{remark}
+
+\begin{exercise}[习题2.1.13]
+    设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数.
+试证明：
+\begin{enumerate}[(1)]
+    \item 矩阵环$M_n(K)$是一个$n^2$维$K$-代数;
+    \item 任意$n$维$K$-代数必同构于$M_n(K)$的子环;
+    \item 如果$R$是一个有限除环, 则$R$是有限域上的有限维代数.
+\end{enumerate}
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item $M_n(K)$是$n^2$维$K$-线性空间, 只需验证
+        \[
+            k_1M_1k_2M_2 = k_1k_2M_1M_2, k_1, k_2 \in K, M_1, M_2 \in M_n(K).
+        \]
+        这是根据$M_n(K)$的定义. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
+        \item 由教材例1.4.3, 对任意的环$R$, 我们用$\mathrm{End}_{\mathsf{Ab}}(R)$表示加法群的自同态环(关于加法和复合). 有一个自然的环同态,
+        \[
+            R \to \mathrm{End}_{\mathsf{Ab}}(R),\quad r \mapsto \lambda_r
+        \]
+        其中$\lambda_r: R \to R,\, a \mapsto ra$, 即左乘$r$这个自同态(这里换成右乘也是一样的). 这是一个单同态, 所以$R$同构于$\mathrm{End}_{\mathsf{Ab}}(R)$的一个子环.
+
+        那么当$R$是$n$维$K$-代数时, $\lambda_r$还是$K$-线性映射. 因此有单射$R \hookrightarrow \mathrm{Hom}_K(R) \cong M_n(K)$.
+        \item $R$是有限除环, 因此$C(R)$是有限域(2.1.11). 根据定义$R$是一个$C(R)$-代数, 且$R$有限, 故是有限维的($|R| = [R:C(R)]|C(R)|$).
+    \end{enumerate}
+\end{proof}
+
+\begin{exercise}[习题2.1.14]
+    设$K$是一个域, $R$是一个有限维$K$-代数.试证明：
+\begin{enumerate}[(1)]
+    \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
+    \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
+    \item 如果$R$是除环, $K$是代数闭域(即$K[x]$中次数大于零的多项式在$K$中
+必有根),则$R = K$.
+\end{enumerate}
+历史上, 有限维可除$K$-代数的分类是一个热门话题. 当$K$是实数域时, $R$必同构于实数域,
+复数域或Hamilton四元数环之一(Frobenius 定理);
+当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
+\end{exercise}
+
+零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item 设$\mathrm{dim}_K R = n$. 则$1, \alpha, \alpha^2, \cdots, \alpha^n$线性相关. 或者考虑线性映射$r \mapsto \alpha r$. 那么它对应的矩阵的特征多项式满足条件(Cayley-Hamilton Theorem).
+        \item 按定义, $\mu_\alpha$是满足$\alpha$的次数最小的(首一)多项式. 假设$\mu_\alpha$可约, 即$\mu_\alpha(x) = f(x)g(x),\, \deg(f),\, \deg(g)> 0$, 则$0 = \mu_\alpha(\alpha) = f(\alpha)g(\alpha)$. 由于除环无零因子, 故$\deg(\mu_\alpha) = \deg(f) + \deg(g)$, 且$f(\alpha) = 0$或$g(\alpha) = 0$. 不妨设$f(\alpha) = 0$, 但$\deg(f) < \deg (\mu_\alpha)$与极小矛盾.
+        \item 代数闭域等价于任意多项式可分解成一次多项式的乘积. 这和代数基本定理是类似的. 此时$K[x]$中的不可约多项式即为所有一次多项式. 由(2), $\forall \alpha \in R$, 极小多项式$\mu_\alpha(x) = x - k_\alpha, k_\alpha \in K$. 因此$\alpha = k_\alpha \in K$. 即$R = K$.
+    \end{enumerate}
+\end{proof}
+
 \subsection*{课上的补充内容}
 \end{document}
