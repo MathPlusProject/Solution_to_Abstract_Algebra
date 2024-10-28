@@ -1,51 +1,11 @@
-\documentclass[UTF8,fontset=windows]{ctexart}
-\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{enumerate,tcolorbox}
-\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
-\tcbuselibrary{breakable}
-\everymath{\displaystyle}
-
-\newcommand{\defeq}{\mathrel{\coloneqq}}
-\newcommand{\eqdef}{\mathrel{\eqqcolon}}
-\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\newcounter{problem}
-\newenvironment{problem}[1][]
-{
-    \refstepcounter{problem}
-    \noindent\textbf{\theproblem.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}
-}
-{\vspace{1em}}
-
-\newcounter{additional}
-\newenvironment{additional}[1][]
-{
-    \refstepcounter{additional}
-    \noindent\textbf{\theadditional.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}}
-{\vspace{1em}}
-
-\newenvironment{solution}
-{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
-{\end{tcolorbox}}
+\documentclass{../solutions-cn}
 
 \begin{document}
 \section*{第二周作业参考解答及补充}
 
 \subsection*{作业}
 
-\begin{problem}[习题1.4.1]
+\begin{exercise}[习题1.4.1]
     设 $\varphi:G\to G^\prime$ 是群同态, 试证明：
 \begin{enumerate}[(1)]
     \item $\ker(\varphi) \defeq \{g \in G \mid \varphi(g) = e'\}$ $(e' \in G'$表示的单位元)是$G$的子群(称
@@ -53,9 +13,9 @@
     \item \[\varphi(G) = \{\varphi(g) \mid \forall g \in G\} \subset G'\]
 是$G'$的子群(称为群同态$\varphi$的像).
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     教材命题1.4.1的(1)(5)直接使用.
 \begin{enumerate}[(1)]
     \item $e \in \ker(\varphi)$非空, 直接验证\[
@@ -71,9 +31,9 @@
     \end{gathered}
     \]
 \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.4.3]
+\begin{exercise}[习题1.4.3]
     设$R \overset{\varphi}\to R'$是环同态, 证明集合
 $ker(\varphi) = \{x \in R \mid \varphi(x) = 0_{R'}\}$满足：
 \begin{enumerate}[(1)]
@@ -81,9 +41,9 @@ $ker(\varphi) = \{x \in R \mid \varphi(x) = 0_{R'}\}$满足：
     \item $\forall a \in \ker (\varphi), x \in R$有$ax \in \ker(\varphi)$, $xa \in \ker (\varphi)$.
 $(\ker(\varphi)$称为环同态$\varphi$的核.)
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 即习题1.4.1(1);
     \item 直接验证\[
@@ -91,31 +51,33 @@ $(\ker(\varphi)$称为环同态$\varphi$的核.)
     \]
     另一半同理.
 \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.4.5]
+\begin{exercise}[习题1.4.5]
     证明实数的加法群$(\mathbb{R}, +)$和正实数的乘法群$(\mathbb{R}_{>0}, \cdot)$同构.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     注意到$f: \mathbb{R} \to \mathbb{R}_{>0},\, x \mapsto e^x$
 是同构. $f^{-1}(x) = \ln x$.
+\end{proof}
 
-注: 事实上, 由$f(x + y) = f(x)f(y)$可以先直接推出
+\begin{remark}
+    事实上, 由$f(x + y) = f(x)f(y)$可以先直接推出
 $f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 再根据连续性延拓到$\mathbb{R}$上.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题1.4.6]
+\begin{exercise}[习题1.4.6]
     证明有理数的加法群$(\mathbb{Q}, +)$和正有理数的乘法群$(\mathbb{Q}_{>0}, \cdot)$不同构.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     反证, 假设存在同构$f: \mathbb{Q} \to \mathbb{Q}_{>0}$,
 则设$2 = f(a) = f(\frac{a}{2} + \frac{a}{2}) = f(\frac{a}{2}) \cdot f(\frac{a}{2}) = f(\frac{a}{2})^2$
 矛盾.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.4.9]
+\begin{exercise}[习题1.4.9]
     设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域,
 $K \supset L$称为域扩张, 试证明：
 \begin{enumerate}[(1)]
@@ -124,9 +86,9 @@ $K \supset L$称为域扩张, 试证明：
     \item 如果$K \supset \mathbb{R}$是一个二次扩张(即$[K:\mathbb{R}] = 2)$,
 则$K$必同构于复数域$\mathbb{C}$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item $(K, +)$是一个Abel群, 这一点无需再说明. 乘法在这里可能有些歧义,
     此处是要验证乘法限制在$L \times K$上, 即
@@ -146,19 +108,19 @@ $K \supset L$称为域扩张, 试证明：
 
     这也说明若同态$K_1 \to K_2$保持$L$($K_1, K_2$为$L$的两个扩域),
     则一定是$L$-线性映射.
-
-    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
-    $R$-模结构
-    \[
-        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
-    \]
-    $rs$是数乘, $\varphi(r)s$是$S$中的乘法.
-    
-    这道题对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
     \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
     设同构$f: \mathbb{C} \to \mathbb{C}$, 则有
     $f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且
-    保持乘法, 可得$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
+    保持乘法, 即
+    \[
+    \begin{gathered}
+        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1) \\= (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
+        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies f(i) \cdot f(i) = -1.
+    \end{gathered} 
+    \]
+    因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
     恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
 
     由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的,
@@ -181,25 +143,36 @@ $K \supset L$称为域扩张, 试证明：
     注意$K$是域, 也就是说$K$的乘法是已知的, 无法把$K$先看作$\mathbb{R}$-线性空间然后
     重定义向量的乘法, 这在逻辑上是不对的.
 \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.4.11]
+\begin{remark}
+    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
+    $R$-模结构
+    \[
+        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
+    \]
+    $rs$是数乘, $\varphi(r)s$是$S$中的乘法. 域上的模就是线性空间.
+    
+    (1)对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
+\end{remark}
+
+\begin{exercise}[习题1.4.11]
     设$L \supset K$是一个域扩张, 证明: 下述集合
 \[
 \mathrm{Gal}(L/K)=
 \left\{L \xrightarrow{\sigma} L \mid \sigma\text{ 是域同构},\text{ 且 } \sigma(a) = a \text{ 对任意 } a \in K \text{ 成立}\right\}
 \]
 关于映射的合成是一个群(称为域扩张$L\supset K$的伽罗瓦群).
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     $\mathrm{Gal}(L/K) \subseteq \mathrm{Aut}(L)$, 只需说明$\mathrm{Gal}(L/K)$
 是子群.
 
     $\forall \varphi, \psi \in \mathrm{Gal}(L/K)$, 由于$\psi|_K = \mathrm{id}_K$,
 因此$\psi^{-1}|_K = \mathrm{id}_K$, 故$(\varphi \circ \psi^{-1})|_K = \mathrm{id}_K$,
 即$\varphi \circ \psi^{-1} \in \mathrm{Gal}(L/K)$.
-\end{solution}
+\end{proof}
 
 \subsection*{课上的补充内容}
 好像没有....

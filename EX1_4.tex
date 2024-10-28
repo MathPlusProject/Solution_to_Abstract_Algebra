@@ -10,7 +10,7 @@
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     教材命题1.4.1的(1)(5)直接使用.
 \begin{enumerate}[(1)]
     \item $e \in \ker(\varphi)$非空, 直接验证\[
@@ -26,14 +26,14 @@
     \end{gathered}
     \]
 \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     令$G$是函数$f(x) = \frac1x, g(x) = \frac{x-1}x$关于函数的合成生成的一个群
 (即群乘法为函数合成), 证明$G$同构于$S_3$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     由\ref{ex:1.3.5}的注记, 只需验证$f^2 = \mathrm{id}, g^3 = \mathrm{id}, fgfg = \mathrm{id}$.
 \[
 \begin{aligned}
@@ -45,7 +45,7 @@
 \end{aligned}
 \]
 
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$R \overset{\varphi}\to R'$是环同态, 证明集合
@@ -57,7 +57,7 @@ $(\ker(\varphi)$称为环同态$\varphi$的核.)
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 即\ref{ex:1.4.1}(1);
     \item 直接验证\[
@@ -65,8 +65,11 @@ $(\ker(\varphi)$称为环同态$\varphi$的核.)
     \]
     另一半同理.
 \end{enumerate}
-注：满足(1)(2)的$R$的子集称为$R$的一个理想(ideal), 教材p25定义2.1.4.
-\end{solution}
+\end{proof}
+
+\begin{remark}
+    满足(1)(2)的$R$的子集称为$R$的一个理想(ideal), 教材p25定义2.1.4.
+\end{remark}
 
 \begin{problem}
     设$K$是一个域, $\phi:K[x] \to K[x]$是$K$的多项式环之间的环自同态. 
@@ -74,7 +77,7 @@ $(\ker(\varphi)$称为环同态$\varphi$的核.)
 $a, b \in K(a \neq 0)$使得$\phi(x) = ax + b$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item "$\implies$": 记$f(x) = \phi(x)$, 若$\phi$是满的, 则存在$g(x) \in K[x]$
 使得$\phi(g(x)) = x$, 则$x = \phi(g(x)) \overset{!}= g(\phi(x)) = g(f(x))$,
@@ -85,35 +88,37 @@ i.e. $\phi(x) = f(x) = ax + b,\, \exists a \neq 0, b \in K$.
 则令$y = ax + b$得到$x = a^{-1}(y - b)$. 那么对任意的$f(x) \in K[x]$,
 存在$g(x) = f(a^{-1}(x - b)) \in K[x]$使得$\phi(g(x)) = g(\phi(x)) = g(y) = f(a^{-1}(y - b)) = f(x)$.
 \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     证明实数的加法群$(\mathbb{R}, +)$和正实数的乘法群$(\mathbb{R}_{>0}, \cdot)$同构.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     注意到$f: \mathbb{R} \to \mathbb{R}_{>0},\, x \mapsto e^x$
 是同构. $f^{-1}(x) = \ln x$.
+\end{proof}
 
-注: 事实上, 由$f(x + y) = f(x)f(y)$并利用归纳法和同态定义可以直接推出
+\begin{remark}
+    事实上, 由$f(x + y) = f(x)f(y)$并利用归纳法和同态定义可以直接推出
 $f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$\mathbb{R}$上.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     证明有理数的加法群$(\mathbb{Q}, +)$和正有理数的乘法群$(\mathbb{Q}_{>0}, \cdot)$不同构.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     反证, 假设存在同构$f: \mathbb{Q} \to \mathbb{Q}_{>0}$,
 则设$2 = f(a) = f(\frac{a}{2} + \frac{a}{2}) = f(\frac{a}{2}) \cdot f(\frac{a}{2}) = f(\frac{a}{2})^2$
 矛盾.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.4.7}
     证明有理数域$\mathbb{Q}$和实数域$\mathbb{R}$的自同构都只有恒等映射.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     不妨设$\sigma: \mathbb{Q} \to \mathbb{Q}$是同构, 根据定义,
 有$\sigma(0) = 0, \sigma(1) = 1, \sigma(-a) = -\sigma(a), \sigma(a^{-1}) = (\sigma(a))^{-1}$.
 因此先用归纳法得到$\sigma|_{\mathbb{N}} = \mathrm{id}_{\mathbb{N}}$, 用负元延拓到$\mathbb{Z}$,
@@ -136,7 +141,7 @@ $\mathbb{R}$上的拓扑结构, $\phi$是连续的). 由于$\mathbb{Q}$在$R$中
 $\mathrm{Aut}_{\mathsf{Ring}}(\mathbb{R}) = \mathrm{Aut}_{\mathbb{Q}}(\mathbb{R})$
 是平凡群.(由于$\mathbb{R}/\mathbb{Q}$并不是Galois扩张, 因此没有用符号
 $\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, $\mathsf{Ring}$表示环范畴)
-\end{solution}
+\end{proof}
 
 \begin{problem}
     证明：$\mathbb{Q}[\sqrt 2] = \{a + b\sqrt 2 \mid a, b \in \mathbb{Q}\}$,
@@ -144,7 +149,7 @@ $\mathbb{Q}[\sqrt 5] = \{a + b\sqrt 5 \mid a, b \in \mathbb{Q}\}$
 都是$\mathbb{R}$的子域. 它们是同构的域吗？
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     由教材命题1.4.1的(9), 两个域若存在同态则一定是单同态, 即只有两种可能, 
     一个域为另一个域的扩张或两者同构. 我们断言这两个域之间不存在同态.
     
@@ -156,7 +161,7 @@ $\varphi: \mathbb{Q}[\sqrt{2}] \to \mathbb{Q}[\sqrt{5}]$,
     2 = \varphi(2) = \varphi(\sqrt{2})^2 = (a + b\sqrt{5})^2 = a^2 + 5b^2 + 2ab\sqrt{5}
 \]
 这要求$a^2 + 5b^2 = 2$且$ab = 0$, 这是不可能的, 矛盾.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.4.9}
     设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域,
@@ -169,7 +174,7 @@ $K \supset L$称为域扩张, 试证明：
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item $(K, +)$是一个Abel群, 这一点无需再说明. 乘法在这里可能有些歧义,
     此处是要验证乘法限制在$L \times K$上, 即
@@ -189,26 +194,17 @@ $K \supset L$称为域扩张, 试证明：
 
     这也说明若同态$K_1 \to K_2$保持$L$($K_1, K_2$为$L$的两个扩域),
     则一定是$L$-线性映射.
-
-    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
-    $R$-模结构
-    \[
-        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
-    \]
-    $rs$是数乘, $\varphi(r)s$是$S$中的乘法.
-    
-    这道题对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
     \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
     设同构$f: \mathbb{C} \to \mathbb{C}$, 则有
     $f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且
     保持乘法, 即
     \[
     \begin{gathered}
-        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1) = (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
-        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right) = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
-        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i) = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1) \\= (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
+        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
         \implies f(i) \cdot f(i) = -1.
-    \end{gathered}  
+    \end{gathered} 
     \]
     因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
     恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
@@ -230,7 +226,18 @@ $K \supset L$称为域扩张, 试证明：
 \]
     是域同构.
 \end{enumerate}
-\end{solution}
+\end{proof}
+
+\begin{remark}
+    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
+    $R$-模结构
+    \[
+        R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
+    \]
+    $rs$是数乘, $\varphi(r)s$是$S$中的乘法. 域上的模就是线性空间.
+    
+    (1)对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
+\end{remark}
 
 \begin{problem}
     设$d$是一个非零整数, 且$\sqrt d \notin \mathbb{Q}$. 证明：
@@ -240,7 +247,7 @@ $K \supset L$称为域扩张, 试证明：
 是一个二次扩张($d < 0$时, $\mathbb{Q}[\sqrt{d}]$称为虚二次域, $d > 0$时称为实二次域).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     只需验证$\mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\}$确实是一个域. 这样它自动就是一个$2$维的$\mathbb{Q}$-线性空间.
     
     加法:
@@ -257,7 +264,7 @@ $K \supset L$称为域扩张, 试证明：
         (a + b\sqrt{d})^{-1} = \frac{1}{a + b\sqrt{d}} = \frac{a - b\sqrt{d}}{a^2 + b^2d} = \frac{a}{a^2 + b^2d} + \frac{- b}{a^2 + b^2d}\sqrt{d}
     \],
     结合律是容易验证的(计算出的结果是轮换对称的, 参考\ref{ex:1.1.4}和\ref{ex:1.2.3}).
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$L \supset K$是一个域扩张, 证明: 下述集合
@@ -268,26 +275,26 @@ $K \supset L$称为域扩张, 试证明：
 关于映射的合成是一个群(称为域扩张$L\supset K$的伽罗瓦群).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     $\mathrm{Gal}(L/K) \subseteq \mathrm{Aut}(L)$, 只需说明$\mathrm{Gal}(L/K)$
 是子群.
 
     $\forall \varphi, \psi \in \mathrm{Gal}(L/K)$, 由于$\psi|_K = \mathrm{id}_K$,
 因此$\psi^{-1}|_K = \mathrm{id}_K$, 故$(\varphi \circ \psi^{-1})|_K = \mathrm{id}_K$,
 即$\varphi \circ \psi^{-1} \in \mathrm{Gal}(L/K)$.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     求$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$,
 此处$d \in \mathbb{Z}, \sqrt{d} \notin \mathbb{Q}$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     同\ref{ex:1.4.9}, 若$\sigma \in \mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$, 则$\sigma \in \mathrm{Aut}_{\mathbb{Q}-\mathsf{Vect}}\left(\mathbb{Q}[\sqrt{d}]\right)$, 因此$\sigma(a + b\sqrt{d}) = a + b\sigma(\sqrt{d})$. 然后由于保持乘法得到$\sigma(\sqrt{d}) \cdot \sigma(\sqrt{d}) = d$, 得到$\sigma(\sqrt{d}) = \pm\sqrt{d}$.
 
     因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z}$,
     两个同构分别为$\mathrm{id}$和共轭.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.4.13}
     设$V = (V, +)$ 是一个加法群, $\mathrm{Hom}(V)$表示它的自同态环.
@@ -311,7 +318,7 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 验证数乘的四条:
     \begin{enumerate}[(i)]
@@ -348,8 +355,11 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
     
     \ref{ex:1.4.7}也说明了环同态是保特征的, 因此$\mathrm{Char}(K) = \mathrm{Char}(\mathbb{Z}) = 0$, 从而$\mathbb{Q} \subseteq K$. 这样也可以看出矛盾.
 \end{enumerate}
-注:(1)(2)即一个模结构的两种等价表述, 在群作用(教材4.5节)也会看到类似的定义.
-\end{solution}
+\end{proof}
+
+\begin{remark}
+    (1)(2)即一个模结构的两种等价表述, 在群作用(教材4.5节)也会看到类似的定义.
+\end{remark}
 
 \begin{problem}
     证明：在整数集合$\mathbb{Z}$上存在运算
@@ -358,7 +368,7 @@ $\mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}, (a,b) \mapsto a \oplus b$,
 $(\mathbb{Z}, +)$不同构. 提示：利用$\mathbb{Q}$是可数集和上题中的问题(3).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     类似\ref{ex:1.1.4}, 存在一个可数集之间的双射$f: \mathbb{Z} \to \mathbb{Q}$, 由$\mathbb{Q}$的环结构导出$(\mathbb{Z}, \oplus, \star)$.
     
     则同态
@@ -367,6 +377,8 @@ $(\mathbb{Z}, +)$不同构. 提示：利用$\mathbb{Q}$是可数集和上题中�
     \]
     会自然诱导出一个$\mathbb{Q}$-线性空间结构(\ref{ex:1.4.9}的(1)). 由\ref{ex:1.4.13}的(3),
     $(\mathbb{Z}, \oplus)$和$(\mathbb{Z}, +)$不同构.
+\end{proof}
 
-注: 对于$\mathbb{Z}$还有一个重要的结论, $\mathbb{Z}$的(含幺)环结构是唯一的. 更严格来说, 在$(\mathbb{Z}, +)$上添加乘法, 那么只能得到唯一的环结构.(可参考\cite{aluffi2009algebra}III.2.15, 2.16)
-\end{solution}
+\begin{remark}
+    对于$\mathbb{Z}$还有一个重要的结论, $\mathbb{Z}$的(含幺)环结构是唯一的. 更严格来说, 在$(\mathbb{Z}, +)$上添加乘法, 那么只能得到唯一的环结构.(可参考\cite{aluffi2009algebra}III.2.15, 2.16)
+\end{remark}

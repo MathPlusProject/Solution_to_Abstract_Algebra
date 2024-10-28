@@ -4,7 +4,7 @@
     设$G$是一个群, 对于任意的$a, b \in G$, 证明$ab$的阶和$ba$的阶相等.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     若$|ab| = n < \infty$, 则
 \[
     (ba)^n = b \cdot (ab)^n \cdot b^{-1} = bb^{-1} = e.
@@ -24,14 +24,14 @@
 \]
 是群$G$的一个自同构. 而对一般的群同态$\varphi: G \to G'$, $|g| < \infty \implies |\varphi(g)| < \infty$
 且$|\varphi(g)| \Big| |g|$. 因此若$\varphi$为同构, 则$|g| = |\varphi(g)|$(包括左右为无穷的情况).
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.3.2}
     设$R$是一个环, $U(R)$表示$R$中所有可逆元集合, 试证明：$U(R)$关
 于环$R$的乘法是一个群(称为$R$的单位群).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 这里首先需要验证运算的封闭性, $\forall a, b \in U(R)$, 有
     $(b^{-1}a^{-1})(ab) = b^{-1}(a^{-1}a)b = 1$, 故$ab \in U(R)$且
@@ -40,14 +40,17 @@
         \item 由于乘法是$R$上的乘法, 故结合律成立;
         \item 若$a \in U(R)$, 则由\ref{ex:1.1.1}的(3), $a^{-1} \in U(R)$且$(a^{-1})^{-1} = a$;
     \end{enumerate}
-注: 一般$U(R)$也记作$R^*$, 比如$K$是域时, $K^* = K \setminus \{0\}$.
-\end{solution}
+\end{proof}
+
+\begin{remark}
+    一般$U(R)$也记作$R^*$, 比如$K$是域时, $K^* = K \setminus \{0\}$.
+\end{remark}
 
 \begin{problem}
     证明除了单位元之外所有元素的阶都是$2$的群一定是交换群.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     由于任意$a^2 = e$, 故$a = a^{-1}$.
 
     考虑
@@ -58,7 +61,7 @@
 \[
     ab = ab \cdot (ba)^2 = abbaba = ba
 \]
-\end{solution}
+\end{proof}
 
 \begin{problem}
     令$C(\mathbb{R} ) = \left\{\text{所有连续函数: } \mathbb{R} \overset{f}\to \mathbb{R} \right\}$,
@@ -70,7 +73,7 @@ $\forall f ,\, g \in C(\mathbb{R})$,
 证明$(C(\mathbb{R}), +)$是交换群. $(C(\mathbb{R}), +, \cdot)$是否为环？
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     $(C(\mathbb{R}), +)$的零元为零函数$\mathbf{0}: \mathbb{R} \to \mathbb{R},\, x \mapsto 0$,
 $(f + \mathbf{0})(x) = f(x) + 0 = f(x) = 0 + f(x) = (\mathbf{0} + f)(x),\, \forall x \in \mathbb{R}$.
 
@@ -82,13 +85,13 @@ $(f + (-f))(x) = ((-f) + f)(x) = f(x) - f(x) = 0 = \mathbf{0}(x)$.
 
     若$f$不是$\mathbb{R}$-线性函数, 如$f(x) = x^2$, 则$(f \cdot (g + h))(x) = f((g + h)(x)) = f(g(x) + h(x)) \neq f(g(x)) + f(h(x))$.
 故$C(\mathbb{R}, +, \cdot)$不是环.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.3.5}
     写出对称群$S_3$的乘法表.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     记$\mathrm{id}_{S_3} = e$, 令$a = (1\:2)$, $b = (1\:2\:3)$, 有
 $a^2 = e$, $b^3 = e$, $abab = e \iff ba = ab^2$. 乘法表如下：
 \[
@@ -103,7 +106,10 @@ ab & ab  & b^2 & a   & ab^2 & e   & b \\
 ab^2 & ab^2 & b   & ab  & a   & b^2 & e \\
 \end{array}
 \]
-注: 可以看到$S_3$, 若取$a = (1\:2),\, b = (1\:2\:3)$,
+\end{proof}
+
+\begin{remark}
+    可以看到$S_3$, 若取$a = (1\:2),\, b = (1\:2\:3)$,
 则$S_3$可以由$a, b$生成, 即考虑所有可能的乘积, 一般可以表示
 为$S_3 = \langle a, b \rangle,\, a = (1\:2),\, b = (1\:2\:3)$.
 
@@ -130,17 +136,17 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 可以看到和$f \cdot g \defeq f \circ g$刚好是反过来的. 没有使用范畴语言的话就还好, 不会出现前后不自洽的问题, 但如果介绍了范畴语言, 那应该注意$S_A$上乘法的定义要和范畴定义不能冲突, 这一点\cite{hungerford2003algebra}就做的很好. 它的范畴定义故意反了过来, 它写成$\mathrm{Hom}_{\mathcal{C}}(Y, Z) \times \mathrm{Hom}_{\mathcal{C}}(X, Y) \to \mathrm{Hom}_{\mathcal{C}}(X, Z)$.
 
 那么哪一个才对呢, 事实上都是对的, 你总能验证$S_A$确实时一个群. 原因在于, 当你只考虑所有的同构时, 就得到一个子范畴, 这是一个群胚(groupoid), 它是一个自反范畴, 所以顺序就没区别了. 但我个人认为还是统一一下比较好, 主要是复合是非交换的, $f \circ g$和$g \circ f$一般不等. 为了方便还是按照教材为准吧, 使用$f \cdot g = f \circ g$.(尽管我是有点不习惯的)
-\end{solution}
+\end{remark}
 
 \begin{problem}
     证明：一个群$G$不会是两个真子群(不等于$G$的子群)的并.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     反证, 假设$H_1, H_2 \lvertneqq G$且$G = H_1 \cup H_2$,
 则$\exists h_1 \in G \setminus H_2 \subseteq H_1, h_2 \in G \setminus H_1 \subseteq H_2$,
 有$h_1h_2 \in G = H_1 \cup H_2$, 矛盾.(不妨设$h_1h_2 \in H_1 \implies h_2 \in H_1$)
-\end{solution}
+\end{proof}
 
 \ref{ex:1.3.7}-\ref{ex:1.3.9}为群的其他三种定义.
 
@@ -154,7 +160,7 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 试证明：$G$是一个群.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     先证右逆为逆, 
 \[
 \begin{gathered}
@@ -167,14 +173,14 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 \[
     1_ra = (ab)a = a(ba) = a1_r = a.
 \]
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.3.8}
     证明：半群$G$是群的充要条件是：$\forall a, b \in G$, $ax = b$和$ya = b$都有
 (唯一)解.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item "$\impliedby$": 取定一个$a \in G$, 方程$ax = a$的解设为$e_a$.
 对$\forall b \in G$, 方程$ya = b$有解$y_b$, 则有
@@ -187,7 +193,7 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 方程$ya = b$的唯一解为$ba^{-1}$.
 \end{enumerate}
     
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.3.9}
     证明：
@@ -197,7 +203,7 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     设$G = \{a_1, a_2, \cdots a_n\}$. 对$\forall 1 \leqslant i, j \leqslant n$,
 \[
     a_ia_1, a_ia_2, \cdots, a_ia_n
@@ -205,13 +211,13 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 互异, 否则存在$a_k \neq a_l$使得$a_ia_k = a_ia_l$, 由消去律得$a_k = a_l$矛盾.
 因此$\exists 1 \leqslant t \leqslant n$, $a_ia_t = a_j$, 即方程$a_ix = a_j$有解.
 同理方程$ya_i = a_j$也有解, 由\ref{ex:1.3.8}, $G$是群.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     证明:偶数阶有限群$G$中必有$2$阶元.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     设$|G| = 2n$. 对$e \neq g \in G$, $|g| = 2 \iff g = g^{-1}$.
 定义$G$上的一个等价关系
 \[
@@ -222,9 +228,11 @@ BTW, 这本教材和很多教材一样, 会把集合$A$对称群$S_A$上的乘�
 若$|g| = 2$或$g = e$, 则$\#\, \overline{g} = 1$, 否则$\#\, \overline{g} = 2$.
 因此若$m$为$G$中阶为$2$的元素的个数, 则$2n = m + 1 + 2(\#\, (G/\sim) - m - 1)$, 故
 $2n - m - 1$为偶数, 因此$m > 0$.    
+\end{proof}
 
-注：当然可以用Sylow定理一步到位.
-\end{solution}
+\begin{remark}
+    当然可以用Sylow定理一步到位.
+\end{remark}
 
 \begin{problem}
     证明:$GL_2(\mathbb{R})$中的元素
@@ -241,7 +249,7 @@ y = \begin{pmatrix}
 的阶分别是$4$和$3$. 但$xy$是无限阶元.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     用$I_n$表示$n$阶单位阵, 计算可得
 \[
 x^2 = \begin{pmatrix} 
@@ -292,13 +300,13 @@ xy = \begin{pmatrix}
     \end{pmatrix} \neq I_2, \forall n \in \mathbb{Z}_{\geqslant 1}.
 \]
 故$|xy| = \infty$.
-\end{solution}
+\end{proof}
     
 \begin{problem}
     证明群的任意多个子群的交仍是子群.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     设$G$是群, 记$I$为指标集, $H_i < G,\, \forall \in I$.
 验证\(H = \displaystyle\bigcap_{i \in I} H_i < G\): 首先$e_G \in H$, $H \neq \varnothing$,
 \[
@@ -308,7 +316,10 @@ xy = \begin{pmatrix}
     \implies ab^{-1} \in \bigcap_{i \in I} H_i = H.
 \end{gathered}
 \]
-注: 教材中并未提及这个判断子群的命题, 但其实是最常用的.
+\end{proof}
+
+\begin{remark}
+    教材中并未提及这个判断子群的命题, 但其实是最常用的.
 
 \begin{propstar}[子群的判定]
     设$G$是一个群, $\varnothing \neq S \subseteq G$, 则
@@ -318,4 +329,4 @@ $S < G$($S$是$G$的子群的记号)当且仅当
 \]
 \end{propstar}
 证明可参考\cite{aluffi2009algebra}p79.
-\end{solution}
+\end{remark}

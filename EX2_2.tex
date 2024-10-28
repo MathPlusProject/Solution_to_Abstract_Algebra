@@ -7,7 +7,7 @@
 
 注意这里的相同指的在相伴的意义下相同.
 
-\begin{solution}
+\begin{proof}
     由于$U(\mathbb{Z}[i]) = \{\pm 1, \pm i\}$, 在相伴的意义下, 可以假设$(m, n)$在$\mathbb{Z}$和$\mathbb{Z}[i]$中都是正整数, 分别记为$d$和$d'$.
 
     那么PID上Bézout's Identity成立, 有
@@ -15,27 +15,29 @@
         d = mu + nv,\quad d' = m\alpha + n\beta.
     \]
     其中$u, v \in \mathbb{Z},\, \alpha, \beta \in \mathbb{Z}[i]$. 设$\alpha = a_1 + ia_2,\, \beta = b_1 + ib_2$, 由于我们假设的是$d' \in \mathbb{Z}_{>0}$, 故$d' = ma_1 + nb_1$, 从而$d \mid m, d \mid n \implies d \mid d'$. 反过来也有$d' \mid d$, 所以$d = d'$.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:2.2.2}
     设$R$是整环, $p \in R$称为一个素元如果它生成的理想
 $P = (p)R$是素理想. 证明：$R$中素元必为不可约元.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     由定义$(p) \neq (1)$, 因此$p$不可逆. 设$p = ab$, 则$ab \in (p)$, 由素理想知$a \in (p)$或$b \in (p)$, 不妨设$a \in (p)$, 则$(a) \subseteq (p)$. 另一方面$(p) \subseteq (a)$, 因此$(p) = (a)$, 从而$b$是单位.
+\end{proof}
 
-注: $x \sim y \defequiv \exists u \in U(R),\, x = uy \iff (x) = (y) \iff x \mid y \text{ 且 } y \mid x$.
-\end{solution}
+\begin{remark}
+    $x \sim y \defequiv \exists u \in U(R),\, x = uy \iff (x) = (y) \iff x \mid y \text{ 且 } y \mid x$.
+\end{remark}
 
 \begin{problem}
     设$R$是一个主理想整环(PID), $0 \neq r \in R$.
 证明：在$R$中仅有有限个理想包含$r$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     $R$是PID, 即对任意理想$I$, 存在$a \in R$, 理想$I = (a)$. 理想$I$包含$r$指$r \in I$, 它等价于$(r) \subseteq I = (a) \iff a \mid r$. 又因为PID是UFD, 因此又唯一分解$r = p_1p_2\cdots p_n$, 从而$r$因子个数在相伴的意义下(\ref{ex:2.2.2}的注记)有限($\leqslant2^n$), 即包含$r$的理想有限.
-\end{solution}
+\end{proof}
 
 \begin{problem}[辗转相除法]
     设$R$是欧氏环, $a, b \in R$非零. 由带余除法得
@@ -54,12 +56,12 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 由于$\delta(b) < \infty$, 且$\delta(r_k)$是严格递减的自然数序列, 因此$\delta(k) \leqslant \delta(b) - k$, 取$k > \delta(b)$即可.
     \item 由(1)知最后一个等式为$r_{k - 1} = q_{k + 1}r_{k}$. 且
 \[
-    (a, b) = (bq_1 + r_1, b) = (b, r_1) = (q_2r_1 + r_2, r_1) = (r_1, r_2) = \cdots = (r_{k - 1}, r_k) = r_k.
+    (a, b) = (bq_1 + r_1, b) = (b, r_1) = (r_1, r_2) = \cdots = (r_{k - 1}, r_k) = r_k.
 \]
     \item 根据辗转相除法的算式反过来表示$r_k$.
 \[
@@ -73,10 +75,13 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \]
 递归关系是$u_i = v_{i - 1}, v_i = u_{i - 1} - v_{i - 1}q_{k - i + 1}$.
 \end{enumerate}
-注: (1)是著名的无穷递降的思路, 即递归的得到一列对象且对应着一个严格递减的自然数序列, 根据自然数有下界$0$来得到矛盾或得出某个结论.
+\end{proof}
+
+\begin{remark}
+    (1)是著名的无穷递降的思路, 即递归的得到一列对象且对应着一个严格递减的自然数序列, 根据自然数有下界$0$来得到矛盾或得出某个结论.
 
     另外(3)的题干表述可能有些问题, 这里并不需要把$u, v$具体表达出来.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$,
@@ -89,7 +94,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 验证$N$满足$N(\alpha\beta) = N(\alpha)N(\beta)$, 这和复数中$|z_1z_2| = |z_1||z_2|$是类似的, 且$N(\alpha) \in \mathbb{N}$. 那么若$\alpha$是单位, 则存在$\beta$使得$\alpha\beta = 1$, 故$N(\alpha\beta) = N(\alpha)N(\beta) = N(1) = 1$, 故只能有$N(\alpha) = N(\beta) = 1$, 解得$\alpha = \pm 1$.
     \item 因为$R$是Noether环.(由Hilbert's Basis Theorem)
@@ -100,12 +105,14 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     另外, 若$N(\alpha)$是素数, 则一定不可约, 但是反过来不对, 比如这里$9$并不是素数.
     \item 由(3).
 \end{enumerate}
-注: 
-\begin{enumerate}[1.]
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}[1.]
     \item 这个$N$是范数(norm). 它其实是$\mathbb{Q}$-线性映射$\beta \mapsto \alpha\beta$所对应矩阵的行列式. 这个概念在模论和代数数论都有提及.
-    \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = 1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
-\end{enumerate}
-\end{solution}
+    \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = \pm1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
+    \end{enumerate}
+\end{remark}
 
 \begin{problem}
     令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明：
@@ -117,7 +124,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 考虑同态
     \[
@@ -199,9 +206,32 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     
     因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
 \end{enumerate}
-注: (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+\end{proof}
 
-    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点或点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
+\begin{remark}
+    (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+
+    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
+    
+    一般地设$k$是一个域, $S \subseteq k[x_1, x_2, \cdots, x_n]$, 那么可以定义$S$中所有多项式的公共零点集
+    \[
+        Z(S) = \{(a_1, a_2, \cdots, a_n) \in k^n \mid \forall f \in S,\, f(a_1, a_2, \cdots a_n) = 0\}
+    \]
+    按定义有$S \subseteq S' \implies Z(S') \subseteq Z(S)$. 考虑$S$生成的理想$I = (S)$(见\ref{ex:2.1.6}的注记), 则有$Z(I) \subseteq Z(S)$. 另一方面, 根据$I = \left\{\sum f_ig_i \Big| f_i \in k[x_1, x_2, \cdots, x_n], g_i \in S\right\}$, 立刻得到$Z(S) \subseteq Z(I)$. 从而$Z(S) = Z(I)$. 我们称$Z(S)$这种点集为代数集(algebraic set), 用$\mathbb{A}_k^n$代替的$k^n$表示将它看作一个代数集(因为按定义$Z(\varnothing) = k^n$), 而Hilbert's Basis Theorem告诉我们$k[x_1, x_2, \cdots, x_n]$是Noether环, 所以理想都是有限生成的, 那么总有$Z(I) = Z(f_1, f_2, \cdots, f_r)$.
+    
+    反过来, 对$X \subseteq \mathbb{A}_k^n$, 定义
+    \[
+        \mathscr{I}(X) = \{f \in k[x_1, x_2, \cdots x_n] \mid \forall (a_1, a_2, \cdots a_n) \in X, f(a_1, a_2, \cdots a_n) = 0\}
+    \]
+    可以验证$\mathscr{I}(X)$是根理想(\ref{ex:2.1.1}的注记). 当$k$是代数闭域(algebraic closed field)时, 有一一对应
+    \[
+        \begin{tikzcd}
+            \{\mathbb{A}_k^n \text{ 的代数集}\}  \arrow[r, "\mathscr{I}", shift left] & {\{k[x_1, x_2, \cdots x_n] \text{ 的根理想}\}} \arrow[l, "Z", shift left]
+        \end{tikzcd}
+    \]
+    这就是Strong Nullstellensatz.
+
+    那么(1)中$I = (x^2 + y^2 - 1)$, $Z(I) = \{(x, y) \in \mathbb{R}^2 \mid \forall f \in I,\, f(x, y) = 0\} = \{(x, y) \in \mathbb{R}^2 \mid x^2 + y^2 = 1\}$, 恰好是单位圆. 那么(1)的关键在于说明$\mathscr{I}(Z(I)) = I$. 可惜的是一般情况下这个并不成立, 比如还是在$\mathbb{R}[x, y]$上考虑, 记$J = (x^2 + y^2)$, 那么$Z(J) = {(0,0)}$, $\mathscr{I}(Z(J)) = (x, y) \neq J$. 这里$x^2 + y^2$是不可约的, 所以即使是单独一个不可约多项式也不一定可以有这个等式, $x^2 + y^2 - 1$这个不可约多项式还是比较特殊的.
 
     域扩张中的极小多项式和不可约是一样的, 这是由于$K[x]$是一个PID, 不可约元对应极大理想, 从而对应极小多项式.
-\end{solution}
+\end{remark}

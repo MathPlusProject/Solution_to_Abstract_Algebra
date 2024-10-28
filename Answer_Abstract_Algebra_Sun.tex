@@ -1,45 +1,4 @@
-\documentclass[UTF8,fontset=windows]{ctexart}
-\usepackage{amsthm,amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{hyperref,enumerate,tcolorbox}
-\usepackage[nottoc,notlot,notlof]{tocbibind}
-\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
-\tcbuselibrary{breakable}
-\everymath{\displaystyle}
-
-\hypersetup{
-    colorlinks = true,
-    linkcolor = blue,
-    citecolor = green,
-    urlcolor = cyan
-}
-
-\ctexset{
-    section = {
-        format += {\zihao{3}},
-        name = {第, 章},
-        number = {\arabic{section}}
-    },
-    subsection={
-        format += {\bfseries\raggedright\zihao{-3}},
-        name = {习题,}
-    }
-}
-
-\newcommand{\defeq}{\mathrel{\coloneqq}}
-\newcommand{\eqdef}{\mathrel{\eqqcolon}}
-\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\newtheoremstyle{dotless}{3pt}{3pt}{\songti}{2em}{\bfseries}{}{\ccwd}{}
-\theoremstyle{dotless}
-\newtheorem{problem}{}[subsection]
-
-\newtheorem*{propstar}{\bfseries\heiti 命题}
-
-\newenvironment{solution}
-{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
-{\end{tcolorbox}}
+\documentclass[hyper]{solutions-cn}
 
 \title{孙笑涛《抽象代数》习题解答（自制）}
 \author{MathPlus}

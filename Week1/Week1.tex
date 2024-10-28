@@ -1,51 +1,11 @@
-\documentclass[UTF8,fontset=windows]{ctexart}
-\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{enumerate,tcolorbox}
-\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
-\tcbuselibrary{breakable}
-\everymath{\displaystyle}
-
-\newcommand{\defeq}{\mathrel{\coloneqq}}
-\newcommand{\eqdef}{\mathrel{\eqqcolon}}
-\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\newcounter{problem}
-\newenvironment{problem}[1][]
-{
-    \refstepcounter{problem}
-    \noindent\textbf{\theproblem.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}
-}
-{\vspace{1em}}
-
-\newcounter{additional}
-\newenvironment{additional}[1][]
-{
-    \refstepcounter{additional}
-    \noindent\textbf{\theadditional.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}}
-{\vspace{1em}}
-
-\newenvironment{solution}
-{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
-{\end{tcolorbox}}
+\documentclass{../solutions-cn}
 
 \begin{document}
 \section*{第一周作业参考解答及补充}
 
 \subsection*{作业}
 
-\begin{problem}[习题1.1.6]
+\begin{exercise}[习题1.1.6]
     设$p > 2$是素数,
 $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
 是$\mathbb{Z}$的模$p$剩余类域. 试计算：
@@ -54,18 +14,18 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
     \item $\overline{p - 1} \cdot \overline{p - 2}$;
     \item $\overline{p - 2}$在$\mathbb{F}_p$中的逆元$\overline{p-2}^{-1}$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 只需找到能被$2$整除的$1 + kp(k \in \mathbb{Z})$.
 由于素数$p > 2$, $p + 1$即可. i.e. $\overline{2}^{-1} = \overline{\frac12(p + 1)}$.
     \item $\overline{p - 1} \cdot \overline{p - 2} = \overline{-1} \cdot \overline{-2} = \overline{2}$.
     \item 由(1), $\overline{p - 2}^{-1} = \overline{-2}^{-1} = \overline{-\frac12(p + 1)} = \overline{\frac12(p - 1)}$.
 \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.2.1]
+\begin{exercise}[习题1.2.1]
     设$R$是一个环, 试证明下述结论：
 \begin{enumerate}[(1)]
     \item (加法消去律)\quad 如果$a + c = b + c$, 则$a = b$;
@@ -82,9 +42,9 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
         (a+b)^n = \sum_{i = 0}^n \binom{n}{i} a^{n - i}b^i.
     \]
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 两边同加$-c$.
         \item 由于
@@ -210,7 +170,11 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
     \end{aligned}
     \]
     \end{enumerate}
-(7)-(9)中实际上需要用归纳法证明的只有
+
+\end{proof}
+
+\begin{remark}
+    (7)-(9)中实际上需要用归纳法证明的只有
 \[
     \begin{aligned}
         n(a + b) &= na + nb,\\
@@ -242,15 +206,15 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
     \end{aligned}
 \]
 这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴. 因此$\mathbb{Z}$可以认为是任意环$R$的一个子环, $n$可看作是$R$中的元素$n1_R$. 所以此后在没有歧义的情况下, 默认$0$就指零元, $1$指幺元.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题1.2.9]
+\begin{exercise}[习题1.2.9]
     设$m > 0$是任意整数, $\mathbb{Z}_m = \{\bar{0}, \bar{1}, \cdots, \overline{m-1}\}$
 是$\mathbb{Z}$的模$m$剩余类环. 试证明：$\bar{a} \in \mathbb{Z}_m$可逆当且仅当$(a, m) = 1$
 (即：$a$与$m$互素).
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     $\overline{a} \in \mathbb{Z}_m$可逆, 
     \[
     \begin{aligned}
@@ -259,23 +223,28 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
         &\iff (a, m) = 1. \quad \text{(Bézout's Identity)}
     \end{aligned}
     \]
-    注：一般用记号$\mathbb{Z}/m\mathbb{Z}$表示模$m$剩余类环.(理想和商环, 教材2.1节p25)
+\end{proof}
+
+\begin{remark}
+    一般用记号$\mathbb{Z}/m\mathbb{Z}$表示模$m$剩余类环.(理想和商环, 教材2.1节p25)
     
     若$(a, m) = 1$, 则$\overline{a}$是加法群$(\mathbb{Z}/m\mathbb{Z}, +)$
-    的生成元, 即$\overline{a}$(在加法群)的阶是$m$.    
-\end{solution}
+    的生成元, 即$\overline{a}$(在加法群)的阶是$m$.
+\end{remark}
 
-\begin{problem}[习题1.2.10]
+\begin{exercise}[习题1.2.10]
     设$R$是仅有$n$个元素的环, 试证明对任意$a \in R$有
 \[
     na \defeq \underbrace{a + a + \cdots + a}_n = 0.
 \]
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     该题的证明归结为一句话：加法群的阶$(R, +)$为$n$, 故$na = 0$.
+\end{proof}
 
-注：有限群$G$内任一元素$a$, 有$|a| \Big| |G|$(Lagrange定理, 教材4.1节p70推论4.1.3),
+\begin{remark}
+    有限群$G$内任一元素$a$, 有$|a| \Big| |G|$(Lagrange定理, 教材4.1节p70推论4.1.3),
 因此必有$a^{|G|} = e$, 在这道题就是$na = 0$.
 
 有些同学没有说明使用了Lagrange定理, 也没有证明这些子集
@@ -314,14 +283,14 @@ $b + \langle a \rangle = \{b + ma \mid m \in \mathbb{Z}\},\, b \in R$
 由$\mathbb{N}$的良序性, 存在一个最小的$r$使得$ra = 0_R$.
 这样$\langle a \rangle = \{0, a, 2a, \cdots, (r - 1)a\}$恰有$r$个元素
 (如果还不放心这里面是否有相等元素, 在用一次反证就可以了, 和上面证两两不等类似).
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题1.3.2]
+\begin{exercise}[习题1.3.2]
     设$R$是一个环, $U(R)$表示$R$中所有可逆元集合, 试证明：$U(R)$关
 于环$R$的乘法是一个群(称为$R$的单位群).
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 这里首先需要验证运算的封闭性, $\forall a, b \in U(R)$, 有
     $(b^{-1}a^{-1})(ab) = b^{-1}(a^{-1}a)b = 1$, 故$ab \in U(R)$且
@@ -335,13 +304,13 @@ $b + \langle a \rangle = \{b + ma \mid m \in \mathbb{Z}\},\, b \in R$
         \item 由于乘法是$R$上的乘法, 故结合律成立;
         \item 若$a \in U(R)$, 则由习题1.1.1的(3), $a^{-1} \in U(R)$且$(a^{-1})^{-1} = a$;
     \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.3.5]
+\begin{exercise}[习题1.3.5]
     写出对称群$S_3$的乘法表.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     记$\mathrm{id}_{S_3} = e$, 令$a = (1\:2)$, $b = (1\:2\:3)$, 有
 $a^2 = e$, $b^3 = e$, $abab = e \iff ba = ab^2$. 乘法表如下：
 \[
@@ -356,7 +325,10 @@ ab & ab  & b^2 & a   & ab^2 & e   & b \\
 ab^2 & ab^2 & b   & ab  & a   & b^2 & e \\
 \end{array}
 \]
-注: 可以看到$S_3$, 若取$a = (1\:2),\, b = (1\:2\:3)$,
+\end{proof}
+
+\begin{remark}
+    可以看到$S_3$, 若取$a = (1\:2),\, b = (1\:2\:3)$,
 则$S_3$可以由$a, b$生成, 即考虑所有可能的乘积, 一般可以表示
 为$S_3 = \langle a, b \rangle,\, a = (1\:2),\, b = (1\:2\:3)$.
 
@@ -371,9 +343,9 @@ $A$和$\mathscr{R}$将唯一确定一个群$G$, $(A \mid \mathscr{R})$
 为$(\{a, b\} \mid a^2, b^3, abab)$.
 
 由于这本教材没有讲自由群, 所以想要了解的话需要查阅别的教材.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题1.3.11]
+\begin{exercise}[习题1.3.11]
     证明:$GL_2(\mathbb{R})$中的元素
 \(
 x=\begin{pmatrix}
@@ -386,9 +358,9 @@ y=\begin{pmatrix}
 \end{pmatrix}
 \)
 的阶分别是$4$和$3$. 但$xy$是无限阶元.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     用$I_n$表示$n$阶单位阵, 计算可得
 \[
 x^2 = \begin{pmatrix} 
@@ -439,13 +411,13 @@ xy = \begin{pmatrix}
     \end{pmatrix} \neq I_2, \forall n \in \mathbb{Z}_{\geqslant 1}.
 \]
 故$|xy| = \infty$.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题1.3.12]
+\begin{exercise}[习题1.3.12]
     证明群的任意多个子群的交仍是子群.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     设$G$是群, 记$I$为指标集, $H_i < G,\, \forall \in I$.
 验证\(H = \bigcap_{i \in I} H_i < G\):
 \[
@@ -455,10 +427,13 @@ xy = \begin{pmatrix}
     \implies ab^{-1} \in \bigcap_{i \in I} H_i = H.
 \end{gathered}
 \]
-注：很多同学认为“任意多”是有限个, 即只考虑\(H = \bigcap_{i = 1}^{n} H_i\),
+\end{proof}
+
+\begin{remark}
+    很多同学认为“任意多”是有限个, 即只考虑\(H = \bigcap_{i = 1}^{n} H_i\),
 也有同学考虑了\(H = \bigcap_{i = 1}^{\infty} H_i\), 这也是不够的, 这里是允许
 不可数无穷的.
-\end{solution}
+\end{remark}
 
 \subsection*{课上的补充内容}
 

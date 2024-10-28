@@ -1,44 +1,4 @@
-\documentclass[UTF8,fontset=windows]{ctexart}
-\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{enumerate,tcolorbox}
-\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
-\tcbuselibrary{breakable}
-\everymath{\displaystyle}
-
-\newcommand{\defeq}{\mathrel{\coloneqq}}
-\newcommand{\eqdef}{\mathrel{\eqqcolon}}
-\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\newcounter{problem}
-\newenvironment{problem}[1][]
-{
-    \refstepcounter{problem}
-    \noindent\textbf{\theproblem.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}
-}
-{\vspace{1em}}
-
-\newcounter{additional}
-\newenvironment{additional}[1][]
-{
-    \refstepcounter{additional}
-    \noindent\textbf{\theadditional.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}}
-{\vspace{1em}}
-
-\newenvironment{solution}
-{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
-{\end{tcolorbox}}
+\documentclass{../solutions-cn}
 
 \begin{document}
 \section*{第三周作业参考解答及补充}
@@ -46,17 +6,19 @@
 教材的符号有不清晰的地方, 主要是素理想那一块, 我进行了修正, 用$\subseteq$表示子集, $\subsetneq$表示真子集. 其他有错误的地方也会修改, 用\red{红色}表示.
 
 \subsection*{作业}
-\begin{problem}[习题2.1.1]
+\begin{exercise}[习题2.1.1]
     设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
 \[
     \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
 \]
 也是$R$的理想 (称为理想$I$的根).
-\end{problem}
+\end{exercise}
 
-注: 这题的根理想定义有误, 应是$\mathbb{N}$而不是$\mathbb{Z}$. 一旦出现负整数意味着有可逆元, 从而$\sqrt{I}$是单位理想了.
+\begin{remark}
+    这题的理想的根定义有误, 应是$\mathbb{N}$而不是$\mathbb{Z}$. 一旦出现负整数意味着有可逆元, 从而$\sqrt{I}$是单位理想了.
+\end{remark}
 
-\begin{solution}
+\begin{proof}
     可以清楚地看出$I \subseteq \sqrt{I}$. 先验证加法子群,
     \[
     \begin{gathered}
@@ -72,17 +34,21 @@
         \forall a \in \sqrt{I}, r \in R,\, \exists m \in \mathbb{N},\, a^m \in I \implies (ar)^m = a^mr^m \in I
     \]
     因此$ar \in \sqrt{I}$.
+\end{proof}
 
-注: 零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.
-\end{solution}
+\begin{remark}
+    零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.
 
-\begin{problem}[习题2.1.2]
+    对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(\ref{ex:2.1.5})都是根理想.
+\end{remark}
+
+\begin{exercise}[习题2.1.2]
     设$R$是一个交换环, $p > 0$是一个素数. 如果
 $p \cdot x = 0 (\forall x\in R)$. 试证明：
 $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p1_R = 0_R$, $\mathrm{Char}(R) < p$.
     那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1_R = 0_R$, 这就没什么考虑的必要了.
 
@@ -103,17 +69,19 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     由于$p$是素数, $1, 2, \cdots i$都不整除$p$, 而$\binom{p}{i}$是整数, 因此只能是$i! \mid (p - 1) \cdots (p - i + 1)$. 所以$p \mid \binom{p}{i}$. 而$px = 0,\, \forall x \in R$, 故$(a + b)^p = a^p + b^p$.
 
     因此$\varphi: R \to R,\, x \mapsto x^{p^m}$也是自同态, $\varphi = F^m$, 这里$F^m$表示复合$m$次.
+\end{proof}
 
-注: Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
-\end{solution}
+\begin{remark}
+    Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
+\end{remark}
 
-\begin{problem}[习题2.1.5]
+\begin{exercise}[习题2.1.5]
     理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果：$ab \in P \Rightarrow a \in P$
 或$b \in P$. 试证明：
 \(P \,\red{\subsetneq}\, R\)是素理想当且仅当$R/P$没有零因子.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item "$\implies$":
         \[
@@ -124,15 +92,15 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
             ab \in P \implies \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies \overline{a} = 0 \text{ or } \overline{b} = 0 \implies a \in P \text{ or } b \in P.
         \]
     \end{enumerate} 
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.1.6]
+\begin{exercise}[习题2.1.6]
     理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
 (即：如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
 $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item "$\implies$":
         \[
@@ -150,7 +118,10 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
         \]
         或者用同态基本定理, 包含$m$的理想和$R/m$的理想有一个一一对应, 而域的理想只有$\{0\}$和本身.
     \end{enumerate}
-    注: (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
+\end{proof}
+
+\begin{remark}
+     (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
     \[
         \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big|i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\} 
     \]
@@ -164,18 +135,18 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
     \end{aligned}  
     \]
     他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题2.1.7]
+\begin{exercise}[习题2.1.7]
     设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
 \begin{enumerate}[(1)]
     \item $I$是极大理想;
     \item $I$是素理想;
     \item 存在素数$p$使得$I = (p)\mathbb{Z} = \{ap \mid \forall a \in \mathbb{Z}\}$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[1.]
         \item (1)$\implies$(2): 由于域一定是整环, 由2.1.5和2.1.6知极大理想是素理想.
         \item (2)$\implies$(3): 由于$\mathbb{Z}$是PID(带余除法可证), 故存在整数$p$使得$I = (p)$. 由于是素理想, 因此$ab \in (p) \implies a \in (p)$或$b \in (p)$. 即
@@ -187,15 +158,15 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
         
         或直接用$\mathbb{Z}/(p) = \mathbb{Z}/p\mathbb{Z}$是域.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.1.8]
+\begin{exercise}[习题2.1.8]
     设$p \in \mathbb{Z}$是素数, 证明
 $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
 项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     事实上若$I$是$R$的理想, 我们有
 \[
     \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
@@ -211,8 +182,10 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
     \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
 \]
 这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由2.1.5和2.1.6, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+\end{proof}
 
-注(这个比较超纲看不懂可以不看): 给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(习题2.1.11), 根据之前习题1.4.9说过的, 首先$S$上有一个$R$-模结构. 其次有
+\begin{remark}
+    (这个比较超纲看不懂可以不看)给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(习题2.1.11), 根据之前习题1.4.9说过的, 首先$S$上有一个$R$-模结构. 其次有
 \[
     (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
 \]
@@ -221,29 +194,31 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
 
 而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题2.2.2]
+\begin{exercise}[习题2.2.2]
     设$R$是整环, $p \in R$称为一个素元如果它生成的理想
 $P=(p)R$是素理想. 证明：$R$中素元必为不可约元.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     由定义$(p) \neq (1)$, 因此$p$不可逆. 设$p = ab$, 则$ab \in (p)$, 由素理想知$a \in (p)$或$b \in (p)$, 不妨设$a \in (p)$, 则$(a) \subseteq (p)$. 另一方面$(p) \subseteq (a)$, 因此$(p) = (a)$, 从而$b$是单位.
+\end{proof}
 
-注: $x \sim y \defequiv \exists u \in U(R),\, x = uy \iff (x) = (y) \iff x \mid y \text{ 且 } y \mid x$.
-\end{solution}
+\begin{remark}
+    $x \sim y \defequiv \exists u \in U(R),\, x = uy \iff (x) = (y) \iff x \mid y \text{ 且 } y \mid x$.
+\end{remark}
 
-\begin{problem}[习题2.2.3]
+\begin{exercise}[习题2.2.3]
     设$R$是一个主理想整环(PID), $0 \neq r \in R$.
 证明：在$R$中仅有有限个理想包含$r$.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     $R$是PID, 即对任意理想$I$, 存在$a \in R$, 理想$I = (a)$. 理想$I$包含$r$指$r \in I$, 它等价于$(r) \subseteq I = (a) \iff a \mid r$. 又因为PID是UFD, 因此又唯一分解$r = p_1p_2\cdots p_n$, 从而$r$因子个数在相伴的意义下(上题的注记)有限($\leqslant2^n$), 即包含$r$的理想有限.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.2.4]
+\begin{exercise}[习题2.2.4]
     (辗转相除法) 设$R$是欧氏环, $a, b \in R$非零. 由带余除法得
 \[
 a = q_{1}b + r_{1},\,
@@ -258,9 +233,9 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     \item $r_k$是$a$, $b$的一个最大公因子;
     \item 求$u$, $v \in R$使得$r_k = ua + vb$.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 由于$\delta(b) < \infty$, 且$\delta(r_k)$是严格递减的自然数序列, 因此$\delta(k) \leqslant \delta(b) - k$, 取$k > \delta(b)$即可.
     \item 由(1)知最后一个等式为$r_{k - 1} = q_{k + 1}r_{k}$. 且
@@ -279,12 +254,15 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \]
 递归关系是$u_i = v_{i - 1}, v_i = u_{i - 1} - v_{i - 1}q_{k - i + 1}$.
 \end{enumerate}
-注: (1)是著名的无穷递降的思路, 即递归的得到一列对象且对应着一个严格递减的自然数序列, 根据自然数有下界$0$来得到矛盾或得出某个结论.
+\end{proof}
+
+\begin{remark}
+    (1)是著名的无穷递降的思路, 即递归的得到一列对象且对应着一个严格递减的自然数序列, 根据自然数有下界$0$来得到矛盾或得出某个结论.
 
     另外(3)的题干表述可能有些问题, 这里并不需要把$u, v$具体表达出来.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题2.2.5]
+\begin{exercise}[习题2.2.5]
     设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$,
 定义：$N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明：
 \begin{enumerate}[(1)]
@@ -293,9 +271,9 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     \item $3$, $2 + \sqrt{-5}$, $2 - \sqrt{-5} \in R$是不可约元;
     \item $9 = 3 \cdot 3= (2 + \sqrt{-5}) \cdot (2 - \sqrt{-5})$是$9$的两个不相同的不可约分解.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 验证$N$满足$N(\alpha\beta) = N(\alpha)N(\beta)$, 这和复数中$|z_1z_2| = |z_1||z_2|$是类似的, 且$N(\alpha) \in \mathbb{N}$. 那么若$\alpha$是单位, 则存在$\beta$使得$\alpha\beta = 1$, 故$N(\alpha\beta) = N(\alpha)N(\beta) = N(1) = 1$, 故只能有$N(\alpha) = N(\beta) = 1$, 解得$\alpha = \pm 1$.
     \item 因为$R$是Noether环.(但其实没那么好说明, 如果知道Hilbert's Basis Theorem就没问题)
@@ -306,12 +284,14 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
     另外, 若$N(\alpha)$是素数, 则一定不可约, 但是反过来不对, 比如这里$9$并不是素数.
     \item 由(3).
 \end{enumerate}
-注: 
-\begin{enumerate}[1.]
+\end{proof}
+
+\begin{remark}
+    \begin{enumerate}[1.]
     \item 这个$N$是范数(norm). 它其实是$\mathbb{Q}$-线性映射$\beta \mapsto \alpha\beta$所对应矩阵的行列式. 这个概念在模论和代数数论都有提及.
     \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = 1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
 \end{enumerate}
-\end{solution}
+\end{remark}
 
 \subsection*{课上的补充内容}
 \begin{additional}[$\mathbb{Z}$是PID]

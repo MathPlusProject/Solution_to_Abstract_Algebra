@@ -19,7 +19,7 @@
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 两边同加$-c$.
         \item 由于
@@ -127,7 +127,10 @@
     \end{aligned}
     \]
     \end{enumerate}
-(7)-(9)中实际上需要用归纳法证明的只有
+\end{proof}
+
+\begin{remark}
+    (7)-(9)中实际上需要用归纳法证明的只有
 \[
 \begin{aligned}
     n(a + b) &= na + nb,\\
@@ -159,16 +162,16 @@
     \end{aligned}
 \]
 这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴. 因此$\mathbb{Z}$可以认为是任意环$R$的一个子环, $n$可看作是$R$中的元素$n1_R$. 所以此后在没有歧义的情况下, 默认$0$就指零元, $1$指幺元.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     假设集合$R$上有两个运算, 除加法的交换律外满足环的所有其他公
 理. 利用分配律证明：加法是交换的 (从而$R$是环).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     这和\ref{ex:1.1.5}是一道题.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.2.3}
     设$X$是集合, $P(X)$表示$X$的所有子集形成的集合, 在$P(X)$上
@@ -177,7 +180,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 且$2A = 0 (\forall A \in P(X))$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     这里$A + B$为对称差, $A + B = A \cup B - A \cap B = (A - B) \cup (B - A)$.
 用$A^c$表示$A$的补集. 那么,
 \[
@@ -189,8 +192,10 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
     结合律：
     \[
     \begin{aligned}
-        (A + B) + C &= (((A \cap B^c) \cup (A^c \cap B)) \cap C^c) \cup (((A \cap B^c) \cup (A^c \cap B))^c \cap C)\\
-        &= (A \cap B^c \cap C^c) \cup (A^c \cap B \cap C^c) \cup (A^c \cap B^c \cap C) \cup (A \cap B \cap C)\\
+        (A + B) + C &= (((A \cap B^c) \cup (A^c \cap B)) \cap C^c) \\
+        &\cup (((A \cap B^c) \cup (A^c \cap B))^c \cap C)\\
+        &= (A \cap B^c \cap C^c) \cup (A^c \cap B \cap C^c) \cup (A^c \cap B^c \cap C) \\
+        &\cup (A \cap B \cap C)\\
         &= A + (B + C). \quad \text{(轮换对称, 见\ref{ex:1.1.4}的结合律证明)}
     \end{aligned} 
     \]
@@ -218,7 +223,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
     另一部分证明类似.
 \end{enumerate}
 因此$(P(X), +, \cdot)$为一个(交换)环.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$R$是一个环, $S \,\red{\subseteq}\, R$是一个非空子集合. 试证明
@@ -228,7 +233,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 是$R$的一个子环.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     该子环称为子集$S$的中心化子(centralizer). 当$S = R$时就是中心(\ref{ex:2.1.11}).
 
     $\forall a, b \in C(S)$, 需要验证
@@ -244,13 +249,13 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
     \end{gathered}
     \]
     因此$a - b, ab \in C(S)$, $C(S)$是子环.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.2.5}
     证明:如果在环$R$中$1 - ab$可逆, 则$1 - ba$也可逆.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     设$1 - ab$的逆为$c$, 则$ab = 1 - c^{-1}$.
 
     考虑形式级数
@@ -277,13 +282,13 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
         &= 1.
     \end{aligned}
     \]
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.2.6}
     如果环$R$满足条件:$\forall x \in R,\quad x^2 = x$,证明$R$是交换环.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     条件$x^2 = x$称为乘法是幂等(idempotent)的. 考虑
     \[
         (x + 1)^2 = x^2 + 2x + 1 = x + 1,
@@ -301,7 +306,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
     \[
         xy = -yx = yx.
     \]
-\end{solution}
+\end{proof}
 
 \begin{problem}[华罗庚恒等式]
     设$a, b$是环$R$中的元素. 如果$a, b, ab - 1$可逆, 
@@ -311,7 +316,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 \]
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     由于$a, b, ab - 1$均可逆, 即$a, b, ab - 1 \in U(R)$.
 $U(R)$为环$R$的单位群(\ref{ex:1.3.2}).
 故
@@ -331,7 +336,7 @@ $U(R)$为环$R$的单位群(\ref{ex:1.3.2}).
         &= aba - a.
     \end{aligned}
     \]
-\end{solution}
+\end{proof}
 
 \begin{problem}[多项式矩阵的带余除法]
     设$A \in M_n(K)$是一个给定的$n$阶矩阵.
@@ -340,7 +345,7 @@ $B(x) \in M_{n \times m}(K[x])$, $R \in M_{n \times m}(K)$使得
 $A(x) = (xI_n - A)B(x) + R$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     先证唯一性, 若存在$B'(x) \in M_{n \times m}(K[x])$
 和$R' \in M_{n \times m}(K)$也满足条件, 则有
     \[
@@ -380,7 +385,7 @@ $A(x) = (xI_n - A)B(x) + R$. 考查$k + 1$的情形：
 \]
 取$B(x) = x\tilde{B}(x) + \tilde{R} \in M_{n \times m}(K[x])$, 
 $R = A\tilde{R} + A_0$即可.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$m > 0$是任意整数, $\mathbb{Z}_m = \{\bar{0}, \bar{1}, \cdots, \overline{m-1}\}$
@@ -388,7 +393,7 @@ $R = A\tilde{R} + A_0$即可.
 (即：$a$与$m$互素).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     $\overline{a} \in \mathbb{Z}_m$可逆, 
 \[
 \begin{aligned}
@@ -397,10 +402,13 @@ $R = A\tilde{R} + A_0$即可.
     &\iff (a, m) = 1. \quad \text{(Bézout's Identity)}
 \end{aligned}
 \]
-注：一般用记号$\mathbb{Z}/m\mathbb{Z}$表示模$m$剩余类环.(理想和商环, 教材2.1节p25)
+\end{proof}
+
+\begin{remark}
+    一般用记号$\mathbb{Z}/m\mathbb{Z}$表示模$m$剩余类环.(理想和商环, 教材2.1节p25)
 若$(a, m) = 1$, 则$\overline{a}$是加法群$(\mathbb{Z}/m\mathbb{Z}, +)$
 的生成元, 即$\overline{a}$(在加法群)的阶(教材1.3节, p17)是$m$.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     设$R$是仅有$n$个元素的环, 试证明对任意$a \in R$有
@@ -409,12 +417,16 @@ $R = A\tilde{R} + A_0$即可.
 \]
 \end{problem}
     
-\begin{solution}
+\begin{proof}
     该题的证明归结为一句话, 加法群的阶$(R, +)$为$n$, 故$na = 0$.
 
-注：有限群$G$内任一元素$a$, 有$|a| \Big| |G|$(教材4.1节p70推论4.1.3),
+
+\end{proof}
+
+\begin{remark}
+    有限群$G$内任一元素$a$, 有$|a| \Big| |G|$(教材4.1节p70推论4.1.3),
 因此必有$a^{|G|} = e$, 在这道题就是$na = 0$.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     环$R$中非零元$x$称为幂零元(nilpotent), 若存在$n > 0$使$x^n = 0$. 证明：
@@ -424,7 +436,7 @@ $R = A\tilde{R} + A_0$即可.
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 注意到
 \[
@@ -442,15 +454,14 @@ $R = A\tilde{R} + A_0$即可.
     "$\Leftarrow$": 反过来, 若$m$可以被某个大于$1$的平方整除, 则上述$e_i$中必有一个
     大于$1$, 此时取$a = p_1p_2\cdots p_r$, $\overline{a}$为$\mathbb{Z}_m$的幂零元.
 \end{enumerate}
-注：有关初等数论整除相关的部分请自行查阅书籍.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$R$是一个环, 如果$(xy)^2 = x^2y^2 (\forall x, y \in R)$, 则
 $R$是交换环.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     先考虑
     \[
         ((x + 1)y)^2 = (x + 1)^2y^2 \implies\, xy^2 = yxy,
@@ -459,7 +470,7 @@ $R$是交换环.
     \[
         x(y + 1)^2 = (y + 1)x(y + 1) \implies xy = yx.
     \]
-\end{solution}
+\end{proof}
 
 \begin{problem}
     如果环$R$满足条件：$x^6 = x (\forall x \in R)$. 证明：
@@ -469,7 +480,7 @@ $R$是交换环.
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 先带入$-x$,
 \[
@@ -494,4 +505,4 @@ $R$是交换环.
 再相减得$x^2 = x$.
     \item 由(1)和\ref{ex:1.2.6}.
 \end{enumerate}
-\end{solution}
+\end{proof}

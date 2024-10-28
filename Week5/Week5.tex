@@ -1,63 +1,23 @@
-\documentclass[UTF8,fontset=windows]{ctexart}
-\usepackage{amssymb,mathtools,mathrsfs,tikz-cd}
-\usepackage{enumerate,tcolorbox}
-\usepackage[top=25mm, bottom=20mm, left=30mm, right=30mm, a4paper]{geometry}
-\tcbuselibrary{breakable}
-\everymath{\displaystyle}
-
-\newcommand{\defeq}{\mathrel{\coloneqq}}
-\newcommand{\eqdef}{\mathrel{\eqqcolon}}
-\newcommand{\defequiv}{\mathrel{\vcentcolon\Leftrightarrow}}
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\newcounter{problem}
-\newenvironment{problem}[1][]
-{
-    \refstepcounter{problem}
-    \noindent\textbf{\theproblem.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}
-}
-{\vspace{1em}}
-
-\newcounter{additional}
-\newenvironment{additional}[1][]
-{
-    \refstepcounter{additional}
-    \noindent\textbf{\theadditional.}
-    \ifx\relax#1\relax
-    \else
-        (#1)
-    \fi
-    \par\vspace{0.5em}}
-{\vspace{1em}}
-
-\newenvironment{solution}
-{\begin{tcolorbox}[colback=blue!10, colframe=blue!50, title=\textit{proof}, breakable]}
-{\end{tcolorbox}}
+\documentclass{../proofs-cn}
 
 \begin{document}
 \section*{第五周作业参考解答及补充}
 
 \subsection*{作业}
 
-\begin{problem}[习题2.1.3]
+\begin{exercise}[习题2.1.3]
     证明：只有有限个元素的整环一定是一个域.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     整环$R$有乘法消去律(习题1.1.1的(1), 证明乘法消去律事实上只需要分配律加无零因子), 而习题1.3.9告诉我们, 满足消去律的有限半群是群. 因此$(R \setminus \{0\}, \cdot)$是群, 即$R$是一个域.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.1.4]
+\begin{exercise}[习题2.1.4]
     证明：只有有限个理想的整环是一个域.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     事实上条件可以再减弱一点, 一个Artin整环一定是域.
 
     设$a \neq 0$, 考虑理想降链
@@ -65,16 +25,18 @@
         (a) \supseteq (a^2) \supseteq \cdots 
     \]
     因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1_R$.
+\end{proof}
 
-注: Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
+\begin{remark}
+    Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
 \[
     I_1 \supseteq I_2 \supseteq \cdots 
 \]
 则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
 这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
-\end{solution}
+\end{remark}
 
-\begin{problem}[习题2.1.9]
+\begin{exercise}[习题2.1.9]
     映射$D:R[x] \longrightarrow R[x]$定义如下：
 $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
 \[
@@ -88,9 +50,9 @@ $\forall$ $a \in R$, $f, g \in R[x]$, 试证明：
 ($D(f)$称为$f(x)$的导数. 记为
 $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
 称为$f(x)$的$m$次导数).
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     按定义验证. 设$f = a_nx^n + \cdots + a_1x + a_0$, $g = b_mx^m + \cdots + b_1x + b_0$.
     \begin{enumerate}[(1)]
         \item 不妨设$n \geqslant m$, 且令$b_k = 0, k > m$.
@@ -114,15 +76,15 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
             \end{aligned}
         \]
     \end{enumerate}
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.1.10]
+\begin{exercise}[习题2.1.10]
     如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$
 或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则
 $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
     $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(这里$n$看做$n1_F$, 见习题1.2.1的新增的注记), 那么
 \[
     f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
@@ -139,16 +101,16 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{aligned}
 \]
 此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.2.1]
+\begin{exercise}[习题2.2.1]
     设$m, n$是两个正整数, 证明它们在$\mathbb{Z}$中的最大公因数
 和它们在$\mathbb{Z}[i]$中的最大公因数相同.
-\end{problem}
+\end{exercise}
 
 注意这里的相同指的在相伴的意义下相同.
 
-\begin{solution}
+\begin{proof}
     由于$U(\mathbb{Z}[i]) = \{\pm 1, \pm i\}$, 在相伴的意义下, 可以假设$(m, n)$在$\mathbb{Z}$和$\mathbb{Z}[i]$中都是正整数, 分别记为$d$和$d'$.
 
     那么PID上Bézout's Identity成立, 有
@@ -156,9 +118,9 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
         d = mu + nv,\quad d' = m\alpha + n\beta.
     \]
     其中$u, v \in \mathbb{Z},\, \alpha, \beta \in \mathbb{Z}[i]$. 设$\alpha = a_1 + ia_2,\, \beta = b_1 + ib_2$, 由于我们假设的是$d' \in \mathbb{Z}_{>0}$, 故$d' = ma_1 + nb_1$, 从而$d \mid m, d \mid n \implies d \mid d'$. 反过来也有$d' \mid d$, 所以$d = d'$.
-\end{solution}
+\end{proof}
 
-\begin{problem}[习题2.2.6]
+\begin{exercise}[习题2.2.6]
     令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明：
 \begin{enumerate}[(1)]
     \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
@@ -166,9 +128,9 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示: 证明其为ED);
     \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
 \end{enumerate}
-\end{problem}
+\end{exercise}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 考虑同态
     \[
@@ -250,12 +212,11 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     
     因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
 \end{enumerate}
-注: (2)中若允许正次数到无穷的话, 则该环称为Laurent形式级数域(可以验证确实是一个域).
+\end{proof}
 
-    另外, 可以说$x^2 + y^2 - 1$是单位圆的"极小多项式". 但这种说法是有些不合理的, 因为这样$a_{ij}x^iy^j$次数将定义成$i + j$, $f(x, y)$的次数定义成单项次数的最大值, 一旦这么定义就无法做带余除法, 就无法得到满足某个点或点集(一般是代数集, 即某些多项式的共同零点)的多项式是其极小多项式的倍数.
-
-    域扩张中的极小多项式和不可约是一样的, 这是由于$K[x]$是一个PID, 不可约元对应极大理想, 从而对应极小多项式.
-\end{solution}
+\begin{remark}
+    
+\end{remark}
 
 \subsection*{课上的补充内容}
 \begin{additional}[Noetherian $\iff$ a.c.c.]

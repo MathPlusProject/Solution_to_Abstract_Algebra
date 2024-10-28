@@ -13,7 +13,7 @@
     \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 由于$c \neq 0$, 故可在原式左右同乘$c^{-1}$, 得 
         \[ 
@@ -117,7 +117,7 @@
     由于$a^{-m} \cdot a^m \overset{\eqref{eq:1.1.1.61}}= a^0 = 1_K$, 即括号内确实为$a^m$,
     故上式等于$(a^m)^n$.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$K$是一个域, 证明：$K$的任意一组子域(可以无限多个)的交集仍是子域.
@@ -126,7 +126,7 @@ $K_i \subseteq K_{i+1} \, (i \in \mathbb{N})$的子域, 则它们的并集也是
 $K$的子域.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     令
 \(
     F = \bigcap_i K_i
@@ -159,7 +159,7 @@ $F^*$的部分同理, 故$F$为子域.
     a - b \in K_r \subseteq L.
 \]
 $L^*$同理, 故$L$为子域.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     令$\mathbb{Q}[\sqrt{2}, \sqrt{3}]$表示$\mathbb{C}$中包含
@@ -167,7 +167,7 @@ $\mathbb{Q}, \sqrt{2}, \sqrt{3}$的最小子域, 证明
 $\mathbb{Q}[\sqrt{2}, \sqrt{3}] = \mathbb{Q}[\sqrt{2} + \sqrt{3}]$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     该题本应该是域扩张的题, 此处我们只用定义来证明.
 
     由于$\sqrt{2} + \sqrt{3} \in \mathbb{Q}[\sqrt{2}, \sqrt{3}]$,
@@ -188,9 +188,11 @@ $\mathbb{Q}[\sqrt{2}, \sqrt{3}] = \mathbb{Q}[\sqrt{2} + \sqrt{3}]$.
     \mathbb{Q}[\sqrt{2}, \sqrt{3}] \subseteq \mathbb{Q}[\sqrt{2} + \sqrt{3}]
 \).
 故两者相等.
+\end{proof}
 
-注: 证明过程给出了一个$\mathbb{Q}$-线性空间的基变换实际上, 从而两者将同构(见\ref{ex:1.4.9}).
-\end{solution}
+\begin{remark}
+    证明过程给出了一个$\mathbb{Q}$-线性空间的基变换实际上, 从而两者将同构(见\ref{ex:1.4.9}).
+\end{remark}
 
 \begin{problem}\label{ex:1.1.4}
     设$\mathbb{N}$是所有正整数的集合, $\mathbb{Q}$是有理数域.因$\mathbb{Q}$是可数集, 
@@ -203,7 +205,7 @@ $\forall n, m \in \mathbb{N}$,
 试证明：$\mathbb{N} = (\mathbb{N}, \oplus, \star)$是域, 并求它的零元和单位元.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     验证域公理, 加法交换律和乘法交换律易得.
 
     结合律：$\forall n, m, l \in \mathbb{N}$,
@@ -260,14 +262,14 @@ $\forall n, m \in \mathbb{N}$,
     &= n \star m \oplus n \star l.
 \end{aligned}
 \]
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:1.1.5}
     证明：在域的定义中, 加法的交换律可以由其他条件推
 出. 提示：按两种方式展开 $(1 + 1) \cdot (a + b)$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     一方面
 \[
 \begin{aligned}
@@ -284,7 +286,7 @@ $\forall n, m \in \mathbb{N}$,
 \]
 故有$a + b + a + b = a + a + b + b$.
 消去两端的一个$a$和一个$b$即得加法交换律.
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$p > 2$是素数,
@@ -297,12 +299,12 @@ $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
 \begin{enumerate}[(1)]
     \item 只需找到能被$2$整除的$1 + kp(k \in \mathbb{Z})$.
 由于素数$p > 2$, $p + 1$即可. i.e. $\overline{2}^{-1} = \overline{\frac12(p + 1)}$.
     \item $\overline{p - 1} \cdot \overline{p - 2} = \overline{-1} \cdot \overline{-2} = \overline{2}$.
     \item 由(1), $\overline{p - 2}^{-1} = \overline{-2}^{-1} = \overline{-\frac12(p + 1)} = \overline{\frac12(p - 1)}$.
 \end{enumerate}
-\end{solution}
+\end{proof}
     

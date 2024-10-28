@@ -1,6 +1,6 @@
 \subsection{教材p28-p29}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.1}
     设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
 \[
     \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
@@ -8,10 +8,12 @@
 也是$R$的理想 (称为理想$I$的根).
 \end{problem}
 
-注: 这题的根理想定义有误, 应是$\mathbb{N}$而不是$\mathbb{Z}$. 一旦出现负整数意味着有可逆元, 从而$\sqrt{I}$是单位理想了.
+\begin{remark}
+    这题的理想的根定义有误, 应是$\mathbb{N}$而不是$\mathbb{Z}$. 一旦出现负整数意味着有可逆元, 从而$\sqrt{I}$是单位理想了.
+\end{remark}
 
-\begin{solution}
-    可以清楚地看出$I \subseteq \sqrt{I}$. 先验证加法子群, 
+\begin{proof}
+    先验证加法子群, 
     \[
     \begin{gathered}
         \forall a, b \in \sqrt{I},\, \exists m, n \in \mathbb{N},\, a^m, b^n \in I,\\
@@ -26,9 +28,13 @@
         \forall a \in \sqrt{I}, r \in R,\, \exists m \in \mathbb{N},\, a^m \in I \implies (ar)^m = a^mr^m \in I
     \]
     因此$ar \in \sqrt{I}$.
+\end{proof}
 
-注: 零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.(可以参考\cite{atiyah1994introduction}p5)
-\end{solution}
+\begin{remark}
+    零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.(可以参考\cite{atiyah1994introduction}p5)
+
+    对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(\ref{ex:2.1.5})都是根理想.
+\end{remark}
 
 \begin{problem}
     设$R$是一个交换环, $p > 0$是一个素数. 如果
@@ -36,7 +42,7 @@ $p \cdot x = 0 (\forall x\in R)$. 试证明：
 $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p = 0$, $\mathrm{Char}(R) < p$.
     那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1 = 0$, 这就没什么考虑的必要了.
 
@@ -57,23 +63,25 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     由于$p$是素数, $1, 2, \cdots i$都不整除$p$, 而$\binom{p}{i}$是整数, 因此只能是$i! \mid (p - 1) \cdots (p - i + 1)$. 所以$p \mid \binom{p}{i}$. 而$p = 0$, 故$(a + b)^p = a^p + b^p$.
 
     因此$\varphi: R \to R,\, x \mapsto x^{p^m}$也是自同态, $\varphi = F^m$, 这里$F^m$表示复合$m$次.
+\end{proof}
 
-注: Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
-\end{solution}
+\begin{remark}
+    Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
+\end{remark}
 
 \begin{problem}
     证明：只有有限个元素的整环一定是一个域.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     整环$R$有乘法消去律\ref{ex:1.1.1}, 而\ref{ex:1.3.9}告诉我们, 满足消去律的有限半群是群. 因此$(R \setminus \{0\}, \cdot)$是群, 即$R$是一个域.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:2.1.4}
     证明：只有有限个理想的整环是一个域.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     事实上条件可以再减弱一点, 一个Artin整环一定是域.
 
     设$a \neq 0$, 考虑理想降链
@@ -81,14 +89,16 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
         (a) \supseteq (a^2) \supseteq \cdots 
     \]
     因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1_R$.
+\end{proof}
 
-注: Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
+\begin{remark}
+    Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
 \[
     I_1 \supseteq I_2 \supseteq \cdots 
 \]
 则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
 这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
-\end{solution}
+\end{remark}
 
 \begin{problem}\label{ex:2.1.5}
     理想$P \,\red{\subsetneq}\, R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
@@ -96,19 +106,23 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item "$\implies$":
         \[
-            \forall \overline{a}, \overline{b} \in R/P,\, \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies ab \in P \implies a \in P \text{ or } b \in P \implies \overline{a} = \overline{0} \text{ or } \overline{b} = \overline{0}.
+        \begin{gathered}
+            \forall \overline{a}, \overline{b} \in R/P,\, \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies ab \in P \implies a \in P \text{ or } b \in P \\ \implies \overline{a} = \overline{0} \text{ or } \overline{b} = \overline{0}.
+        \end{gathered}
         \]
         \item "$\impliedby$":
         \[
             ab \in P \implies \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies \overline{a} = 0 \text{ or } \overline{b} = 0 \implies a \in P \text{ or } b \in P.
         \]
     \end{enumerate}
+\end{proof}
 
-注: \begin{enumerate}[1.]
+\begin{remark}
+    \begin{enumerate}[1.]
     \item 零理想$(0)$是素理想.
     \item 一个交换环的(Krull) dimension定义为最长素理想链的长度, 其中, 若有素理想链
     \[
@@ -118,8 +132,8 @@ $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 
     交换Artin环(\ref{ex:2.1.4})是$0$维的Noether环. $0$维即意味着所有的素理想都是极大理想.
     \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
-\end{enumerate} 
-\end{solution}
+    \end{enumerate} 
+\end{remark}
 
 \begin{problem}\label{ex:2.1.6}
     理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
@@ -127,7 +141,7 @@ $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item "$\implies$":
         \[
@@ -140,16 +154,24 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
         \[
         \begin{aligned}
             m \subsetneq I \underset{\text{ideal}}{\subseteq} R &\implies \exists a \in I \setminus m \text{ i.e. } \overline{a} \neq 0 \implies \exists b \in R,\, \overline{a}\overline{b} = \overline{ab} = \overline{1}\\
-            &\implies \exists x \in m \subsetneq I,\, ab = 1 + x \implies 1 = ab - x \in I \implies I = (1) = R.
+            &\implies \exists x \in m \subsetneq I,\, ab = 1 + x \implies 1 = ab - x \in I \\
+            &\implies I = (1) = R.
         \end{aligned}
         \]
         或者用同态基本定理, 包含$m$的理想和$R/m$的理想有一个一一对应, 而域的理想只有$\{0\}$和本身.
     \end{enumerate}
-注: (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
+\end{proof}
+
+\begin{remark}
+    (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
 \[
-    \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big|i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\} 
+    \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big| i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\} 
 \]
-即考虑所有可能的有限和.
+即考虑所有可能的有限和. 所谓子集$S \subseteq R$生成的理想, 是指理想
+\[
+    (S) = \sum_{a \in S} (a).
+\]
+对一个理想$I$, 若存在有限子集$S$生成$I$, 则称$I$是有限生成的.
 
     另外$\bigcap_{\alpha \in A} I_\alpha$也是一个理想. 还有一个是理想的积, 相对要复杂一些,
 \[
@@ -159,7 +181,7 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 \end{aligned}  
 \]
 他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
-\end{solution}
+\end{remark}
 
 \begin{problem}
     设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
@@ -170,7 +192,7 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[1.]
         \item (1)$\implies$(2): 由于域一定是整环, 由\ref{ex:2.1.5}和\ref{ex:2.1.6}知极大理想是素理想.
         \item (2)$\implies$(3): 由于$\mathbb{Z}$是PID(带余除法可证), 故存在整数$p$使得$I = (p)$. 由于是素理想, 因此$ab \in (p) \implies a \in (p)$或$b \in (p)$. 即
@@ -182,7 +204,7 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
         
         或直接用$\mathbb{Z}/(p) = \mathbb{Z}/p\mathbb{Z}$是域.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:2.1.8}
     设$p \in \mathbb{Z}$是素数, 证明
@@ -190,7 +212,7 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     事实上若$I$是$R$的理想, 我们有
 \[
     \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
@@ -206,8 +228,10 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
     \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
 \]
 这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+\end{proof}
 
-注: 给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(\ref{ex:2.1.11}), 根据我们之前\ref{ex:1.4.9}说过的, 首先$S$上有一个$R$-模结构. 其次有
+\begin{remark}
+    给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(\ref{ex:2.1.11}), 根据我们之前\ref{ex:1.4.9}说过的, 首先$S$上有一个$R$-模结构. 其次有
 \[
     (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
 \]
@@ -216,7 +240,7 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
 
 而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
-\end{solution}
+\end{remark}
 
 \begin{problem}\label{ex:2.1.9}
     映射$D:R[x] \longrightarrow R[x]$定义如下：
@@ -234,7 +258,7 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
 称为$f(x)$的$m$次导数).
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     按定义验证. 设$f = a_nx^n + \cdots + a_1x + a_0$, $g = b_mx^m + \cdots + b_1x + b_0$.
     \begin{enumerate}[(1)]
         \item 不妨设$n \geqslant m$, 且令$b_k = 0, k > m$.
@@ -258,7 +282,7 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
             \end{aligned}
         \]
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$
@@ -266,7 +290,7 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
 $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(\ref{ex:1.2.1}的注记), 那么
 \[
     f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
@@ -283,7 +307,7 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{aligned}
 \]
 此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:2.1.11}
     设$R$是一个环, 子环
@@ -295,7 +319,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 除环的子环自然是除环, $C(R)$和$R$中所有元素交换, 故$C(R)$本身是交换环, 从而是域.
         \item 设$\alpha = a + ib + jc + kd \in C(\mathbb{H})$, 则有
@@ -307,18 +331,20 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
         \]
         得到$b = c = d = 0$, 即$\alpha \in \mathbb{R}$.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}\label{ex:2.1.12}
     设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
 为$K$-代数. 试证明：加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
 \end{problem}
 
-\begin{solution}
-    见\ref{ex:1.4.9}和\ref{ex:2.1.8}的注记. 域上的模就是线性空间.
+\begin{proof}
+    见\ref{ex:1.4.9}和\ref{ex:2.1.8}的注记. $C(R)$包含一个和$K$同构的子域, 等价地说就是有一个域同态$K \to R$.
+\end{proof}
 
-注: $C(R)$包含一个同构于$K$的子域, 即存在同态$K \overset{\varphi}\to R$使得$\varphi(K) \subseteq C(R)$(这是因为域出发的同态一定是单的). 这和之前说的是一样的.
-\end{solution}
+\begin{remark}
+    $C(R)$包含一个同构于$K$的子域, 即存在同态$K \overset{\varphi}\to R$使得$\varphi(K) \subseteq C(R)$(这是因为域出发的同态一定是单的). 这和之前说的是一样的.
+\end{remark}
 
 \begin{problem}
     设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数.
@@ -330,7 +356,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{enumerate}
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item $M_n(K)$是$n^2$维$K$-线性空间, 只需验证
         \[
@@ -346,7 +372,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
         那么当$R$是$n$维$K$-代数时, $\lambda_r$还是$K$-线性映射. 因此有单射$R \hookrightarrow \mathrm{Hom}_K(R) \cong M_n(K)$.
         \item $R$是有限除环, 因此$C(R)$是有限域(\ref{ex:2.1.11}). 根据定义$R$是一个$C(R)$-代数, 且$R$有限, 故是有限维的($|R| = [R:C(R)]|C(R)|$).
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     设$K$是一个域, $R$是一个有限维$K$-代数.试证明：
@@ -363,13 +389,13 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
 
-\begin{solution}
+\begin{proof}
     \begin{enumerate}[(1)]
         \item 设$\mathrm{dim}_K R = n$. 则$1, \alpha, \alpha^2, \cdots, \alpha^n$线性相关. 或者考虑线性映射$r \mapsto \alpha r$. 那么它对应的矩阵的特征多项式满足条件(Cayley-Hamilton Theorem).
         \item 按定义, $\mu_\alpha$是满足$\alpha$的次数最小的(首一)多项式. 假设$\mu_\alpha$可约, 即$\mu_\alpha(x) = f(x)g(x),\, \deg(f),\, \deg(g)> 0$, 则$0 = \mu_\alpha(\alpha) = f(\alpha)g(\alpha)$. 由于除环无零因子, 故$\deg(\mu_\alpha) = \deg(f) + \deg(g)$, 且$f(\alpha) = 0$或$g(\alpha) = 0$. 不妨设$f(\alpha) = 0$, 但$\deg(f) < \deg (\mu_\alpha)$与极小矛盾.
         \item 代数闭域等价于任意多项式可分解成一次多项式的乘积. 这和代数基本定理是类似的. 此时$K[x]$中的不可约多项式即为所有一次多项式. 由(2), $\forall \alpha \in R$, 极小多项式$\mu_\alpha(x) = x - k_\alpha, k_\alpha \in K$. 因此$\alpha = k_\alpha \in K$. 即$R = K$.
     \end{enumerate}
-\end{solution}
+\end{proof}
 
 \begin{problem}
     证明：集合
@@ -388,7 +414,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 上述集合是否是一个25元域, 为什么？
 \end{problem}
 
-\begin{solution}
+\begin{proof}
     这个集合是$\mathbb{F}_3$上的$2$维线性空间.
 \[
     \mathbb{F}_{3^2} = \left\{ a\lambda + b\xi \mid
@@ -409,4 +435,4 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \[
     x^2 + 1 = x^2 - 4 = (x - 2)(x + 2).
 \]
-\end{solution}
+\end{proof}
