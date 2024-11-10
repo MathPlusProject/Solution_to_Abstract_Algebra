@@ -1,7 +1,7 @@
 \subsection{教材p41-p42}
 
 \begin{problem}
-    设$F$是一个域, $F[[x]]$是系数在$F$中的形式幂级数环, 试证明：
+    设$F$是一个域, $F[[x]]$是系数在$F$中的形式幂级数环, 试证明: 
 \begin{enumerate}[(1)]
     \item $f(x) = a_0 + a_1x + a_2x^2 + \cdots$在$F[[x]]$中可逆$\Leftrightarrow a_0 \neq 0$;
     \item $F[[x]]$中任意不可约元$p(x)$均与$x$相伴, 即$p(x) \sim x$;
@@ -46,7 +46,7 @@
 
 \begin{problem}
     设$F$是一个域, $p(x) \in F[x]$不可约, 令$I = p(x)F[x]$表示由$p(x)$生
-成的理想, 试证明：商环$F[x]/I$是一个域, 且环同态
+成的理想, 试证明: 商环$F[x]/I$是一个域, 且环同态
 \[
     \varphi:F[x] \to F[x]/I,\quad f(x) \mapsto \overline{f(x)}
 \]
@@ -72,7 +72,7 @@
 
 \begin{problem}
     设$F$是一个域, $K \subset F$是一个子域, $f(x), g(x) \in K[x]$.
-试证明：$f(x)$, $g(x)$在$K[x]$中互素$\Leftrightarrow f(x)$,
+试证明: $f(x)$, $g(x)$在$K[x]$中互素$\Leftrightarrow f(x)$,
 $g(x)$在$F[x]$中互素.
 \end{problem}
 
@@ -92,7 +92,7 @@ $g(x)$在$F[x]$中互素.
 
 \begin{problem}
     设$\mathbb{F}_2 = \mathbb{Z}/(2) = \{\bar{0}, \bar{1}\}$
-是一个二元域. 证明：
+是一个二元域. 证明: 
 \[
     f(x) = x^n + a_1x^{n - 1} + \cdots + a_{n - 1}x + a_n \in \mathbb{F}_2[x]
 \]
@@ -139,7 +139,7 @@ $g(x)$在$F[x]$中互素.
 
 \begin{problem}
     设$p$是素数, $\mathbb{Z} \to \mathbb{F}_p = \mathbb{Z}/(p)\mathbb{Z},~a \mapsto \bar{a}$,
-是商同态. 证明：
+是商同态. 证明: 
 \begin{enumerate}[(1)]
     \item 映射
 \[
@@ -159,10 +159,8 @@ $g(x)$在$F[x]$中互素.
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
-    设$R, A$是两个环, $C(A) \subset A$是$A$的中心,
-$\psi:R \to C(A)$是一个环同态. 证明：$\forall u \in A$,
-存在唯一环同态$\psi_u:R[x] \to A$满足：
+\begin{problem}\label{ex:2.3.7}
+    设$R, A$是两个环, $C(A) \subset A$是$A$的中心, $\psi:R \to C(A)$是一个环同态. 证明: $\forall u \in A$, 存在唯一环同态$\psi_u:R[x] \to A$满足: 
 \[
     \psi_u(x) = u,\quad \psi_u(a) = \psi(a) \quad (\forall a \in R).
 \]
@@ -202,7 +200,7 @@ $\psi:R \to C(A)$是一个环同态. 证明：$\forall u \in A$,
 \end{remark}
 
 \begin{problem}
-    设$R$是一个交换环, $f(x) \in R[x]$. 证明：$f(x)$是环$R[x]$
+    设$R$是一个交换环, $f(x) \in R[x]$. 证明: $f(x)$是环$R[x]$
 中的零因子当且仅当存在$0 \neq r \in R$使得$r \cdot f(x) = 0$.
 \end{problem}
 
@@ -261,7 +259,32 @@ $\psi:R \to C(A)$是一个环同态. 证明：$\forall u \in A$,
 \end{problem}
 
 \begin{proof}
-    根据定义, 设$f(x) = \frac{p(x)}{q(x)}$, $p, q \in \mathbb{R}[x],\, q \neq 0,\, (p, q) = 1$.
+    根据有理函数的定义, 设$f(x) = \frac{p(x)}{q(x)}$, $p, q \in \mathbb{R}[x],\, q \neq 0,\, (p, q) = 1$. 若$p = 0$结论平凡, 因此只考虑$p \neq 0$的情况.
     
-    \dots
+    这题可以用一些分析的想法.
+    \begin{remark}
+        $q(x)$有整数根的时候, 会存在某个整数使得$f(m)$无定义, 因此本题题目条件默认$q(m) \neq 0,\, \forall m \in \mathbb{Z}$.
+    \end{remark}
+    我们利用一个简单的结论:
+    \[
+        \lim_{m \to \infty} f(m) = \lim_{m \to \infty} \frac{p(m)}{q(m)} =
+        \begin{cases}
+            0 & \deg(p) < \deg(q),\\
+            \infty & \deg(p) > \deg(q),\\
+            \frac{a_n}{b_n} & \deg(p) = \deg(q) = n.
+        \end{cases}
+    \]
+    这里$a_n$和$b_n$分别是$p(x)$和$q(x)$的首项系数.
+
+    注意$p(x)$最多只有$\deg(p)$个根, 因此最多只有$\deg(p)$个整数使得$f(m) = 0$. 那么利用$\deg(p) < \deg(q)$时的结果, 存在$N \in \mathbb{Z}_{>0}$使得任意$m > N$有$0 < |f(m)| < 1$, 和条件矛盾.
+
+    $\deg(p) = \deg(q)$时, 若$\frac{a_n}{b_n} \notin \mathbb{Z}$, 利用极限的定义可以得到类似的矛盾(即$m$足够大时把$|f(m)|$限制在一个无整数的区间内). 而若$\frac{a_n}{b_n} \in \mathbb{Z}$, 则可以得到$m$足够大时都有$f(m) = \frac{a_n}{b_n} = k \in \mathbb{Z}$, 即
+    \[
+        f(m) = \frac{a_nm^n + \cdots + a_0}{b_nm^n + \cdots + b_0} = \frac{a_n}{b_n} 
+    \]
+    则可得$a_nb_i = a_ib_n,\, i = 0, 1, \cdots, n - 1$, 即$\frac{a_i}{b_i} = \frac{a_n}{b_n} = k$. 因此$f(x) = \frac{a_n}{b_n}$是常整数多项式.
+
+    当$\deg(p) > \deg(q)$时即要证明$q(x) \mid p(x)$. 用带余除法假设$p(x) = q(x)s(x) + r(x),\, \deg(r) < \deg(q)$且$r \neq 0$, 则$f(x) = s(x) + \frac{r(x)}{q(x)}$. 那么由之前的结果可知矛盾.(二三两种情况都用带余除法可以合并)
+
+    因此$f(x) \in \mathbb{R}[x]$, 记$f(x) = c_nx^n + \cdots + c_0$, 任意选择$n + 1$个不同整数$m_0, m_1, \cdots, m_n$带入得到一个关于$a_0, a_1, \cdots, a_n$的整系数线性方程组$\sum_{k = 0}^{n} m_i^ka_k = b_i,\, i = 0, 1, \cdots, n$, 系数矩阵的行列式恰为Vandenmonde行列式, 因此不为零, 方程组有唯一有理数解.
 \end{proof}

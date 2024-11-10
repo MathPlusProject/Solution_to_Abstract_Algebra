@@ -1,7 +1,7 @@
 \subsection{教材p13-p14}
 
 \begin{problem}\label{ex:1.2.1}
-    设$R$是一个环, 试证明下述结论：
+    设$R$是一个环, 试证明下述结论: 
 \begin{enumerate}[(1)]
     \item (加法消去律)\quad 如果$a + c = b + c$, 则$a = b$;
     \item $\forall a\in R$, 有$a \cdot 0_R = 0_R$;
@@ -48,7 +48,7 @@
         \item 利用$-a = -1_R \cdot a$和分配律展开即可.
         \item 见(3).
         \item (3)和(5)的推论.
-        \item 参考\ref{ex:1.1.1}的(6), 明确定义：
+        \item 参考\ref{ex:1.1.1}的(6), 明确定义: 
         \[
             0a \defeq 0_R,\, (n + 1)a \defeq na + a,\, n \in \mathbb{N}
         \]
@@ -166,7 +166,7 @@
 
 \begin{problem}
     假设集合$R$上有两个运算, 除加法的交换律外满足环的所有其他公
-理. 利用分配律证明：加法是交换的 (从而$R$是环).
+理. 利用分配律证明: 加法是交换的 (从而$R$是环).
 \end{problem}
 
 \begin{proof}
@@ -176,7 +176,7 @@
 \begin{problem}\label{ex:1.2.3}
     设$X$是集合, $P(X)$表示$X$的所有子集形成的集合, 在$P(X)$上
 定义“加法”和“乘法”: $A + B = A \cup B - A \cap B$,
-$A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环, 
+$A \cdot B = A \cap B$. 证明: 在这些运算下$P(X)$是一个环, 
 且$2A = 0 (\forall A \in P(X))$.
 \end{problem}
 
@@ -189,7 +189,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 \begin{enumerate}[(i)]
     \item $(P(X), +)$是Abel群. 交换律由定义是显然的.
     
-    结合律：
+    结合律: 
     \[
     \begin{aligned}
         (A + B) + C &= (((A \cap B^c) \cup (A^c \cap B)) \cap C^c) \\
@@ -210,7 +210,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
     即$2A = 0$.
     \item $(P(X), \cdot)$是(交换)幺半群, 单位元是$X$. 由于$\cdot$就是交集$\cap$,
 因此这一点是显然的.
-    \item 分配律：
+    \item 分配律: 
     \[
     \begin{aligned}
         (A + B) \cdot C &= ((A \cap B^c) \cup (A^c \cap B)) \cap C\\
@@ -225,7 +225,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
 因此$(P(X), +, \cdot)$为一个(交换)环.
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:1.2.4}
     设$R$是一个环, $S \,\red{\subseteq}\, R$是一个非空子集合. 试证明
 \[
     C(S) \defeq \{a \in R \mid ax = xa, \forall x \in S \}
@@ -271,7 +271,7 @@ $A \cdot B = A \cap B$. 证明：在这些运算下$P(X)$是一个环,
         &= 1 + bca.
     \end{aligned} 
     \]
-    验证$1 + bca$确实是$1 - ba$的逆：
+    验证$1 + bca$确实是$1 - ba$的逆: 
     \[
     \begin{aligned}
         (1 - ba)(1 + bca) &= 1 - ba + bca - b(abc)a\\
@@ -338,7 +338,7 @@ $U(R)$为环$R$的单位群(\ref{ex:1.3.2}).
     \]
 \end{proof}
 
-\begin{problem}[多项式矩阵的带余除法]
+\begin{problem}[多项式矩阵的带余除法]\label{ex:1.2.8}
     设$A \in M_n(K)$是一个给定的$n$阶矩阵.
 对任意多项式矩阵$A(x) \in M_{n \times m}(K[x])$, 证明存在唯一的
 $B(x) \in M_{n \times m}(K[x])$, $R \in M_{n \times m}(K)$使得
@@ -374,7 +374,7 @@ $A(x) = (xI_n - A)B(x) + R$.
 $R = A_0$即可.
 
 假设对任意$k$次多项式$A(x)$有$B(x) \in M_{n \times m}(K[x])$, $R \in M_{n \times m}(K)$使得
-$A(x) = (xI_n - A)B(x) + R$. 考查$k + 1$的情形：
+$A(x) = (xI_n - A)B(x) + R$. 考查$k + 1$的情形: 
 \[
 \begin{aligned}
     A(x) &= A_0 + x(A_1 + A_2x + \cdots + A_{k + 1}x^k)\\
@@ -389,8 +389,8 @@ $R = A\tilde{R} + A_0$即可.
 
 \begin{problem}
     设$m > 0$是任意整数, $\mathbb{Z}_m = \{\bar{0}, \bar{1}, \cdots, \overline{m-1}\}$
-是$\mathbb{Z}$的模$m$剩余类环. 试证明：$\bar{a} \in \mathbb{Z}_m$可逆当且仅当$(a, m) = 1$
-(即：$a$与$m$互素).
+是$\mathbb{Z}$的模$m$剩余类环. 试证明: $\bar{a} \in \mathbb{Z}_m$可逆当且仅当$(a, m) = 1$
+(即: $a$与$m$互素).
 \end{problem}
 
 \begin{proof}
@@ -429,7 +429,7 @@ $R = A\tilde{R} + A_0$即可.
 \end{remark}
 
 \begin{problem}
-    环$R$中非零元$x$称为幂零元(nilpotent), 若存在$n > 0$使$x^n = 0$. 证明：
+    环$R$中非零元$x$称为幂零元(nilpotent), 若存在$n > 0$使$x^n = 0$. 证明: 
 \begin{enumerate}[(1)]
     \item 如果$x$是幂零元, 则$1 - x$是可逆元；
     \item $\mathbb{Z}_m$有幂零元当且仅当$m$可以被一个大于$1$的整数的平方整除.
@@ -473,7 +473,7 @@ $R$是交换环.
 \end{proof}
 
 \begin{problem}
-    如果环$R$满足条件：$x^6 = x (\forall x \in R)$. 证明：
+    如果环$R$满足条件: $x^6 = x (\forall x \in R)$. 证明: 
 \begin{enumerate}[(1)]
     \item $x^2 = x (\forall x \in R)$;
     \item $R$是一个交换环.

@@ -39,12 +39,12 @@
 \begin{remark}
     零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.
 
-    对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(\ref{ex:2.1.5})都是根理想.
+    对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(2.1.5)都是根理想.
 \end{remark}
 
 \begin{exercise}[习题2.1.2]
     设$R$是一个交换环, $p > 0$是一个素数. 如果
-$p \cdot x = 0 (\forall x\in R)$. 试证明：
+$p \cdot x = 0 (\forall x\in R)$. 试证明: 
 $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{exercise}
 
@@ -76,8 +76,8 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{remark}
 
 \begin{exercise}[习题2.1.5]
-    理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果：$ab \in P \Rightarrow a \in P$
-或$b \in P$. 试证明：
+    理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果: $ab \in P \Rightarrow a \in P$
+或$b \in P$. 试证明: 
 \(P \,\red{\subsetneq}\, R\)是素理想当且仅当$R/P$没有零因子.
 \end{exercise}
 
@@ -85,7 +85,9 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
     \begin{enumerate}[(1)]
         \item "$\implies$":
         \[
-            \forall \overline{a}, \overline{b} \in R/P,\, \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies ab \in P \implies a \in P \text{ or } b \in P \implies \overline{a} = \overline{0} \text{ or } \overline{b} = \overline{0}.
+        \begin{gathered}
+            \forall \overline{a}, \overline{b} \in R/P,\, \overline{a}\overline{b} = \overline{ab} = \overline{0} \implies ab \in P \implies a \in P \text{ or } b \in P \\ \implies \overline{a} = \overline{0} \text{ or } \overline{b} = \overline{0}.
+        \end{gathered}
         \]
         \item "$\impliedby$":
         \[
@@ -96,7 +98,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 
 \begin{exercise}[习题2.1.6]
     理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即：如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
+(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, 
 $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{exercise}
 
@@ -113,7 +115,8 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
         \[
         \begin{aligned}
             m \subsetneq I \underset{\text{ideal}}{\subseteq} R &\implies \exists a \in I \setminus m \text{ i.e. } \overline{a} \neq 0 \implies \exists b \in R,\, \overline{a}\overline{b} = \overline{ab} = \overline{1}\\
-            &\implies \exists x \in m \subsetneq I,\, ab = 1 + x \implies 1 = ab - x \in I \implies I = (1) = R.
+            &\implies \exists x \in m \subsetneq I,\, ab = 1 + x \implies 1 = ab - x \in I \\
+            &\implies I = (1) = R.
         \end{aligned}
         \]
         或者用同态基本定理, 包含$m$的理想和$R/m$的理想有一个一一对应, 而域的理想只有$\{0\}$和本身.
@@ -198,7 +201,7 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 
 \begin{exercise}[习题2.2.2]
     设$R$是整环, $p \in R$称为一个素元如果它生成的理想
-$P=(p)R$是素理想. 证明：$R$中素元必为不可约元.
+$P=(p)R$是素理想. 证明: $R$中素元必为不可约元.
 \end{exercise}
 
 \begin{proof}
@@ -211,7 +214,7 @@ $P=(p)R$是素理想. 证明：$R$中素元必为不可约元.
 
 \begin{exercise}[习题2.2.3]
     设$R$是一个主理想整环(PID), $0 \neq r \in R$.
-证明：在$R$中仅有有限个理想包含$r$.
+证明: 在$R$中仅有有限个理想包含$r$.
 \end{exercise}
 
 \begin{proof}
@@ -227,7 +230,7 @@ r_{1} = q_{3}r_{2} + r_{3},\, \cdots,\,
 r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \]
 满足$\delta(r_k) < \delta(r_{k - 1}) < \cdots < \delta(r_2) < \delta(r_1) < \delta(b)$.
-试证明：
+试证明: 
 \begin{enumerate}[(1)]
     \item 存在$k$使得$r_{k + 1} = 0$;
     \item $r_k$是$a$, $b$的一个最大公因子;
@@ -264,7 +267,7 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 
 \begin{exercise}[习题2.2.5]
     设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$,
-定义：$N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明：
+定义: $N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明: 
 \begin{enumerate}[(1)]
     \item $U(R) = \{1, -1\}$;
     \item $R$中任意元素都有不可约分解;

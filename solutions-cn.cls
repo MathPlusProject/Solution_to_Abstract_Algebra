@@ -18,10 +18,26 @@
 ]{ctexart}
 
 % Package settings
-\RequirePackage{amsthm, amssymb, mathtools, mathrsfs, tikz-cd}
-\RequirePackage{enumerate, tcolorbox, graphicx, tikz, varwidth}
-\RequirePackage[nottoc, notlot, notlof]{tocbibind}
-\RequirePackage[top=25mm, bottom=20mm, left=30mm, right=30mm]{geometry}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{mathrsfs}
+\RequirePackage{tikz-cd}
+\RequirePackage{enumerate}
+\RequirePackage{tikz}
+\RequirePackage{tcolorbox}
+\RequirePackage{varwidth}
+\RequirePackage[
+    nottoc,
+    notlot,
+    notlof
+]{tocbibind}
+\RequirePackage[
+    top = 25mm,
+    bottom = 20mm,
+    left = 30mm,
+    right = 30mm
+]{geometry}
 \ifusehyper
     \RequirePackage{hyperref}
     \hypersetup{
@@ -56,9 +72,8 @@
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 
 % colors
-\definecolor{rmkbg}{HTML}{F2FBF8}
-\definecolor{rmkfr}{HTML}{88D6D1}
-\definecolor{rmkti}{HTML}{2A7F7F}
+\definecolor{rmkbg}{HTML}{E6F8F6}
+\definecolor{rmkfr}{HTML}{39C5BB}% use color of MIKU!
 
 % Theorem style
 \newtheoremstyle{dotless}{3pt}{3pt}{\songti}{2em}{\bfseries}{}{\ccwd}{}
@@ -139,7 +154,6 @@
 
 % remark tcolorbox
 \usetikzlibrary{arrows,calc,shadows.blur}
-\tcbuselibrary{skins}
 \newtcolorbox{remark}[1][]{%
 	enhanced,
 	colback=rmkbg,%
@@ -148,7 +162,7 @@
 	boxrule=1pt,
 	title=\textbf{注:},
 	halign title=flush center,
-	coltitle=rmkti,
+	coltitle=rmkfr,
 	breakable,
 	drop shadow=black!50!white,
 	attach boxed title to top left={xshift=1cm,yshift=-\tcboxedtitleheight/2,yshifttext=-\tcboxedtitleheight/2},

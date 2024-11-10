@@ -38,7 +38,7 @@
 
 \begin{problem}
     设$R$是一个交换环, $p > 0$是一个素数. 如果
-$p \cdot x = 0 (\forall x\in R)$. 试证明：
+$p \cdot x = 0 (\forall x\in R)$. 试证明: 
 $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
@@ -70,7 +70,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{remark}
 
 \begin{problem}
-    证明：只有有限个元素的整环一定是一个域.
+    证明: 只有有限个元素的整环一定是一个域.
 \end{problem}
 
 \begin{proof}
@@ -78,7 +78,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{proof}
 
 \begin{problem}\label{ex:2.1.4}
-    证明：只有有限个理想的整环是一个域.
+    证明: 只有有限个理想的整环是一个域.
 \end{problem}
 
 \begin{proof}
@@ -101,8 +101,8 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{remark}
 
 \begin{problem}\label{ex:2.1.5}
-    理想$P \,\red{\subsetneq}\, R$称为素理想, 如果：$ab \in P \Rightarrow a \in P$
-或$b \in P$. 试证明：
+    理想$P \,\red{\subsetneq}\, R$称为素理想, 如果: $ab \in P \Rightarrow a \in P$
+或$b \in P$. 试证明: 
 $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
@@ -137,7 +137,7 @@ $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 
 \begin{problem}\label{ex:2.1.6}
     理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即：如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明：当$R$是交换环时, 
+(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, 
 $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
@@ -243,12 +243,12 @@ $(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数�
 \end{remark}
 
 \begin{problem}\label{ex:2.1.9}
-    映射$D:R[x] \longrightarrow R[x]$定义如下：
+    映射$D:R[x] \longrightarrow R[x]$定义如下: 
 $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
 \[
     D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
 \]
-$\forall$ $a \in R$, $f, g \in R[x]$, 试证明：
+$\forall$ $a \in R$, $f, g \in R[x]$, 试证明: 
 \begin{enumerate}[(1)]
     \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
     \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
@@ -335,7 +335,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{problem}\label{ex:2.1.12}
     设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
-为$K$-代数. 试证明：加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
+为$K$-代数. 试证明: 加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
 \end{problem}
 
 \begin{proof}
@@ -346,9 +346,8 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
     $C(R)$包含一个同构于$K$的子域, 即存在同态$K \overset{\varphi}\to R$使得$\varphi(K) \subseteq C(R)$(这是因为域出发的同态一定是单的). 这和之前说的是一样的.
 \end{remark}
 
-\begin{problem}
-    设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数.
-试证明：
+\begin{problem}\label{ex:2.1.13}
+    设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数. 试证明: 
 \begin{enumerate}[(1)]
     \item 矩阵环$M_n(K)$是一个$n^2$维$K$-代数;
     \item 任意$n$维$K$-代数必同构于$M_n(K)$的子环;
@@ -358,11 +357,11 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item $M_n(K)$是$n^2$维$K$-线性空间, 只需验证
+        \item $M_n(K)$是$n^2$维$K$-线性空间, 按\ref{ex:2.1.8}注记, 只需验证
         \[
             k_1M_1k_2M_2 = k_1k_2M_1M_2, k_1, k_2 \in K, M_1, M_2 \in M_n(K).
         \]
-        这是根据$M_n(K)$的定义. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
+        这可以根据$M_n(K)$的定义得到. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
         \item 由教材例1.4.3, 对任意的环$R$, 我们用$\mathrm{End}_{\mathsf{Ab}}(R)$表示加法群的自同态环(关于加法和复合). 有一个自然的环同态,
         \[
             R \to \mathrm{End}_{\mathsf{Ab}}(R),\quad r \mapsto \lambda_r
@@ -375,7 +374,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{proof}
 
 \begin{problem}
-    设$K$是一个域, $R$是一个有限维$K$-代数.试证明：
+    设$K$是一个域, $R$是一个有限维$K$-代数.试证明: 
 \begin{enumerate}[(1)]
     \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
     \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
@@ -387,7 +386,9 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
 \end{problem}
 
-零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+\begin{remark}
+    零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+\end{remark}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -398,7 +399,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{proof}
 
 \begin{problem}
-    证明：集合
+    证明: 集合
 \(
     \mathbb{F}_{3^2} =
     \left\{

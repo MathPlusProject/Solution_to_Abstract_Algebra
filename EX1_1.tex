@@ -1,7 +1,7 @@
 \subsection{教材p8-p9}
 
 \begin{problem}\label{ex:1.1.1}
-    设$K$是一个域, 试证明下述结论： 
+    设$K$是一个域, 试证明下述结论:  
     
     \begin{enumerate}[(1)]
         \item 如果$a \cdot c = b \cdot c$, $c \neq 0_K$, 则$a = b$ (乘法消去律);
@@ -32,7 +32,7 @@
         要得到$a = b$需要使用(2), 即域$K$是没有零因子(zero-divisor)的. 由于$c \neq 0_K$,
     则$a - b = 0_K$, 即$a = b$.
 
-        注：无零因子的非零交换环称为整环(integral domain), 见教材2.1节p23.
+        注: 无零因子的非零交换环称为整环(integral domain), 见教材2.1节p23.
         \item 只需证明当$a \neq 0_K$时有$b = 0_K$, 同(1), 在等式$a \cdot b = 0_K$
     两端左乘$a^{-1}$即可.
         
@@ -120,7 +120,7 @@
 \end{proof}
 
 \begin{problem}
-    设$K$是一个域, 证明：$K$的任意一组子域(可以无限多个)的交集仍是子域.
+    设$K$是一个域, 证明: $K$的任意一组子域(可以无限多个)的交集仍是子域.
 如果$K_i \,\red{\subseteq}\, K \, (i \in \mathbb{N})$是满足条件
 $K_i \subseteq K_{i+1} \, (i \in \mathbb{N})$的子域, 则它们的并集也是
 $K$的子域.
@@ -197,18 +197,18 @@ $\mathbb{Q}[\sqrt{2}, \sqrt{3}] = \mathbb{Q}[\sqrt{2} + \sqrt{3}]$.
 \begin{problem}\label{ex:1.1.4}
     设$\mathbb{N}$是所有正整数的集合, $\mathbb{Q}$是有理数域.因$\mathbb{Q}$是可数集, 
 故存在双射$f:\mathbb{N} \to \mathbb{Q}$. 令$f^{-1}:\mathbb{Q} \to \mathbb{N}$表示$f$的
-逆映射, 利用有理数的加法和乘法, 可通过双射$f$定义$\mathbb{N}$上的运算如下：
+逆映射, 利用有理数的加法和乘法, 可通过双射$f$定义$\mathbb{N}$上的运算如下: 
 $\forall n, m \in \mathbb{N}$, 
 \[
     n \oplus m = f^{-1}(f(n) + f(m)), \quad n \star m = f^{-1}(f(n)f(m)),
 \]
-试证明：$\mathbb{N} = (\mathbb{N}, \oplus, \star)$是域, 并求它的零元和单位元.
+试证明: $\mathbb{N} = (\mathbb{N}, \oplus, \star)$是域, 并求它的零元和单位元.
 \end{problem}
 
 \begin{proof}
     验证域公理, 加法交换律和乘法交换律易得.
 
-    结合律：$\forall n, m, l \in \mathbb{N}$,
+    结合律: $\forall n, m, l \in \mathbb{N}$,
 \[
 \begin{aligned}
     (n \oplus m) \oplus l &= f^{-1}\biggl(f\bigl(f^{-1}(f(n) + f(m))\bigr)+ f(l)\biggr)\\
@@ -252,7 +252,7 @@ $\forall n, m \in \mathbb{N}$,
     &= f^{-1}(1).
 \end{aligned}
 \]
-    分配律：$\forall n, m, l \in \mathbb{N}$,
+    分配律: $\forall n, m, l \in \mathbb{N}$,
 \[
 \begin{aligned}
     n \star (m \oplus l) &= f^{-1}\biggl(f(n) \cdot f\bigl(f^{-1}(f(m) + f(l))\bigr)\biggr)\\
@@ -265,8 +265,8 @@ $\forall n, m \in \mathbb{N}$,
 \end{proof}
 
 \begin{problem}\label{ex:1.1.5}
-    证明：在域的定义中, 加法的交换律可以由其他条件推
-出. 提示：按两种方式展开 $(1 + 1) \cdot (a + b)$.
+    证明: 在域的定义中, 加法的交换律可以由其他条件推
+出. 提示: 按两种方式展开 $(1 + 1) \cdot (a + b)$.
 \end{problem}
 
 \begin{proof}
@@ -291,7 +291,7 @@ $\forall n, m \in \mathbb{N}$,
 \begin{problem}
     设$p > 2$是素数,
 $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
-是$\mathbb{Z}$的模$p$剩余类域. 试计算：
+是$\mathbb{Z}$的模$p$剩余类域. 试计算: 
 \begin{enumerate}[(1)]
     \item $\bar{2}$在$\mathbb{F}_p$中的逆元$\bar{2}^{-1}$;
     \item $\overline{p - 1} \cdot \overline{p - 2}$;

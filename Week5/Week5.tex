@@ -6,7 +6,7 @@
 \subsection*{作业}
 
 \begin{exercise}[习题2.1.3]
-    证明：只有有限个元素的整环一定是一个域.
+    证明: 只有有限个元素的整环一定是一个域.
 \end{exercise}
 
 \begin{proof}
@@ -14,7 +14,7 @@
 \end{proof}
 
 \begin{exercise}[习题2.1.4]
-    证明：只有有限个理想的整环是一个域.
+    证明: 只有有限个理想的整环是一个域.
 \end{exercise}
 
 \begin{proof}
@@ -37,12 +37,12 @@
 \end{remark}
 
 \begin{exercise}[习题2.1.9]
-    映射$D:R[x] \longrightarrow R[x]$定义如下：
+    映射$D:R[x] \longrightarrow R[x]$定义如下: 
 $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
 \[
     D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
 \]
-$\forall$ $a \in R$, $f, g \in R[x]$, 试证明：
+$\forall$ $a \in R$, $f, g \in R[x]$, 试证明: 
 \begin{enumerate}[(1)]
     \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
     \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
@@ -121,7 +121,7 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{proof}
 
 \begin{exercise}[习题2.2.6]
-    令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明：
+    令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明: 
 \begin{enumerate}[(1)]
     \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
 则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
@@ -223,13 +223,13 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     \[
         Z(S) = \{(a_1, a_2, \cdots, a_n) \in k^n \mid \forall f \in S,\, f(a_1, a_2, \cdots a_n) = 0\}
     \]
-    按定义有$S \subseteq S' \implies Z(S') \subseteq Z(S)$. 考虑$S$生成的理想$I = (S)$(见\ref{ex:2.1.6}的注记), 则有$Z(I) \subseteq Z(S)$. 另一方面, 根据$I = \left\{\sum f_ig_i \Big| f_i \in k[x_1, x_2, \cdots, x_n], g_i \in S\right\}$, 立刻得到$Z(S) \subseteq Z(I)$. 从而$Z(S) = Z(I)$. 我们称$Z(S)$这种点集为代数集(algebraic set), 用$\mathbb{A}_k^n$代替的$k^n$表示将它看作一个代数集(因为按定义$Z(\varnothing) = k^n$), 而Hilbert's Basis Theorem告诉我们$k[x_1, x_2, \cdots, x_n]$是Noether环, 所以理想都是有限生成的, 那么总有$Z(I) = Z(f_1, f_2, \cdots, f_r)$.
+    按定义有$S \subseteq S' \implies Z(S') \subseteq Z(S)$. 考虑$S$生成的理想$I = (S)$(见2.1.6的注记), 则有$Z(I) \subseteq Z(S)$. 另一方面, 根据$I = \left\{\sum f_ig_i \Big| f_i \in k[x_1, x_2, \cdots, x_n], g_i \in S\right\}$, 立刻得到$Z(S) \subseteq Z(I)$. 从而$Z(S) = Z(I)$. 我们称$Z(S)$这种点集为代数集(algebraic set), 用$\mathbb{A}_k^n$代替的$k^n$表示将它看作一个代数集(因为按定义$Z(\varnothing) = k^n$), 而Hilbert's Basis Theorem告诉我们$k[x_1, x_2, \cdots, x_n]$是Noether环, 所以理想都是有限生成的, 那么总有$Z(I) = Z(f_1, f_2, \cdots, f_r)$.
     
     反过来, 对$X \subseteq \mathbb{A}_k^n$, 定义
     \[
         \mathscr{I}(X) = \{f \in k[x_1, x_2, \cdots x_n] \mid \forall (a_1, a_2, \cdots a_n) \in X, f(a_1, a_2, \cdots a_n) = 0\}
     \]
-    可以验证$\mathscr{I}(X)$是根理想(\ref{ex:2.1.1}的注记). 当$k$是代数闭域(algebraic closed field)时, 有一一对应
+    可以验证$\mathscr{I}(X)$是根理想(2.1.1的注记). 当$k$是代数闭域(algebraic closed field)时, 有一一对应
     \[
         \begin{tikzcd}
             \{\mathbb{A}_k^n \text{ 的代数集}\}  \arrow[r, "\mathscr{I}", shift left] & {\{k[x_1, x_2, \cdots x_n] \text{ 的根理想}\}} \arrow[l, "Z", shift left]

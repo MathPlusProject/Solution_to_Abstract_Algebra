@@ -31,7 +31,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{exercise}[习题2.1.12]
     设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
-为$K$-代数. 试证明：加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
+为$K$-代数. 试证明: 加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
 \end{exercise}
 
 \begin{proof}
@@ -44,7 +44,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{exercise}[习题2.1.13]
     设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数.
-试证明：
+试证明: 
 \begin{enumerate}[(1)]
     \item 矩阵环$M_n(K)$是一个$n^2$维$K$-代数;
     \item 任意$n$维$K$-代数必同构于$M_n(K)$的子环;
@@ -54,11 +54,11 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item $M_n(K)$是$n^2$维$K$-线性空间, 只需验证
+        \item $M_n(K)$是$n^2$维$K$-线性空间, 按之前2.1.8的注记只需验证
         \[
             k_1M_1k_2M_2 = k_1k_2M_1M_2, k_1, k_2 \in K, M_1, M_2 \in M_n(K).
         \]
-        这是根据$M_n(K)$的定义. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
+        这可以根据$M_n(K)$的定义得到. 事实上$C(M_n(K)) = \{kI_n \mid k \in K\} \cong K$.
         \item 由教材例1.4.3, 对任意的环$R$, 我们用$\mathrm{End}_{\mathsf{Ab}}(R)$表示加法群的自同态环(关于加法和复合). 有一个自然的环同态,
         \[
             R \to \mathrm{End}_{\mathsf{Ab}}(R),\quad r \mapsto \lambda_r
@@ -71,7 +71,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{proof}
 
 \begin{exercise}[习题2.1.14]
-    设$K$是一个域, $R$是一个有限维$K$-代数.试证明：
+    设$K$是一个域, $R$是一个有限维$K$-代数.试证明: 
 \begin{enumerate}[(1)]
     \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
     \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
@@ -83,7 +83,11 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
 \end{exercise}
 
-零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+\begin{remark}
+    零多项式是平凡的, 因此(1)我做了修改. 在域扩张中, 这样的元素称为$K$上的代数元(algebraic element), 或者称$\alpha$在$K$上代数(algebraic over $K$). 给定域扩张$L/K$, 若$\forall \alpha \in L$都在$K$上代数, 则称该扩张是代数扩张.
+
+    虽然已经讲到域扩张了, 但这是很早之前写的, 我就不删了.
+\end{remark}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -93,5 +97,135 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
     \end{enumerate}
 \end{proof}
 
+\begin{exercise}[习题2.4.1]
+    设$F$是一个域, $R = F[x_1, x_2, \cdots, x_n]$, 令$R_m \subset R$表示所有$m$次齐次多项式的集合(并上零多项式). 证明: $R_m$是域$F$上的$\binom{m + n - 1}{m}$维向量空间.
+\end{exercise}
+
+\begin{proof}
+    设$f \in R_m$, 根据$R_m$的定义, $f$可以写成
+    \[
+        f = \sum_{i_1 + i_2 + \cdots + i_n = m} a_{i_1i_2 \cdots i_n}x_1^{i_1}x_2^{i_2} \cdots x_n^{i_n}
+    \]
+    $a_{i_1i_2 \cdots i_n} \in F$允许为$0$, $i_k \geqslant 0,\, 1 \leqslant k \leqslant n$. 那么$f$的表达式中共有$\binom{m + n - 1}{m}$项. 记$N = \binom{m + n - 1}{m}$, $I = \{(i_1, i_2, \cdots, i_n) \in \mathbb{N}^n \mid i_1 + i_2 + \cdots + i_n = m\}$. 因此映射
+    \[
+        R_m \to F^{N},\quad f \mapsto (a_{i_1i_2 \cdots i_n})_{(i_1, i_2, \cdots, i_n) \in I}
+    \]
+    是同构.
+\end{proof}
+
+\begin{exercise}[习题2.4.2]
+    证明: $f(x_1, x_2, \cdots, x_n) \in F[x_1, x_2, \cdots, x_n]$是$m$次齐次多项式当且仅当$f(tx_1, tx_2, \cdots, tx_n) = t^mf(x_1, x_2, \cdots, x_n)$, ($t$是一个新的不定元).
+\end{exercise}
+
+\begin{proof}
+    "$\implies$"这个方向提出公因式$t^m$即可, 下证"$\impliedby$":
+
+    由于$f$可以唯一表示成齐次多项式的和, 即
+    \[
+        f = f_0 + f_1 + \cdots + f_k
+    \]
+    其中$k$是$f$的最高次数. 那么有
+    \[
+        f(tx_1, tx_2, \cdots, tx_n) = f_0(x_1, \cdots, x_n) + tf_1(x_1, \cdots, x_n) + \cdots + t^kf_k(x_1, \cdots, x_n)
+    \]
+    这是一个$F[x_1, x_2, \cdots, x_n]$上的关于$t$的多项式. 若有$f(tx_1, tx_2, \cdots, tx_n) = t^mf(x_1, x_2, \cdots, x_n)$, 对比系数知$f = f_m$.
+\end{proof}
+
+\begin{exercise}[习题2.4.3]
+    设$F$是一个域, $K \,\red{\supseteq}\, F$是$F$的一个扩域, 试证明: $a \in K$是多项式$f(x) \in F[x]$的重根$\Leftrightarrow f(a) = 0, f'(a) = 0$.
+\end{exercise}
+
+\begin{proof}
+    "$\implies$"的部分按定义直接验证, 下证"$\impliedby$":
+
+    由$f(a) = 0$, 可以得到$f(x) = (x - a)f_1(x)$. 那么$f'(x) = f_1(x) + (x - a)f'_1(x)$. 由$f'(a) = f_1(a) = 0$, 得到$f_1(x) = (x - a)f_2(x)$. 因此$f(x) = (x - a)^2f_2(x)$, 即$a$是重根.
+\end{proof}
+
+\begin{exercise}[习题2.4.4]
+    设$F$是一个无限域, $f(x_1, x_2, \cdots ,x_n) \in F[x_1, x_2, \cdots,x_n]$是一非零多项式. 试证明: 存在$a_1, a_2, \cdots, a_n \in F$, 使$f(a_1, a_2, \cdots, a_n) \neq 0$.
+\end{exercise}
+
+\begin{proof}
+    对$n$归纳.
+    
+    $n = 1$时, $f(x_1)$至多有$\deg(f)$个根, 由$F$无限, 存在$a_1 \in F$使得$f(a_1) \neq 0$. 现假设结论对$n$成立, 考虑多项式
+    \[
+        f(x_1, \cdots, x_n, x_{n + 1}) \in F[x_1, \cdots, x_n, x_{n + 1}] = F[x_1, \cdots, x_n][x_{n + 1}].
+    \]
+    从而
+    \[
+        f(x_1, \cdots, x_n, x_{n + 1}) = c_m(x_1, \cdots, c_n)x_{n + 1}^m + \cdots + c_0(x_1, \cdots, x_n)
+    \]
+    其中$c_m(x_1, \cdots, x_n) \neq 0$. 由归纳假设存在$(a_1, \cdots, a_n) \in F^n$使得$c_m(a_1, \cdots, a_n) \neq 0$, 那么对多项式$g(x_{n + 1}) = f(a_1, \cdots, a_n, x_{n + 1}) \in F[x_{n + 1}]$使用$n = 1$的结论即可.
+\end{proof}
+
+\begin{exercise}[习题2.4.5]
+    设$\psi:R \to A$是环同态, $u = (u_1, u_2, \cdots, u_n) \in A^n$满足:
+\[
+    u_iu_j = u_ju_i,\quad u_i\psi(a) = \psi(a)u_i \quad (\forall a \in R, 1 \leqslant i, j \leqslant n).
+\]
+请直接验证取值映射$\psi_u:R[x_1, x_2, \cdots, x_n] \to A$,
+\[
+    f = \sum_{i_1i_2\cdots i_n} a_{i_1i_2\cdots i_n}x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}
+    \mapsto \psi_u(f) \defeq \sum_{i_1i_2\cdots i_n} \psi(a_{i_1i_2\cdots i_n})u_1^{i_1}u_2^{i_2}\cdots u_n^{i_n},
+\]
+是一个环同态.
+\end{exercise}
+
+\begin{proof}
+    参考2.3.7, 实际上这题是把条件减到了最弱的情况, 取定的$n$个$A$中的$u_1, u_2, \cdots, u_n$, 只需要它们互相之间是交换的且和所有$\psi(a)$也是交换的(也就是说$\forall i,\, u_i \in C(\psi(R))$, 中心化子, 见1.2.4), 那么映射
+    \[
+        \psi_u:R[x_1, \cdots, x_n] \to A,\quad x_i \mapsto u_i,\,  \psi_u|_R = \psi
+    \]
+    就是环同态. 交换的条件是用在保持乘法上, 保$1$是平凡的, 保加法只需要分配律. 但要注意, 此时不能说$A$是$R$-代数, 因为按定义是要求任意给定$u_1, \cdots, u_n$, $\psi_u$都是同态, 才能说$A$是一个$R$-代数.
+\end{proof}
+
+\begin{exercise}[习题2.4.6]
+    设$K$是一个域, $A = \{(a_{ij})_{n \times n}|a_{ij} \in K[\lambda]\}$是$n$阶$\lambda$-矩阵环, $u = \lambda \cdot I_n \in A$表示对角线上全为$\lambda$的矩阵. 试证明: 如果$R = M_n(K),\, \psi:R \to R$是恒等映射, 则取值映射$\psi_u:R[x] \to A$是一个环同构.
+\end{exercise}
+
+\begin{proof}
+    按定义$A = M_n(K[\lambda])$, 由于$K \subseteq K[\lambda]$, 所以自然有$R = M_n(K) \subseteq M_n(K[\lambda]) = A$. 但事实上$A = R[\lambda]$, 在1.2.8可以看到这一点. 但是对一个矩阵$B \in M_n(K)$, $B\lambda$和$B(\lambda \cdot I_n)$是一样的. 因此$A = R[\lambda \cdot I_n] = R[u]$. $u$和$\lambda$, $x$一样是和$R$无关的变量, 所以只是换了个字母而已, 那么$\psi_u$自然是是同构.
+\end{proof}
+
+\begin{exercise}[习题2.4.7]
+    设$R$是一个无零因子的非交换环, $\psi:R \to R$是恒等映射. 证明存在$u \in R$使得$\psi_u:R[x] \to R$, $f(x) \mapsto f(u)$, 不是一个映射.
+\end{exercise}
+    
+\begin{proof}
+    由非交换性知存在$u, v \in R$使得$uv \neq vu$. 而$R[x]$关于$x$是交换的, 所以可以取$f(x) = x(x + v) = x^2 + vx$. 那么带入$u$, 有$u^2 + uv$和$u^2 + vu$两个值, 因此$\psi_u$在$f(x)$处不是良定义的, $\psi_u$不是一个映射.
+\end{proof}
+
+\begin{exercise}[习题2.4.8]
+    设$K$是一个域, $M_m(K)$是$m$-阶矩阵环, $\psi:K \to M_m(K)$定义为$\psi(a) = a \cdot I_{m}$(对角线元素为$a$的数量矩阵). 令
+\[
+    u = (A, B) \in M_m(K) \times M_m(K),\quad AB \neq BA,
+\]
+试证明$\psi_u:K[x_1, x_2] \to M_m(K),\, f(x_1, x_2) \mapsto f(A, B)$, 不是一个映射.
+\end{exercise}
+
+\begin{proof}
+    和上题是类似的, 用于赋值的$A$和$B$是非交换的, 但$x_1$和$x_2$是交换的. 所以取$f(x_1, x_2) = x_1x_2 = x_2x_1$即可.
+\end{proof}
+
+\begin{remark}
+    现在把涉及到多项式环的题目放在一起看, 2.3.7, 2.4.5, 2.4.6, 2.4.7, 2.4.8.
+    
+    我们希望“多项式”可以满足我们一直以来的直觉, 其中最重要的一条应该是可以赋值, 也就是说我们希望一个多项式同时也是一个多项式函数. “赋值”这个操作在2.3.7解释为由环同态$\psi:R \to A$诱导的唯一的同态$\psi_u:R[x] \to A$, $\psi_u$的含义就是代入$u$, 也就是说此时多项式$f(x)$确实是一个函数
+    \[
+        f:R \to A,\quad u \mapsto f(u) = \psi_u(f(x)).
+    \]
+    可以看到交换环的条件在多项式里是很重要的, 没有交换环, 多项式就不一定是函数了, 2.4.7和2.4.8分别为一元和多元的反例.
+    
+    $R[x_1, x_2, \cdots, x_n]$要求所有未定元$x_1, x_2, \cdots, x_n$是两两交换, 以及所有$x_i$要和$R$中所有元素交换. 可以看到$R$是交换环等价于$R[x]$是交换环, 自然也等价于$R[x_1, x_2, \cdots, x_n]$是交换环. $R$是交换环的时候, $R[x_1, x_2, \cdots, x_n]$的结构已经很清楚了, 就是自由交换$R$-代数, 它满足和其他自由对象类似的泛性质, 正是这个泛性质保证了赋值的唯一性, 从而多项式函数才是一个良定义的东西.
+
+    2.4.5虽然减弱了条件, 但也失去了一般性, 所以$R$非交换的时候, 就没有那么好的泛性质了. 这也是为什么在定义$R$-代数的时候需要要求$R$是一个交换环.
+
+    而ex:2.4.6其实有更深刻的含义. 泛性质有很多, 某个特定对象的泛性质都是“对任意的一些态射, 存在唯一的态射使得图表交换”这种形式. 这其实是和Yoneda Lemma, representable functor, limit等有关系. 这种对象其实上是某个新的范畴里的final object(或者initial object, 这俩是对偶的, 就差一个反范畴). 而final object的定义里就是该范畴里一个特殊的对象: 任意对象到final object存在唯一的态射. 正是这个存在唯一, 保证了final object在同构的意义下是唯一的. 所以当有两个东西满足同一个泛性质, 它们俩一定是同构的.
+\end{remark}
+
 \subsection*{课上的补充内容}
+感觉就是$R[x_1, \cdots, x_n]$的泛性质吧\dots
+
+代数里是有很多这样的抽象废话, 理解起来需要亿点时间.
 \end{document}
