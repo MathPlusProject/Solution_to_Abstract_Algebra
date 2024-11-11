@@ -13,7 +13,7 @@
     \[
         R_m \to F^{N},\quad f \mapsto (a_{i_1i_2 \cdots i_n})_{(i_1, i_2, \cdots, i_n) \in I}
     \]
-    是同构.
+    是(线性)同构.
 \end{proof}
 
 \begin{problem}
@@ -64,15 +64,14 @@
 
 \begin{problem}\label{ex:2.4.5}
     设$\psi:R \to A$是环同态, $u = (u_1, u_2, \cdots, u_n) \in A^n$满足:
-\[
-    u_iu_j = u_ju_i,\quad u_i\psi(a) = \psi(a)u_i \quad (\forall a \in R, 1 \leqslant i, j \leqslant n).
-\]
-请直接验证取值映射$\psi_u:R[x_1, x_2, \cdots, x_n] \to A$,
-\[
-    f = \sum_{i_1i_2\cdots i_n} a_{i_1i_2\cdots i_n}x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n}
-    \mapsto \psi_u(f) \defeq \sum_{i_1i_2\cdots i_n} \psi(a_{i_1i_2\cdots i_n})u_1^{i_1}u_2^{i_2}\cdots u_n^{i_n},
-\]
-是一个环同态.
+    \[
+        u_iu_j = u_ju_i,\quad u_i\psi(a) = \psi(a)u_i \quad (\forall a \in R, 1 \leqslant i, j \leqslant n).
+    \]
+    请直接验证取值映射$\psi_u:R[x_1, x_2, \cdots, x_n] \to A$,
+    \[
+        f = \sum_{i_1i_2\cdots i_n} a_{i_1i_2\cdots i_n}x_1^{i_1}x_2^{i_2}\cdots x_n^{i_n} \mapsto \psi_u(f) \defeq \sum_{i_1i_2\cdots i_n} \psi(a_{i_1i_2\cdots i_n})u_1^{i_1}u_2^{i_2}\cdots u_n^{i_n},
+    \]
+    是一个环同态.
 \end{problem}
 
 \begin{proof}
@@ -96,15 +95,15 @@
 \end{problem}
     
 \begin{proof}
-    由非交换性知存在$u, v \in R$使得$uv \neq vu$. 而$R[x]$关于$x$是交换的, 所以可以取$f(x) = x(x + v) = x^2 + vx$. 那么带入$u$, 有$u^2 + uv$和$u^2 + vu$两个值, 因此$\psi_u$在$f(x)$处不是良定义的, $\psi_u$不是一个映射.
+    由非交换性知存在$u, v \in R$使得$uv \neq vu$. 而$R[x]$关于$x$是交换的, 所以可以取$f(x) = vx = xv$. 那么带入$u$, 有$uv$和$vu$两个值, 因此$\psi_u$在$f(x)$处不是良定义的, $\psi_u$不是一个映射.
 \end{proof}
 
 \begin{problem}\label{ex:2.4.8}
     设$K$是一个域, $M_m(K)$是$m$-阶矩阵环, $\psi:K \to M_m(K)$定义为$\psi(a) = a \cdot I_{m}$(对角线元素为$a$的数量矩阵). 令
-\[
-    u = (A, B) \in M_m(K) \times M_m(K),\quad AB \neq BA,
-\]
-试证明$\psi_u:K[x_1, x_2] \to M_m(K),\, f(x_1, x_2) \mapsto f(A, B)$, 不是一个映射.
+    \[
+        u = (A, B) \in M_m(K) \times M_m(K),\quad AB \neq BA,
+    \]
+    试证明$\psi_u:K[x_1, x_2] \to M_m(K),\, f(x_1, x_2) \mapsto f(A, B)$, 不是一个映射.
 \end{problem}
 
 \begin{proof}

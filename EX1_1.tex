@@ -1,11 +1,10 @@
 \subsection{教材p8-p9}
 
 \begin{problem}\label{ex:1.1.1}
-    设$K$是一个域, 试证明下述结论:  
-    
+    设$K$是一个域, 试证明下述结论:
     \begin{enumerate}[(1)]
         \item 如果$a \cdot c = b \cdot c$, $c \neq 0_K$, 则$a = b$ (乘法消去律);
-        \item $\forall \, a, b\in K$, 如果$a \cdot b = 0_K$, 则$a = 0_K$或$b = 0_K$;
+        \item $\forall \, a, b \in K$, 如果$a \cdot b = 0_K$, 则$a = 0_K$或$b = 0_K$;
         \item $(a^{-1})^{-1} = a \quad (\forall \, a \in K ,\, a \neq 0_K)$;
         \item $(a \cdot b)^{-1} = a^{-1} \cdot b^{-1} \quad (a \neq 0_K ,\, b \neq 0_K)$;
         \item $(-a)^{-1} = -a^{-1} \quad (\forall a \neq 0_K)$;
@@ -16,295 +15,257 @@
 \begin{proof}
     \begin{enumerate}[(1)]
         \item 由于$c \neq 0$, 故可在原式左右同乘$c^{-1}$, 得 
-        \[ 
-        \begin{aligned} 
-            a \cdot c \cdot c^{-1} &= b \cdot c \cdot c^{-1}\\ 
-            \implies a &= b.
-        \end{aligned} 
+        \[
+            a \cdot c \cdot c^{-1} = b \cdot c \cdot c^{-1} \implies a = b.
         \]
-        这告诉我们逆元的存在性强于乘法消去律, 乘法消去律已经可以保证乘法逆运算是良定的.
-        这对加法也是一样的道理, 见\ref{ex:1.2.1}的(1).
+        这告诉我们逆元的存在性强于乘法消去律, 乘法消去律已经可以保证乘法逆运算是良定的. 这对加法也是一样的道理, 见\ref{ex:1.2.1}的(1).
 
         也可以用分配律得到
         \[
             a \cdot c = b \cdot c \implies (a - b) \cdot c = 0_K.
         \]
-        要得到$a = b$需要使用(2), 即域$K$是没有零因子(zero-divisor)的. 由于$c \neq 0_K$,
-    则$a - b = 0_K$, 即$a = b$.
+        要得到$a = b$需要使用(2), 即域$K$是没有零因子(zero-divisor)的. 由于$c \neq 0_K$, 则$a - b = 0_K$, 即$a = b$.
 
         注: 无零因子的非零交换环称为整环(integral domain), 见教材2.1节p23.
-        \item 只需证明当$a \neq 0_K$时有$b = 0_K$, 同(1), 在等式$a \cdot b = 0_K$
-    两端左乘$a^{-1}$即可.
+        \item 只需证明当$a \neq 0_K$时有$b = 0_K$, 同(1), 在等式$a \cdot b = 0_K$    两端左乘$a^{-1}$即可.
         
         这告诉我们域$\implies$整环. 结合(1)知一个环是整环的条件已经可以推出乘法消去律.
-        \item 即要证明$a^{-1}$的逆元是$a$, 这是根据定义以及逆元的唯一性得到, 教材在域, 
-    环, 群三处定义下的注记都有提及. 事实上只要$a$在某一个幺半群(monoid)中关于这个运算有
-    逆元, 该结论都会成立, 如\ref{ex:1.2.1}的(3).
-        \item 即要证明$a \cdot b$的逆元是$a^{-1} \cdot b^{-1}$. 此处需要交换律, 因此
-    验证半边逆就够了.
-    \[
-        (a^{-1} \cdot b^{-1}) \cdot (a \cdot b) = (a \cdot a^{-1}) \cdot (b \cdot b^{-1}) = 1_K.
-    \]
-    非交换的情形为$(ab)^{-1} = b^{-1}a^{-1}$, 见\ref{ex:1.3.2}.
+        \item 即要证明$a^{-1}$的逆元是$a$, 这是根据定义以及逆元的唯一性得到, 教材在域, 环, 群三处定义下的注记都有提及. 事实上只要$a$在某一个幺半群(monoid)中关于这个运算有逆元, 该结论都会成立, 如\ref{ex:1.2.1}的(3).
+        \item 即要证明$a \cdot b$的逆元是$a^{-1} \cdot b^{-1}$. 此处需要交换律, 因此验证半边逆就够了.
+        \[
+            (a^{-1} \cdot b^{-1}) \cdot (a \cdot b) = (a \cdot a^{-1}) \cdot (b \cdot b^{-1}) = 1_K.
+        \]
+        非交换的情形为$(ab)^{-1} = b^{-1}a^{-1}$, 见\ref{ex:1.3.2}.
         \item 即要证明$-a$的逆元是$-a^{-1}$. 我们用一下\ref{ex:1.2.1}的(6)
-    \[
-        (-a)(-a^{-1}) = aa^{-1} = 1_K, \quad (-a^{-1})(-a) = a^{-1}a = 1_K.
-    \]
-    这样这一条对一个环中的单位都成立.
-        \item 首先需要明确定义, 教材关于$a^n$的定义并不清晰, 包括后面\ref{ex:1.2.1}中的$na$也是.
-    事实上, 这种和$\mathbb{Z}$有关的东西都应该由递归定义给出, 相对应的证明要用归纳法.
+        \[
+            (-a)(-a^{-1}) = aa^{-1} = 1_K, \quad (-a^{-1})(-a) = a^{-1}a = 1_K.
+        \]
+        这样这一条对一个环中的单位都成立.
+        \item 首先需要明确定义, 教材关于$a^n$的定义并不清晰, 包括后面\ref{ex:1.2.1}中的$na$也是. 事实上, 这种和$\mathbb{Z}$有关的东西都应该由递归定义给出, 相对应的证明要用归纳法.
         
         严格来说, 这是定义了一个映射
-    \[
-        \mathbb{Z} \times K^* \to K^*, (n, a) \mapsto a^n,
-    \]
-        这里$K^* = K \setminus \{0_K\}$(见\ref{ex:1.3.2}), 自然数的部分应由递归定义给出, 
-    \[
-        a^0 \defeq 1_K,\, a^{n + 1} \defeq a^n \cdot a,\, n \in \mathbb{N},
-    \]
+        \[
+            \mathbb{Z} \times K^* \to K^*, (n, a) \mapsto a^n,
+        \]
+        这里$K^* = K \setminus \{0_K\}$(见\ref{ex:1.3.2}), 自然数的部分应由递归定义给出,
+        \[
+            a^0 \defeq 1_K,\, a^{n + 1} \defeq a^n \cdot a,\, n \in \mathbb{N},
+        \]
         负整数的部分定义为
-    \[
-        a^n \defeq (a^{-1})^{-n},\, n < 0. 
-    \]
-    由该定义可以验证对任意整数$n \in \mathbb{Z}$均有$a^{n + 1} = a^n \cdot a$
-    以及$a^{-n} = (a^{-1})^n$, 这样在使用这两个等式的时候不用再区分正负了.
-
-    回到原题, 对任意的$m \in \mathbb{Z}$, 先用归纳法证明$n \in \mathbb{N}$
-    的情形, 负整数的情形可以结合定义得到.
-
-    $n = 0$时根据定义左右均为$a^m$, 假设对$n$有$a^{m + n} = a^m \cdot a^n$, 根据定义有
-    \[
-        a^{m + n + 1} = a^{m + n} \cdot a = a^m \cdot a^n \cdot a = a^m \cdot a^{n + 1}.
-    \]
-    由归纳法知
-    \begin{equation}
-        \forall m \in \mathbb{Z}, n \in \mathbb{N} ,\, a^{m + n} = a^m \cdot a^n.
-        \tag{*}
-        \label{eq:1.1.1.61}
-    \end{equation} 
-    当$n < 0$时, 则存在$k \in \mathbb{Z}_{>0}$使得$m + kn < 0$,
-    则有
-    \[
-    \begin{aligned}
-        a^{m + n} &= a^{m + kn + (-(k - 1)n)}\\
-        &\overset{\eqref{eq:1.1.1.61}}= a^{m + kn} \cdot a^{-(k - 1)n}\\
-        &= (a^{-1})^{-m - kn} \cdot a^{n - kn}\\
-        &\overset{\eqref{eq:1.1.1.61}}= (a^{-1})^{-m} \cdot (a^{-1})^{-kn} \cdot a^n \cdot a^{-kn}\\
-        &= a^m \cdot (a^{-1})^{-kn} \cdot (a^{-1})^{-n} \cdot a^{-kn}\\
-        &\overset{\eqref{eq:1.1.1.61}}= a^m \cdot (a^{-1})^{-kn - n} \cdot a^{-kn}\\
-        &= a^m \cdot a^{(k + 1)n} \cdot a^{-kn}\\
-        &\overset{\eqref{eq:1.1.1.61}}= a^m \cdot a^{(k + 1)n - kn} = a^m \cdot a^n.
-    \end{aligned}
-    \]
-    这里我避免使用了乘法交换律, 这样该结论对一般的环也成立.
-
-    同样地, 由于$a^{m(n + 1)} = a^{mn + m} = a^{mn} \cdot a^m = (a^{m})^n \cdot a^m = (a^m)^{n + 1}$,
-    对$n$归纳可得
-    \begin{equation}
-        \forall m \in \mathbb{Z}, n \in \mathbb{N},\, a^{mn} = (a^m)^n.
-        \tag{**}
-        \label{eq:1.1.1.62}
-    \end{equation}
-    当$n < 0$时, 
-    \[
-    \begin{aligned}
-        a^{mn} &= a^{-(m \cdot (-n))}\\
-        &= (a^{-1})^{m \cdot (-n)}\\
-        &\overset{\eqref{eq:1.1.1.62}}= ((a^{-1})^m)^{-n}\\
-        &= (a^{-m})^{-n} = ((a^{-m})^{-1})^n
-    \end{aligned}
-    \]
-    由于$a^{-m} \cdot a^m \overset{\eqref{eq:1.1.1.61}}= a^0 = 1_K$, 即括号内确实为$a^m$,
-    故上式等于$(a^m)^n$.
+        \[
+            a^n \defeq (a^{-1})^{-n},\, n < 0.
+        \]
+        由该定义可以验证对任意整数$n \in \mathbb{Z}$均有$a^{n + 1} = a^n \cdot a$以及$a^{-n} = (a^{-1})^n$, 这样在使用这两个等式的时候不用再区分正负了.
+        
+        回到原题, 对任意的$m \in \mathbb{Z}$, 先用归纳法证明$n \in \mathbb{N}$的情形, 负整数的情形可以结合定义得到.
+        
+        $n = 0$时根据定义左右均为$a^m$, 假设对$n$有$a^{m + n} = a^m \cdot a^n$, 根据定义有
+        \[
+            a^{m + n + 1} = a^{m + n} \cdot a = a^m \cdot a^n \cdot a = a^m \cdot a^{n + 1}.
+        \]
+        由归纳法知
+        \begin{equation}
+            \forall m \in \mathbb{Z}, n \in \mathbb{N} ,\, a^{m + n} = a^m \cdot a^n.
+            \tag{*}
+            \label{eq:1.1.1.61}
+        \end{equation}
+        当$n < 0$时, 则存在$k \in \mathbb{Z}_{>0}$使得$m + kn < 0$, 则有
+        \[
+        \begin{aligned}
+            a^{m + n} &= a^{m + kn + (-(k - 1)n)}\\
+            &\overset{\eqref{eq:1.1.1.61}}= a^{m + kn} \cdot a^{-(k - 1)n}\\
+            &= (a^{-1})^{-m - kn} \cdot a^{n - kn}\\
+            &\overset{\eqref{eq:1.1.1.61}}= (a^{-1})^{-m} \cdot (a^{-1})^{-kn} \cdot a^n \cdot a^{-kn}\\
+            &= a^m \cdot (a^{-1})^{-kn} \cdot (a^{-1})^{-n} \cdot a^{-kn}\\
+            &\overset{\eqref{eq:1.1.1.61}}= a^m \cdot (a^{-1})^{-kn - n} \cdot a^{-kn}\\
+            &= a^m \cdot a^{(k + 1)n} \cdot a^{-kn}\\
+            &\overset{\eqref{eq:1.1.1.61}}= a^m \cdot a^{(k + 1)n - kn} = a^m \cdot a^n.
+        \end{aligned}
+        \]
+        这里我避免使用了乘法交换律, 这样该结论对一般的环也成立.
+        
+        同样地, 由于$a^{m(n + 1)} = a^{mn + m} = a^{mn} \cdot a^m = (a^{m})^n \cdot a^m = (a^m)^{n + 1}$, 对$n$归纳可得
+        \begin{equation}
+            \forall m \in \mathbb{Z}, n \in \mathbb{N},\, a^{mn} = (a^m)^n.
+            \tag{**}
+            \label{eq:1.1.1.62}
+        \end{equation}
+        当$n < 0$时,
+        \[
+        \begin{aligned}
+            a^{mn} &= a^{-(m \cdot (-n))}\\
+            &= (a^{-1})^{m \cdot (-n)}\\
+            &\overset{\eqref{eq:1.1.1.62}}= ((a^{-1})^m)^{-n}\\
+            &= (a^{-m})^{-n} = ((a^{-m})^{-1})^n
+        \end{aligned}
+        \]
+        由于$a^{-m} \cdot a^m \overset{\eqref{eq:1.1.1.61}}= a^0 = 1_K$, 即括号内确实为$a^m$, 故上式等于$(a^m)^n$.
     \end{enumerate}
 \end{proof}
 
 \begin{problem}
-    设$K$是一个域, 证明: $K$的任意一组子域(可以无限多个)的交集仍是子域.
-如果$K_i \,\red{\subseteq}\, K \, (i \in \mathbb{N})$是满足条件
-$K_i \subseteq K_{i+1} \, (i \in \mathbb{N})$的子域, 则它们的并集也是
-$K$的子域.
+    设$K$是一个域, 证明: $K$的任意一组子域(可以无限多个)的交集仍是子域. 如果$K_i \,\red{\subseteq}\, K \, (i \in \mathbb{N})$是满足条件$K_i \subseteq K_{i+1} \, (i \in \mathbb{N})$的子域, 则它们的并集也是$K$的子域.
 \end{problem}
 
 \begin{proof}
     令
-\(
-    F = \bigcap_i K_i
-\)
+    \(
+        F = \bigcap_i K_i
+    \)
     由子域定义, 需要验证
-\[
-\begin{aligned}
-    &\forall a, b \in F ,\, a - b \in F\\
-    &\forall a, b \in F^* ,\, ab^{-1} \in F^*,\, F^* = F \setminus \{0\}.
-\end{aligned}
-\]
-由于$K_i$均为子域, 且$a, b \in F \subseteq K_i$, 故
-\[
-    \forall i \in \mathbb{N}, \, a - b \in K_i.
-\]
-因此
-\[
-    a - b \in \bigcap_i K_i = F.
-\]
-$F^*$的部分同理, 故$F$为子域.
-
-若还满足$\forall i \in \mathbb{N} ,\, K_i \subseteq K_{i + 1}$,
-令
-\(
-    L = \bigcup_i K_i
-\),
-如果$a, b \in L$, 则存在$K_i$和$K_j$使得$a \in K_i ,\, b \in K_j$
-记$r = \max(i, j)$, 则$a, b \in K_r$. 由于$K_r$为子域, 可得
-\[
-    a - b \in K_r \subseteq L.
-\]
-$L^*$同理, 故$L$为子域.
+    \[
+    \begin{aligned}
+        &\forall a, b \in F ,\, a - b \in F\\
+        &\forall a, b \in F^* ,\, ab^{-1} \in F^*,\, F^* = F \setminus \{0\}.
+    \end{aligned}
+    \]
+    由于$K_i$均为子域, 且$a, b \in F \subseteq K_i$, 故
+    \[
+        \forall i \in \mathbb{N}, \, a - b \in K_i.
+    \]
+    因此
+    \[
+        a - b \in \bigcap_i K_i = F.
+    \]
+    $F^*$的部分同理, 故$F$为子域.
+    
+    若还满足$\forall i \in \mathbb{N} ,\, K_i \subseteq K_{i + 1}$, 令
+    \(
+        L = \bigcup_i K_i
+    \),
+    如果$a, b \in L$, 则存在$K_i$和$K_j$使得$a \in K_i ,\, b \in K_j$. 记$r = \max(i, j)$, 则$a, b \in K_r$. 由于$K_r$为子域, 可得
+    \[
+        a - b \in K_r \subseteq L.
+    \]
+    $L^*$同理, 故$L$为子域.
 \end{proof}
 
 \begin{problem}
-    令$\mathbb{Q}[\sqrt{2}, \sqrt{3}]$表示$\mathbb{C}$中包含
-$\mathbb{Q}, \sqrt{2}, \sqrt{3}$的最小子域, 证明
-$\mathbb{Q}[\sqrt{2}, \sqrt{3}] = \mathbb{Q}[\sqrt{2} + \sqrt{3}]$.
+    令$\mathbb{Q}[\sqrt{2}, \sqrt{3}]$表示$\mathbb{C}$中包含$\mathbb{Q}, \sqrt{2}, \sqrt{3}$的最小子域, 证明$\mathbb{Q}[\sqrt{2}, \sqrt{3}] = \mathbb{Q}[\sqrt{2} + \sqrt{3}]$.
 \end{problem}
 
 \begin{proof}
     该题本应该是域扩张的题, 此处我们只用定义来证明.
 
-    由于$\sqrt{2} + \sqrt{3} \in \mathbb{Q}[\sqrt{2}, \sqrt{3}]$,
-我们有$\mathbb{Q}[\sqrt{2} + \sqrt{3}] \subseteq \mathbb{Q}[\sqrt{2}, \sqrt{3}]$.
-反过来, 
-\(
-    \frac{1}{\sqrt{2} + \sqrt{3}} = \sqrt{3} - \sqrt{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
-\),
-故有
-\(
-    \sqrt{2} = \frac{(\sqrt{2} + \sqrt{3}) - (\sqrt{3} - \sqrt{2})}{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
-\),
-\(
-    \sqrt{3} = \frac{(\sqrt{2} + \sqrt{3}) + (\sqrt{3} - \sqrt{2})}{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
-\).
-因此
-\(
-    \mathbb{Q}[\sqrt{2}, \sqrt{3}] \subseteq \mathbb{Q}[\sqrt{2} + \sqrt{3}]
-\).
-故两者相等.
+    由于$\sqrt{2} + \sqrt{3} \in \mathbb{Q}[\sqrt{2}, \sqrt{3}]$, 我们有$\mathbb{Q}[\sqrt{2} + \sqrt{3}] \subseteq \mathbb{Q}[\sqrt{2}, \sqrt{3}]$. 反过来,
+    \(
+        \frac{1}{\sqrt{2} + \sqrt{3}} = \sqrt{3} - \sqrt{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
+    \),
+    故有
+    \(
+        \sqrt{2} = \frac{(\sqrt{2} + \sqrt{3}) - (\sqrt{3} - \sqrt{2})}{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
+    \),
+    \(
+        \sqrt{3} = \frac{(\sqrt{2} + \sqrt{3}) + (\sqrt{3} - \sqrt{2})}{2} \in \mathbb{Q}[\sqrt{2} + \sqrt{3}]
+    \).
+    因此
+    \(
+        \mathbb{Q}[\sqrt{2}, \sqrt{3}] \subseteq \mathbb{Q}[\sqrt{2} + \sqrt{3}]
+    \).
+    故两者相等.
 \end{proof}
 
 \begin{remark}
-    证明过程给出了一个$\mathbb{Q}$-线性空间的基变换实际上, 从而两者将同构(见\ref{ex:1.4.9}).
+    实际上这个证明过程给出了一个$\mathbb{Q}$-线性空间的基变换, 从而两者将同构(见\ref{ex:1.4.9}).
 \end{remark}
 
 \begin{problem}\label{ex:1.1.4}
-    设$\mathbb{N}$是所有正整数的集合, $\mathbb{Q}$是有理数域.因$\mathbb{Q}$是可数集, 
-故存在双射$f:\mathbb{N} \to \mathbb{Q}$. 令$f^{-1}:\mathbb{Q} \to \mathbb{N}$表示$f$的
-逆映射, 利用有理数的加法和乘法, 可通过双射$f$定义$\mathbb{N}$上的运算如下: 
-$\forall n, m \in \mathbb{N}$, 
-\[
-    n \oplus m = f^{-1}(f(n) + f(m)), \quad n \star m = f^{-1}(f(n)f(m)),
-\]
-试证明: $\mathbb{N} = (\mathbb{N}, \oplus, \star)$是域, 并求它的零元和单位元.
+    设$\mathbb{N}$是所有正整数的集合, $\mathbb{Q}$是有理数域.因$\mathbb{Q}$是可数集, 故存在双射$f:\mathbb{N} \to \mathbb{Q}$. 令$f^{-1}:\mathbb{Q} \to \mathbb{N}$表示$f$的逆映射, 利用有理数的加法和乘法, 可通过双射$f$定义$\mathbb{N}$上的运算如下: $\forall n, m \in \mathbb{N}$,
+    \[
+        n \oplus m = f^{-1}(f(n) + f(m)), \quad n \star m = f^{-1}(f(n)f(m)),
+    \]
+    试证明: $\mathbb{N} = (\mathbb{N}, \oplus, \star)$是域, 并求它的零元和单位元.
 \end{problem}
 
 \begin{proof}
     验证域公理, 加法交换律和乘法交换律易得.
 
     结合律: $\forall n, m, l \in \mathbb{N}$,
-\[
-\begin{aligned}
-    (n \oplus m) \oplus l &= f^{-1}\biggl(f\bigl(f^{-1}(f(n) + f(m))\bigr)+ f(l)\biggr)\\
-    &= f^{-1}(f(n) + f(m) + f(l)) \\
-    &\overset{!}= n \oplus (m \oplus l);\\
-    (n \star m) \star l &= f^{-1}\biggl(f\bigl(f^{-1}(f(n)f(m))\bigr) \cdot f(l)\biggr)\\
-    &= f^{-1}(f(n)f(m)f(l)) \\
-    &= n \star (m \star l).
-\end{aligned}
-\]
-其中!处是因为计算出来的结果关于$n, m, l$是轮换对称的, 后面同理.
+    \[
+    \begin{aligned}
+        (n \oplus m) \oplus l &= f^{-1}\biggl(f\bigl(f^{-1}(f(n) + f(m))\bigr)+ f(l)\biggr)\\
+        &= f^{-1}(f(n) + f(m) + f(l))\\
+        &\overset{!}= n \oplus (m \oplus l);\\
+        (n \star m) \star l &= f^{-1}\biggl(f\bigl(f^{-1}(f(n)f(m))\bigr) \cdot f(l)\biggr)\\
+        &= f^{-1}(f(n)f(m)f(l))\\
+        &= n \star (m \star l).
+    \end{aligned}
+    \]
+    其中!处是因为计算出来的结果关于$n, m, l$是轮换对称的, 后面同理.
 
     零元为$f^{-1}(0)$: $\forall n \in \mathbb{N}$,
-\[
-\begin{aligned}
-    n \oplus f^{-1}(0) &= f^{-1}(f(n) + f(f^{-1}(0)))\\
-    &= f^{-1}(f(n) + 0)\\
-    &= f^{-1}(f(n)) = n.
-\end{aligned}
-\]
+    \[
+    \begin{aligned}
+        n \oplus f^{-1}(0) &= f^{-1}(f(n) + f(f^{-1}(0)))\\
+        &= f^{-1}(f(n) + 0)\\
+        &= f^{-1}(f(n)) = n.
+    \end{aligned}
+    \]
     $n$的负元为$f^{-1}(-f(n))$:
-\[
-\begin{aligned}
-    n \oplus f^{-1}(-f(n)) &= f^{-1}\biggl(f(n) + f\bigl(f^{-1}(-f(n))\bigr)\biggr)\\
-    &= f^{-1}(f(n) - f(n))\\
-    &= f^{-1}(0).
-\end{aligned}
-\]
+    \[
+    \begin{aligned}
+        n \oplus f^{-1}(-f(n)) &= f^{-1}\biggl(f(n) + f\bigl(f^{-1}(-f(n))\bigr)\biggr)\\
+        &= f^{-1}(f(n) - f(n))\\
+        &= f^{-1}(0).
+    \end{aligned}
+    \]
     单位元为$f^{-1}(1)$: $\forall n \in \mathbb{N}$,
-\[
-\begin{aligned}
-    n \star f^{-1}(1) &= f^{-1}(f(n) \cdot f(f^{-1}(1)))\\
-    &= f^{-1}(f(n)) = n.
-\end{aligned}
-\]
+    \[
+    \begin{aligned}
+        n \star f^{-1}(1) &= f^{-1}(f(n) \cdot f(f^{-1}(1)))\\
+        &= f^{-1}(f(n)) = n.
+    \end{aligned}
+    \]
     $n$的逆元为$f^{-1}(\frac1{f(n)})$:
-\[
-\begin{aligned}
-    n \star f^{-1}(\frac{1}{f(n)}) &= f^{-1}\biggl(f(n) \cdot f\bigl(f^{-1}(\frac{1}{f(n)})\bigr)\biggr)\\
-    &= f^{-1}(f(n) \cdot \frac{1}{f(n)})\\
-    &= f^{-1}(1).
-\end{aligned}
-\]
+    \[
+    \begin{aligned}
+        n \star f^{-1}(\frac{1}{f(n)}) &= f^{-1}\biggl(f(n) \cdot f\bigl(f^{-1}(\frac{1}{f(n)})\bigr)\biggr)\\
+        &= f^{-1}(f(n) \cdot \frac{1}{f(n)})\\
+        &= f^{-1}(1).
+    \end{aligned}
+    \]
     分配律: $\forall n, m, l \in \mathbb{N}$,
-\[
-\begin{aligned}
-    n \star (m \oplus l) &= f^{-1}\biggl(f(n) \cdot f\bigl(f^{-1}(f(m) + f(l))\bigr)\biggr)\\
-    &= f^{-1}\bigl(f(n) \cdot (f(m) + f(l))\bigr)\\
-    &= f^{-1}\bigl(f(n)f(m) + f(n)f(l)\bigr)\\
-    &= f^{-1}(f(n)f(m)) \oplus f^{-1}(f(n)f(l))\\
-    &= n \star m \oplus n \star l.
-\end{aligned}
-\]
+    \[
+    \begin{aligned}
+        n \star (m \oplus l) &= f^{-1}\biggl(f(n) \cdot f\bigl(f^{-1}(f(m) + f(l))\bigr)\biggr)\\
+        &= f^{-1}\bigl(f(n) \cdot (f(m) + f(l))\bigr)\\
+        &= f^{-1}\bigl(f(n)f(m) + f(n)f(l)\bigr)\\
+        &= f^{-1}(f(n)f(m)) \oplus f^{-1}(f(n)f(l))\\
+        &= n \star m \oplus n \star l.
+    \end{aligned}
+    \]
 \end{proof}
 
 \begin{problem}\label{ex:1.1.5}
-    证明: 在域的定义中, 加法的交换律可以由其他条件推
-出. 提示: 按两种方式展开 $(1 + 1) \cdot (a + b)$.
+    证明: 在域的定义中, 加法的交换律可以由其他条件推出. 提示: 按两种方式展开$(1 + 1) \cdot (a + b)$.
 \end{problem}
 
 \begin{proof}
     一方面
-\[
-\begin{aligned}
-    (1 + 1) \cdot (a + b) &= 1 \cdot (a + b) + 1 \cdot (a + b)
-    &= a + b + a + b;
-\end{aligned}    
-\]
+    \[
+        (1 + 1) \cdot (a + b) = 1 \cdot (a + b) + 1 \cdot (a + b) = a + b + a + b;
+    \]
     另一方面
-\[
-\begin{aligned}
-    (1 + 1) \cdot (a + b) &= (1 + 1) \cdot a + (1 + 1) \cdot b\\
-    &= a + a + b + b.
-\end{aligned}
-\]
-故有$a + b + a + b = a + a + b + b$.
-消去两端的一个$a$和一个$b$即得加法交换律.
+    \[
+        (1 + 1) \cdot (a + b) = (1 + 1) \cdot a + (1 + 1) \cdot b = a + a + b + b.
+    \]
+    故有$a + b + a + b = a + a + b + b$. 消去两端的一个$a$和一个$b$即得加法交换律.
 \end{proof}
 
 \begin{problem}
-    设$p > 2$是素数,
-$\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$
-是$\mathbb{Z}$的模$p$剩余类域. 试计算: 
-\begin{enumerate}[(1)]
-    \item $\bar{2}$在$\mathbb{F}_p$中的逆元$\bar{2}^{-1}$;
-    \item $\overline{p - 1} \cdot \overline{p - 2}$;
-    \item $\overline{p - 2}$在$\mathbb{F}_p$中的逆元$\overline{p-2}^{-1}$.
-\end{enumerate}
+    设$p > 2$是素数, $\mathbb{F}_p = \{\bar{0}, \bar{1}, \bar{2}, \cdots, \overline{p-1}\}$是$\mathbb{Z}$的模$p$剩余类域. 试计算:
+    \begin{enumerate}[(1)]
+        \item $\bar{2}$在$\mathbb{F}_p$中的逆元$\bar{2}^{-1}$;
+        \item $\overline{p - 1} \cdot \overline{p - 2}$;
+        \item $\overline{p - 2}$在$\mathbb{F}_p$中的逆元$\overline{p-2}^{-1}$.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 只需找到能被$2$整除的$1 + kp(k \in \mathbb{Z})$.
-由于素数$p > 2$, $p + 1$即可. i.e. $\overline{2}^{-1} = \overline{\frac12(p + 1)}$.
-    \item $\overline{p - 1} \cdot \overline{p - 2} = \overline{-1} \cdot \overline{-2} = \overline{2}$.
-    \item 由(1), $\overline{p - 2}^{-1} = \overline{-2}^{-1} = \overline{-\frac12(p + 1)} = \overline{\frac12(p - 1)}$.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 只需找到能被$2$整除的$1 + kp(k \in \mathbb{Z})$. 由于素数$p > 2$, $p + 1$即可. i.e. $\overline{2}^{-1} = \overline{\frac12(p + 1)}$.
+        \item $\overline{p - 1} \cdot \overline{p - 2} = \overline{-1} \cdot \overline{-2} = \overline{2}$.
+        \item 由(1), $\overline{p - 2}^{-1} = \overline{-2}^{-1} = \overline{-\frac12(p + 1)} = \overline{\frac12(p - 1)}$.
+    \end{enumerate}
 \end{proof}
     

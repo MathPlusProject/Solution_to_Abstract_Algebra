@@ -1,70 +1,71 @@
 \subsection{教材p21-p22}
 
 \begin{problem}\label{ex:1.4.1}
-    设$\varphi:G \to G'$是群同态, 试证明: 
-\begin{enumerate}[(1)]
-    \item $\ker(\varphi) \defeq \{g \in G \mid \varphi(g) = e'\}$ $(e' \in G'$表示的单位元)是$G$的子群(称
-为群同态$\varphi$的核);
-    \item \[\varphi(G) = \{\varphi(g) \mid \forall g \in G\} \subset G'\]
-是$G'$的子群(称为群同态$\varphi$的像).
-\end{enumerate}
+    设$\varphi:G \to G'$是群同态, 试证明:
+    \begin{enumerate}[(1)]
+        \item $\ker(\varphi) \defeq \{g \in G \mid \varphi(g) = e'\}$ $(e' \in G'$表示的单位元)是$G$的子群(称为群同态$\varphi$的核);
+        \item
+        \[
+            \varphi(G) = \{\varphi(g) \mid \forall g \in G\} \subset G'
+        \]
+        是$G'$的子群(称为群同态$\varphi$的像).
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
     教材命题1.4.1的(1)(5)直接使用.
-\begin{enumerate}[(1)]
-    \item $e \in \ker(\varphi)$非空, 直接验证\[
-    \begin{gathered}
-        \forall a, b \in \ker(\varphi),\, \varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} = e'e' = e'\\
-        \implies ab^{-1} \in \ker(\varphi).
-    \end{gathered}
-    \]
-    \item $e' \in \varphi(G)$非空, 直接验证\[
-    \begin{gathered}
-        \forall x, y \in \varphi(G),\, \exists a, b \in G,\, x = \varphi(a), y = \varphi(b)\\
-        \implies xy^{-1} = \varphi(a)(\varphi(b))^{-1} = \varphi(a)\varphi(b^{-1}) = \varphi(ab^{-1}) \in \varphi(G).
-    \end{gathered}
-    \]
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item $e \in \ker(\varphi)$非空, 直接验证
+        \[
+        \begin{gathered}
+            \forall a, b \in \ker(\varphi),\, \varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} = e'e' = e'\\
+            \implies ab^{-1} \in \ker(\varphi).
+        \end{gathered}
+        \]
+        \item $e' \in \varphi(G)$非空, 直接验证
+        \[
+        \begin{gathered}
+            \forall x, y \in \varphi(G),\, \exists a, b \in G,\, x = \varphi(a), y = \varphi(b)\\
+            \implies xy^{-1} = \varphi(a)(\varphi(b))^{-1} = \varphi(a)\varphi(b^{-1}) = \varphi(ab^{-1}) \in \varphi(G).
+        \end{gathered}
+        \]
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}
-    令$G$是函数$f(x) = \frac1x, g(x) = \frac{x-1}x$关于函数的合成生成的一个群
-(即群乘法为函数合成), 证明$G$同构于$S_3$.
+    令$G$是函数$f(x) = \frac1x, g(x) = \frac{x-1}x$关于函数的合成生成的一个群(即群乘法为函数合成), 证明$G$同构于$S_3$.
 \end{problem}
 
 \begin{proof}
     由\ref{ex:1.3.5}的注记, 只需验证$f^2 = \mathrm{id}, g^3 = \mathrm{id}, fgfg = \mathrm{id}$.
-\[
-\begin{aligned}
-    f^2(x) &= f(f(x)) = \frac{1}{\frac{1}{x}} = x.\\
-    g^2(x) &= g(g(x)) = 1 - \frac{1}{(1 - \frac{1}{x})} = -\frac{1}{x - 1}\\
-    g^3(x) &= g(g^2(x)) = 1 - (\frac{1}{-\frac{1}{x - 1}}) = 1 + x - 1 = x.\\
-    (fg)(x) &= f(g(x)) = \frac{x}{x - 1},\\
-    (fgfg)(x) &= (fg)^2(x) = 1 + \frac{1}{\frac{x}{x - 1} - 1} = 1 + x - 1 = x.
-\end{aligned}
-\]
-
+    \[
+    \begin{aligned}
+        f^2(x) &= f(f(x)) = \frac{1}{\frac{1}{x}} = x.\\
+        g^2(x) &= g(g(x)) = 1 - \frac{1}{(1 - \frac{1}{x})} = -\frac{1}{x - 1}\\
+        g^3(x) &= g(g^2(x)) = 1 - (\frac{1}{-\frac{1}{x - 1}}) = 1 + x - 1 = x.\\
+        (fg)(x) &= f(g(x)) = \frac{x}{x - 1},\\
+        (fgfg)(x) &= (fg)^2(x) = 1 + \frac{1}{\frac{x}{x - 1} - 1} = 1 + x - 1 = x.
+    \end{aligned}
+    \]
 \end{proof}
 
 \begin{problem}
-    设$R \overset{\varphi}\to R'$是环同态, 证明集合
-$ker(\varphi) = \{x \in R \mid \varphi(x) = 0_{R'}\}$满足: 
-\begin{enumerate}[(1)]
-    \item $\ker(\varphi)$是$(R, +)$的子群；
-    \item $\forall a \in \ker (\varphi), x \in R$有$ax \in \ker(\varphi)$, $xa \in \ker (\varphi)$.
-$(\ker(\varphi)$称为环同态$\varphi$的核.)
-\end{enumerate}
+    设$R \overset{\varphi}\to R'$是环同态, 证明集合$ker(\varphi) = \{x \in R \mid \varphi(x) = 0_{R'}\}$满足:
+    \begin{enumerate}[(1)]
+        \item $\ker(\varphi)$是$(R, +)$的子群;
+        \item $\forall a \in \ker (\varphi), x \in R$有$ax \in \ker(\varphi)$, $xa \in \ker (\varphi)$. ($\ker(\varphi)$称为环同态$\varphi$的核)
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 即\ref{ex:1.4.1}(1);
-    \item 直接验证\[
-        \forall a \in \ker(\varphi),\, x \in R,\, \varphi(xa) = \varphi(x)\varphi(a) = \varphi(x)0_{R'} = 0_{R'}
-    \]
-    另一半同理.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 即\ref{ex:1.4.1}(1);
+        \item 直接验证
+        \[
+            \forall a \in \ker(\varphi),\, x \in R,\, \varphi(xa) = \varphi(x)\varphi(a) = \varphi(x)0_{R'} = 0_{R'}
+        \]
+        另一半同理.
+    \end{enumerate}
 \end{proof}
 
 \begin{remark}
@@ -72,22 +73,14 @@ $(\ker(\varphi)$称为环同态$\varphi$的核.)
 \end{remark}
 
 \begin{problem}
-    设$K$是一个域, $\phi:K[x] \to K[x]$是$K$的多项式环之间的环自同态. 
-如果对于任意的$k \in K, \phi(k) = k$, 试证明: $\phi$是满同态的充分必要条件是存在
-$a, b \in K(a \neq 0)$使得$\phi(x) = ax + b$.
+    设$K$是一个域, $\phi:K[x] \to K[x]$是$K$的多项式环之间的环自同态. 如果对于任意的$k \in K, \phi(k) = k$, 试证明: $\phi$是满同态的充分必要条件是存在$a, b \in K(a \neq 0)$使得$\phi(x) = ax + b$.
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item "$\implies$": 记$f(x) = \phi(x)$, 若$\phi$是满的, 则存在$g(x) \in K[x]$
-使得$\phi(g(x)) = x$, 则$x = \phi(g(x)) \overset{!}= g(\phi(x)) = g(f(x))$,
-!处是根据环同态的定义以及$\phi(k) = k,\, \forall k \in K$得到.
-考查次数$1 = \deg(g(f(x))) = \deg(g) \cdot \deg(f)$(域没有零因子). 因此$\deg(f) = \deg(g) = 1$,
-i.e. $\phi(x) = f(x) = ax + b,\, \exists a \neq 0, b \in K$.
-    \item "$\impliedby$": 若存在$a \neq 0, b \in K$使得$\phi(x) = ax + b$,
-则令$y = ax + b$得到$x = a^{-1}(y - b)$. 那么对任意的$f(x) \in K[x]$,
-存在$g(x) = f(a^{-1}(x - b)) \in K[x]$使得$\phi(g(x)) = g(\phi(x)) = g(y) = f(a^{-1}(y - b)) = f(x)$.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item "$\implies$": 记$f(x) = \phi(x)$, 若$\phi$是满的, 则存在$g(x) \in K[x]$使得$\phi(g(x)) = x$, 则$x = \phi(g(x)) \overset{!}= g(\phi(x)) = g(f(x))$, !处是根据环同态的定义以及$\phi(k) = k,\, \forall k \in K$得到. 考查次数$1 = \deg(g(f(x))) = \deg(g) \cdot \deg(f)$(域没有零因子). 因此$\deg(f) = \deg(g) = 1$, i.e. $\phi(x) = f(x) = ax + b,\, \exists a \neq 0, b \in K$.
+        \item "$\impliedby$": 若存在$a \neq 0, b \in K$使得$\phi(x) = ax + b$, 则令$y = ax + b$得到$x = a^{-1}(y - b)$. 那么对任意的$f(x) \in K[x]$, 存在$g(x) = f(a^{-1}(x - b)) \in K[x]$使得$\phi(g(x)) = g(\phi(x)) = g(y) = f(a^{-1}(y - b)) = f(x)$.
+    \end{enumerate}
 \end{proof}
 
 \begin{problem}
@@ -95,13 +88,11 @@ i.e. $\phi(x) = f(x) = ax + b,\, \exists a \neq 0, b \in K$.
 \end{problem}
 
 \begin{proof}
-    注意到$f: \mathbb{R} \to \mathbb{R}_{>0},\, x \mapsto e^x$
-是同构. $f^{-1}(x) = \ln x$.
+    注意到$f: \mathbb{R} \to \mathbb{R}_{>0},\, x \mapsto e^x$是同构. $f^{-1}(x) = \ln x$.
 \end{proof}
 
 \begin{remark}
-    事实上, 由$f(x + y) = f(x)f(y)$并利用归纳法和同态定义可以直接推出
-$f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$\mathbb{R}$上.
+    事实上, 由$f(x + y) = f(x)f(y)$并利用归纳法和同态定义可以直接推出$f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$\mathbb{R}$上.
 \end{remark}
 
 \begin{problem}
@@ -109,9 +100,7 @@ $f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$
 \end{problem}
 
 \begin{proof}
-    反证, 假设存在同构$f: \mathbb{Q} \to \mathbb{Q}_{>0}$,
-则设$2 = f(a) = f(\frac{a}{2} + \frac{a}{2}) = f(\frac{a}{2}) \cdot f(\frac{a}{2}) = f(\frac{a}{2})^2$
-矛盾.
+    反证, 假设存在同构$f: \mathbb{Q} \to \mathbb{Q}_{>0}$, 则设$2 = f(a) = f(\frac{a}{2} + \frac{a}{2}) = f(\frac{a}{2}) \cdot f(\frac{a}{2}) = f(\frac{a}{2})^2$矛盾.
 \end{proof}
 
 \begin{problem}\label{ex:1.4.7}
@@ -119,118 +108,81 @@ $f(x) = a^x,\, a = f(1),\, x \in \mathbb{Q}$, 若有连续性则可以延拓到$
 \end{problem}
 
 \begin{proof}
-    不妨设$\sigma: \mathbb{Q} \to \mathbb{Q}$是同构, 根据定义,
-有$\sigma(0) = 0, \sigma(1) = 1, \sigma(-a) = -\sigma(a), \sigma(a^{-1}) = (\sigma(a))^{-1}$.
-因此先用归纳法得到$\sigma|_{\mathbb{N}} = \mathrm{id}_{\mathbb{N}}$, 用负元延拓到$\mathbb{Z}$,
-再用逆元延拓到$\mathbb{Q}$得$\sigma = \mathrm{id}_{\mathbb{Q}}$. 事实上, 这个推导对于
-任何特征$0$的域都是对的, 即$\mathbb{Q}$是特征$0$最小域(环的特征见教材2.1节p27定义2.1.5).
+    不妨设$\sigma: \mathbb{Q} \to \mathbb{Q}$是同构, 根据定义, 有$\sigma(0) = 0, \sigma(1) = 1, \sigma(-a) = -\sigma(a), sigma(a^{-1}) = (\sigma(a))^{-1}$. 因此先用归纳法得到$\sigma|_{\mathbb{N}} = \mathrm{id}_{\mathbb{N}}$, 用负元延拓到$\mathbb{Z}$, 再用逆元延拓到$\mathbb{Q}$得$\sigma = \mathrm{id}_{\mathbb{Q}}$. 事实上, 这个推导对于任何特征$0$的域都是对的, 即$\mathbb{Q}$是特征$0$最小域(环的特征见教材2.1节p27定义2.1.5).
 
-    对$\mathbb{R}$, 首先若$\phi: \mathbb{R} \to \mathbb{R}$是同构, 有上面可知
-$\phi|_{\mathbb{Q}} = \mathrm{id}_{\mathbb{Q}}$. 另外, 可以证明$\phi$保序结构,
-即$x \geqslant 0 \implies \phi(x) \geqslant 0$. 这是因为对$x > 0$总有
-$\phi(x) = \phi(\sqrt{x} \cdot \sqrt{x}) = \phi(\sqrt{x})^2 > 0$. 保序则保极限,
-即对单调有界有理数列$\{q_n\}_{n \in \mathbb{N}}$有
-$\lim_{n \to \infty} \phi(q_n) = \lim_{n \to \infty} q_n$(实际上保序就可以保持
-$\mathbb{R}$上的拓扑结构, $\phi$是连续的). 由于$\mathbb{Q}$在$R$中稠密,
-从而$\phi = \mathrm{id}_{\mathbb{R}}$.
+    对$\mathbb{R}$, 首先若$\phi: \mathbb{R} \to \mathbb{R}$是同构, 有上面可知$\phi|_{\mathbb{Q}} = \mathrm{id}_{\mathbb{Q}}$. 另外, 可以证明$\phi$保序结构, 即$x \geqslant 0 \implies \phi(x) \geqslant 0$. 这是因为对$x > 0$总有$\phi(x) = \phi(\sqrt{x} \cdot \sqrt{x}) = \phi(\sqrt{x})^2 > 0$. 保序则保极限, 即对单调有界有理数列$\{q_n\}_{n \in \mathbb{N}}$有$\lim_{n \to \infty} \phi(q_n) = \lim_{n \to \infty} q_n$(实际上保序就可以保持$\mathbb{R}$上的拓扑结构, $\phi$是连续的). 由于$\mathbb{Q}$在$R$中稠密, 从而$\phi = \mathrm{id}_{\mathbb{R}}$.
 
-    一般情况下子域的自同构是不一定能延拓到扩域上, 比如考虑$\mathbb{Q}(\sqrt{2})$
-的共轭自同构(类似复共轭, $\sqrt{2} \mapsto -\sqrt{2}$), 它不能延拓到$\mathbb{R}$上.
+    一般情况下子域的自同构是不一定能延拓到扩域上, 比如考虑$\mathbb{Q}(\sqrt{2})$的共轭自同构(类似复共轭, $\sqrt{2} \mapsto -\sqrt{2}$), 它不能延拓到$\mathbb{R}$上.
 
-    综上可得,
-$\mathrm{Aut}_{\mathsf{Ring}}(\mathbb{R}) = \mathrm{Aut}_{\mathbb{Q}}(\mathbb{R})$
-是平凡群.(由于$\mathbb{R}/\mathbb{Q}$并不是Galois扩张, 因此没有用符号
-$\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, $\mathsf{Ring}$表示环范畴)
+    综上可得, $\mathrm{Aut}_{\mathsf{Ring}}(\mathbb{R}) = \mathrm{Aut}_{\mathbb{Q}}(\mathbb{R})$是平凡群.(由于$\mathbb{R}/\mathbb{Q}$并不是Galois扩张, 因此没有用符号$\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, $\mathsf{Ring}$表示环范畴)
 \end{proof}
 
 \begin{problem}
-    证明: $\mathbb{Q}[\sqrt 2] = \{a + b\sqrt 2 \mid a, b \in \mathbb{Q}\}$,
-$\mathbb{Q}[\sqrt 5] = \{a + b\sqrt 5 \mid a, b \in \mathbb{Q}\}$
-都是$\mathbb{R}$的子域. 它们是同构的域吗？
+    证明: $\mathbb{Q}[\sqrt 2] = \{a + b\sqrt 2 \mid a, b \in \mathbb{Q}\}$, $\mathbb{Q}[\sqrt 5] = \{a + b\sqrt 5 \mid a, b \in \mathbb{Q}\}$都是$\mathbb{R}$的子域. 它们是同构的域吗？
 \end{problem}
 
 \begin{proof}
-    由教材命题1.4.1的(9), 两个域若存在同态则一定是单同态, 即只有两种可能, 
-    一个域为另一个域的扩张或两者同构. 我们断言这两个域之间不存在同态.
+    由教材命题1.4.1的(9), 两个域若存在同态则一定是单同态, 即只有两种可能, 一个域为另一个域的扩张或两者同构. 我们断言这两个域之间不存在同态.
     
-    假设存在同态
-$\varphi: \mathbb{Q}[\sqrt{2}] \to \mathbb{Q}[\sqrt{5}]$,
-则设$\varphi(\sqrt{2}) = a + b\sqrt{5},\, a, b \in \mathbb{Q}$.
-注意到由同态定义有$\varphi(2) = 2$, 立刻有
-\[
-    2 = \varphi(2) = \varphi(\sqrt{2})^2 = (a + b\sqrt{5})^2 = a^2 + 5b^2 + 2ab\sqrt{5}
-\]
-这要求$a^2 + 5b^2 = 2$且$ab = 0$, 这是不可能的, 矛盾.
+    假设存在同态$\varphi: \mathbb{Q}[\sqrt{2}] \to \mathbb{Q}[\sqrt{5}]$, 则设$\varphi(\sqrt{2}) = a + b\sqrt{5},\, a, b \in \mathbb{Q}$. 注意到由同态定义有$\varphi(2) = 2$, 立刻有
+    \[
+        2 = \varphi(2) = \varphi(\sqrt{2})^2 = (a + b\sqrt{5})^2 = a^2 + 5b^2 + 2ab\sqrt{5}
+    \]
+    这要求$a^2 + 5b^2 = 2$且$ab = 0$, 这是不可能的, 矛盾.
 \end{proof}
 
 \begin{problem}\label{ex:1.4.9}
-    设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域,
-$K \supset L$称为域扩张, 试证明: 
-\begin{enumerate}[(1)]
-    \item 域的加法和乘法使得$K$是一个$L$-向量空间$([K:L] = \dim_L(K)$称为域
-扩张$K \supset L$ 的次数);
-    \item 如果$K \supset \mathbb{R}$是一个二次扩张(即$[K:\mathbb{R}] = 2)$,
-则$K$必同构于复数域$\mathbb{C}$.
-\end{enumerate}
+    设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域, $K \supset L$称为域扩张, 试证明:
+    \begin{enumerate}[(1)]
+        \item 域的加法和乘法使得$K$是一个$L$-向量空间$([K:L] = \dim_L(K)$称为域扩张$K \supset L$ 的次数);
+        \item 如果$K \supset \mathbb{R}$是一个二次扩张(即$[K:\mathbb{R}] = 2)$, 则$K$必同构于复数域$\mathbb{C}$.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item $(K, +)$是一个Abel群, 这一点无需再说明. 乘法在这里可能有些歧义,
-    此处是要验证乘法限制在$L \times K$上, 即
-    \[
-        \cdot: L \times K \to K, \quad (l, k) \mapsto lk
-    \]
-    是数乘. 即要验证
-    \[
-    \begin{gathered}
-        (l_1l_2)k = l_1(l_2k),\\
-        (l_1 + l_2)k = l_1k + l_2k,\\
-        l(k_1 + k_2) = lk_1 + lk_2,\\
-        1k = k = k1.
-    \end{gathered}
-    \]
-    这些都由域的定义得到.
-
-    这也说明若同态$K_1 \to K_2$保持$L$($K_1, K_2$为$L$的两个扩域),
-    则一定是$L$-线性映射.
-    \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的.
-    设同构$f: \mathbb{C} \to \mathbb{C}$, 则有
-    $f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且
-    保持乘法, 即
-    \[
-    \begin{gathered}
-        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1) \\= (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
-        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
-        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i) \\= x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
-        \implies f(i) \cdot f(i) = -1.
-    \end{gathered} 
-    \]
-    因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有
-    恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
-
-    由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的,
-    只有上述两个线性映射是域同构, 需要做基变换转为恒等或共轭才能保持乘法. 事实上只要存在
-    一个基变换就能变回恒等映射, 恒等映射总是同构,
-    但前提是承载集合(underlying set)要一样. 比如$\mathbb{Q}(\sqrt{2})$
-    和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们
-    之间没有域同态.
-
-    可取$K$的一组基为$1, \alpha$, 其中$\alpha \in \mathbb{C} \setminus \mathbb{R}$.
-    不可避免地要考虑$\alpha^2$的结果, 由于$1, \alpha$是基, 因此$\alpha^2$可以被线性表出,
-    即$\alpha^2 = x + y\alpha$. 由于$\alpha \notin \mathbb{R}$, 有$y^2 + 4x < 0$,
-    解二次方程得到$\alpha = \frac{y \pm i\sqrt{|y^2 + 4x|}}{2}$.
-    故映射
-\[
-    f: K \to \mathbb{C},\, u + v\alpha \mapsto u + v\frac{y \pm i\sqrt{|y^2 + 4x|}}{2}
-\]
-    是域同构.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item $(K, +)$是一个Abel群, 这一点无需再说明. 乘法在这里可能有些歧义, 此处是要验证乘法限制在$L \times K$上, 即
+        \[
+            \cdot: L \times K \to K, \quad (l, k) \mapsto lk
+        \]
+        是数乘. 即要验证
+        \[
+        \begin{gathered}
+            (l_1l_2)k = l_1(l_2k),\\
+            (l_1 + l_2)k = l_1k + l_2k,\\
+            l(k_1 + k_2) = lk_1 + lk_2,\\
+            1k = k = k1.
+        \end{gathered}
+        \]
+        这些都由域的定义得到.
+    
+        这也说明若同态$K_1 \to K_2$保持$L$($K_1, K_2$为$L$的两个扩域), 则一定是$L$-线性映射.
+        \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的. 设同构$f: \mathbb{C} \to \mathbb{C}$, 则有$f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且保持乘法, 即
+        \[
+        \begin{gathered}
+            f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1)\\
+            = (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
+            \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right)\\
+            = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+            \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i)\\
+            = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+            \implies f(i) \cdot f(i) = -1.
+        \end{gathered}
+        \]
+        因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
+        
+        由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的, 只有上述两个线性映射是域同构, 需要做基变换转为恒等或共轭才能保持乘法. 事实上只要存在一个基变换就能变回恒等映射, 恒等映射总是同构, 但前提是承载集合(underlying set)要一样. 比如$\mathbb{Q}(\sqrt{2})$和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们之间没有域同态.
+        
+        可取$K$的一组基为$1, \alpha$, 其中$\alpha \in \mathbb{C} \setminus \mathbb{R}$. 不可避免地要考虑$\alpha^2$的结果, 由于$1, \alpha$是基, 因此$\alpha^2$可以被线性表出, 即$\alpha^2 = x + y\alpha$. 由于$\alpha \notin \mathbb{R}$, 有$y^2 + 4x < 0$, 解二次方程得到$\alpha = \frac{y \pm i\sqrt{|y^2 + 4x|}}{2}$. 故映射
+        \[
+            f: K \to \mathbb{C},\, u + v\alpha \mapsto u + v\frac{y \pm i\sqrt{|y^2 + 4x|}}{2}
+        \]
+        是域同构.
+    \end{enumerate}
 \end{proof}
 
 \begin{remark}
-    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个
-    $R$-模结构
+    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个$R$-模结构
     \[
         R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
     \]
@@ -240,11 +192,11 @@ $K \supset L$称为域扩张, 试证明:
 \end{remark}
 
 \begin{problem}
-    设$d$是一个非零整数, 且$\sqrt d \notin \mathbb{Q}$. 证明: 
-\[
-    \mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\} \supset \mathbb{Q}
-\]
-是一个二次扩张($d < 0$时, $\mathbb{Q}[\sqrt{d}]$称为虚二次域, $d > 0$时称为实二次域).
+    设$d$是一个非零整数, 且$\sqrt d \notin \mathbb{Q}$. 证明:
+    \[
+        \mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\} \supset \mathbb{Q}
+    \]
+    是一个二次扩张($d < 0$时, $\mathbb{Q}[\sqrt{d}]$称为虚二次域, $d > 0$时称为实二次域).
 \end{problem}
 
 \begin{proof}
@@ -255,6 +207,7 @@ $K \supset L$称为域扩张, 试证明:
         (a_1 + b_1\sqrt{d}) + (a_2 + b_2\sqrt{d}) = (a_1 + a_2) + (b_1 + b_2)\sqrt{d}
     \]
     容易验证结合律, $0 = 0 + 0\sqrt{d},\, -(a + b\sqrt{d}) = (-a) + (-b)\sqrt{d}$.
+    
     乘法:
     \[
         (a_1 + b_1\sqrt{d}) \cdot (a_2 + b_2\sqrt{d}) = a_1a_2 + b_1b_2d + (a_1b_2 + a_2b_1)\sqrt{d}
@@ -263,98 +216,95 @@ $K \supset L$称为域扩张, 试证明:
     \[
         (a + b\sqrt{d})^{-1} = \frac{1}{a + b\sqrt{d}} = \frac{a - b\sqrt{d}}{a^2 + b^2d} = \frac{a}{a^2 + b^2d} + \frac{- b}{a^2 + b^2d}\sqrt{d}
     \],
+    
     结合律是容易验证的(计算出的结果是轮换对称的, 参考\ref{ex:1.1.4}和\ref{ex:1.2.3}).
 \end{proof}
 
 \begin{problem}
     设$L \supset K$是一个域扩张, 证明: 下述集合
-\[
-\mathrm{Gal}(L/K)=
-\left\{L \xrightarrow{\sigma} L \mid \sigma\text{ 是域同构},\text{ 且 } \sigma(a) = a \text{ 对任意 } a \in K \text{ 成立}\right\}
-\]
-关于映射的合成是一个群(称为域扩张$L\supset K$的伽罗瓦群).
+    \[
+        \mathrm{Gal}(L/K) = \left\{L \xrightarrow{\sigma} L \mid \sigma\text{ 是域同构},\text{ 且 } \sigma(a) = a \text{ 对任意 } a \in K \text{ 成立}\right\}
+    \]
+    关于映射的合成是一个群(称为域扩张$L\supset K$的伽罗瓦群).
 \end{problem}
 
 \begin{proof}
-    $\mathrm{Gal}(L/K) \subseteq \mathrm{Aut}(L)$, 只需说明$\mathrm{Gal}(L/K)$
-是子群.
+    $\mathrm{Gal}(L/K) \subseteq \mathrm{Aut}(L)$, 只需说明$\mathrm{Gal}(L/K)$是子群.
 
-    $\forall \varphi, \psi \in \mathrm{Gal}(L/K)$, 由于$\psi|_K = \mathrm{id}_K$,
-因此$\psi^{-1}|_K = \mathrm{id}_K$, 故$(\varphi \circ \psi^{-1})|_K = \mathrm{id}_K$,
-即$\varphi \circ \psi^{-1} \in \mathrm{Gal}(L/K)$.
+    $\forall \varphi, \psi \in \mathrm{Gal}(L/K)$, 由于$\psi|_K = \mathrm{id}_K$, 因此$\psi^{-1}|_K = \mathrm{id}_K$, 故$(\varphi \circ \psi^{-1})|_K = \mathrm{id}_K$, 即$\varphi \circ \psi^{-1} \in \mathrm{Gal}(L/K)$.
 \end{proof}
 
 \begin{problem}
-    求$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$,
-此处$d \in \mathbb{Z}, \sqrt{d} \notin \mathbb{Q}$.
+    求$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$, 此处$d \in \mathbb{Z}, \sqrt{d} \notin \mathbb{Q}$.
 \end{problem}
 
 \begin{proof}
     同\ref{ex:1.4.9}, 若$\sigma \in \mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$, 则$\sigma \in \mathrm{Aut}_{\mathbb{Q}-\mathsf{Vect}}\left(\mathbb{Q}[\sqrt{d}]\right)$, 因此$\sigma(a + b\sqrt{d}) = a + b\sigma(\sqrt{d})$. 然后由于保持乘法得到$\sigma(\sqrt{d}) \cdot \sigma(\sqrt{d}) = d$, 得到$\sigma(\sqrt{d}) = \pm\sqrt{d}$.
 
-    因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z}$,
-    两个同构分别为$\mathrm{id}$和共轭.
+    因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z}$, 两个同构分别为$\mathrm{id}$和共轭.
 \end{proof}
 
 \begin{problem}\label{ex:1.4.13}
-    设$V = (V, +)$ 是一个加法群, $\mathrm{Hom}(V)$表示它的自同态环.
-对任意域$K$, 如果存在一个数乘运算
-$K \times V \to V,\, (\lambda,v) \mapsto \lambda \cdot v$,
-使得加法群$V = (V, +)$成为一个$K$-线性空间, 则称该数乘运算是加法群
-$V = (V, +)$上的一个$K$-线性空间结构. 试证明: 
-\begin{enumerate}[(1)]
-    \item 如果存在一个环同态$\varphi:K \to \mathrm{Hom}(V)$,则数乘运算
-\[
-    K \times V \to V,\quad (\lambda, v) \mapsto \lambda \cdot v \defeq \varphi(\lambda)(v)
-\]
-是$V$上的一个$K$-线性空间结构;
-    \item 如果在$V$上存在$K$-线性空间结构$\phi:K \times V \to V$,则映射
-\[
-    \varphi:K \to \mathrm{Hom}(V),\quad \lambda \mapsto \phi(\lambda, \cdot)
-\]
-是一个环同态, 其中$\phi(\lambda, \cdot):V \to V$定义为
-$v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
-    \item 对任意域$K$, 整数加法群$\mathbb{Z} = (\mathbb{Z}, +)$上不存在$K$-线性空间结构.
-\end{enumerate}
+    设$V = (V, +)$ 是一个加法群, $\mathrm{Hom}(V)$表示它的自同态环. 对任意域$K$, 如果存在一个数乘运算$K \times V \to V,\, (\lambda,v) \mapsto \lambda \cdot v$, 使得加法群$V = (V, +)$成为一个$K$-线性空间, 则称该数乘运算是加法群$V = (V, +)$上的一个$K$-线性空间结构. 试证明:
+    \begin{enumerate}[(1)]
+        \item 如果存在一个环同态$\varphi:K \to \mathrm{Hom}(V)$,则数乘运算
+        \[
+            K \times V \to V,\quad (\lambda, v) \mapsto \lambda \cdot v \defeq \varphi(\lambda)(v)
+        \]
+        是$V$上的一个$K$-线性空间结构;
+        \item 如果在$V$上存在$K$-线性空间结构$\phi:K \times V \to V$,则映射
+        \[
+            \varphi:K \to \mathrm{Hom}(V),\quad \lambda \mapsto \phi(\lambda, \cdot)
+        \]
+        是一个环同态, 其中$\phi(\lambda, \cdot):V \to V$定义为$v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
+        \item 对任意域$K$, 整数加法群$\mathbb{Z} = (\mathbb{Z}, +)$上不存在$K$-线性空间结构.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 验证数乘的四条:
-    \begin{enumerate}[(i)]
-        \item 由于$\varphi$是环同态, 因此$\varphi(1) = 1_{\mathrm{Hom(V)}} = \mathrm{id}_V$. 故$\forall v \in V$有$1v = \varphi(1)(v) = \mathrm{id}_V(v) = v$.
-        \item \(
-            \forall a, b \in K,\, v \in V\, (a + b)v = (\varphi(a + b))(v) = (\varphi(a) + \varphi(b))(v) = \varphi(a)(v) + \varphi(b)(v) = av + bv.
-        \)
-        \item \(
-            \forall a \in K,\, v, w \in V\, a(v + w) = \varphi(a)(v + w) = \varphi(a)(v) + \varphi(a)(w) = av + aw.
-        \)
-        \item \(
-            \forall a, b \in K,\, v \in V\, (ab)v = \varphi(ab)(v) = (\varphi(a) \circ \varphi(b))(v) = \varphi(a)(\varphi(b)(v)) = a(bv).
-        \)
+    \begin{enumerate}[(1)]
+        \item 验证数乘的四条:
+        \begin{enumerate}[(i)]
+            \item 由于$\varphi$是环同态, 因此$\varphi(1) = 1_{\mathrm{Hom(V)}} = \mathrm{id}_V$. 故$\forall v \in V$有$1v = \varphi(1)(v) = \mathrm{id}_V(v) = v$.
+            \item 
+            \(
+                \forall a, b \in K,\, v \in V\, (a + b)v = (\varphi(a + b))(v) = (\varphi(a) + \varphi(b))(v) = \varphi(a)(v) + \varphi(b)(v) = av + bv.
+            \)
+            \item 
+            \(
+                \forall a \in K,\, v, w \in V\, a(v + w) = \varphi(a)(v + w) = \varphi(a)(v) + \varphi(a)(w) = av + aw.
+            \)
+            \item 
+            \(
+                \forall a, b \in K,\, v \in V\, (ab)v = \varphi(ab)(v) = (\varphi(a) \circ \varphi(b))(v) = \varphi(a)(\varphi(b)(v)) = a(bv).
+            \)
+        \end{enumerate}
+        \item (1)的反向.
+        \begin{enumerate}[(i)]
+            \item 
+            \(
+                \forall a \in K,\, v, w \in V\, \varphi(a)(v + w) = \phi(a, v + w) = a(v + w) = av + aw = \phi(a, v) + \phi(a, w) = \varphi(a)(v) + \varphi(a)(w)
+            \)
+            这说明$\varphi(a)$保持加法.
+            \item 
+            \(
+                \forall a \in K,\, v \in V\, \varphi(a)(kv) = \phi(a, kv) = a(kv) = (ka)v = \phi(ka, a) = \varphi(ka)(v)
+            \)
+            这说明$\varphi(a)$保持数乘.
+            
+            由(i)(ii)知$\varphi$是良定义的(well-defined). 同时(ii)也说明$\varphi(ab) = \varphi(a) \circ \varphi(b)$.
+            \item 由$\phi$是数乘, 即$1v = v,\, \forall v \in V$. 也就是说$\phi(1, \cdot) = \mathrm{id}_V$.
+            \item 
+            \(
+                \forall a, b \in K,\, v \in V,\, \varphi(a + b)(v) = \phi(a + b, v) = (a + b)v = av + bv = \phi(a, v) + \phi(b, v) = \varphi(a) + \varphi(b)
+            \)
+        \end{enumerate}
+        \item 用反证法, 假设$(\mathbb{Z}, +)$上存在一个$K$-线性空间结构, 即存在一个环同态$\varphi: K \to \mathrm{Hom}(\mathbb{Z})$.
+        
+        但是$\mathrm{Hom}(\mathbb{Z})$和整数环$\mathbb{Z}$是同构的(教材例1.4.4). 我们又知道域出发的环同态一定是单的(教材命题1.4.1的(9)), 也就是说存在一个域$K$到$\mathbb{Z}$的单同态, 这是不可能的. 由\ref{ex:1.4.7}, 一定有$n \mapsto n,\, \forall n \in \mathbb{Z}$, 而同态一定会把单位映到单位, 但$\mathbb{Z}$中只有$\pm1$是单位.
+        
+        \ref{ex:1.4.7}也说明了环同态是保特征的, 因此$\mathrm{Char}(K) = \mathrm{Char}(\mathbb{Z}) = 0$, 从而$\mathbb{Q} \subseteq K$. 这样也可以看出矛盾.
     \end{enumerate}
-    \item (1)的反向.
-    \begin{enumerate}[(i)]
-        \item \(
-            \forall a \in K,\, v, w \in V\, \varphi(a)(v + w) = \phi(a, v + w) = a(v + w) = av + aw = \phi(a, v) + \phi(a, w) = \varphi(a)(v) + \varphi(a)(w)
-        \)这说明$\varphi(a)$保持加法.
-        \item \(
-            \forall a \in K,\, v \in V\, \varphi(a)(kv) = \phi(a, kv) = a(kv) = (ka)v = \phi(ka, a) = \varphi(ka)(v)
-        \)这说明$\varphi(a)$保持数乘.
-
-        由(i)(ii)知$\varphi$是良定义的(well-defined). 同时(ii)也说明$\varphi(ab) = \varphi(a) \circ \varphi(b)$.
-        \item 由$\phi$是数乘, 即$1v = v,\, \forall v \in V$. 也就是说$\phi(1, \cdot) = \mathrm{id}_V$.
-        \item \(
-            \forall a, b \in K,\, v \in V,\, \varphi(a + b)(v) = \phi(a + b, v) = (a + b)v = av + bv = \phi(a, v) + \phi(b, v) = \varphi(a) + \varphi(b)
-        \)
-    \end{enumerate}
-    \item 用反证法, 假设$(\mathbb{Z}, +)$上存在一个$K$-线性空间结构, 即存在一个环同态$\varphi: K \to \mathrm{Hom}(\mathbb{Z})$.
-    
-    但是$\mathrm{Hom}(\mathbb{Z})$和整数环$\mathbb{Z}$是同构的(教材例1.4.4). 我们又知道域出发的环同态一定是单的(教材命题1.4.1的(9)), 也就是说存在一个域$K$到$\mathbb{Z}$的单同态, 这是不可能的.
-    由\ref{ex:1.4.7}, 一定有$n \mapsto n,\, \forall n \in \mathbb{Z}$, 而同态一定会把单位映到单位, 但$\mathbb{Z}$中只有$\pm1$是单位.
-    
-    \ref{ex:1.4.7}也说明了环同态是保特征的, 因此$\mathrm{Char}(K) = \mathrm{Char}(\mathbb{Z}) = 0$, 从而$\mathbb{Q} \subseteq K$. 这样也可以看出矛盾.
-\end{enumerate}
 \end{proof}
 
 \begin{remark}
@@ -362,10 +312,7 @@ $v \mapsto \phi(\lambda, v) \defeq \lambda \cdot v$;
 \end{remark}
 
 \begin{problem}
-    证明: 在整数集合$\mathbb{Z}$上存在运算
-$\mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}, (a,b) \mapsto a \oplus b$,
-使得$(\mathbb{Z}, \oplus)$是一个交换群, 但它与整数加法群
-$(\mathbb{Z}, +)$不同构. 提示: 利用$\mathbb{Q}$是可数集和上题中的问题(3).
+    证明: 在整数集合$\mathbb{Z}$上存在运算$\mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}, (a,b) \mapsto a \oplus b$, 使得$(\mathbb{Z}, \oplus)$是一个交换群, 但它与整数加法群$(\mathbb{Z}, +)$不同构. 提示: 利用$\mathbb{Q}$是可数集和上题中的问题(3).
 \end{problem}
 
 \begin{proof}
@@ -375,8 +322,7 @@ $(\mathbb{Z}, +)$不同构. 提示: 利用$\mathbb{Q}$是可数集和上题中�
     \[
         f^{-1}: \mathbb{Q} \to (\mathbb{Z}, \oplus, \star)
     \]
-    会自然诱导出一个$\mathbb{Q}$-线性空间结构(\ref{ex:1.4.9}的(1)). 由\ref{ex:1.4.13}的(3),
-    $(\mathbb{Z}, \oplus)$和$(\mathbb{Z}, +)$不同构.
+    会自然诱导出一个$\mathbb{Q}$-线性空间结构(\ref{ex:1.4.9}的(1)). 由\ref{ex:1.4.13}的(3), $(\mathbb{Z}, \oplus)$和$(\mathbb{Z}, +)$不同构.
 \end{proof}
 
 \begin{remark}

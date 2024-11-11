@@ -8,10 +8,10 @@
 \subsection*{作业}
 \begin{exercise}[习题2.1.1]
     设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
-\[
-    \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
-\]
-也是$R$的理想 (称为理想$I$的根).
+    \[
+        \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
+    \]
+    也是$R$的理想(称为理想$I$的根).
 \end{exercise}
 
 \begin{remark}
@@ -43,14 +43,11 @@
 \end{remark}
 
 \begin{exercise}[习题2.1.2]
-    设$R$是一个交换环, $p > 0$是一个素数. 如果
-$p \cdot x = 0 (\forall x\in R)$. 试证明: 
-$(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
+    设$R$是一个交换环, $p > 0$是一个素数. 如果$p \cdot x = 0 (\forall x\in R)$. 试证明: $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{exercise}
 
 \begin{proof}
-    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p1_R = 0_R$, $\mathrm{Char}(R) < p$.
-    那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1_R = 0_R$, 这就没什么考虑的必要了.
+    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p1_R = 0_R$, $\mathrm{Char}(R) < p$. 那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1_R = 0_R$, 这就没什么考虑的必要了.
 
     对特征$p$的交换环, 有一个特别的同态$F$称为Frobenius自同态,
     \[
@@ -76,9 +73,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{remark}
 
 \begin{exercise}[习题2.1.5]
-    理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果: $ab \in P \Rightarrow a \in P$
-或$b \in P$. 试证明: 
-\(P \,\red{\subsetneq}\, R\)是素理想当且仅当$R/P$没有零因子.
+    理想\(P \,\red{\subsetneq}\, R\)称为素理想, 如果: $ab \in P \Rightarrow a \in P$或$b \in P$. 试证明: \(P \,\red{\subsetneq}\, R\)是素理想当且仅当$R/P$没有零因子.
 \end{exercise}
 
 \begin{proof}
@@ -97,9 +92,7 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{proof}
 
 \begin{exercise}[习题2.1.6]
-    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, 
-$m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
+    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{exercise}
 
 \begin{proof}
@@ -130,7 +123,7 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
     \]
     即考虑所有可能的有限和.
     
-        另外$\bigcap_{\alpha \in A} I_\alpha$也是一个理想. 还有一个是理想的积, 相对要复杂一些,
+    另外$\bigcap_{\alpha \in A} I_\alpha$也是一个理想. 还有一个是理想的积, 相对要复杂一些,
     \[
     \begin{aligned}
         IJ &\defeq (\{ij \mid i \in I, j \in J\})\\
@@ -142,11 +135,11 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 
 \begin{exercise}[习题2.1.7]
     设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
-\begin{enumerate}[(1)]
-    \item $I$是极大理想;
-    \item $I$是素理想;
-    \item 存在素数$p$使得$I = (p)\mathbb{Z} = \{ap \mid \forall a \in \mathbb{Z}\}$.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item $I$是极大理想;
+        \item $I$是素理想;
+        \item 存在素数$p$使得$I = (p)\mathbb{Z} = \{ap \mid \forall a \in \mathbb{Z}\}$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
@@ -164,44 +157,41 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 \end{proof}
 
 \begin{exercise}[习题2.1.8]
-    设$p \in \mathbb{Z}$是素数, 证明
-$(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
-项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
+    设$p \in \mathbb{Z}$是素数, 证明$(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
 \end{exercise}
 
 \begin{proof}
     事实上若$I$是$R$的理想, 我们有
-\[
-    \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
-\]
-这是根据同态基本定理得到, 考虑同态
-\[
-    \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
-\]
-可以验证这确实是一个同态.(事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.)
+    \[
+        \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
+    \]
+    这是根据同态基本定理得到, 考虑同态
+    \[
+        \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
+    \]
+    可以验证这确实是一个同态.(事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.)
 
-回到原题, 有
-\[
-    \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
-\]
-这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由2.1.5和2.1.6, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+    回到原题, 有
+    \[
+        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
+    \]
+    这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由2.1.5和2.1.6, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
 \end{proof}
 
 \begin{remark}
     (这个比较超纲看不懂可以不看)给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(习题2.1.11), 根据之前习题1.4.9说过的, 首先$S$上有一个$R$-模结构. 其次有
-\[
-    (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
-\]
-即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是习题2.1.12介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
+    \[
+        (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
+    \]
+    即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是习题2.1.12介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
 
-当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
+    当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
 
-而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.
+    而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.
 \end{remark}
 
 \begin{exercise}[习题2.2.2]
-    设$R$是整环, $p \in R$称为一个素元如果它生成的理想
-$P=(p)R$是素理想. 证明: $R$中素元必为不可约元.
+    设$R$是整环, $p \in R$称为一个素元如果它生成的理想$P=(p)R$是素理想. 证明: $R$中素元必为不可约元.
 \end{exercise}
 
 \begin{proof}
@@ -223,40 +213,36 @@ $P=(p)R$是素理想. 证明: $R$中素元必为不可约元.
 
 \begin{exercise}[习题2.2.4]
     (辗转相除法) 设$R$是欧氏环, $a, b \in R$非零. 由带余除法得
-\[
-a = q_{1}b + r_{1},\,
-b = q_{2}r_{1}+ r_{2},\,
-r_{1} = q_{3}r_{2} + r_{3},\, \cdots,\,
-r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
-\]
-满足$\delta(r_k) < \delta(r_{k - 1}) < \cdots < \delta(r_2) < \delta(r_1) < \delta(b)$.
-试证明: 
-\begin{enumerate}[(1)]
-    \item 存在$k$使得$r_{k + 1} = 0$;
-    \item $r_k$是$a$, $b$的一个最大公因子;
-    \item 求$u$, $v \in R$使得$r_k = ua + vb$.
-\end{enumerate}
+    \[
+        a = q_{1}b + r_{1},\, b = q_{2}r_{1} + r_{2},\, r_{1} = q_{3}r_{2} + r_{3},\, \cdots,\, r_{k- 2}= q_{k}r_{k- 1} + r_{k}
+    \]
+    满足$\delta(r_k) < \delta(r_{k - 1}) < \cdots < \delta(r_2) < \delta(r_1) < \delta(b)$. 试证明:
+    \begin{enumerate}[(1)]
+        \item 存在$k$使得$r_{k + 1} = 0$;
+        \item $r_k$是$a$, $b$的一个最大公因子;
+        \item 求$u$, $v \in R$使得$r_k = ua + vb$.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 由于$\delta(b) < \infty$, 且$\delta(r_k)$是严格递减的自然数序列, 因此$\delta(k) \leqslant \delta(b) - k$, 取$k > \delta(b)$即可.
-    \item 由(1)知最后一个等式为$r_{k - 1} = q_{k + 1}r_{k}$. 且
-\[
-    (a, b) = (bq_1 + r_1, b) = (b, r_1) = (q_2r_1 + r_2, r_1) = (r_1, r_2) = \cdots = (r_{k - 1}, r_k) = r_k.
-\]
-    \item 根据辗转相除法的算式反过来表示$r_k$.
-\[
-    \begin{aligned}
-        r_k &= r_{k - 2} - q_kr_{k - 1} = u_1r_{k - 2} + v_1r_{k - 1},\quad u_1 = 1, v_1 = -q_k\\ 
-        &= u_1r_{k - 2} + v_1(r_{k - 3} - q_{k - 1}r_{k - 2}),\quad (r_{k - 3} = q_{k - 1}r_{k - 2} + r_{k - 1})\\
-        &= u_2r_{k - 3} + v_2r_{k - 2}, \quad u_2 = -q_k, v_2 = 1 + q_kq_{k - 1}\\
-        &= \cdots \\
-        &= u_ka + v_kb 
-    \end{aligned}
-\]
-递归关系是$u_i = v_{i - 1}, v_i = u_{i - 1} - v_{i - 1}q_{k - i + 1}$.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 由于$\delta(b) < \infty$, 且$\delta(r_k)$是严格递减的自然数序列, 因此$\delta(k) \leqslant \delta(b) - k$, 取$k > \delta(b)$即可.
+        \item 由(1)知最后一个等式为$r_{k - 1} = q_{k + 1}r_{k}$. 且
+        \[
+            (a, b) = (bq_1 + r_1, b) = (b, r_1) = (q_2r_1 + r_2, r_1) = (r_1, r_2) = \cdots = (r_{k - 1}, r_k) = r_k.
+        \]
+        \item 根据辗转相除法的算式反过来表示$r_k$.
+        \[
+        \begin{aligned}
+            r_k &= r_{k - 2} - q_kr_{k - 1} = u_1r_{k - 2} + v_1r_{k - 1},\quad u_1 = 1, v_1 = -q_k\\
+            &= u_1r_{k - 2} + v_1(r_{k - 3} - q_{k - 1}r_{k - 2}),\quad (r_{k - 3} = q_{k - 1}r_{k - 2} + r_{k - 1})\\
+            &= u_2r_{k - 3} + v_2r_{k - 2}, \quad u_2 = -q_k, v_2 = 1 + q_kq_{k - 1}\\
+            &= \cdots \\
+            &= u_ka + v_kb
+        \end{aligned}
+        \]
+        递归关系是$u_i = v_{i - 1}, v_i = u_{i - 1} - v_{i - 1}q_{k - i + 1}$.
+    \end{enumerate}
 \end{proof}
 
 \begin{remark}
@@ -266,34 +252,33 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \end{remark}
 
 \begin{exercise}[习题2.2.5]
-    设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$,
-定义: $N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明: 
-\begin{enumerate}[(1)]
-    \item $U(R) = \{1, -1\}$;
-    \item $R$中任意元素都有不可约分解;
-    \item $3$, $2 + \sqrt{-5}$, $2 - \sqrt{-5} \in R$是不可约元;
-    \item $9 = 3 \cdot 3= (2 + \sqrt{-5}) \cdot (2 - \sqrt{-5})$是$9$的两个不相同的不可约分解.
-\end{enumerate}
+    设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$, 定义: $N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明:
+    \begin{enumerate}[(1)]
+        \item $U(R) = \{1, -1\}$;
+        \item $R$中任意元素都有不可约分解;
+        \item $3$, $2 + \sqrt{-5}$, $2 - \sqrt{-5} \in R$是不可约元;
+        \item $9 = 3 \cdot 3= (2 + \sqrt{-5}) \cdot (2 - \sqrt{-5})$是$9$的两个不相同的不可约分解.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 验证$N$满足$N(\alpha\beta) = N(\alpha)N(\beta)$, 这和复数中$|z_1z_2| = |z_1||z_2|$是类似的, 且$N(\alpha) \in \mathbb{N}$. 那么若$\alpha$是单位, 则存在$\beta$使得$\alpha\beta = 1$, 故$N(\alpha\beta) = N(\alpha)N(\beta) = N(1) = 1$, 故只能有$N(\alpha) = N(\beta) = 1$, 解得$\alpha = \pm 1$.
-    \item 因为$R$是Noether环.(但其实没那么好说明, 如果知道Hilbert's Basis Theorem就没问题)
+    \begin{enumerate}[(1)]
+        \item 验证$N$满足$N(\alpha\beta) = N(\alpha)N(\beta)$, 这和复数中$|z_1z_2| = |z_1||z_2|$是类似的, 且$N(\alpha) \in \mathbb{N}$. 那么若$\alpha$是单位, 则存在$\beta$使得$\alpha\beta = 1$, 故$N(\alpha\beta) = N(\alpha)N(\beta) = N(1) = 1$, 故只能有$N(\alpha) = N(\beta) = 1$, 解得$\alpha = \pm 1$.
+        \item 因为$R$是Noether环.(但其实没那么好说明, 如果知道Hilbert's Basis Theorem就没问题)
     
-    或者可以用$N(\alpha)$保持乘法的特性. 对任意$\alpha \in R$, 若它不可约, 则已经是一个分解了; 否则$\alpha = \beta\gamma$, 其中$\beta, \gamma$不是单位, 且有$N(\alpha) = N(\beta)N(\gamma)$. 因此$N(\beta), N(\gamma) < N(\alpha)$, 由于$N(\alpha) < \infty$, 因此这样分解是有限的, 这和Noether环$\implies$存在分解的过程是类似的.
-    \item 由于$N(3) = N(2 + \sqrt{-5}) = N(2 - \sqrt{-5}) = 9 = 3^2$, 若它们可约, 则存在$\alpha$使得$N(\alpha) = 3$, 这是不可能的.
+        或者可以用$N(\alpha)$保持乘法的特性. 对任意$\alpha \in R$, 若它不可约, 则已经是一个分解了; 否则$\alpha = \beta\gamma$, 其中$\beta, \gamma$不是单位, 且有$N(\alpha) = N(\beta)N(\gamma)$. 因此$N(\beta), N(\gamma) < N(\alpha)$, 由于$N(\alpha) < \infty$, 因此这样分解是有限的, 这和Noether环$\implies$存在分解的过程是类似的.
+        \item 由于$N(3) = N(2 + \sqrt{-5}) = N(2 - \sqrt{-5}) = 9 = 3^2$, 若它们可约, 则存在$\alpha$使得$N(\alpha) = 3$, 这是不可能的.
     
-    另外, 若$N(\alpha)$是素数, 则一定不可约, 但是反过来不对, 比如这里$9$并不是素数.
-    \item 由(3).
-\end{enumerate}
+        另外, 若$N(\alpha)$是素数, 则一定不可约, 但是反过来不对, 比如这里$9$并不是素数.
+        \item 由(3).
+    \end{enumerate}
 \end{proof}
 
 \begin{remark}
     \begin{enumerate}[1.]
-    \item 这个$N$是范数(norm). 它其实是$\mathbb{Q}$-线性映射$\beta \mapsto \alpha\beta$所对应矩阵的行列式. 这个概念在模论和代数数论都有提及.
-    \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = 1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
-\end{enumerate}
+        \item 这个$N$是范数(norm). 它其实是$\mathbb{Q}$-线性映射$\beta \mapsto \alpha\beta$所对应矩阵的行列式. 这个概念在模论和代数数论都有提及.
+        \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = 1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
+    \end{enumerate}
 \end{remark}
 
 \subsection*{课上的补充内容}
@@ -302,41 +287,42 @@ r_{k- 2}= q_{k}r_{k- 1}+ r_{k}
 \end{additional}
 
 \begin{additional}[集合论相关]
-\begin{enumerate}[I.]
-    \item 设$f: X \to Y$是映射, $X_1 \subseteq X, Y_1 \subseteq Y$,
-    \begin{enumerate}[(1)]
-        \item $X_1$的像(image)$f(X_1)$是一个$Y$的子集, $f(X_1) \defeq \{f(x) \in Y \mid x \in X_1\}$,
-        \item $Y_1$的原像(preimage)$f^{-1}(Y)$是一个$X$的子集, $f^{-1} = \{x \in X \mid f(x) \in Y_1\}$. 当$Y_1$是单点集$\{y\}$时, $f^{-1}(Y_1)$可以简记为$f^{-1}(y)$.
-    \end{enumerate}
-    \item 映射$f: X \to Y$是
-    \begin{enumerate}[(1)]
-        \item 单的(injective), 如果$f(x) = f(y) \implies x = y$,
-        \item 满的(surjective), 如果$f(X) = Y$.
-        \item 双射, 如果$f$既单又满.
-        \item 可逆的, 如果存在$g: Y \to X$使得$g \circ f = \mathrm{id}_X,\, f \circ g = \mathrm{id}_Y$.
-    \end{enumerate}
-    \item 若$f: X \to Y$, $g: Y \to X$, 则
-    \[
-        g \circ f = \mathrm{id}_X \implies f \text{ 单},\, g \text{ 满}
-    \]
-    因此可逆映射是双射.
-    \item 若$f: X \to Y$满且有交换图表
-    \[
-        \begin{tikzcd}
-            X \arrow[rr, "\varphi"] \arrow[rd, "f"', two heads] &                    & Z \\
+    \begin{enumerate}[I.]
+        \item 设$f: X \to Y$是映射, $X_1 \subseteq X, Y_1 \subseteq Y$,
+        \begin{enumerate}[(1)]
+            \item $X_1$的像(image)$f(X_1)$是一个$Y$的子集, $f(X_1) \defeq \{f(x) \in Y \mid x \in X_1\}$,
+            \item $Y_1$的原像(preimage)$f^{-1}(Y)$是一个$X$的子集, $f^{-1} = \{x \in X \mid f(x) \in Y_1\}$. 当$Y_1$是单点集$\{y\}$时, $f^{-1}(Y_1)$可以简记为$f^{-1}(y)$.
+        \end{enumerate}
+        \item 映射$f: X \to Y$是
+        \begin{enumerate}[(1)]
+            \item 单的(injective), 如果$f(x) = f(y) \implies x = y$,
+            \item 满的(surjective), 如果$f(X) = Y$.
+            \item 双射, 如果$f$既单又满.
+            \item 可逆的, 如果存在$g: Y \to X$使得$g \circ f = \mathrm{id}_X,\, f \circ g = \mathrm{id}_Y$.
+        \end{enumerate}
+        \item 若$f: X \to Y$, $g: Y \to X$, 则
+        \[
+            g \circ f = \mathrm{id}_X \implies f \text{ 单},\, g \text{ 满}
+        \]
+        因此可逆映射是双射.
+        \item 若$f: X \to Y$满且有交换图表
+        \[
+            \begin{tikzcd}
+                X \arrow[rr, "\varphi"] \arrow[rd, "f"', two heads] &                    & Z \\
                                                                 & Y \arrow[ru, "g"'] &  
             \end{tikzcd}
-    \]
-    则$g$唯一. 换句话说, $g_1 \circ f = g_2 \circ f \implies g_1 = g_2$. 在一般的范畴中, 满足这条性质的态射叫一个满态射(epimorphism).
+        \]
+        则$g$唯一. 换句话说, $g_1 \circ f = g_2 \circ f \implies g_1 = g_2$. 在一般的范畴中, 满足这条性质的态射叫一个满态射(epimorphism).
 
-    类似的, 若$f$是单的, 且有交换图表
-    \[
-        \begin{tikzcd}
-            Z \arrow[rr, "\varphi"] \arrow[rd, "g"'] &                          & Y \\
-                                                     & X \arrow[ru, "f"', hook] &  
+        类似的, 若$f$是单的, 且有交换图表
+        \[
+            \begin{tikzcd}
+                Z \arrow[rr, "\varphi"] \arrow[rd, "g"'] &                          & Y \\
+                                                        & X \arrow[ru, "f"', hook] &  
             \end{tikzcd}
-    \]
-    则$g$唯一. 即$f \circ g_1 = f \circ g_2 \implies g_1 = g_2$. 满足这条性质的态射叫一个单态射(monomorphism).
-\end{enumerate}
+        \]
+        则$g$唯一. 即$f \circ g_1 = f \circ g_2 \implies g_1 = g_2$. 满足这条性质的态射叫一个单态射(monomorphism).
+    \end{enumerate}
 \end{additional}
+
 \end{document}

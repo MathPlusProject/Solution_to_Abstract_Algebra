@@ -2,10 +2,10 @@
 
 \begin{problem}\label{ex:2.1.1}
     设$R$是一个交换环, $I \,\red{\subsetneq}\, R$是一个理想. 证明
-\[
-    \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
-\]
-也是$R$的理想 (称为理想$I$的根).
+    \[
+        \sqrt{I} = \{r \in R \mid \exists m \in \red{\mathbb{N}} \text{ 使得 } r^m \in I\}
+    \]
+    也是$R$的理想(称为理想$I$的根).
 \end{problem}
 
 \begin{remark}
@@ -37,14 +37,11 @@
 \end{remark}
 
 \begin{problem}
-    设$R$是一个交换环, $p > 0$是一个素数. 如果
-$p \cdot x = 0 (\forall x\in R)$. 试证明: 
-$(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
+    设$R$是一个交换环, $p > 0$是一个素数. 如果$p \cdot x = 0 (\forall x\in R)$. 试证明: $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
 \begin{proof}
-    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p = 0$, $\mathrm{Char}(R) < p$.
-    那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1 = 0$, 这就没什么考虑的必要了.
+    事实上, 这个$p$就是环$R$的特征. 若$\mathrm{Char}(R) \neq p$, 则由$p = 0$, $\mathrm{Char}(R) < p$. 那么$(p, \mathrm{Char}(R)) = 1$, 有Bézout's Identity得到$1 = 0$, 这就没什么考虑的必要了.
 
     对特征$p$的交换环, 有一个特别的同态$F$称为Frobenius自同态,
     \[
@@ -93,17 +90,14 @@ $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 
 \begin{remark}
     Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
-\[
-    I_1 \supseteq I_2 \supseteq \cdots 
-\]
-则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
-这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
+    \[
+        I_1 \supseteq I_2 \supseteq \cdots
+    \]
+    则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$. 这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
 \end{remark}
 
 \begin{problem}\label{ex:2.1.5}
-    理想$P \,\red{\subsetneq}\, R$称为素理想, 如果: $ab \in P \Rightarrow a \in P$
-或$b \in P$. 试证明: 
-$P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
+    理想$P \,\red{\subsetneq}\, R$称为素理想, 如果: $ab \in P \Rightarrow a \in P$或$b \in P$. 试证明: $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 \end{problem}
 
 \begin{proof}
@@ -123,22 +117,20 @@ $P \,\red{\subsetneq}\, R$是素理想当且仅当$R/P$没有零因子.
 
 \begin{remark}
     \begin{enumerate}[1.]
-    \item 零理想$(0)$是素理想.
-    \item 一个交换环的(Krull) dimension定义为最长素理想链的长度, 其中, 若有素理想链
-    \[
-    \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n
-    \]
-    他的长度定义为$n$.(可参考\cite{atiyah1994introduction}p89, \cite{aluffi2009algebra}p153)
-
-    交换Artin环(\ref{ex:2.1.4})是$0$维的Noether环. $0$维即意味着所有的素理想都是极大理想.
-    \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
-    \end{enumerate} 
+        \item 零理想$(0)$是素理想.
+        \item 一个交换环的(Krull) dimension定义为最长素理想链的长度, 其中, 若有素理想链
+        \[
+            \mathfrak{p}_0 \subsetneq \mathfrak{p}_1 \subsetneq \cdots \subsetneq \mathfrak{p}_n
+        \]
+        他的长度定义为$n$.(可参考\cite{atiyah1994introduction}p89, \cite{aluffi2009algebra}p153)
+        
+        交换Artin环(\ref{ex:2.1.4})是$0$维的Noether环. $0$维即意味着所有的素理想都是极大理想.
+        \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
+    \end{enumerate}
 \end{remark}
 
 \begin{problem}\label{ex:2.1.6}
-    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想
-(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, 
-$m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
+    理想$m \,\red{\subsetneq}\, R$称为极大理想, 如果$R$中不存在真包含$m$的非平凡理想(即: 如果$I \,\red{\supsetneq}\, m$是$R$的理想, 则必有$I = R)$. 试证明: 当$R$是交换环时, $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 交换环中的极大理想必为素理想.
 \end{problem}
 
 \begin{proof}
@@ -164,32 +156,32 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 
 \begin{remark}
     (1)中用到了理想的和. 若$I, J$都是$R$的理想, $I + J \defeq \{i + j \mid i \in I, j \in J\}$. 可以验证这确实是一个理想, 类似可以定义一族理想$\{I_\alpha\}_{\alpha \in A}$的和,
-\[
-    \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big| i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\} 
-\]
-即考虑所有可能的有限和. 所谓子集$S \subseteq R$生成的理想, 是指理想
-\[
-    (S) = \sum_{a \in S} (a).
-\]
-对一个理想$I$, 若存在有限子集$S$生成$I$, 则称$I$是有限生成的.
-
+    \[
+        \sum_{\alpha \in A} I_\alpha = \left\{\sum_{\alpha \in A} i_\alpha \Big| i_\alpha \in I_\alpha, \text{ 且只有有限个 } i_\alpha \neq 0 \right\}
+    \]
+    即考虑所有可能的有限和. 所谓子集$S \subseteq R$生成的理想, 是指理想
+    \[
+        (S) = \sum_{a \in S} (a).
+    \]
+    对一个理想$I$, 若存在有限子集$S$生成$I$, 则称$I$是有限生成的.
+    
     另外$\bigcap_{\alpha \in A} I_\alpha$也是一个理想. 还有一个是理想的积, 相对要复杂一些,
-\[
-\begin{aligned}
-    IJ &\defeq (\{ij \mid i \in I, j \in J\})\\
-    &= \left\{\sum_{k = 1}^{n} i_kj_k \Big| \exists n \in \mathbb{N},\, 1 \leqslant k \leqslant n,\, i_k \in I, j_k \in J, \right\}
-\end{aligned}  
-\]
-他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
+    \[
+    \begin{aligned}
+        IJ &\defeq (\{ij \mid i \in I, j \in J\})\\
+        &= \left\{\sum_{k = 1}^{n} i_kj_k \Big| \exists n \in \mathbb{N},\, 1 \leqslant k \leqslant n,\, i_k \in I, j_k \in J, \right\}
+    \end{aligned}
+    \]
+    他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
 \end{remark}
 
 \begin{problem}
     设 $I \,\red{\subsetneq}\, \mathbb{Z}$是整数环的非零理想, 证明下述结论等价
-\begin{enumerate}[(1)]
-    \item $I$是极大理想;
-    \item $I$是素理想;
-    \item 存在素数$p$使得$I = (p)\mathbb{Z} = \{ap \mid \forall a \in \mathbb{Z}\}$.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item $I$是极大理想;
+        \item $I$是素理想;
+        \item 存在素数$p$使得$I = (p)\mathbb{Z} = \{ap \mid \forall a \in \mathbb{Z}\}$.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
@@ -207,55 +199,50 @@ $m \,\red{\subsetneq}\, R$是极大理想当且仅当$R/m$是一个域. 特别, 
 \end{proof}
 
 \begin{problem}\label{ex:2.1.8}
-    设$p \in \mathbb{Z}$是素数, 证明
-$(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多
-项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
+    设$p \in \mathbb{Z}$是素数, 证明$(p)\mathbb{Z}[x] = \{pf(x) \mid \forall f(x) \in \mathbb{Z}[x]\}$是整系数多项式环的素理想, 但不是$\mathbb{Z}[x]$的极大理想.
 \end{problem}
 
 \begin{proof}
     事实上若$I$是$R$的理想, 我们有
-\[
-    \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
-\]
-这是根据同态基本定理得到, 考虑同态
-\[
-    \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
-\]
-可以验证这确实是一个同态. 事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.
-
-回到原题, 有
-\[
-    \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
-\]
-这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+    \[
+        \frac{R[x]}{IR[x]} \cong \frac{R}{I}[x]
+    \]
+    这是根据同态基本定理得到, 考虑同态
+    \[
+        \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
+    \]
+    可以验证这确实是一个同态. 事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.
+    
+    回到原题, 有
+    \[
+        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
+    \]
+    这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
 \end{proof}
 
 \begin{remark}
     给定环同态$R \overset{\varphi}\to S$, 其中$R$是交换环. 若$\varphi(R) \subseteq C(S)$(\ref{ex:2.1.11}), 根据我们之前\ref{ex:1.4.9}说过的, 首先$S$上有一个$R$-模结构. 其次有
-\[
-    (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
-\]
-即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
-
-当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
-
-而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
+    \[
+        (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
+    \]
+    即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
+    
+    当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
+    
+    而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
 \end{remark}
 
 \begin{problem}\label{ex:2.1.9}
-    映射$D:R[x] \longrightarrow R[x]$定义如下: 
-$\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
-\[
-    D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
-\]
-$\forall$ $a \in R$, $f, g \in R[x]$, 试证明: 
-\begin{enumerate}[(1)]
-    \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
-    \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
-\end{enumerate}
-($D(f)$称为$f(x)$的导数. 记为
-$f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
-称为$f(x)$的$m$次导数).
+    映射$D:R[x] \longrightarrow R[x]$定义如下: $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
+    \[
+        D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
+    \]
+    $\forall$ $a \in R$, $f, g \in R[x]$, 试证明:
+    \begin{enumerate}[(1)]
+        \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
+        \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
+    \end{enumerate}
+    ($D(f)$称为$f(x)$的导数. 记为$f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$称为$f(x)$的$m$次导数).
 \end{problem}
 
 \begin{proof}
@@ -272,51 +259,48 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
             D(af) = D\left(\sum_{k = 0}^{n} aa_kx^k\right) = \sum_{k = 1}^{n} kaa_kx^{k - 1} = a\sum_{k = 1}^{n} ka_kx^{k - 1} = aD(f).
         \]
         这里能把$a$提出来是因为$k$作为$k1$(\ref{ex:1.2.1}的注记), 有$ka = ak$.
-        \item \[
-            \begin{aligned}
-                D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
-                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (i + j)a_ib_jx^{i + j - 1}\\
-                &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (ia_ix^{i - 1})b_jx^j + a_ix^i(jb_jx^{j - 1})\\
-                &= \sum_{k = 0}^{n + m - 1} \sum_{(i - 1) + j = k} (ia_i)b_jx^{k} + a_i(jb_j)x^k\\
-                &= D(f) \cdot g + f \cdot D(g).
-            \end{aligned}
+        \item 
+        \[
+        \begin{aligned}
+            D(f \cdot g) &= D\left(\sum_{k = 0}^{n + m} \sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 1}^{n + m} \sum_{i + j = k} ka_ib_jx^{k - 1}\\
+            &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (i + j)a_ib_jx^{i + j - 1}\\
+            &= \sum_{k = 1}^{n + m} \sum_{i + j = k} (ia_ix^{i - 1})b_jx^j + a_ix^i(jb_jx^{j - 1})\\
+            &= \sum_{k = 0}^{n + m - 1} \sum_{(i - 1) + j = k} (ia_i)b_jx^{k} + a_i(jb_j)x^k\\
+            &= D(f) \cdot g + f \cdot D(g).
+        \end{aligned}
         \]
     \end{enumerate}
 \end{proof}
 
 \begin{problem}
-    如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$
-或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则
-$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
+    如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 
 \begin{proof}
     $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(\ref{ex:1.2.1}的注记), 那么
-\[
-    f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
-\]
-故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
+    \[
+        f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
+    \]
+    故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
 
     若$\mathrm{Char}(F) = p$, 则$p = 0$, 那么设$\deg(f) = n = kp + r, 0 \leqslant r < p, k \in \mathbb{N}$,
-\[
-\begin{aligned}
-    f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
-    \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
-    &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
-    &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
-\end{aligned}
-\]
-此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
+    \[
+    \begin{aligned}
+        f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
+        \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
+        &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
+        &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
+    \end{aligned}
+    \]
+    此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
 \end{proof}
 
 \begin{problem}\label{ex:2.1.11}
-    设$R$是一个环, 子环
-$C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
-称为$R$的中心. 试证明:
-\begin{enumerate}[(1)]
-    \item 如果$R$是一个除环, 则$C(R)$是一个域;
-    \item 令$\mathbb{H}$表示Hamilton四元数环,则$C(\mathbb{H}) = \mathbb{R}$.
-\end{enumerate}
+    设$R$是一个环, 子环$C(R) = \{a \in R \mid ab = ba\, \forall b \in R\}$称为$R$的中心. 试证明:
+    \begin{enumerate}[(1)]
+        \item 如果$R$是一个除环, 则$C(R)$是一个域;
+        \item 令$\mathbb{H}$表示Hamilton四元数环, 则$C(\mathbb{H}) = \mathbb{R}$.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
@@ -334,8 +318,7 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{proof}
 
 \begin{problem}\label{ex:2.1.12}
-    设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$
-为$K$-代数. 试证明: 加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
+    设$K$是一个域. 如果$C(R)$包含一个同构于$K$的子域, 则称环$R$为$K$-代数. 试证明: 加法群$(R, +)$通过$R$的乘法成为一个$K$-向量空间.
 \end{problem}
 
 \begin{proof}
@@ -348,11 +331,11 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{problem}\label{ex:2.1.13}
     设$R$是一个$K$-代数, $\dim_K(R)$称为$R$的维数. 试证明: 
-\begin{enumerate}[(1)]
-    \item 矩阵环$M_n(K)$是一个$n^2$维$K$-代数;
-    \item 任意$n$维$K$-代数必同构于$M_n(K)$的子环;
-    \item 如果$R$是一个有限除环, 则$R$是有限域上的有限维代数.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 矩阵环$M_n(K)$是一个$n^2$维$K$-代数;
+        \item 任意$n$维$K$-代数必同构于$M_n(K)$的子环;
+        \item 如果$R$是一个有限除环, 则$R$是有限域上的有限维代数.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
@@ -374,16 +357,13 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 \end{proof}
 
 \begin{problem}
-    设$K$是一个域, $R$是一个有限维$K$-代数.试证明: 
-\begin{enumerate}[(1)]
-    \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
-    \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
-    \item 如果$R$是除环, $K$是代数闭域(即$K[x]$中次数大于零的多项式在$K$中
-必有根),则$R = K$.
-\end{enumerate}
-历史上, 有限维可除$K$-代数的分类是一个热门话题. 当$K$是实数域时, $R$必同构于实数域,
-复数域或Hamilton四元数环之一(Frobenius 定理);
-当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
+    设$K$是一个域, $R$是一个有限维$K$-代数. 试证明: 
+    \begin{enumerate}[(1)]
+        \item $\forall \alpha \in R$, 存在\red{非零}多项式$f(x) \in K[x]$使得$f(\alpha) = 0$;
+        \item 如果$R$是除环, $\alpha \neq 0$, 则$\alpha$的极小多项式$\mu_\alpha(x) \in K[x]$不可约;
+        \item 如果$R$是除环, $K$是代数闭域(即$K[x]$中次数大于零的多项式在$K$中必有根),则$R = K$.
+    \end{enumerate}
+    历史上, 有限维可除$K$-代数的分类是一个热门话题. 当$K$是实数域时, $R$必同构于实数域, 复数域或Hamilton四元数环之一(Frobenius 定理); 当$K$是有限域时, $R$必为交换环(Wedderburn 定理).
 \end{problem}
 
 \begin{remark}
@@ -400,40 +380,42 @@ $C(R) = \{a \in R \mid ab = ba \forall b \in R\}$
 
 \begin{problem}
     证明: 集合
-\(
-    \mathbb{F}_{3^2} =
-    \left\{
-        \begin{pmatrix}
-            a & b\\
-            -b & a
-        \end{pmatrix} 
-    \bigg| a, b \in \mathbb{F}_3 = \mathbb{Z}/(3)
-    \right\}
-\)
-关于矩阵的“加法”和“乘法”成为一个9元域.
-若将定义中的$\mathbb{F}_3$换成$\mathbb{F}_5$,
-上述集合是否是一个25元域, 为什么？
+    \(
+        \mathbb{F}_{3^2} =
+        \left\{
+            \begin{pmatrix}
+                a & b\\
+                -b & a
+            \end{pmatrix}
+        \bigg| a, b \in \mathbb{F}_3 = \mathbb{Z}/(3)
+        \right\}
+    \)
+    关于矩阵的“加法”和“乘法”成为一个9元域. 若将定义中的$\mathbb{F}_3$换成$\mathbb{F}_5$, 上述集合是否是一个25元域, 为什么？
 \end{problem}
 
 \begin{proof}
     这个集合是$\mathbb{F}_3$上的$2$维线性空间.
-\[
-    \mathbb{F}_{3^2} = \left\{ a\lambda + b\xi \mid
-    \lambda = I_2 = 
-    \begin{pmatrix}
-        1 & 0\\
-        0 & 1
-    \end{pmatrix},
-    \xi = 
-    \begin{pmatrix} 
-        0 & 1\\
-        -1 & 0
-    \end{pmatrix}, a, b \in \mathbb{F}_3 \right\}
-\]
-其中$\xi$的特征多项式为$x^2 + 1$, 可以验证它是不可约的. 又因为$\mathbb{F}_3[x]$是PID($\mathbb{F}_3[x]$是域), 故$(x^2 + 1)$是极大理想, $x^2 + 1$就是$\xi$的极小多项式. 则$\mathbb{F}_{3^2} = \mathbb{F}_3[x]/(x^2 + 1)$是域.
-
-但$x^2 + 1$在$\mathbb{F}_5[x]$中是可约的: 在$\mathbb{F}_5[x]$中, 
-\[
-    x^2 + 1 = x^2 - 4 = (x - 2)(x + 2).
-\]
+    \[
+        \mathbb{F}_{3^2} =
+        \left\{
+        a\lambda + b\xi \mid
+        \lambda = I_2 =
+        \begin{pmatrix}
+            1 & 0\\
+            0 & 1
+        \end{pmatrix},
+        \xi = 
+        \begin{pmatrix}
+            0 & 1\\
+            -1 & 0
+        \end{pmatrix},
+        a, b \in \mathbb{F}_3
+        \right\}
+    \]
+    其中$\xi$的特征多项式为$x^2 + 1$, 可以验证它是不可约的. 又因为$\mathbb{F}_3[x]$是PID($\mathbb{F}_3[x]$是域), 故$(x^2 + 1)$是极大理想, $x^2 + 1$就是$\xi$的极小多项式. 则$\mathbb{F}_{3^2} = \mathbb{F}_3[x]/(x^2 + 1)$是域.
+    
+    但$x^2 + 1$在$\mathbb{F}_5[x]$中是可约的: 在$\mathbb{F}_5[x]$中, 
+    \[
+        x^2 + 1 = x^2 - 4 = (x - 2)(x + 2).
+    \]
 \end{proof}

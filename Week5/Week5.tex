@@ -29,27 +29,23 @@
 
 \begin{remark}
     Artin环定义为任意理想降链稳定的环, i.e. 若有理想降链
-\[
-    I_1 \supseteq I_2 \supseteq \cdots 
-\]
-则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$.
-这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
+    \[
+        I_1 \supseteq I_2 \supseteq \cdots 
+    \]
+    则存在$n \in \mathbb{Z}_{>0}$使得$\forall m > n,\, I_m = I_n$, 也就是说从某一个$n$开始就稳定了$I_n = I_{n + 1} = \cdots$. 这个条件称为descending chain condition(d.c.c.), 与之对应的是ascending chain condtion(a.c.c.), 满足a.c.c.的正是Noether环.
 \end{remark}
 
 \begin{exercise}[习题2.1.9]
-    映射$D:R[x] \longrightarrow R[x]$定义如下: 
-$\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
-\[
-    D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
-\]
-$\forall$ $a \in R$, $f, g \in R[x]$, 试证明: 
-\begin{enumerate}[(1)]
-    \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
-    \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
-\end{enumerate}
-($D(f)$称为$f(x)$的导数. 记为
-$f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
-称为$f(x)$的$m$次导数).
+    映射$D:R[x] \longrightarrow R[x]$定义如下: $\forall f(x) = a_nx^n + \cdots + a_1x + a_0$,
+    \[
+        D(f) = na_nx^{n - 1} + (n - 1)a_{n - 1}x^{n - 2} + \cdots + 2a_2x + a_1.
+    \]
+    $\forall$ $a \in R$, $f, g \in R[x]$, 试证明: 
+    \begin{enumerate}[(1)]
+        \item $D(f + g) = D(f) + D(g)$, $D(af) = aD(f)$;
+        \item $D(f \cdot g) = D(f) \cdot g + f \cdot D(g)$.
+    \end{enumerate}
+    ($D(f)$称为$f(x)$的导数. 记为$f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$称为$f(x)$的$m$次导数).
 \end{exercise}
 
 \begin{proof}
@@ -79,33 +75,30 @@ $f'(x) = D(f),\, f^{(m)}(x) = \overset{m}{\widehat{D \cdots D}}(f)$
 \end{proof}
 
 \begin{exercise}[习题2.1.10]
-    如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$
-或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则
-$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
+    如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{exercise}
 
 \begin{proof}
     $\mathrm{Char}(F) = 0$, 即$\forall n \in \mathbb{Z}_{>0}, n \neq 0$(这里$n$看做$n1_F$, 见习题1.2.1的新增的注记), 那么
-\[
-    f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
-\]
-故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
+    \[
+        f'(x) = na^{n - 1} + \cdots + a_1 = 0 \implies 1 \leqslant k \leqslant n, ka_k = 0 \implies 1 \leqslant k \leqslant n, a_k = 0
+    \]
+    故$f(x) = a_0$, $\deg(f) = 0$或$f = 0$, 反过来是平凡的.
 
     若$\mathrm{Char}(F) = p$, 则$p = 0$, 那么设$\deg(f) = n = kp + r, 0 \leqslant r < p, k \in \mathbb{N}$,
-\[
-\begin{aligned}
-    f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
-    \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
-    &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
-    &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
-\end{aligned}
-\]
-此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
+    \[
+    \begin{aligned}
+        f &= a_0 + a_1x + \cdots a_px^p + \cdots + a_{2p}x^{2p} + \cdots + a_{kp}x^{kp} + a_nx^n.\\
+        \implies f' &= a_1 + \cdots + pa_px^{p - 1} + \cdots + kpa_{kp}x^{kp - 1} + \cdots na_nx^{n - 1}\\
+        &= a_1 + \cdots + (p - 1)a_{p - 1}x^{p - 2} + (p + 1)a_{p + 1}x^p + \cdots (kp - 1)a_{kp - 1}x^{kp - 2}\\
+        &+ (kp + 1)a_{kp + 1}x^kp + \cdots + na_nx^{n - 1}.
+    \end{aligned}
+    \]
+    此时$f' = 0$有$f = a_0 + a_px^p + \cdots + a_{kp}x^{kp} = g(x^p)$. 这里$g = a_0 + a_px + \cdots + a_{kp}x^k$. 反过来也是类似的.
 \end{proof}
 
 \begin{exercise}[习题2.2.1]
-    设$m, n$是两个正整数, 证明它们在$\mathbb{Z}$中的最大公因数
-和它们在$\mathbb{Z}[i]$中的最大公因数相同.
+    设$m, n$是两个正整数, 证明它们在$\mathbb{Z}$中的最大公因数和它们在$\mathbb{Z}[i]$中的最大公因数相同.
 \end{exercise}
 
 注意这里的相同指的在相伴的意义下相同.
@@ -122,57 +115,55 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 
 \begin{exercise}[习题2.2.6]
     令$\mathbb{R}, \mathbb{C}$分别表示实数域和复数域, 试证明: 
-\begin{enumerate}[(1)]
-    \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 
-则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
-    \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示: 证明其为ED);
-    \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 若$R$是由关于$\cos t$和$\sin t$的实系数多项式组成的函数环, 则$R \cong \mathbb{R}[x, y]/(x^2 + y^2 - 1)$;
+        \item $\mathbb{C}[x, y]/(x^2 + y^2 - 1)$是唯一分解整环(提示: 证明其为ED);
+        \item $\mathbb{R}[x, y]/(x^2 + y^2 - 1)$不是唯一分解整环.
+    \end{enumerate}
 \end{exercise}
 
 \begin{proof}
-\begin{enumerate}[(1)]
-    \item 考虑同态
-    \[
-        \varphi: \mathbb{R}[x, y] \to R = \mathbb{R}[\cos t, \sin t],\, x \mapsto \cos t, y \mapsto \sin t,
-    \]
-    这自然是一个满同态, 由同态基本定理, 关键在于证明
-    \[
-        \ker(\varphi) = (x^2 + y^2 - 1)
-    \]
-    若多项式$f(x, y)$满足$\varphi(f) = f(\cos t, \sin t) = 0$, 将$f$看成是关于$y$的多项式
-    \[
-        f(x, y) = a_0(x) + a_1(x)y + \cdots + a_n(x)y^n,\, a_i(x) \in \mathbb{R}[x],\, 0 \leqslant i \leqslant n
-    \]
-    由于$x^2 + y^n - 1$关于$y$是首一的, 因此可以做带余除法, 得$f = gq + r$, 其中$r(x, y) = r_0(x) + r_1(x)y$. 带入$x = \cos t, y = \sin t$得$r(\cos t, \sin t) = 0$, 即
-    \[
-        r_0(\cos t) + r_1(\cos t)\sin t = 0
-    \]
-    做代换$t \mapsto -t$, 得
-    \[
-        r_0(\cos t) - r_1(\cos t)\sin t = 0
-    \]
-    两式相加得$r_0 = 0$, 相减得$r_1 = 0$, 从而$r = 0$. 因此$f \in (x^2 + y^2 - 1)$, 即$\ker(\varphi) \subseteq (x^2 + y^2 - 1)$. 另一方面$x^2 + y^2 - 1 \in \ker(\varphi)$, 故$\ker(\varphi) = (x^2 + y^2 - 1)$
-    \item 做基变换$u = x + iy, v = x - iy$, 他有逆变换$x = \frac{u + v}{2}, y = \frac{u - v}{2i}$. 因此有同构$\mathbb{C}[u, v] \cong \mathbb{C}[x, y]$. 从而
-    \[
-        \mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, v]/(uv - 1)
-    \]
-    而同态
-    \[
-        \mathbb{C}[u, v] \to \mathbb{C}[u, u^{-1}],\, u \mapsto u, v \mapsto u^{-1}
-    \]
-    是满的, 且kernel是$(uv - 1)$, 证明类似于(1). 因此
-    \[
-        \mathbb{C}[u, v]/(uv - 1) \cong \mathbb{C}[u, u^{-1}]
-    \]
-    这个环称为Laurent多项式环, 这个环上可以做带余除法, 非零多项式的次数定义为最高次数$-$最低次数. 即$f = a_nu^n + a_{n + 1}u^{n + 1} + \cdots + a_mu^m, n, m \in \mathbb{Z}, n < m$的次数为$\deg(f) = m - n$.
-    因此这是一个ED, 从而是UFD.
-    \item 由(2), $\mathbb{C}[\cos t, \sin t]$是UFD, 用待定系数, 假设
-    \[
-        \cos t = (a_1\cos t + a_2\sin t + a_3)(b_1\cos t + b_2\sin t + b_3)
-    \]
-    其中$a_i, b_i \in \mathbb{C}, i = 1, 2, 3$. 我们要忽略掉$a_1 = b_3 = 1$其余都是$0$这种平凡的情况, 左右展开得到
-    \[
+    \begin{enumerate}[(1)]
+        \item 考虑同态
+        \[
+            \varphi: \mathbb{R}[x, y] \to R = \mathbb{R}[\cos t, \sin t],\, x \mapsto \cos t, y \mapsto \sin t,
+        \]
+        这自然是一个满同态, 由同态基本定理, 关键在于证明
+        \[
+            \ker(\varphi) = (x^2 + y^2 - 1)
+        \]
+        若多项式$f(x, y)$满足$\varphi(f) = f(\cos t, \sin t) = 0$, 将$f$看成是关于$y$的多项式
+        \[
+            f(x, y) = a_0(x) + a_1(x)y + \cdots + a_n(x)y^n,\, a_i(x) \in \mathbb{R}[x],\, 0 \leqslant i \leqslant n
+        \]
+        由于$x^2 + y^n - 1$关于$y$是首一的, 因此可以做带余除法, 得$f = gq + r$, 其中$r(x, y) = r_0(x) + r_1(x)y$. 带入$x = \cos t, y = \sin t$得$r(\cos t, \sin t) = 0$, 即
+        \[
+            r_0(\cos t) + r_1(\cos t)\sin t = 0
+        \]
+        做代换$t \mapsto -t$, 得
+        \[
+            r_0(\cos t) - r_1(\cos t)\sin t = 0
+        \]
+        两式相加得$r_0 = 0$, 相减得$r_1 = 0$, 从而$r = 0$. 因此$f \in (x^2 + y^2 - 1)$, 即$\ker(\varphi) \subseteq (x^2 + y^2 - 1)$. 另一方面$x^2 + y^2 - 1 \in \ker(\varphi)$, 故$\ker(\varphi) = (x^2 + y^2 - 1)$
+        \item 做基变换$u = x + iy, v = x - iy$, 他有逆变换$x = \frac{u + v}{2}, y = \frac{u - v}{2i}$. 因此有同构$\mathbb{C}[u, v] \cong \mathbb{C}[x, y]$. 从而
+        \[
+            \mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, v]/(uv - 1)
+        \]
+        而同态
+        \[
+            \mathbb{C}[u, v] \to \mathbb{C}[u, u^{-1}],\, u \mapsto u, v \mapsto u^{-1}
+        \]
+        是满的, 且kernel是$(uv - 1)$, 证明类似于(1). 因此
+        \[
+            \mathbb{C}[u, v]/(uv - 1) \cong \mathbb{C}[u, u^{-1}]
+        \]
+        这个环称为Laurent多项式环, 这个环上可以做带余除法, 非零多项式的次数定义为最高次数$-$最低次数. 即$f = a_nu^n + a_{n + 1}u^{n + 1} + \cdots + a_mu^m, n, m \in \mathbb{Z}, n < m$的次数为$\deg(f) = m - n$. 因此这是一个ED, 从而是UFD.
+        \item 由(2), $\mathbb{C}[\cos t, \sin t]$是UFD, 用待定系数, 假设
+        \[
+            \cos t = (a_1\cos t + a_2\sin t + a_3)(b_1\cos t + b_2\sin t + b_3)
+        \]
+        其中$a_i, b_i \in \mathbb{C}, i = 1, 2, 3$. 我们要忽略掉$a_1 = b_3 = 1$其余都是$0$这种平凡的情况, 左右展开得到
+        \[
         \begin{aligned}
             a_1b_1 - a_2b_2 &= 0,\\
             a_1b_2 + a_2b_1 &= 0,\\
@@ -180,38 +171,38 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
             a_1b_3 + a_3b_1 &= 1,\\
             a_2b_3 + a_3b_2 &= 0.
         \end{aligned}
-    \]
-    由第一个式子得$b_1 = \frac{a_2}{a_1}b_2$, 带入第二个式子得$a_2 = \pm ia_1$, 从而$b_1 = \pm ib_2$.
+        \]
+        由第一个式子得$b_1 = \frac{a_2}{a_1}b_2$, 带入第二个式子得$a_2 = \pm ia_1$, 从而$b_1 = \pm ib_2$.
     
-    由一, 三又能得到$a_2b_2 = -a_3b_3$, 类似地, 带入第五个式子, 有$a_3 = \pm a_2$, $b_2 = \pm b_3$.
+        由一, 三又能得到$a_2b_2 = -a_3b_3$, 类似地, 带入第五个式子, 有$a_3 = \pm a_2$, $b_2 = \pm b_3$.
 
-    再用四, 五得$a_1b_3 = a_3b_1 = \frac{1}{2}$.
+        再用四, 五得$a_1b_3 = a_3b_1 = \frac{1}{2}$.
 
-    把上述关系带入
-    \[
-    \begin{aligned}
-        \cos t &= a_1b_3(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)\\
-        &= \frac{1}{2}(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)
-    \end{aligned}
-    \]
-    检查正负号, 得到结果
-    \[
-        \cos t = \frac{1}{2}(\cos t + i\sin t - i)(i\cos t + \sin t + 1)  
-    \]
-    类似有
-    \[
-        1 - \sin t = \frac{1}{2}(\cos t + i\sin t - i)(\cos t - i\sin t + i).
-    \]
-    带入$-t$就是$1 + \sin t$的分解.
+        把上述关系带入
+        \[
+        \begin{aligned}
+            \cos t &= a_1b_3(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)\\
+            &= \frac{1}{2}(\cos t \pm i\sin t \pm i)(\pm i\cos t \pm \sin t + 1)
+        \end{aligned}
+        \]
+        检查正负号, 得到结果
+        \[
+            \cos t = \frac{1}{2}(\cos t + i\sin t - i)(i\cos t + \sin t + 1)  
+        \]
+        类似有
+        \[
+            1 - \sin t = \frac{1}{2}(\cos t + i\sin t - i)(\cos t - i\sin t + i).
+        \]
+        带入$-t$就是$1 + \sin t$的分解.
     
-    但这种方法比较难检查等式右边的因式确实为不可约元, 我们可以利用同构$\mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, u^{-1}]$, 那么等式变为
-    \[
-        x = \frac{1}{2}(u + u^{-1}) = \frac{u^{-1}}{2}(u - i)(u + i)
-    \]
-    注意到$U(\mathbb{C}[u, u^{-1}]) = \mathbb{C} \cup \{u^n \mid n \in \mathbb{Z}\}$. 右边为两个都是一次的且常数项不为$0$, 容易验证不可逆(注意这里$x = \frac{1}{2}(u + u^{-1})$次数为$2$). 对$1 - \sin t$同理.
+        但这种方法比较难检查等式右边的因式确实为不可约元, 我们可以利用同构$\mathbb{C}[x, y]/(x^2 + y^2 - 1) \cong \mathbb{C}[u, u^{-1}]$, 那么等式变为
+        \[
+            x = \frac{1}{2}(u + u^{-1}) = \frac{u^{-1}}{2}(u - i)(u + i)
+        \]
+        注意到$U(\mathbb{C}[u, u^{-1}]) = \mathbb{C} \cup \{u^n \mid n \in \mathbb{Z}\}$. 右边为两个都是一次的且常数项不为$0$, 容易验证不可逆(注意这里$x = \frac{1}{2}(u + u^{-1})$次数为$2$). 对$1 - \sin t$同理.
     
-    因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
-\end{enumerate}
+        因此$\cos t$和$1 \pm \sin t$无法在$\mathbb{R}[\cos t, \sin t]$中分解(分解出的系数中一定带$i$). 这样就有$\cos^2 t = \cos t\cos t = (1 - \sin t)(1 + \sin t)$. 因此不是UFD.
+    \end{enumerate}
 \end{proof}
 
 \begin{remark}
@@ -247,10 +238,10 @@ $f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
     $R$是诺特环当且仅当$R$满足a.c.c.
 
     其中a.c.c.指若有环$R$的理想升链
-\[
-    I_1 \subseteq I_2 \subseteq \cdots
-\]
-则该链必稳定, 即$\exists n \in \mathbb{Z}_{>0}$
-使得$I_n$后的理想都相等, $I_n = I_{n + 1} = \cdots$.
+    \[
+        I_1 \subseteq I_2 \subseteq \cdots
+    \]
+    则该链必稳定, 即$\exists n \in \mathbb{Z}_{>0}$使得$I_n$后的理想都相等, $I_n = I_{n + 1} = \cdots$.
 \end{additional}
+
 \end{document}
