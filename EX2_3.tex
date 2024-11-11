@@ -284,7 +284,15 @@ $g(x)$在$F[x]$中互素.
     \]
     则可得$a_nb_i = a_ib_n,\, i = 0, 1, \cdots, n - 1$, 即$\frac{a_i}{b_i} = \frac{a_n}{b_n} = k$. 因此$f(x) = \frac{a_n}{b_n}$是常整数多项式.
 
-    当$\deg(p) > \deg(q)$时即要证明$q(x) \mid p(x)$. 用带余除法假设$p(x) = q(x)s(x) + r(x),\, \deg(r) < \deg(q)$且$r \neq 0$, 则$f(x) = s(x) + \frac{r(x)}{q(x)}$. 那么由之前的结果可知矛盾.(二三两种情况都用带余除法可以合并)
+    当$\deg(p) > \deg(q)$时只需证明$q(x) \mid p(x)$, 此时需要一些技巧. 先用带余除法令$p(x) = q(x)s(x) + r(x),\, \deg(r) < \deg(q)$, 那么$f(x) = s(x) + \frac{r(x)}{q(x)}$, 需要证明$r = 0$.
+    \begin{remark}
+        注意此时并不能用之前的结论, $s(m)$是否为整数并不知道.
+    \end{remark}
+    基本的想法是保持整数的情况下去降次, 利用差分就可以做到这一点. 考虑
+    \[
+        \Delta_1 f(x) = f(x + 1) - f(x) 
+    \]
+    若记$\deg(f) = \deg(p) - \deg(q)$, 则有$\deg(\Delta_1 f) < \deg(f)$($s(x)$会消去最高次项, $\frac{r(x)}{q(x)}$的部分指数不会增加), 且对任意整数$m$也有$\Delta_1 f(m) \in \mathbb{Z}$. 记$k = \deg(f)$, 则$\Delta_1^k f$($k$阶差分)化归为第二种情况. 而由$\Delta_1^{k - 1} f(x + 1) - \Delta_1^{k - 1} f(x) = \Delta_1^k f(x)$可知, 若$\Delta_1^k f(x)$是多项式, 则$\Delta_1^{k - 1} f(x)$也是多项式(分式项做差分无法消去), 从而反推得$f(x)$是多项式.
 
     因此$f(x) \in \mathbb{R}[x]$, 记$f(x) = c_nx^n + \cdots + c_0$, 任意选择$n + 1$个不同整数$m_0, m_1, \cdots, m_n$带入得到一个关于$a_0, a_1, \cdots, a_n$的整系数线性方程组$\sum_{k = 0}^{n} m_i^ka_k = b_i,\, i = 0, 1, \cdots, n$, 系数矩阵的行列式恰为Vandenmonde行列式, 因此不为零, 方程组有唯一有理数解.
 \end{proof}
