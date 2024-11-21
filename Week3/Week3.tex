@@ -23,10 +23,10 @@
     \[
     \begin{gathered}
         \forall a, b \in \sqrt{I},\, \exists m, n \in \mathbb{N},\, a^m, b^n \in I,\\
-        \implies (a - b)^{m + n} \in I
+        \implies (a - b)^{m + n - 1} \in I
     \end{gathered}
     \]
-    这是因为单项$a^ib^j$的指数$i + j = m + n$, 故$i < m$和$j < n$不能同时成立, 即$i \geqslant m$或$j \geqslant n$, i.e. $a^i \in I$或$b^j \in I$.
+    这是因为单项$a^ib^j$的指数$i + j = m + n - 1$, 故$i < m$和$j < n$不能同时成立, 即$i \geqslant m$或$j \geqslant n$, i.e. $a^i \in I$或$b^j \in I$.
     从而$(a - b)^{m + n} \in I$, $a - b \in \sqrt{I}$.
 
     再验证吸收律(交换验证单边即可),
@@ -173,9 +173,9 @@
 
     回到原题, 有
     \[
-        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
+        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{F}_p[x]
     \]
-    这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由2.1.5和2.1.6, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+    这里$\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{F}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由2.1.5和2.1.6, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
 \end{proof}
 
 \begin{remark}
@@ -252,7 +252,7 @@
 \end{remark}
 
 \begin{exercise}[习题2.2.5]
-    设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \subset \mathbb{C}$, 定义: $N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明:
+    设$R = \mathbb{Z}[\sqrt{-5}] = \{a + b\sqrt{-5} \mid \forall a, b \in\mathbb{Z}\} \,\red{\subseteq}\, \mathbb{C}$, 定义: $N(a + b\sqrt{-5}) = a^2 + 5b^2$. 试证明:
     \begin{enumerate}[(1)]
         \item $U(R) = \{1, -1\}$;
         \item $R$中任意元素都有不可约分解;
@@ -277,7 +277,7 @@
 \begin{remark}
     \begin{enumerate}[1.]
         \item 这个$N$是范数(norm). 它其实是$\mathbb{Q}$-线性映射$\beta \mapsto \alpha\beta$所对应矩阵的行列式. 这个概念在模论和代数数论都有提及.
-        \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = 1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 其证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材.
+        \item (1)和(2)的结论是可以推广的, 对于一个代数数域$K/\mathbb{Q}$(即$\mathbb{Q}$的有限扩张), $\alpha \in \mathcal{O}_K$是单位当且仅当$N_{K/\mathbb{Q}}(\alpha) = \pm1$. 其中$\mathcal{O}_K$是对应的代数整数环. $\mathcal{O}_K$是存在不可约分解的环. 古典的代数数论的证明方法和(2)几乎一模一样. 具体细节参考代数数论的教材. 而交换代数的理论发展之后, 由Hilbert's Basis Theorem可以直接得到$\mathcal{O}_K$是Noether环, 从而存在不可约分解.
     \end{enumerate}
 \end{remark}
 

@@ -6,7 +6,7 @@
         \item $\ker(\varphi) \defeq \{g \in G \mid \varphi(g) = e'\}$ $(e' \in G'$表示的单位元)是$G$的子群(称为群同态$\varphi$的核);
         \item
         \[
-            \varphi(G) = \{\varphi(g) \mid \forall g \in G\} \subset G'
+            \varphi(G) = \{\varphi(g) \mid \forall g \in G\} \,\red{\subseteq}\, G'
         \]
         是$G'$的子群(称为群同态$\varphi$的像).
     \end{enumerate}
@@ -117,7 +117,7 @@
     综上可得, $\mathrm{Aut}_{\mathsf{Ring}}(\mathbb{R}) = \mathrm{Aut}_{\mathbb{Q}}(\mathbb{R})$是平凡群.(由于$\mathbb{R}/\mathbb{Q}$并不是Galois扩张, 因此没有用符号$\mathrm{Gal}(\mathbb{R}/\mathbb{Q})$, $\mathsf{Ring}$表示环范畴)
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:1.4.8}
     证明: $\mathbb{Q}[\sqrt 2] = \{a + b\sqrt 2 \mid a, b \in \mathbb{Q}\}$, $\mathbb{Q}[\sqrt 5] = \{a + b\sqrt 5 \mid a, b \in \mathbb{Q}\}$都是$\mathbb{R}$的子域. 它们是同构的域吗？
 \end{problem}
 
@@ -171,7 +171,7 @@
         \]
         因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
         
-        由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的, 只有上述两个线性映射是域同构, 需要做基变换转为恒等或共轭才能保持乘法. 事实上只要存在一个基变换就能变回恒等映射, 恒等映射总是同构, 但前提是承载集合(underlying set)要一样. 比如$\mathbb{Q}(\sqrt{2})$和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们之间没有域同态.
+        由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的, 只有上述两个线性映射是域同构, 需要做基变换转为恒等或共轭才能保持乘法. 事实上只要存在一个基变换就能变回恒等映射, 恒等映射总是同构, 但前提是承载集合(underlying set)要一样. 比如$\mathbb{Q}(\sqrt{2})$和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们之间没有域同态(\ref{ex:1.4.8}).
         
         可取$K$的一组基为$1, \alpha$, 其中$\alpha \in \mathbb{C} \setminus \mathbb{R}$. 不可避免地要考虑$\alpha^2$的结果, 由于$1, \alpha$是基, 因此$\alpha^2$可以被线性表出, 即$\alpha^2 = x + y\alpha$. 由于$\alpha \notin \mathbb{R}$, 有$y^2 + 4x < 0$, 解二次方程得到$\alpha = \frac{y \pm i\sqrt{|y^2 + 4x|}}{2}$. 故映射
         \[

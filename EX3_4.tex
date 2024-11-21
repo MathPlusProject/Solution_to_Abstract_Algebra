@@ -16,9 +16,9 @@ $f(x) = x^{p - 1} + x^{p - 2} + \cdots + x + 1 \in \mathbb{Q}[x]$
 证明: $G = \mathrm{Gal}(L/K)=\{1\}$ (所以$L^G = L \neq K$).
 如果令$\overline{L} = K[\sqrt[3]{2}, \sqrt{-3}]$,
 试证明: $\mathrm{Gal}(\overline{L}/K) \cong S_3$.
-并求出中间域$K \subset K[\sqrt{-3}] \subset \overline{L}$
-对应的子群$H \subset \mathrm{Gal}(\overline L/K)$,
-即: 求$H \subset \mathrm{Gal}(\overline L/K)$使得
+并求出中间域$K \,\red{\subseteq}\, K[\sqrt{-3}] \,\red{\subseteq}\, \overline{L}$
+对应的子群$H \,\red{\subseteq}\, \mathrm{Gal}(\overline L/K)$,
+即: 求$H \,\red{\subseteq}\, \mathrm{Gal}(\overline L/K)$使得
 $\overline{L}^{H} = K[\sqrt{-3}]$.
 (提示: $H = \mathrm{Gal}(\overline L/K[\sqrt{-3}]) \cong A_3$.)
 \end{problem}
@@ -28,28 +28,28 @@ $\overline{L}^{H} = K[\sqrt{-3}]$.
 \end{proof}
 
 \begin{problem}
-    设$K \subset L$是有限, 可分, 正规扩张, $G = \mathrm{Gal}(L/K)$.
+    设$K \,\red{\subseteq}\, L$是有限, 可分, 正规扩张, $G = \mathrm{Gal}(L/K)$.
 设
 \[
-    K = K_0 \subset K_1 \subset K_2 \subset \cdots \subset K_i \subset K_{i + 1} \subset \cdots \subset K_m = L
+    K = K_0 \,\red{\subseteq}\, K_1 \,\red{\subseteq}\, K_2 \,\red{\subseteq}\, \cdots \,\red{\subseteq}\, K_i \,\red{\subseteq}\, K_{i + 1} \,\red{\subseteq}\, \cdots \,\red{\subseteq}\, K_m = L
 \]
 是一个子域链, 令
 \[
-    \{1\} = G_m \subset G_{m - 1} \subset G_{m - 2} \subset \cdots \subset G_{i + 1} \subset G_i \subset \cdots \subset G_0 = G
+    \{1\} = G_m \,\red{\subseteq}\, G_{m - 1} \,\red{\subseteq}\, G_{m - 2} \,\red{\subseteq}\, \cdots \,\red{\subseteq}\, G_{i + 1} \,\red{\subseteq}\, G_i \,\red{\subseteq}\, \cdots \,\red{\subseteq}\, G_0 = G
 \]
 是其对应的子群链, 其中$G_i = \mathrm{Gal}(L/K_i)$. 证明: 
 \begin{enumerate}[(1)]
-    \item $K_i \subset K_{i + 1}$是正规扩张
+    \item $K_i \,\red{\subseteq}\, K_{i + 1}$是正规扩张
 $\Leftrightarrow \forall \eta \in G_i,\, \eta(K_{i + 1}) = K_{i + 1}$
 (提示: 应用推论3.3.4).
     \item $\forall\, \eta \in G_i$, 则
-$\eta \cdot G_{i + 1} \cdot \eta^{-1} \subset G_i$
+$\eta \cdot G_{i + 1} \cdot \eta^{-1} \,\red{\subseteq}\, G_i$
 是一个子群, 且
 \[
     \eta(K_{i + 1}) = L^{\eta G_{i + 1}\eta^{-1}},
 \]
 此处$\eta \cdot G_{i + 1} \cdot \eta ^{- 1} \defeq \{\eta \cdot x \cdot \eta^{-1} \mid \forall\, x \in G_{i + 1}\}$.
-    \item 如果$K_i \subset K_{i + 1}$是正规扩张, $\forall \eta \in G_i$,
+    \item 如果$K_i \,\red{\subseteq}\, K_{i + 1}$是正规扩张, $\forall \eta \in G_i$,
 令
 \[
     \bar{\eta} = \eta|_{K_{i + 1}}:K_{i + 1} \to K_{i + 1},

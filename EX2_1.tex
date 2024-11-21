@@ -17,10 +17,10 @@
     \[
     \begin{gathered}
         \forall a, b \in \sqrt{I},\, \exists m, n \in \mathbb{N},\, a^m, b^n \in I,\\
-        \implies (a - b)^{m + n} \in I
+        \implies (a - b)^{m + n - 1} \in I
     \end{gathered}
     \]
-    这是因为单项$a^ib^j$的指数$i + j = m + n$, 故$i < m$和$j < n$不能同时成立, 即$i \geqslant m$或$j \geqslant n$, i.e. $a^i \in I$或$b^j \in I$.
+    这是因为单项$a^ib^j$的指数$i + j = m + n - 1$, 故$i < m$和$j < n$不能同时成立, 即$i \geqslant m$或$j \geqslant n$, i.e. $a^i \in I$或$b^j \in I$.
     从而$(a - b)^{m + n} \in I$, $a - b \in \sqrt{I}$.
 
     再验证吸收律(交换验证单边即可),
@@ -36,7 +36,7 @@
     对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(\ref{ex:2.1.5})都是根理想.
 \end{remark}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.2}
     设$R$是一个交换环, $p > 0$是一个素数. 如果$p \cdot x = 0 (\forall x\in R)$. 试证明: $(x + y)^{p^m} = x^{p^m}+y^{p^m} (\forall x, y \in R, m > 0)$
 \end{problem}
 
@@ -194,7 +194,7 @@
         则$p$是素数(若不然, $p = qr$, 取$a = q, b = r$即导出矛盾).
         \item (3)$\implies$(1): 设$I = (p) \subsetneq J$, 则存在$n \in J \setminus I$. 由于$p$是素数, 故有$(n, p) = 1$. 由Bézout's Identity, $\exists u, v \in \mathbb{Z}$使得$nu + pv = 1$, 从而$1 \in J,\, J = \mathbb{Z}$.(这和\ref{ex:2.1.6}的证明是类似的)
         
-        或直接用$\mathbb{Z}/(p) = \mathbb{Z}/p\mathbb{Z}$是域.
+        或直接用$\mathbb{Z}/p\mathbb{Z}$是域.
     \end{enumerate}
 \end{proof}
 
@@ -215,9 +215,9 @@
     
     回到原题, 有
     \[
-        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{Z}_p[x]
+        \frac{\mathbb{Z}[x]}{(p)\mathbb{Z}[x]} \cong \mathbb{F}_p[x]
     \]
-    这里$\mathbb{Z}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{Z}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
+    这里$\mathbb{F}_p = \mathbb{Z}/p\mathbb{Z}$是域. 因此$\mathbb{F}_p[x]$是PID, 自然是整环, 但不是域($x$没有逆). 因此由\ref{ex:2.1.5}和\ref{ex:2.1.6}, $(p)\mathbb{Z}[x]$是素理想但不是极大理想.
 \end{proof}
 
 \begin{remark}
@@ -272,7 +272,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:2.1.10}
     如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 

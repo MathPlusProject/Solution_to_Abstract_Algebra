@@ -1,33 +1,38 @@
-\subsection{教材p52-54}
+\documentclass{../solutions-cn}
 
-\begin{problem}
+\begin{document}
+\section*{第八, 九周作业参考解答及补充}
+
+\subsection*{作业}
+
+\begin{exercise}[习题3.1.1]
     设$K$是特征零的域, $f(x) \in K[x]$是次数大于零的首项系数为$1$的多项式, $d(x) = (f(x), f'(x))$是$f(x)$与$f'(x)$的最大公因子. 令
     \[
         f(x) = d(x) \cdot g(x).
     \]
     证明: $g(x)$与$f(x)$有相同的根且$g(x)$没有重根.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
-    由\ref{ex:2.4.3}可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根.
+    由2.4.3可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根.
 \end{proof}
 
-\begin{problem}\label{ex:3.1.2}
+\begin{exercise}[习题3.1.2]
     设$K \,\red{\subseteq}\, L$是域扩张, $\alpha \in L$是域$K$上的代数元. 令$K[x] \xrightarrow{\psi_{\alpha}}L$, $f(x) \mapsto f(\alpha)$, 表示多项式在$x = \alpha$的取值映射. 试证明:
     \begin{enumerate}[(1)]
         \item $\ker(\psi_\alpha)$由极小多项式$\mu_\alpha(x)$生成;
         \item $\psi_\alpha$诱导了域同构$\mathbb{K}[x]/(\mu_\alpha(x)) \cong K[\alpha]$.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item 回忆\ref{ex:2.2.6}和\ref{ex:2.3.2},
+        \item 回忆2.2.6和2.3.2,
         \[
             \ker(\psi_\alpha) = \{f \in K[x] \mid f(\alpha) = 0\}
         \]
-        是一个理想. 类似\ref{ex:2.2.6}, 有$(\mu_\alpha(x)) \subseteq \ker(\psi_\alpha)$且$(\mu_\alpha(x))$是极大理想(由$K[x]$是PID, \ref{ex:2.3.2}), 且$\ker(\psi_\alpha) \neq K[x]$, 因此只能是$\ker(\psi_\alpha) = (\mu_\alpha(x))$.
-        \item 由\ref{ex:2.3.2}, $\overline{x}$为$\mu_\alpha$在扩域$K[x]/(\mu_\alpha(x))$中的一个根. 那么映射
+        是一个理想. 类似2.2.6, 有$(\mu_\alpha(x)) \subseteq \ker(\psi_\alpha)$且$(\mu_\alpha(x))$是极大理想(由$K[x]$是PID, 2.3.2), 且$\ker(\psi_\alpha) \neq K[x]$, 因此只能是$\ker(\psi_\alpha) = (\mu_\alpha(x))$.
+        \item 由2.3.2, $\overline{x}$为$\mu_\alpha$在扩域$K[x]/(\mu_\alpha(x))$中的一个根. 那么映射
         \[
             \varphi: K[x]/(\mu_\alpha(x)) \to K[\alpha],\quad \overline{x} \mapsto \alpha
         \]
@@ -58,7 +63,7 @@
     \]
     反过来是非常简单的, 有限扩张$\implies$代数扩张, 利用$1, \alpha, \cdots, \alpha^n$线性相关即可, $n = \mathrm{dim}_K L$. 有限扩张$\implies$有限生成, 取一组基就行.
 
-    对任意的单扩张$K \subseteq K(\alpha)$, 很自然的想法就是用\ref{ex:2.3.7}的赋值映射来讨论. 对包含$K \overset{i}\hookrightarrow K(\alpha)$用泛性质, 存在唯一的同态 
+    对任意的单扩张$K \subseteq K(\alpha)$, 很自然的想法就是用2.3.7的赋值映射来讨论. 对包含$K \overset{i}\hookrightarrow K(\alpha)$用泛性质, 存在唯一的同态 
     \[
         \psi_\alpha:K[x] \to K(\alpha),\quad f(x) \mapsto f(\alpha).
     \]
@@ -77,7 +82,7 @@
             \varphi_\alpha:K(x) \to K(\alpha),\quad \frac{p(x)}{q(x)} \mapsto \frac{p(\alpha)}{q(\alpha)}
         \]
         这是一个单射(因为$K(x)$是域). 考虑$\varphi_\alpha$的像, 它一定是一个域, 且包含$K$和$\alpha$, 因此按定义就有$K(\alpha) \cong \varphi_\alpha(K(x)) \cong K(x)$, 那么$K \subseteq K(\alpha)$扩张次数为无穷($1, \alpha, \alpha^2, \cdots$线性无关). 如$\mathbb{Q}(\pi) \cong \mathbb{Q}(x)$.
-        \item $\ker(\psi_\alpha) = (p(x))$, $p(x)$是一个不可约多项式. 注意到$\alpha = \psi_\alpha(x)$, 此时$K[\alpha] = \psi_\alpha(K[x]) \cong K[x]/(p(x))$是包含$\alpha$的域, 而根据$\psi_\alpha$的构造, $K[\alpha] \subseteq K(\alpha)$, 由$K(\alpha)$的定义, 只能是$K[\alpha] = K(\alpha) \cong K[x]/(p(x))$. 此时是有限扩张, 扩张次数为$\deg(p(x))$, 且$p(x)$和$\alpha$的极小多项式$\mu_\alpha(x)$是相伴的($(p(x)) = (\mu_\alpha(x))$, 即就差一个常数, $p(x)$除掉首项系数就是$\mu_\alpha(x)$). 在这个域同构下$\overline{x} \in K[x]/(p(x))$的像就是$\alpha$, 这就是为什么\ref{ex:2.3.2}在最后提到, $\overline{x}$是多项式$p(x)$在扩域$K[x]/(p(x))$上的根. 
+        \item $\ker(\psi_\alpha) = (p(x))$, $p(x)$是一个不可约多项式. 注意到$\alpha = \psi_\alpha(x)$, 此时$K[\alpha] = \psi_\alpha(K[x]) \cong K[x]/(p(x))$是包含$\alpha$的域, 而根据$\psi_\alpha$的构造, $K[\alpha] \subseteq K(\alpha)$, 由$K(\alpha)$的定义, 只能是$K[\alpha] = K(\alpha) \cong K[x]/(p(x))$. 此时是有限扩张, 扩张次数为$\deg(p(x))$, 且$p(x)$和$\alpha$的极小多项式$\mu_\alpha(x)$是相伴的($(p(x)) = (\mu_\alpha(x))$, 即就差一个常数, $p(x)$除掉首项系数就是$\mu_\alpha(x)$). 在这个域同构下$\overline{x} \in K[x]/(p(x))$的像就是$\alpha$, 这就是为什么2.3.2在最后提到, $\overline{x}$是多项式$p(x)$在扩域$K[x]/(p(x))$上的根. 
     \end{enumerate}
     多元的情形由归纳法即可,
     \[
@@ -93,13 +98,13 @@
         = \left[K[u_1, u_2, \cdots, u_n]: K[u_1, u_2, \cdots, u_{n - 1}]\right] \cdot \left[K[u_1, u_2, \cdots, u_{n - 1}]:K\right] < \infty.
     \end{multlined}
     \]
-    值得注意的是多元的时候, 这里只是说明可以由$u_1, u_2, \cdots, u_n$通过多项式生成, 但仍有可能由更少的代数元生成, 如\ref{ex:1.1.3}, $\mathbb{Q}$加上$\sqrt{2}$和$\sqrt{3}$后仍是一个单扩张. 又比如$\mathbb{Q}[\sqrt{2}, \sqrt[4]{2}] = \mathbb{Q}[\sqrt[4]{2}]$.
+    值得注意的是多元的时候, 这里只是说明可以由$u_1, u_2, \cdots, u_n$通过多项式生成, 但仍有可能由更少的代数元生成, 如1.1.3, $\mathbb{Q}$加上$\sqrt{2}$和$\sqrt{3}$后仍是一个单扩张. 又比如$\mathbb{Q}[\sqrt{2}, \sqrt[4]{2}] = \mathbb{Q}[\sqrt[4]{2}]$.
 
     上面提到的localization可以理解成分式域的推广. 设$A$是交换环, $S \subseteq A$是一个乘法封闭子集(multiplicatively closed subset), 即$\forall s, t \in S \implies st \in S$并要求$1 \in S$. 换句话说, $S$是$(A, \cdot)$的一个子幺半群. 则$A \times S$上有一个等价关系:
     \[
         (a, s) \sim (a', s') \iff \exists u \in S,\, (as' - a's)u = 0
     \]
-    记商集$A \times S / \sim$为$S^{-1}A$, 可以验证这是一个环, $A$是它的子环, 称为$A$对$S$的分式环. 它是包含$A$的并使得$S$中元素都可逆的“最小”的环. 这个构造通常称为环的局部化(localization). 当$A$是整环且取$S = A \setminus \{0\}$时就是分式域, 如$\mathbb{Q}$, $K(x)$. 若$0 \in S$则得到零环, 因此一般尽量排除这种平凡的情况. 当$\mathfrak{p} \subseteq A$是素理想时, 按素理想的定义可以验证$S = A \setminus \mathfrak{p}$是乘法封闭的(事实上反过来也是对的). 此时$S^{-1}A$一般记作$A_{\mathfrak{p}}$, 这是一个局部环(\ref{ex:2.3.1}), 如$\mathbb{Z}_p$($p$-adic integers).
+    记商集$A \times S / \sim$为$S^{-1}A$, 可以验证这是一个环, $A$是它的子环, 称为$A$对$S$的分式环. 它是包含$A$的并使得$S$中元素都可逆的“最小”的环. 这个构造通常称为环的局部化(localization). 当$A$是整环且取$S = A \setminus \{0\}$时就是分式域, 如$\mathbb{Q}$, $K(x)$. 若$0 \in S$则得到零环, 因此一般尽量排除这种平凡的情况. 当$\mathfrak{p} \subseteq A$是素理想时, 按素理想的定义可以验证$S = A \setminus \mathfrak{p}$是乘法封闭的(事实上反过来也是对的). 此时$S^{-1}A$一般记作$A_{\mathfrak{p}}$, 这是一个局部环(2.3.1), 如$\mathbb{Z}_p$($p$-adic integers).
     
     上述的“最小”对应它的泛性质:
     
@@ -120,9 +125,9 @@
     \]
 \end{remark}
 
-\begin{problem}
+\begin{exercise}[习题3.1.3]
     设$E = \mathbb{Q}[u], u^3 - u^2 + u + 2 = 0$. 试将$(u^2 + u + 1)(u^2 - u)$和$(u - 1)^{-1}$表示成$au^2 + bu + c (a, b, c \in \mathbb{Q})$的形式.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     利用$u^3 = u^2 - u - 2$消去次数大于$2$的项.     
@@ -140,12 +145,12 @@
     因此$\frac{1}{u - 1} = -\frac{1}{3}(1 + u^2)$.
 \end{proof}
 
-\begin{problem}\label{ex:3.1.4}
+\begin{exercise}[习题3.1.4]
     求$\left[\mathbb{Q}[\sqrt2, \sqrt3]:\mathbb{Q}\right]$(提示: 证明$\left[\mathbb{Q}[\sqrt2, \sqrt3]:\mathbb{Q}[\sqrt3]\right] = 2)$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
-    参考\ref{ex:1.4.8}, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式, 且$\sqrt{3}$是它的根, 因此是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
+    参考1.4.8, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式, 且$\sqrt{3}$是它的根, 因此是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
     \[
         \left[\mathbb{Q}[\sqrt{2}, \sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \left[\mathbb{Q}[\sqrt{2}][\sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \deg(x^2 - 3) = 2.
     \]
@@ -155,9 +160,9 @@
     \]
 \end{proof}
 
-\begin{problem}\label{ex:3.1.5}
+\begin{exercise}[习题3.1.5]
     设$p$是一个素数, $z \in \mathbb{C}$满足$z^p = 1$且$z \neq 1$, 试证明$[\mathbb{Q}[z]:\mathbb{Q}] = p - 1$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     注意到$x^p - 1 = (x - 1)(x^{p - 1} + \cdots + x + 1)$. 由于$z \neq 1$, 因此$z$是多项式$\Phi_p(x) = x^{p - 1} + \cdots + x + 1$的根, 这是一个不可约多项式(教材例2.3.4), 从而是$z$的极小多项式. 因此$[\mathbb{Q}[z]:\mathbb{Q}] = \deg(\Phi_p) = p - 1$.
@@ -167,14 +172,14 @@
     这是分圆多项式中$n$为素数的情况.
 \end{remark}
 
-\begin{problem}
+\begin{exercise}[习题3.1.6]
     证明:
     \begin{enumerate}[(1)]
         \item $U_n = \{z \in \mathbb{C} \mid z^n = 1\}$是一个循环群;
         \item $z = \cos \frac\pi6 + i\sin \frac\pi6$是$U_{12}$的一个生成元, 但$[\mathbb{Q}[z]:\mathbb{Q}] = 4$;
         \item 求$z = \cos \frac\pi6 + i\sin \frac\pi6$在$\mathbb{Q}$上的极小多项式.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -217,9 +222,9 @@
     \end{enumerate}    
 \end{remark}
 
-\begin{problem}\label{ex:3.1.7}
+\begin{exercise}[习题3.1.7]
     设$E = K[u]$是一个代数扩张, 且$u$的极小多项式的次数是奇数. 证明: $E = K[u^2]$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     由于$K[u^2] \subseteq K[u]$, 即$K[u^2]$是中间域, 设$\mu_u(x) \in K[x]$是$u$的极小多项式, 则
@@ -229,85 +234,69 @@
     是奇数. 而$u$是多项式$x^2 - u^2 \in K[u^2][x]$的根, 因此$\left[K[u]:K[u^2]\right] \leqslant 2$. 但由于奇数不可能有因子$2$, 故$\left[K[u]:K[u^2]\right] = 1$, 即$K[u^2] = K[u]$.
 \end{proof}
 
-\begin{problem}\label{ex:3.1.8}
+\begin{exercise}[习题3.1.8]
     设$E_1, E_2$是域扩张$K \,\red{\subseteq}\, L$的中间域(即: $K \,\red{\subseteq}\, E_i \,\red{\subseteq}\, L)$, 且$[E_i:K] < +\infty$. 令$E = K\red{(}E_1,E_2\red{)} \,\red{\subseteq}\, L$是由$E_1, E_2$生成的子域. 证明:
     \[
         [E:K] \leqslant [E_1:K] \cdot [E_2:K].
     \]
-\end{problem}
+\end{exercise}
 
 \begin{remark}
-    按正确的记号应该是用圆括号表示生成, 见\ref{ex:3.1.2}的注记.
+    按正确的记号应该是用圆括号表示生成, 见3.1.2的注记.
 \end{remark}
 
 \begin{proof}
     设$\{\alpha_1, \alpha_2, \cdots, \alpha_n\}$是$E_1$的一组$K$-基, $\{\beta_1, \beta_2, \cdots, \beta_m\}$是$E_2$的一组$K$-基, 并要求$\alpha_1 = \beta_1 = 1$(总是可以乘上一个$\alpha_1^{-1}$或$\beta_1^{-1}$, 而这一组元素仍是基). 只需说明$S = \{\alpha_i\beta_j\}$可以生成$E = K(E_1, E_2) = K(E_1 \cup E_2)$. 按定义, 若$e_1 \in E_1, e_2 \in E_2$, $e_1 = \sum_{i = 1}^{n} k_i\alpha_i$, $e_2 = \sum_{j = 1}^{m} l_j\beta_j$. 由于取$\alpha_1 = \beta_1 = 1$, 因此$\alpha_i, \beta_j \in S$, 那么$e_1 \pm e_2, e_1e_2, e_i^{-1}$(若不为零)都可以由$S$生成.
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题3.1.9]
     设$K \,\red{\subseteq}\, L$是代数扩张, $E \,\red{\subseteq}\, L$是中间子环(即: $K \,\red{\subseteq}\, E \,\red{\subseteq}\, L)$. 证明: $E \,\red{\subseteq}\, L$必为子域(所以任何有限扩张$K \,\red{\subseteq}\, L$的中间子环必为域).
-\end{problem}
+\end{exercise}
 
 \begin{proof}
-    按定义说明$E$中非零元可逆即可. 设$0 \neq u \in E \subseteq L$, 则$u$在$L$上代数, 那么$K(u) = K[u] \subseteq E$是域(包含关系由泛性质得到, \ref{ex:2.3.7}), 则$u \in K[u]$可逆.
+    按定义说明$E$中非零元可逆即可. 设$0 \neq u \in E \subseteq L$, 则$u$在$L$上代数, 那么$K(u) = K[u] \subseteq E$是域(包含关系由泛性质得到, 2.3.7), 则$u \in K[u]$可逆.
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题3.1.10]
     设$L = K(u)$, $u$是$K$上的超越元, $E \neq K$是$K \,\red{\subseteq}\, L$的中间域. 证明: $u$是$E$上的代数元.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     任取$v \in E \setminus K$, 那么按定义$v = \frac{p(u)}{q(u)}$, 则$p(u) - vq(u) = 0$, 即$u$是多项式$p(x) - vq(x) \in E[x]$的根.
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题3.1.11]
     设$p$是素数, $K \,\red{\subseteq}\, L$是$p$次扩张. 证明: $K \,\red{\subseteq}\, L$必为\red{单扩张}(即: 存在$u \in L$, 使$L = K[u]$).
-\end{problem}
+\end{exercise}
 
 \begin{remark}
-    单扩张见\ref{ex:3.1.2}的注记, 由于\ref{ex:3.3.14}又写成单扩张了, 干脆把这里的“单纯”也改成“单”.
+    单扩张见3.1.2的注记, 由于3.3.14又写成单扩张了, 干脆把这里的“单纯”也改成“单”.
 \end{remark}
 
 \begin{proof}
-    任取$u \in L \setminus K$, 和\ref{ex:3.1.7}的讨论类似,
+    任取$u \in L \setminus K$, 和3.1.7的讨论类似,
     \[
         p = [L:K] = [L:K[u]] \cdot [K[u]:K]
     \]
     由$p$是素数, 且$[K[u]:K] \neq 1$(因为$u \notin K$), 可知$[L:K[u]] = 1, [k[u]:K] = p$, 即$L = K[u]$.
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题3.1.12]
     设域扩张$K \,\red{\subseteq}\, L$满足条件:
     \begin{enumerate}[(1)]
         \item $[L:K] < +\infty$;
         \item 对任意两个中间域$K \,\red{\subseteq}\, E_1 \,\red{\subseteq}\, L,\, K \,\red{\subseteq}\, E_2 \,\red{\subseteq}\, L$, 必有$E_1 \,\red{\subseteq}\, E_2$或者$E_2 \,\red{\subseteq}\, E_1$.
     \end{enumerate}
     证明: $K \,\red{\subseteq}\, L$必为\red{单扩张}(即: 存在$u \in L$,使$L = K[u])$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
-    由\ref{ex:3.1.2}的注记, 有限扩张是有限生成代数扩张, 故存在代数元$u_1, u_2, \cdots, u_n$, $L = K[u_1, \cdots, u_n]$, 那么$K[u_i]$都是中间域, 若$K[u_i] \subseteq K[u_j]$, 则$K[u_i, u_j] = K[u_j][u_i] = K[u_j]$. 那么存在某个$u \in \{u_1, \cdots, u_n\}$使得$K[u] = \bigcup_{i = 1}^{n} K[u_i] = K[u_1, \cdots, u_n] = L$.
+    由3.1.2的注记, 有限扩张是有限生成代数扩张, 故存在代数元$u_1, u_2, \cdots, u_n$, $L = K[u_1, \cdots, u_n]$, 那么$K[u_i]$都是中间域, 若$K[u_i] \subseteq K[u_j]$, 则$K[u_i, u_j] = K[u_j][u_i] = K[u_j]$. 那么存在某个$u \in \{u_1, \cdots, u_n\}$使得$K[u] = \bigcup_{i = 1}^{n} K[u_i] = K[u_1, \cdots, u_n] = L$.
 \end{proof}
 
-\begin{problem}
-    设$\alpha = 2 + \sqrt[3]{2} + \sqrt[3]{4}$, 给出一个首项系数为$1$的最低次数的多项式$f(x) \in \mathbb{Q}[x]$使$f(\alpha) = 0$.
-\end{problem}
-
-\begin{proof}
-    记$\beta = \sqrt[3]{2}$.
-    \[
-    \begin{aligned}
-        &\phantom{\implies} \alpha - 2 = \beta + \beta^2 = \beta(1 + \beta)\\
-        &\implies (\alpha - 2)^3 = \beta^3(1 + \beta)^3 = 2(1 + 3\beta + 3\beta^2 + 2) = 6 + 6(\alpha - 2)\\
-        &\implies \alpha^3 - 6\alpha^2 + 6\alpha - 2 = 0
-    \end{aligned}  
-    \]
-    由Eisenstein判别法知该多项式不可约, 故极小多项式是$x^3 - 6x^2 + 6x - 2$.
-\end{proof}
-
-\begin{problem}
+\begin{exercise}[习题3.1.14]
     设$K = \mathbb{Q}[\sqrt[3]{3}]$, 证明: $x^5 - 5$在$K[x]$中不可约.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     只需说明$x^5 - 5$是$\sqrt[5]{5}$在$K$上的极小多项式. 我们证明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] = 5$即可.
@@ -316,21 +305,26 @@
     \[
         \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] \cdot \left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right]
     \]
-    那么只需说明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = 15$. 记$\alpha = \sqrt[3]{3}$, $\beta = \sqrt[5]{5}$. 则$\mathbb{Q}[\alpha]$的基为$\{1, \alpha, \alpha^2\}$, $\mathbb{Q}[\beta]$的基为$\{1, \beta, \beta^2, \beta^3, \beta^4\}$. 由\ref{ex:3.1.8}, 说明$\{\alpha^i\beta^j \mid 0 \leqslant i \leqslant 2, 0 \leqslant j \leqslant 4\}$是$\mathbb{Q}$-线性无关的即可, 这是比较容易看出来的(虽然很明显但是没想到优雅的证明先挖个坑).
+    那么只需说明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = 15$. 记$\alpha = \sqrt[3]{3}$, $\beta = \sqrt[5]{5}$. 则$\mathbb{Q}[\alpha]$的基为$\{1, \alpha, \alpha^2\}$, $\mathbb{Q}[\beta]$的基为$\{1, \beta, \beta^2, \beta^3, \beta^4\}$. 由3.1.8, 说明$\{\alpha^i\beta^j \mid 0 \leqslant i \leqslant 2, 0 \leqslant j \leqslant 4\}$是$\mathbb{Q}$-线性无关的即可, 这是比较容易看出来的(虽然很明显但是没想到优雅的证明先挖个坑).
 \end{proof}
 
 \begin{remark}
-    \ref{ex:3.1.4}是直接证不可约得到扩张次数, 这里是用扩张次数来得到不可约. 当然这里也可以直接证, $x^5 - 5$的根是比较简单的.
+    3.1.4是直接证不可约得到扩张次数, 这里是用扩张次数来得到不可约.
 \end{remark}
 
-\begin{problem}
+\begin{exercise}[习题3.1.15]
     设$k$是特征$p > 0$的域, $x, y$是$k$上的代数无关元. 令$K = k(x^{p}, y^{p})$, $L = k(x, y)$. 试证明$[L:K] = p^{2}$.
-\end{problem}
+\end{exercise}
 
 \begin{remark}
     代数无关是多元的超越, $a_1, a_2, \cdots, a_n$代数无关指不存在满足它们的代数方程, 即不存在多项式$f(x_1, x_2, \cdots, x_n) \in k[x_1, x_2, \cdots, x_n]$使得$f(a_1, a_2, \cdots, a_n) = 0$.
 \end{remark}
 
 \begin{proof}
-    $x, y$代数无关, 按定义$x, y$就是超越元, 根据\ref{ex:3.1.2}的注记, $K$和$L$视为有理函数域处理即可. 考虑中间域$k(x, y^p)$, 由Eisenstein判别法, $x^p$是$k[x^p, y^p]$的不可约元, 则$t^p - x^p \in k[x^p, y^p][t]$是不可约多项式, 而$K$是$k[x^p, y^p]$的分式域, 从而在$K[t]$内也不可约(教材推论2.3.1). 那么$t^p - x^p$是$x \in k(x, y^p)$在$K$上的极小多项式. $[k(x, y^p):K] = \deg(t^p - x^p) = p$. 同理$[L:k(x, y^p)] = p$. 因此$[L:K] = [L:k(x, y^p)] \cdot [k(x, y^p):K] = p^2$.
+    $x, y$代数无关, 按定义$x, y$就是超越元, 根据3.1.2的注记, $K$和$L$视为有理函数域处理即可. 考虑中间域$k(x, y^p)$, 由Eisenstein判别法, $x^p$是$k[x^p, y^p]$的不可约元, 则$t^p - x^p \in k[x^p, y^p][t]$是不可约多项式, 而$K$是$k[x^p, y^p]$的分式域, 从而在$K[t]$内也不可约(教材推论2.3.1). 那么$t^p - x^p$是$x \in k(x, y^p)$在$K$上的极小多项式. $[k(x, y^p):K] = \deg(t^p - x^p) = p$. 同理$[L:k(x, y^p)] = p$. 因此$[L:K] = [L:k(x, y^p)] \cdot [k(x, y^p):K] = p^2$.
 \end{proof}
+
+\subsection*{课上的补充内容}
+基本上都在3.1.2里.
+
+\end{document}
