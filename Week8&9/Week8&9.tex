@@ -14,7 +14,7 @@
 \end{exercise}
 
 \begin{proof}
-    由2.4.3可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根.
+    我们总可以在$f(x)$的分裂域上考虑因式分解. 由2.4.3可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根, 从而$f(x)$的单根为$g(x)$的根. 且若$a$是$k(>1)$重根, 则按定义有$f(x) = (x - a)^kf_1(x)$, $f_1(a) \neq 0$. 那么$f'(x) = (x - a)^{k - 1}(kf_1(x) + (x - a)f_1'(x))$, 记$h(x) = kf_1(x) + (x - a)f_1'(x)$, 有$h(a) = kf_1(a) \neq 0$. 即有$(x - a)^{k - 1} \mid d(x)$但$(x - a)^k \nmid d(x)$, 因此$g(x)$有单因子$(x - a)$, 即重根$a$是$g(x)$的单根.
 \end{proof}
 
 \begin{exercise}[习题3.1.2]
@@ -43,7 +43,7 @@
 \begin{remark}
     教材出现了有限生成扩张(p7-8)但并未单独列出这个的定义, 这里需要用一下所以先把这个定义提一下.
 
-    \begin{definitionstar}
+    \begin{defstar}
         设$K \subseteq L$是一个域扩张, $S \subseteq L$是一个子集, $K(S)$称为由$F$和$S$生成的子域, 即包含$F$和$S$的最小域:
         \[
             K(S) \defeq \cap \{E \subseteq L \mid F \cup S \subseteq E\} 
@@ -55,7 +55,7 @@
             K(u_1, u_2, \cdots, u_n) \defeq \cap \{E \subseteq L \mid K \subseteq E,\, u_1, u_2, \cdots, u_n \in E\}
         \]
         $n = 1$时称为单扩张(simple extension).
-    \end{definitionstar}
+    \end{defstar}
     下面要验证的事实是, 当$u_1, u_2, \cdots, u_n$都是$K$上代数元的时候,\par
     $K(u_1, u_2, \cdots, u_n) = K[u_1, u_2, \cdots, u_n]$, 且此时该扩张是有限扩张, 否则是无限扩张. 即对域扩张而言:
     \[
@@ -150,7 +150,9 @@
 \end{exercise}
 
 \begin{proof}
-    参考1.4.8, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式, 且$\sqrt{3}$是它的根, 因此是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
+    参考1.4.8, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式. 更详细的说, 若$x^2 - 3$在$\mathbb{Q}[\sqrt{2}]$上可约, 则按定义$x^2 - 3 = (x - \alpha_1)(x - \alpha_2)$, 其中$\alpha_i = a_i + b_i\sqrt{2}$, $a_i, b_i \in \mathbb{Q}$. 右边展开对比系数一样得到矛盾.
+
+    $\sqrt{3}$是$x^2 - 3$的根, 因此它是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
     \[
         \left[\mathbb{Q}[\sqrt{2}, \sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \left[\mathbb{Q}[\sqrt{2}][\sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \deg(x^2 - 3) = 2.
     \]
@@ -323,6 +325,10 @@
 \begin{proof}
     $x, y$代数无关, 按定义$x, y$就是超越元, 根据3.1.2的注记, $K$和$L$视为有理函数域处理即可. 考虑中间域$k(x, y^p)$, 由Eisenstein判别法, $x^p$是$k[x^p, y^p]$的不可约元, 则$t^p - x^p \in k[x^p, y^p][t]$是不可约多项式, 而$K$是$k[x^p, y^p]$的分式域, 从而在$K[t]$内也不可约(教材推论2.3.1). 那么$t^p - x^p$是$x \in k(x, y^p)$在$K$上的极小多项式. $[k(x, y^p):K] = \deg(t^p - x^p) = p$. 同理$[L:k(x, y^p)] = p$. 因此$[L:K] = [L:k(x, y^p)] \cdot [k(x, y^p):K] = p^2$.
 \end{proof}
+
+\begin{remark}
+    证明过程没有用到特征$p$, 因此该结论对任意域都是是对的.
+\end{remark}
 
 \subsection*{课上的补充内容}
 基本上都在3.1.2里.

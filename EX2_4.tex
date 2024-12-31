@@ -87,7 +87,9 @@
 \end{problem}
 
 \begin{proof}
-    按定义$A = M_n(K[\lambda])$, 由于$K \subseteq K[\lambda]$, 所以自然有$R = M_n(K) \subseteq M_n(K[\lambda]) = A$. 但事实上$A = R[\lambda]$, 在\ref{ex:1.2.8}可以看到这一点. 但是对一个矩阵$B \in M_n(K)$, $B\lambda$和$B(\lambda \cdot I_n)$是一样的. 因此$A = R[\lambda \cdot I_n] = R[u]$. $u$和$\lambda$, $x$一样是和$R$无关的变量, 所以只是换了个字母而已, 那么$\psi_u$自然是是同构.
+    按定义$A = M_n(K[\lambda])$, 由于$K \subseteq K[\lambda]$, 所以自然有$R = M_n(K) \subseteq M_n(K[\lambda]) = A$. 但事实上$A = R[\lambda]$, 在\ref{ex:1.2.8}可以看到这一点. 但是对一个矩阵$B \in M_n(K)$, $B\lambda$和$B(\lambda \cdot I_n)$是一样的. 因此$A = R[\lambda \cdot I_n] = R[u]$. $u$和$\lambda$, $x$一样是和$R$无关的变量, 所以只是换了个字母而已, 那么$\psi_u$自然是是同构. $\psi_u$的存在唯一性是用了\ref{ex:2.4.5}. 这里$\psi$实际上是包含$\psi:R \to A = R[\lambda]$.
+
+    若要严格一些, 那么说明这个映射是双射即可. 实际上可以反过来用一次\ref{ex:2.4.5}. 考虑$\psi$以及$x \in R[x]$. 得到的映射恰好为$\psi_u$的逆映射.
 \end{proof}
 
 \begin{problem}\label{ex:2.4.7}
@@ -111,7 +113,7 @@
 \end{proof}
 
 \begin{remark}
-    现在把涉及到多项式环的题目放在一起看, \ref{ex:2.3.7}, \ref{ex:2.4.5}, \ref{ex:2.4.6}, \ref{ex:2.4.7}, \ref{ex:2.4.8}.
+    现在把涉及到多项式环的题目放在一起看, \ref{ex:2.3.7}, \ref{ex:2.4.5}, \ref{ex:2.4.7}, \ref{ex:2.4.8}.
     
     我们希望“多项式”可以满足我们一直以来的直觉, 其中最重要的一条应该是可以赋值, 也就是说我们希望一个多项式同时也是一个多项式函数. “赋值”这个操作在\ref{ex:2.3.7}解释为由环同态$\psi:R \to A$诱导的唯一的同态$\psi_u:R[x] \to A$, $\psi_u$的含义就是代入$u$, 也就是说此时多项式$f(x)$确实是一个函数
     \[
@@ -122,6 +124,4 @@
     $R[x_1, x_2, \cdots, x_n]$要求所有未定元$x_1, x_2, \cdots, x_n$是两两交换, 以及所有$x_i$要和$R$中所有元素交换. 可以看到$R$是交换环等价于$R[x]$是交换环, 自然也等价于$R[x_1, x_2, \cdots, x_n]$是交换环. $R$是交换环的时候, $R[x_1, x_2, \cdots, x_n]$的结构已经很清楚了, 就是自由交换$R$-代数, 它满足和其他自由对象类似的泛性质, 正是这个泛性质保证了赋值的唯一性, 从而多项式函数才是一个良定义的东西.
 
     \ref{ex:2.4.5}虽然减弱了条件, 但也失去了一般性, 所以$R$非交换的时候, 就没有那么好的泛性质了. 这也是为什么在定义$R$-代数的时候需要要求$R$是一个交换环.
-
-    而\ref{ex:2.4.6}其实有更深刻的含义. 泛性质有很多, 某个特定对象的泛性质都是“对任意的一些态射, 存在唯一的态射使得图表交换”这种形式. 这其实是和Yoneda Lemma, representable functor, limit等有关系. 这种对象其实上是某个新的范畴里的final object(或者initial object, 这俩是对偶的, 就差一个反范畴). 而final object的定义里就是该范畴里一个特殊的对象: 任意对象到final object存在唯一的态射. 正是这个存在唯一, 保证了final object在同构的意义下是唯一的. 所以当有两个东西满足同一个泛性质, 它们俩一定是同构的.
 \end{remark}

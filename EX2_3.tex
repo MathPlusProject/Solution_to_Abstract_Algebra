@@ -39,9 +39,7 @@
 \end{proof}
 
 \begin{remark}
-    由(1)(2)知, $f(x) \in F[[x]]$, 要么是单位, 否则一定在理想$(x)$中. 这说明$(x)$是$F[[x]]$唯一的极大理想, 这种环称为局部环(local ring).
-    
-    请参考\cite{atiyah1994introduction}p4.
+    由(1)(2)知, $f(x) \in F[[x]]$, 要么是单位, 否则一定在理想$(x)$中. 这说明$(x)$是$F[[x]]$唯一的极大理想, 这种环称为局部环(local ring). 相关证明请参考\cite{atiyah1994introduction}p4.
 \end{remark}
 
 \begin{problem}\label{ex:2.3.2}
@@ -49,7 +47,7 @@
     \[
         \varphi:F[x] \to F[x]/I,\quad f(x) \mapsto \overline{f(x)}
     \]
-    诱导了域嵌入$\varphi|_F: F \hookrightarrow F[x]/I, a \mapsto \bar{a}$(如果将$F$与它的像等同, 则$\bar{x} \in F[\bar{x}] \defeq F[x]/I$是$p(x)$在扩域$F[\bar{x}]$中的一个根).
+    诱导了域嵌入$\varphi|_F: F \hookrightarrow F[x]/I, a \mapsto \overline{a}$(如果将$F$与它的像等同, 则$\overline{x} \in F[\overline{x}] \defeq F[x]/I$是$p(x)$在扩域$F[\overline{x}]$中的一个根).
 \end{problem}
 
 \begin{proof}
@@ -75,7 +73,7 @@
     利用PID上满足Bézout Identity立得.
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:2.3.4}
     设$F$是特征零的域, $f(x) \in F[x]$不可约. 证明$f(x)$与$f'(x)$互素.
 \end{problem}
 
@@ -88,7 +86,7 @@
 \end{remark}
 
 \begin{problem}
-    设$\mathbb{F}_2 = \mathbb{Z}/(2) = \{\bar{0}, \bar{1}\}$是一个二元域. 证明:
+    设$\mathbb{F}_2 = \mathbb{Z}/(2) = \{\overline{0}, \overline{1}\}$是一个二元域. 证明:
     \[
         f(x) = x^n + a_1x^{n - 1} + \cdots + a_{n - 1}x + a_n \in \mathbb{F}_2[x]
     \]
@@ -134,21 +132,21 @@
 \end{proof}
 
 \begin{problem}
-    设$p$是素数, $\mathbb{Z} \to \mathbb{F}_p = \mathbb{Z}/(p)\mathbb{Z},\, a \mapsto \bar{a}$, 是商同态. 证明:
+    设$p$是素数, $\mathbb{Z} \to \mathbb{F}_p = \mathbb{Z}/(p)\mathbb{Z},\, a \mapsto \overline{a}$, 是商同态. 证明:
     \begin{enumerate}[(1)]
         \item 映射
         \[
-            \phi_p:\mathbb{Z}[x] \to \mathbb{F}_p[x],\quad f(x) = \sum_{i = 1}^n a_ix^i \mapsto \bar{f}(x) = \sum_{i = 1}^n \bar{a}_ix^i
+            \phi_p:\mathbb{Z}[x] \to \mathbb{F}_p[x],\quad f(x) = \sum_{i = 1}^n a_ix^i \mapsto \overline{f}(x) = \sum_{i = 1}^n \overline{a}_ix^i
         \]
         是环同态;
-        \item 对于首项系数为$1$的多项式$f(x) \in \mathbb{Z}[x]$, 如果存在素数$p$使$\bar{f}(x)$在$\mathbb{F}_p[x]$中不可约, 则$f(x)$在$\mathbb{Z}[x]$中也不可约.
+        \item 对于首项系数为$1$的多项式$f(x) \in \mathbb{Z}[x]$, 如果存在素数$p$使$\overline{f}(x)$在$\mathbb{F}_p[x]$中不可约, 则$f(x)$在$\mathbb{Z}[x]$中也不可约.
     \end{enumerate}
 \end{problem}
 
 \begin{proof}
     \begin{enumerate}[(1)]
         \item \ref{ex:2.1.8}的注记或教材引理2.3.2(我才发现教材有写延拓)
-        \item 用反证法, 假设$f(x)$可约, $f(x) = g(x)h(x)$, 则$\deg(g), \deg(h) > 0$且$g, h$都是首一的. 那么根据同态有$\bar{f} = \bar{g}\bar{h}$, 且$\bar{g}$和$\bar{h}$还是首一的次数大于$0$的多项式, 这和$\bar{f}$不可约矛盾.
+        \item 用反证法, 假设$f(x)$可约, $f(x) = g(x)h(x)$, 则$\deg(g), \deg(h) > 0$且$g, h$都是首一的. 那么根据同态有$\overline{f} = \overline{g}\overline{h}$, 且$\overline{g}$和$\overline{h}$还是首一的次数大于$0$的多项式, 这和$\overline{f}$不可约矛盾.
     \end{enumerate}
 \end{proof}
 
@@ -169,16 +167,32 @@
     \[
         f_u:\{1\} \to A, 1 \mapsto u
     \]
-    所谓的自由交换$R$-代数的泛性质是指, 对任意给定的集合映射$f_u$, 存在唯一的同态$\psi_u:R[x] \to A$使得图表交换:
+    所谓的自由交换$R$-代数的泛性质是指, 对任意给定的集合映射$f_u$, 存在唯一的$R$-代数同态(即要保持加法, 数乘和乘法)$\psi_u:R[x] \to A$使得图表交换:
     \[
         \begin{tikzcd}
             {R[x]} \arrow[rr, "\exists!\psi_u"] &                                          & A \\
                                                 & \{1\} \arrow[lu, "i"] \arrow[ru, "f_u"'] &  
         \end{tikzcd}
     \]
-    其中$i:R \to R[x],\, 1 \mapsto x$.
+    其中$i:\{1\} \to R[x],\, 1 \mapsto x$.
 
-    因为$\psi(R) \subseteq C(A)$, 因此$\psi_u$才能保持乘法, 这在\ref{ex:2.1.8}的注记里已经证明. 验证了$\psi_u$是环同态就相当于证明了存在性, 而唯一性是根据定义就能得到, $\psi_u$是被给定的$\psi$和$f_u$唯一确定的.
+    这个映射$\psi_u$的存在性实际上题干已经给出了,
+    \[
+    \begin{aligned}
+        &\psi_u:R[x] \to A,\\
+        &f(x) = a_nx^n + \cdots + a_1x + a_0 \mapsto \psi(a_n)u^n + \cdots + \psi(a_1)u + \psi(a_0)
+    \end{aligned} 
+    \]
+    我们只需验证这个映射确实是一个环同态即可, 其中保持加法只用到环的分配律, $\psi_u(1) = 1$也是平凡的, 而保持乘法需要条件$\psi(R) \subseteq C(A)$, 这实际上在\ref{ex:2.1.8}的注记里已经证明. 这里重新按多项式写一遍, 设$f(x) = a_nx^n + \cdots + a_1x + a_0$, $g(x) = b_mx^m + \cdots + b_1x + b_0$. 那么
+    \[
+    \begin{aligned}
+        \psi_u(f(x) \cdot g(x)) &= \psi\left(\sum_{k = 0}^{n + m}\sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 0}^{n + m}\sum_{i + j = k} \psi(a_i)\psi(b_j)u^k.\\
+        \psi_u(f(x)) \cdot \psi_u(g(x)) &= \left(\sum_{i = 0}^{n} \psi(a_i)u^i\right) \cdot \left(\sum_{j = 0}^{m} \psi(b_j)u^j\right) = \sum_{i = 0}^{n}\sum_{j = 0}^{m} \psi(a_i)u^i\psi_(b_j)u^j
+    \end{aligned} 
+    \]
+    因为$\psi(R) \subseteq C(A)$, 所以才有$u\psi(b_j) = \psi(b_j)u$, 那么第二个式子的结果才能和第一个是一样的.
+
+    而唯一性是根据定义就能得到, $\psi_u$是被给定的$\psi$和$f_u$唯一确定的. 更详细的说, 设$\widetilde{\psi}_u$是另一个环同态使得图表交换, 那么按定义必须有$\widetilde{\psi}_u(x) = u, \widetilde{\psi}_u(a) = \psi(a), \forall a \in R$, 那么根据同态的定义, $\widetilde{\psi}_u(f(x)) = \widetilde{\psi}_u(a_nx^n + \cdots + a_0) = \widetilde{\psi}_u = \psi(a_n)u^n + \cdots + \psi(a_0) = \psi_u(f(x))$.
 \end{proof}
 
 \begin{remark}
@@ -190,6 +204,10 @@
         \end{tikzcd}
     \]
     $u = (u_s)_{s \in S} \in A^S,\, f_u(s) = u_s$. (\ref{ex:2.4.5}为$S$是有限集的情形)
+
+    需要注意的是, 这里没有要求$R$是交换的, 实际上不太好, $R$不交换的话则一般就有$fg \neq gf$. $R$不交换的话$R[x]$就只是多项式环了, 一般不认为是一个$R$-代数, 因此本题可以认为是一个条件稍弱的版本, 条件最弱的版本是\ref{ex:2.4.5}.
+
+    教材引理2.3.2是这个的推论.
 \end{remark}
 
 \begin{problem}

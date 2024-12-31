@@ -135,7 +135,7 @@
         (mn)a &= m(na),\\
     \end{aligned}
     \]
-    这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(见教材5.1节). 再反过来看\ref{ex:1.1.1}的(6), 加上$(ab)^n = a^nb^n$, 也是在说$K^*$是$\mathbb{Z}$-模, 因为$K^*$关于域的乘法是Abel群.
+    这三条加上$1a = a$, 是在说任何一个Abel群都是$\mathbb{Z}$-模(\ref{ex:5.1.4}), 因为这几条的证明过程并未用到$R$的乘法, 把$R$换成任意的Abel群也是对的. 再反过来看\ref{ex:1.1.1}的(6), 加上$(ab)^n = a^nb^n$, 也是在说$K^*$是$\mathbb{Z}$-模, 证明过程中用到了$K^*$关于域的乘法是Abel群.
     
     另一方面, 可以先定义
     \[
@@ -158,7 +158,7 @@
         &= (m1_R)(na) = m(1_R(na)) = m(na).
     \end{aligned}
     \]
-    这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴. 因此$\mathbb{Z}$可以认为是任意环$R$的一个子环, $n$可看作是$R$中的元素$n1_R$. 所以此后在没有歧义的情况下, 默认$0$就指零元, $1$指幺元.
+    这个同态是唯一的, 因为我们要求环同态要把$1$映到$1$, 因此$\mathbb{Z}$在$\mathsf{Ring}$中是始对象(initial object), $\mathsf{Ring}$表示环范畴. 因此$n$可看作是$R$中的元素$n1_R$. 所以此后在没有歧义的情况下, 默认$0$就指零元, $1$指幺元.
 \end{remark}
 
 \begin{problem}
@@ -365,12 +365,12 @@
     取$B(x) = x\tilde{B}(x) + \tilde{R} \in M_{n \times m}(K[x])$, $R = A\tilde{R} + A_0$即可.
 \end{proof}
 
-\begin{problem}
-    设$m > 0$是任意整数, $\mathbb{Z}_m = \{\bar{0}, \bar{1}, \cdots, \overline{m-1}\}$是$\mathbb{Z}$的模$m$剩余类环. 试证明: $\bar{a} \in \mathbb{Z}_m$可逆当且仅当$(a, m) = 1$(即: $a$与$m$互素).
+\begin{problem}\label{ex:1.2.9}
+    设$m > 0$是任意整数, $\red{\mathbb{Z}/m\mathbb{Z}} = \{\overline{0}, \overline{1}, \cdots, \overline{m-1}\}$是$\mathbb{Z}$的模$m$剩余类环. 试证明: $\overline{a} \in \red{\mathbb{Z}/m\mathbb{Z}}$可逆当且仅当$(a, m) = 1$(即: $a$与$m$互素).
 \end{problem}
 
 \begin{proof}
-    $\overline{a} \in \mathbb{Z}_m$可逆,
+    $\overline{a} \in \mathbb{Z}/m\mathbb{Z}$可逆,
     \[
     \begin{aligned}
         &\iff \exists \overline{b} \in \mathbb{Z}, \quad \overline{a}\overline{b} = \overline{1}\\
@@ -403,7 +403,7 @@
     环$R$中非零元$x$称为幂零元(nilpotent), 若存在$n > 0$使$x^n = 0$. 证明:
     \begin{enumerate}[(1)]
         \item 如果$x$是幂零元, 则$1 - x$是可逆元;
-        \item $\mathbb{Z}_m$有幂零元当且仅当$m$可以被一个大于$1$的整数的平方整除.
+        \item $\mathbb{Z}/m\mathbb{Z}$有幂零元当且仅当$m$可以被一个大于$1$的整数的平方整除.
     \end{enumerate}
 \end{problem}
 
@@ -413,9 +413,9 @@
         \[
             1 = 1 - x^n = (1 - x)(1 + x + x^2 + \cdots + x^{n - 1})
         \]
-        \item "$\Rightarrow$": 若$\mathbb{Z}_m$有幂零元$\overline{a}$, 则存在$n > 1(a \neq 0)$使得$\overline{a}^n = \overline{a^n} = \overline{0}$. 即$m \mid a^n$. 取素数$p \mid m$, 则$p \mid a^n$, 故$p \mid a$. 因此, 若$m$的素因数分解为$m = p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$, 其中$p_1, p_2, \cdots, p_r$为互异的素数, $e_1, e_2, \cdots, e_r \geqslant 1$, 则$p_i \mid a,\, 1 \leqslant i \leqslant r$, 故有$p_1p_2\cdots p_r \mid a$. 因此有$p_1p_2\cdots p_r \leqslant a < m$, 故必有某个$e_i > 1$, 即$\exists 1 \leqslant i \leqslant r$, $e_i \geqslant 2$, 这样$p_i^2 \mid m$.
+        \item "$\Rightarrow$": 若$\mathbb{Z}/m\mathbb{Z}$有幂零元$\overline{a}$, 则存在$n > 1(a \neq 0)$使得$\overline{a}^n = \overline{a^n} = \overline{0}$. 即$m \mid a^n$. 取素数$p \mid m$, 则$p \mid a^n$, 故$p \mid a$. 因此, 若$m$的素因数分解为$m = p_1^{e_1}p_2^{e_2}\cdots p_r^{e_r}$, 其中$p_1, p_2, \cdots, p_r$为互异的素数, $e_1, e_2, \cdots, e_r \geqslant 1$, 则$p_i \mid a,\, 1 \leqslant i \leqslant r$, 故有$p_1p_2\cdots p_r \mid a$. 因此有$p_1p_2\cdots p_r \leqslant a < m$, 故必有某个$e_i > 1$, 即$\exists 1 \leqslant i \leqslant r$, $e_i \geqslant 2$, 这样$p_i^2 \mid m$.
         
-        "$\Leftarrow$": 反过来, 若$m$可以被某个大于$1$的平方整除, 则上述$e_i$中必有一个大于$1$, 此时取$a = p_1p_2\cdots p_r$, $\overline{a}$为$\mathbb{Z}_m$的幂零元.
+        "$\Leftarrow$": 反过来, 若$m$可以被某个大于$1$的平方整除, 则上述$e_i$中必有一个大于$1$, 此时取$a = p_1p_2\cdots p_r$, $\overline{a}$为$\mathbb{Z}/m\mathbb{Z}$的幂零元.
     \end{enumerate}
 \end{proof}
 

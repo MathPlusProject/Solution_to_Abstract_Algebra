@@ -1,27 +1,51 @@
 \subsection{教材p87-p88}
+习题4.5中除了4.5.1和4.5.8, 其余都是Sylow定理的应用.
 
-\begin{problem}
+\begin{problem}\label{ex:4.5.1}
     设$\mathrm{Aut}(X)$表示集合$X$的自同构群. 试证明: 
-\begin{enumerate}[(1)]
-    \item 若$G \times X \to X,\, (g, x) \mapsto g \cdot x$,
-是群$G$在$X$上的一个作用, $\forall g \in G$, 定义映射
-$X \xrightarrow{\rho(g)} X$, $x \mapsto g \cdot x$.
-则$\rho(g) \in \mathrm{Aut}(X)$且映射
-\[
-    \rho:G \to \mathrm{Aut}(X),\, g \mapsto \rho(g)
-\]
-是群同态.
-    \item 若$\rho:G \to \mathrm{Aut}(X)$是一个群同态, 则映射
-\[
-    G \times X \to X,\: (g, x) \mapsto \rho(g)(x)
-\]
-是一个群作用.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 若$G \times X \to X,\, (g, x) \mapsto g \cdot x$, 是群$G$在$X$上的一个作用, $\forall g \in G$, 定义映射$X \xrightarrow{\rho(g)} X$, $x \mapsto g \cdot x$. 则$\rho(g) \in \mathrm{Aut}(X)$且映射
+        \[
+            \rho:G \to \mathrm{Aut}(X),\, g \mapsto \rho(g)
+        \]
+        是群同态.
+        \item 若$\rho:G \to \mathrm{Aut}(X)$是一个群同态, 则映射
+        \[
+            G \times X \to X,\: (g, x) \mapsto \rho(g)(x)
+        \]
+        是一个群作用.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-    
+    \begin{enumerate}[(1)]
+        \item 由于$G$是群, $g^{-1}$是存在的, 从而这里定义的左乘映射$\rho(g)$自然是一个双射. 只需验证$\rho$是保持乘法的. 对$\forall x \in X$
+        \[
+            \rho(g_1g_2)(x) = (g_1g_2) \cdot x = g_1 \cdot (g_2 \cdot x) = \rho(g_1)(\rho(g_2)(x)) = (\rho(g_1) \circ \rho(g_2))(x).
+        \]
+        因此有$\rho(g_1g_2) = \rho(g_1) \circ \rho(g_2)$保持乘法, $\rho$是群同态.
+        \item 反过来, 若$\rho$是群同态, 则$\rho(1) = 1$, 即$\rho(1) = \mathrm{id}_X$. 那么对$\forall x \in X$自然有$1 \cdot x = \rho(1)(x) = \mathrm{id}_X(x) = x$. 另一方面,
+        \[
+            (g_1g_2) \cdot x = \rho(g_1g_2)(x) = (\rho(g_1) \circ \rho(g_2))(x) = \rho(g_1)(\rho(g_2)(x)) = g_1 \cdot (g_2 \cdot x)
+        \]
+        因此$G \times X \to X,\, (g, x) \mapsto \rho(g)(x)$是一个群作用.
+    \end{enumerate}
 \end{proof}
+
+\begin{remark}
+    这题是群作用的两种表述, 若看成一个群同态$\rho:G \to \mathrm{Aut}(X)$则更贴近表示论的观点. 比如同态
+    \[
+        \rho:G \to \mathrm{GL}(V),\quad g \mapsto \rho(g)
+    \]
+    称为群$G$的一个$k$-表示(a $k$-representation, or a representation over field $k$). 其中$V$是一个$k$-线性空间, $\mathrm{GL}(V)$为$V$上所有可逆线性变换构成的群.
+    
+    一般地, 对于范畴$\mathcal{C}$中的对象$X$, 群$G$在$X$上的作用是群同态
+    \[
+        \rho:G \to \mathrm{Aut}_{\mathcal{C}}(X)
+    \]
+
+    此观点在模的定义中也是类似的, 见\ref{ex:5.1.3}, 即一个$R$-模实际上是环$R$在Abel群$M$上的一个作用.
+\end{remark}
 
 \begin{problem}
     $20$阶群中共有多少个$5$阶元？
@@ -56,8 +80,7 @@ $X \xrightarrow{\rho(g)} X$, $x \mapsto g \cdot x$.
 \end{proof}
 
 \begin{problem}
-    设$p, q$是两个不同的素数, 则$pq$或$p^2q$阶群一定不是单群.
-(事实上: $p^aq^b$阶群一定是可解群.)
+    设$p, q$是两个不同的素数, 则$pq$或$p^2q$阶群一定不是单群. (事实上: $p^aq^b$阶群一定是可解群.)
 \end{problem}
 
 \begin{proof}
@@ -74,10 +97,10 @@ $X \xrightarrow{\rho(g)} X$, $x \mapsto g \cdot x$.
 
 \begin{problem}
     设$H$为群$G$的有限子群.
-\begin{enumerate}[(1)]
-    \item 证明: $(h_1, h_2)(x) = h_2xh_1^{-1}$定义了$H \times H$在群$G$上的作用；
-    \item 证明: $H$为$G$的正规子群当且仅当上述作用的每条轨道都恰有$|H|$个.
-\end{enumerate}
+    \begin{enumerate}[(1)]
+        \item 证明: $(h_1, h_2)(x) = h_2xh_1^{-1}$定义了$H \times H$在群$G$上的作用;
+        \item 证明: $H$为$G$的正规子群当且仅当上述作用的每条轨道都恰有$|H|$个.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
@@ -93,8 +116,7 @@ $X \xrightarrow{\rho(g)} X$, $x \mapsto g \cdot x$.
 \end{proof}
 
 \begin{problem}
-    若$G$是$60$阶单群, 那么$G$一定同构于$A_5$,
-从而得到阶数最小的非交换单群是$A_5$.
+    若$G$是$60$阶单群, 那么$G$一定同构于$A_5$, 从而得到阶数最小的非交换单群是$A_5$.
 \end{problem}
 
 \begin{proof}

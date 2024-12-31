@@ -10,7 +10,7 @@
     \[
         \varphi:F[x] \to F[x]/I,\quad f(x) \mapsto \overline{f(x)}
     \]
-    诱导了域嵌入$\varphi|_F: F \hookrightarrow F[x]/I, a \mapsto \bar{a}$(如果将$F$与它的像等同, 则$\bar{x} \in F[\bar{x}] \defeq F[x]/I$是$p(x)$在扩域$F[\bar{x}]$中的一个根).
+    诱导了域嵌入$\varphi|_F: F \hookrightarrow F[x]/I, a \mapsto \overline{a}$(如果将$F$与它的像等同, 则$\overline{x} \in F[\overline{x}] \defeq F[x]/I$是$p(x)$在扩域$F[\overline{x}]$中的一个根).
 \end{exercise}
 
 \begin{proof}
@@ -47,7 +47,7 @@
 \end{proof}
 
 \begin{exercise}[习题2.3.5]
-    设$\mathbb{F}_2 = \mathbb{Z}/(2) = \{\bar{0}, \bar{1}\}$是一个二元域. 证明: 
+    设$\mathbb{F}_2 = \mathbb{Z}/(2) = \{\overline{0}, \overline{1}\}$是一个二元域. 证明: 
     \[
         f(x) = x^n + a_1x^{n - 1} + \cdots + a_{n - 1}x + a_n \in \mathbb{F}_2[x]
     \]
@@ -93,21 +93,21 @@
 \end{proof}
 
 \begin{exercise}[习题2.3.6]
-    设$p$是素数, $\mathbb{Z} \to \mathbb{F}_p = \mathbb{Z}/(p)\mathbb{Z},~a \mapsto \bar{a}$, 是商同态. 证明: 
+    设$p$是素数, $\mathbb{Z} \to \mathbb{F}_p = \mathbb{Z}/(p)\mathbb{Z},~a \mapsto \overline{a}$, 是商同态. 证明: 
     \begin{enumerate}[(1)]
         \item 映射
         \[
-            \phi_p:\mathbb{Z}[x] \to \mathbb{F}_p[x],\quad f(x) = \sum_{i = 1}^n a_ix^i \mapsto \bar{f}(x) = \sum_{i = 1}^n \bar{a}_ix^i
+            \phi_p:\mathbb{Z}[x] \to \mathbb{F}_p[x],\quad f(x) = \sum_{i = 1}^n a_ix^i \mapsto \overline{f}(x) = \sum_{i = 1}^n \overline{a}_ix^i
         \]
         是环同态;
-        \item 对于首项系数为$1$的多项式$f(x) \in \mathbb{Z}[x]$, 如果存在素数$p$使$\bar{f}(x)$在$\mathbb{F}_p[x]$中不可约, 则$f(x)$在$\mathbb{Z}[x]$中也不可约.
+        \item 对于首项系数为$1$的多项式$f(x) \in \mathbb{Z}[x]$, 如果存在素数$p$使$\overline{f}(x)$在$\mathbb{F}_p[x]$中不可约, 则$f(x)$在$\mathbb{Z}[x]$中也不可约.
     \end{enumerate}
 \end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
         \item 2.1.8的注记或教材引理2.3.2(原来教材有写延拓)
-        \item 用反证法, 假设$f(x)$可约, $f(x) = g(x)h(x)$, 则$\deg(g), \deg(h) > 0$且$g, h$都是首一的. 那么根据同态有$\bar{f} = \bar{g}\bar{h}$, 且$\bar{g}$和$\bar{h}$还是首一的次数大于$0$的多项式, 这和$\bar{f}$不可约矛盾.
+        \item 用反证法, 假设$f(x)$可约, $f(x) = g(x)h(x)$, 则$\deg(g), \deg(h) > 0$且$g, h$都是首一的. 那么根据同态有$\overline{f} = \overline{g}\overline{h}$, 且$\overline{g}$和$\overline{h}$还是首一的次数大于$0$的多项式, 这和$\overline{f}$不可约矛盾.
     \end{enumerate}
 \end{proof}
 

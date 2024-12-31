@@ -1,105 +1,165 @@
 \subsection{教材p64}
 
-\begin{problem}
-    设$f(x) = x^2 + ax + b \in K[x]$不可约, $E = K[u_1]$
-(其中$f(u_1) = 0$) 证明: $E$必包含$f(x) = 0$的另一个根
-(所以$E$是$f(x)$的分裂域).
+\begin{problem}\label{ex:3.3.1}
+    设$f(x) = x^2 + ax + b \in K[x]$不可约, $E = K[u_1]$(其中$f(u_1) = 0$) 证明: $E$必包含$f(x) = 0$的另一个根(所以$E$是$f(x)$的分裂域).
 \end{problem}
 
 \begin{proof}
-    
+    由于$u_1 \in E$是$f(x)$的根, 因此在$E[x]$中有分解$f(x) = (x - u_1)f_1(x)$. 而$\deg(f) = 2$, 故只能是$\deg(f_1) = 1$, 即$f_1 = x - u_2$, $u_2 \in E$自然是$f(x)$的另一个根.
+
+    或设$f(x)$的分裂域是$E'$, 令$f$的另一个根为$u_2 \in E'$, 则有$u_1 + u_2 = a \in K \subseteq E$. 而$u_1 \in E$, 因此$u_2 \in E$, 即$E' = E$.
 \end{proof}
 
-\begin{problem}
-    设$f(x) = x^3 - 2 \in \mathbb{Q}[x], u_1 = \sqrt[3]{2}$.
-证明: $E = \mathbb{Q}[u_1]$不包含$f(x) = 0$的其他两个根.
+\begin{remark}
+    若要严谨一点, 则不能在$E$中直接使用韦达定理, 因为$u_2 \in E$是要证的结论. 韦达定理实际上是$f$在其分裂域可以分解成一次因式的乘积(即分裂), 再对比系数得到的结论. 而按分裂域的定义可知它是使得$f$分裂的最小扩域. 那么直接使用韦达定理是在用结论证结论. 不过由于代数闭包总存在且唯一(见\ref{ex:3.3.2}和\ref{ex:3.3.6}), 我们总能把任意多项式分解成一次多项式的乘积, 所以直接使用事实上是没问题的.
+
+    这题也告诉我们, 二次扩张都是正规扩张.
+\end{remark}
+
+\begin{problem}\label{ex:3.3.2}
+    设$f(x) = x^3 - 2 \in \mathbb{Q}[x], u_1 = \sqrt[3]{2}$. 证明: $E = \mathbb{Q}[u_1]$不包含$f(x) = 0$的其他两个根.
 \end{problem}
 
 \begin{proof}
-    
+    教材例3.3.4.
+
+    由于$\mathbb{Q} \subseteq \mathbb{C}$, 而$\mathbb{C}$是代数闭域, 我们可以把所有根都明确的写出来. $x^3 - 2$的根为$\alpha_k = \sqrt[3]{2}e^\frac{2k\pi i}{3} = \sqrt[3]{2}\zeta_3^k$, $k = 0, 1, 2$, $u_1 = \alpha_0$. 而$\mathbb{Q}[u_1] \subseteq \mathbb{R}$, $\alpha_{1,2} \in \mathbb{C} \setminus \mathbb{R}$.
 \end{proof}
 
+\begin{remark}
+    借此补充代数扩张的一个结论, 任何域在同构的意义下都有唯一的代数闭包. 这个结果的证明分为两部分, 一是存在性, 二是\ref{ex:3.3.6}提到的延拓.
+
+    \begin{defstar}
+        若域$K$满足任意次数大于1的多项式$f(x) \in K[x]$在$K$中都有根, 我们称$K$是一个代数闭域. 根据教材的定义2.4.2, $K$是代数闭域等价于$K[x]$中的不可约多项式都是一次多项式. 即$f(x)$总能分解成一次多项式的乘积.
+    \end{defstar}
+    由定义, $K$是代数闭域意味着$K$无法再做非平凡的代数扩张了. 若有代数扩张$K \subseteq L$且$[L:K] > 1$, 则存在$\alpha \in L \setminus K$在$K$上代数, 即存在非零多项式$f(x) \in K[x]$使得$f(\alpha) = 0$, 而$K$是代数闭域, $f(x)$的所有根都在$K$里, 这就矛盾了. 换句话说, 代数闭域做代数扩张只能得到它自己. 反过来也是对的, 若$K$没有非平凡代数扩张, 且有次数大于1的不可约多项式, 那根据\ref{ex:3.1.2}就能做真代数扩张, 矛盾.
+
+    \begin{defstar}
+        设域扩张$K \subseteq L$, 考虑所有的代数元
+        \[
+            E = \{\alpha \in L \mid \alpha \text{ 在}K \text{ 上代数}\}
+        \]
+        由教材的推论3.1.1可知$E$是一个中间域, 且$K \subseteq E$是代数扩张. $E$称为$K$在$L$中的(相对)代数闭包.
+    \end{defstar}
+    比如对于扩张$\mathbb{Q} \subseteq \mathbb{R}$, 这里的$E$就是所有的实代数数. 把$\mathbb{R}$换成$\mathbb{C}$, $E$就是所有的复代数数, 也就是$\mathbb{Q}$的代数闭包, 一般用$\overline{\mathbb{Q}}$表示.
+
+    相对代数闭包$E$在$L$内没有非平凡代数扩张, 即若$E \subseteq E' \subseteq L$且$E \subseteq E'$是代数扩张, 则$E = E'$. 证明这个结论需要一个很基本的定理.
+
+    \begin{thmstar}
+        代数扩张的代数扩张仍是代数扩张, 即代数扩张是可以传递的. \cite{2009近世代数引论}p105, \cite{lang2012algebra}p228. 即对域扩张$K \subseteq E \subseteq L$, $L/K$是代数扩张$\iff E/K$和$L/E$都是代数扩张.
+    \end{thmstar}
+
+    那么$E'/E$代数, $E/K$代数, 就有$E'/K$代数. 但根据$E$的定义是所有$K$上代数元构成的中间域, 因此$E' \subseteq E$, 所以$E' = E$.
+
+    \begin{defstar}
+        设$K \subseteq L$是代数扩张, 若$L$是代数闭域, 称$L$是$K$的(绝对)代数闭包. 一般用记号$\overline{K}$表示. (所以教材定理3.3.2的记号容易引起误解)
+    \end{defstar}
+    一般说代数闭包默认指绝对代数闭包.
+
+    \begin{propstar}
+        设$K \subseteq L$是域扩张, $L$是代数闭域, $E$是$K$在$L$中的相对代数闭包, 则$E = \overline{K}$.
+    \end{propstar}
+    只需证明这样得到的相对代数闭包是一个代数闭域, 注意到次数大于1的多项式$f(x) \in E[x] \subseteq L[x]$, 而$L$是代数闭的, 因此$f(x) = (x - \alpha_1) \cdots (x - \alpha_n)$, $\alpha_1, \cdots, \alpha_n \in L$在$E$上代数, 自然就在$K$上代数, 按$E$的定义就有$\alpha_1, \cdots, \alpha_n \in E$. 从而$f(x) \in E[x]$总能在$E$上分解称一次多项式的乘积.
+
+    \begin{propstar}
+        对任意域$K$, 存在代数闭域$L$使得$K \subseteq L$. \cite{lang2012algebra}\S V.2 Theorem 2.5
+    \end{propstar}
+    若该命题成立, 那么根据上面的讨论, 任何域都存在代数闭包, 唯一性见\ref{ex:3.3.6}.
+
+    这个命题的证明是构造性的, 构造方法属于Artin, 需要用到\ref{ex:2.1.6}注记里补充的命题. 基本的思路就是构造一个域扩张$K \subseteq K_1$使得$K[x]$中所有非常数多项式在$K_1$中都有至少一个根, 这个操作做可数次之后就能得到一个代数闭域. 类似\ref{ex:2.3.2}和\ref{ex:3.1.2}中说的那样, 令$S = \{X_f \mid f \in K[x] \setminus K\}$, 即用$K[x]$里的非常数多项式来编号, 得到一个无穷的未定元构成的集合, 然后考虑多项式环$K[S]$. 此时记$K[S]$的一个理想$I = (f(X_f))_{f \in K[x] \setminus K} = \sum_{f \in K[x] \setminus K} (f(X_f))$, 即所有这种形式的$K[S]$里的多项式生成的理想(\ref{ex:2.1.6}的注记), 如果商掉这个理想, 那么和\ref{ex:2.3.2}一样, $\overline{X_f}$就是$f$的一个根, 但$I$不一定是极大理想, 因此需要用到\ref{ex:2.1.6}注记里补充的命题(新增加的), 即考虑$I \subseteq \mathfrak{m}$, 其中$\mathfrak{m}$是极大理想. 不过需要先验证$I \neq (1)$, 这是容易的, 若$I = (1)$, 意味着$1 = \sum_{i = 1}^{n} a_if_i(X_{f_i})$, 而这是不可能的, 因为我们可以用$n$次\ref{ex:3.1.2}得到扩张$K \subseteq E$让这里的$f_i$都有根, 赋值(这里用的是多元的\ref{ex:2.4.5})之后就得到$1 = 0$, 矛盾. 因此这样我们得到了$K_1 = K[S]/\mathfrak{m}$. 然后做可数次$K \subseteq K_1 \subseteq \cdots \subseteq K_i \subseteq \cdots$. 最终得到的代数闭域就是$L = \bigcup_{i = 1}^{\infty} K_i$.
+\end{remark}
+
 \begin{problem}
-    设$L$是$n$次多项式$f(x) \in K[x]$的分裂域, 证明: 
-$[L:K] \leqslant n!$.
+    设$L$是$n$次多项式$f(x) \in K[x]$的分裂域, 证明: $[L:K] \leqslant n!$.
 \end{problem}
 
 \begin{proof}
-    
+    对$n$归纳.
+
+    $n = 1$或$f$已经在$K$上分裂, 都有$[L:K] = 1$. 假设结论对$n$成立, 现考虑$\deg(f) = n + 1$, 且$f$在$K$上不分裂, 那么存在$f$的不可与因子$g$满足$\deg(g) > 1$(否则$f$在$K$上分裂). 设$u \in L$是$g(x)$的一个根, 由\ref{ex:3.1.2}, $K[u] \cong K[x]/(g(x))$是中间域, $[K[u]:K] = \deg(g) \leqslant \deg(f) = n + 1$, 且在$K[u][x]$上有分解$f(x) = (x - u)h(x)$, $\deg(h) = n$. 由归纳假设, 此时$L$是$n$次多项式$h(x) \in K[u][x]$的分裂域, 有$[L:K[u]] \leqslant n!$, 从而$[L:K] = [L:K[u]] \cdot [K[u]:K] \leqslant (n + 1)!$.
 \end{proof}
 
-\begin{problem}
-    构造$x^5 - 2 \in \mathbb{Q}[x]$的一个分裂域$L$,
-并求$[L:\mathbb{Q}]$.
+\begin{problem}\label{ex:3.3.4}
+    构造$x^5 - 2 \in \mathbb{Q}[x]$的一个分裂域$L$, 并求$[L:\mathbb{Q}]$.
 \end{problem}
 
 \begin{proof}
-    
-\end{proof}
-
-\begin{problem}
-    确定多项式$x^{p^n} - 1 \in \mathbb{F}_p[x]$在$\mathbb{F}_p$
-上的分裂域$(n \in \mathbb{N})$.
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
-    设$L$是可分多项式$f(x) \in K[x]$的一个分裂域, $K \,\red{\subseteq}\, E \,\red{\subseteq}\, L$是任意中间域.
-证明: 对任意单同态$\varphi:E \to L$,若$\varphi|_K = \mathrm{id}_K$,
-则$\varphi$一定可以延拓成域同构$\overline\varphi:L \to L$.
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
-    令$f(x) = (x^2 - 2)(x^2 - 3)$,
-$K = \mathbb{Q}[x]/(x^2 - 2) = \mathbb{Q}[u_1]$,
-此处$u_1 = \bar{x} \in \mathbb{Q}[x]/(x^2 - 2)$.
-试证明: 
-\begin{enumerate}[(1)]
-    \item $K$是一个域, 且$x^2 - 3$在$K[x]$中不可约;
-    \item $L = K[x]/(x^2 - 3) = K[u_2]$
-(此处$u_2 = \bar{x} \in K[x]/(x^2 - 3))$是
-$f(x) = (x^2 - 2)(x^2 - 3)$的分裂域, 且
-$[L:\mathbb{Q}] = 4$.
-\end{enumerate}
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
-    设$p \in \mathbb{Z}$是一个素数, $F$是一个域,
-$c\in F$. 求证: $x^p - c$在$F[x]$中不
-可约当且仅当$x^p - c$在$F$中无根.
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
-    设$f(x)$是$\mathbb{Q}[x]$中奇数次的不可约多项式,
-$\alpha$和$\beta$是$f(x)$在$\mathbb{C}$中的
-两个不同的根. 试证明$\alpha + \beta \notin \mathbb{Q}$
-且$\alpha\beta \notin \mathbb{Q}$.
-\end{problem}
-
-\begin{proof}
-    
+    仍使用\ref{ex:3.1.14}分析degree的方法, $x^5 - 2$的根为$\sqrt[5]{2}\zeta_5^k$, $k = 0, 1, 2, 3, 4$. $L = \mathbb{Q}\left[\sqrt[5]{2}\zeta_5^i\right] = \mathbb{Q}\left[\sqrt[5]{2}, \zeta_5\right]$. 借助中间域$\mathbb{Q}[\sqrt[5]{2}]$. 一方面, $\left[\mathbb{Q}[\sqrt[5]{2}]:\mathbb{Q}\right] = 5$(\ref{ex:3.1.14}); 另一方面, $\left[\mathbb{Q}[\zeta_5]:\mathbb{Q}\right] = 4$(\ref{ex:3.1.5}). 因此$5, 4 \mid [L:\mathbb{Q}]$, 由于$(4,5) = 1$, 因此$4 \cdot 5 = 20 \mid [L:\mathbb{Q}]$, 另一方面$x^5 - 2 \in \mathbb{Q}[\zeta_5][x]$仍是$\sqrt[5]{2}$的化零多项式, 又有$[L:\mathbb{Q}] \leqslant 20$, 故$[L:\mathbb{Q}] = 20$.
 \end{proof}
 
 \begin{problem}
-    设$K = \mathbb{Q}[u]$, $u^3 + u^2 - 2u - 1 = 0$.
-验证$\alpha = u^2 - 2$也是多项式$x^3 + x^2 - 2x - 1$的根.
-试确定$\mathrm{Gal}(K/\mathbb{Q})$,
-并证明: $K$是$\mathbb{Q}$的正规扩张.
+    确定多项式$x^{p^n} - 1 \in \mathbb{F}_p[x]$在$\mathbb{F}_p$上的分裂域$(n \in \mathbb{N})$.
+\end{problem}
+
+\begin{proof}
+    特征$p$的域的多项式环上Frobenius(\ref{ex:2.1.2})也是成立的, 故有$x^{p^n} - 1 = x^{p^n} - 1^{p^n} = (x - 1)^{p^n}$. 从而$x^{p^n}$在$\mathbb{F}_p$上分裂, 分裂域即$\mathbb{F}_p$.
+\end{proof}
+
+\begin{problem}\label{ex:3.3.6}
+    设$L$是可分多项式$f(x) \in K[x]$的一个分裂域, $K \,\red{\subseteq}\, E \,\red{\subseteq}\, L$是任意中间域. 证明: 对任意单同态$\varphi:E \to L$,若$\varphi|_K = \mathrm{id}_K$, 则$\varphi$一定可以延拓成域同构$\overline\varphi:L \to L$.
+\end{problem}
+
+\begin{proof}
+    按分裂域定义, 存在$\alpha_1, \alpha_2, \cdots, \alpha_m \in L$使得$f(x) = c(x - \alpha_1)(x - \alpha_2) \cdots (x - \alpha_m)$, 且$L = K[\alpha_1, \cdots, \alpha_m]$. 由于$K \subseteq E \subseteq L$, $f(x) \in K[x] \subseteq E[x]$, 将$f(x)$视为$E[x]$中的多项式. $f(x)$仍有这样的分解. 且$L = K[\alpha_1, \cdots, \alpha_m] \subseteq E[\alpha_1, \cdots, \alpha_m] \subseteq L$, 故$L$也是$f(x)$在$E$上的分裂域. 由于$\varphi|_K = \mathrm{id}_K$, 因此$\varphi(f(x)) = f(x)$, 那么$L$也是$f(x)$在$\varphi(E)$上的分裂域. 由教材的定理3.3.2, 由于$f(x)$是可分多项式, 因此$f(x)$在$\varphi(E)$中无重根, 有$|\{\text{域同构 } L \xrightarrow{\psi} L \mid \psi|_E = \varphi\}| = [L:E] > 0$, 即该集合非空, 那么存在同构$\psi:L \to L$使得$\psi|_E = \varphi$.
+\end{proof}
+
+\begin{remark}
+    接\ref{ex:3.3.2}注记, 这种延拓对代数扩张是都成立的. 
+
+    \begin{propstar}
+        已知对任意域$K$存在代数闭域$L$使得$K \subseteq L$. 记$i_K:K \to L$是域嵌入, 那么对任意代数扩张$K \subseteq E$, 存在嵌入$i:E \to L$使得$i|_K = i_K$. 若$E$是代数闭域且$L/i_K(K)$是代数的, 那么$i$是同构. 因此代数闭包在同构的意义下一定唯一. 证明需要Zorn's Lemma. \cite{lang2012algebra} \S V.2 Theorem 2.8. 
+    \end{propstar}
+    另外也可以参考\cite{2009近世代数引论}p136 引理1, 这个是单代数扩张的版本, 相对简单一些, 如果只考虑有限扩张, 那么用这个版本就够了. 事实上这只是\ref{ex:3.1.2}的进一步解释, 在此基础上加了一个同构让他变成如下的交换图
+    \[
+        \begin{tikzcd}
+            & E                                                              & E'                                          &                                               \\
+{K[x]/(\mu_\alpha(x))} \arrow[r, "\sim"] & K(\alpha) \arrow[r, "\varphi"] \arrow[u, "\subseteq", phantom, sloped] & K'(\alpha') \arrow[u, "\subseteq", phantom, sloped] & {K'[x]/(\mu_{\alpha'}(x))} \arrow[l, "\sim"'] \\
+            & K \arrow[r, "\eta"] \arrow[u, hook]                            & K' \arrow[u, hook]                          &                                              
+        \end{tikzcd}
+    \]
+    其中$\eta$是域同构, 那么根据教材引理2.3.2, $\eta$可以延拓成同构$\tilde{\eta}:K[x] \xrightarrow{\sim} K'[x]$. 这个同态会把$\alpha$的极小多项式映到$\alpha'$的极小多项式. 这样就有
+    \[
+        \begin{tikzcd}
+            & {K[x]} \arrow[d, "\pi", two heads] \arrow[r, "\tilde{\eta}"]       & {K'[x]} \arrow[d, "\pi'", two heads]                 &            \\
+K(\alpha) \arrow[r, "\sim"] \arrow[rrr, "\varphi"', bend right] & {K[x]/(\mu_\alpha(x))} \arrow[r, "\overline{\tilde{\eta}}"] & {K'[x]/(\mu_{\alpha'}(x))} \arrow[r, "\sim"] & K'(\alpha')
+        \end{tikzcd}
+    \]
+    注意到$(\mu_\alpha(x)) \subseteq \ker(\pi' \circ \tilde{\eta})$, 由quotient的泛性质(也就是同态基本定理的推广, \ref{ex:2.1.8}增加的命题)得到$\overline{\tilde{\eta}}$, 而这是域之间的满同态, 故只能是同构, 进而得到同构$\varphi$, 且$\varphi|_K = \eta$. 注意根据我们$\varphi$的构造一定是$\varphi(\alpha) = \alpha'$, 若这里$\eta = \mathrm{id}_K$, 那么$\varphi$就是把$\alpha$换成$\mu_\alpha(x)$的其中一个根.
+
+    这也说明我们在同构的意义下考虑域扩张是可行的. 但对代数闭包而言, 不一定是有限扩张, 比如$\overline{\mathbb{Q}}/\mathbb{Q}$.
+
+    有了代数闭包, 可分多项式的等价定义为: $f(x) \in K[x]$是可分的, 即$f(x)$的不可约因子在$\overline{K}$中(或者说在$f(x)$的分裂域中)无重根. 这也解释了\ref{ex:2.4.3}和\ref{ex:3.1.1}的关系, 特征零的不可约多项式可分, 从而特征零的代数扩张一定是可分扩张.
+\end{remark}
+
+\begin{problem}
+    令$f(x) = (x^2 - 2)(x^2 - 3)$, $K = \mathbb{Q}[x]/(x^2 - 2) = \mathbb{Q}[u_1]$, 此处$u_1 = \overline{x} \in \mathbb{Q}[x]/(x^2 - 2)$. 试证明: 
+    \begin{enumerate}[(1)]
+        \item $K$是一个域, 且$x^2 - 3$在$K[x]$中不可约;
+        \item $L = K[x]/(x^2 - 3) = K[u_2]$(此处$u_2 = \overline{x} \in K[x]/(x^2 - 3))$是$f(x) = (x^2 - 2)(x^2 - 3)$的分裂域, 且$[L:\mathbb{Q}] = 4$.
+    \end{enumerate}
+\end{problem}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        \item $K$是域是因为$(x^2 - 2)$是极大理想, 见\ref{ex:3.1.2}和\ref{ex:3.1.14}. $x^2 - 3$在$K$中不可约在\ref{ex:3.1.4}已证.
+        \item 根据\ref{ex:3.1.2}和(1), $L = \mathbb{Q}[u_1, u_2]$是域. 且有分解$f(x) = (x - u_1)(x + u_1)(x - u_2)(x + u_2)$, 因此$L$是$f(x)$的分裂域(\ref{ex:3.3.1}). 且有$[L:\mathbb{Q}] = [L:K] \cdot [K:\mathbb{Q}] = 2 \cdot 2 = 4$.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    设$p \in \mathbb{Z}$是一个素数, $F$是一个域, $c \in F$. 求证: $x^p - c$在$F[x]$中不可约当且仅当$x^p - c$在$F$中无根.
+\end{problem}
+
+\begin{proof}
+    考虑$x^p - c$的分裂域$E$, 或者直接考虑$F$的代数闭包, 那么有分解$x^p - c = (x - \alpha_1)(x - \alpha_2) \cdots (x - \alpha_p)$. 我们证两次逆否.
+    \begin{enumerate}
+        \item["$\implies$"] 若$x^p - c$在$F$中有根, 根据教材定义2.4.2, $x^p - c$有一次因式, 可约.
+        \item["$\impliedby$"] 若$x^p - c$可约, 按定义有$x^p - c = f(x)g(x)$, 那么不妨设$f(x) = (x - \alpha_1)(x - \alpha_2) \cdots (x - \alpha_n)$, 其中$0 < n < p$, 那么根据Bézout's Identity, 存在$u, v \in \mathbb{Z}$使得$nu + pv = 1$. 记$\alpha = \alpha_1\alpha_2 \cdots \alpha_n \in F$(韦达定理), 注意到$\alpha_i$都是$x^p - c$的根, $\alpha_i^p = c$. 那么$\alpha^p = \alpha_1^p\alpha_2^p \cdots \alpha_n^p = c^n$, 从而$\alpha^{pu} = c^{nu}$, 那么$(\alpha^uc^v)^p = c^{nu}c^{pv} = c$. 这样$\alpha^uc^v$是$x^p - c$的一个根, 且$\alpha \in F$, 因此$\alpha^uc^v \in F$.
+    \end{enumerate}
+\end{proof}
+
+\begin{problem}
+    设$f(x)$是$\mathbb{Q}[x]$中奇数次的不可约多项式, $\alpha$和$\beta$是$f(x)$在$\mathbb{C}$中的两个不同的根. 试证明$\alpha + \beta \notin \mathbb{Q}$且$\alpha\beta \notin \mathbb{Q}$.
 \end{problem}
 
 \begin{proof}
@@ -107,8 +167,29 @@ $\alpha$和$\beta$是$f(x)$在$\mathbb{C}$中的
 \end{proof}
 
 \begin{problem}
-    证明: $\mathbb{Q}[\sqrt[4]{2}]$是$\mathbb{Q}[\sqrt{2}]$
-的正规扩张, 但不是$\mathbb{Q}$的正规扩张.
+    设$K = \mathbb{Q}[u]$, $u^3 + u^2 - 2u - 1 = 0$. 验证$\alpha = u^2 - 2$也是多项式$x^3 + x^2 - 2x - 1$的根. 试确定$\mathrm{Gal}(K/\mathbb{Q})$, 并证明: $K$是$\mathbb{Q}$的正规扩张.
+\end{problem}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{remark}
+    \cite{lang2012algebra}\S V.3 Theorem3.3给出了正规扩张的三个等价定义, 其中有一条是用到代数闭包的:
+
+    $L/K$是正规扩张, 当且仅当延拓后的域嵌入$\varphi:L \to \overline{K}$是$L$的自同构, 即$\varphi(L) = L$.
+\end{remark}
+
+\begin{problem}
+    证明: $\mathbb{Q}[\sqrt[4]{2}]$是$\mathbb{Q}[\sqrt{2}]$的正规扩张, 但不是$\mathbb{Q}$的正规扩张.
+\end{problem}
+
+\begin{proof}
+    由\ref{ex:3.3.1}, $\mathbb{Q}[\sqrt[4]{2}]/\mathbb{Q}[\sqrt{2}]$是二次扩张, 从而是正规扩张. 另一方面, 和\ref{ex:3.3.2}类似, $\sqrt[4]{2}$在$\mathbb{Q}$上的的极小多项式$x^4 - 2$有非实数根$\sqrt[4]{2}i$的存在, 自然不是正规扩张.
+\end{proof}
+
+\begin{problem}
+    设$f(x) \in K[x]$不可约, $\mathrm{Char}(K) = p > 0$. 证明: 存在不可约的可分多项式$g(x) \in K[x]$使得$f(x) = g(x^{p^n})$($n$是某个整数). 由此证明$f(x)$在分裂域中的每个根都是$p^n$重根.
 \end{problem}
 
 \begin{proof}
@@ -116,36 +197,33 @@ $\alpha$和$\beta$是$f(x)$在$\mathbb{C}$中的
 \end{proof}
 
 \begin{problem}
-    设$f(x) \in K[x]$不可约, $\mathrm{Char}(K) = p > 0$.
-证明: 存在不可约的可分多项式$g(x) \in K[x]$使得$f(x) = g(x^{p^n})$
-($n$是某个整数). 由此证明$f(x)$在分裂域中的每个根都是$p^n$重根.
+    设$L = K[\alpha],~\alpha$是多项式$x^d - a \in K[x]$的根. 如果$\mathrm{Char}(K) = 0$, 且$K$包含全部$d$次单位根, 则$K \,\red{\subseteq}\, L$是正规扩张.
 \end{problem}
 
 \begin{proof}
-    
+    这是\ref{ex:3.3.4}的一般情况. 设$1 = \omega_0, \omega_1, \cdots \omega_{d - 1}$是$x^d - 1$的根, 根据题设, $\omega_i \in L = K[\alpha], 0 \leqslant i < d$. 而$(\omega_i\alpha)^d = \omega^d\alpha^d = 1 \cdot a = a$, 从而$\omega_i\alpha \in L$是$x^d - a$的$d$个根. 因此按定义$L$是$x^d - a$的分裂域. 由\ref{ex:3.3.14}的注记是Galois扩张, 自然是正规扩张.
 \end{proof}
 
-\begin{problem}
-    设$L = K[\alpha],~\alpha$是多项式$x^d - a \in K[x]$的根.
-如果$\mathrm{Char}(K) = 0$,
-且$K$包含全部$d$次单位根, 则$K \,\red{\subseteq}\, L$是正规扩张.
+\begin{problem}[*]\label{ex:3.3.14}
+    设$k$是特征$p > 0$的域, $x, y$是$k$上的代数无关元. 令$K = k(x^p, y^p)$, $L = k(x, y)$. 试证明: 
+    \begin{enumerate}[(1)]
+        \item $\mathrm{Gal}(L/K) = \{1\}$ (但$[L:K] = p^2)$;
+        \item $K \,\red{\subseteq}\, L$有无穷多个中间域;
+        \item $K \,\red{\subseteq}\, L$不是单扩张, 即不存在$\alpha \in L$使得$L = K[\alpha]$.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-    
+    这题是\ref{ex:3.1.15}的延续.
+    \begin{enumerate}[(1)]
+        \item 设$\eta \in \mathrm{Gal}(L/K)$, 只需证$\eta = \mathrm{id}_L$. 由\ref{ex:3.3.6}, $x$是$K$上的代数元, 且$x$的极小多项式是$t^p - x^p$, 因此$\eta(x)$是多项式$t^p - x^p$的根, 而根据\ref{ex:3.1.15}, $t^p - x^p$只有一个$p$重根$x$, 因此$\eta(x) = x$. 同理$\eta(y) = y$, 从而$\eta = \mathrm{id}_L$.
+        \item 设$E$是一个非平凡中间域, 由于$[L:K] = [L:E][E:K] = p^2$, 因此只能是$[L:E] = [E:K] = p$. 而形如$E_c = k(x + cy, y^p)$就是非平凡的中间域, 其中$c \in K$而$K$是无穷域. 且$c_1 \neq c_2 \implies E_{c_1} \neq E_{c_2}$. 因此有无穷多个中间域.
+        \item 由Frobenius同态可知, $\forall \alpha \in L$, $\alpha^p \in K$, 则$t^p - \alpha^p \in K[t]$是$\alpha$的化零多项式. 从而$[K[\alpha]:K] \leqslant p < p^2$. 因此$K[\alpha] \neq L$.
+    \end{enumerate}
 \end{proof}
 
-\begin{problem}\label{ex:3.3.14}
-    设$k$是特征$p > 0$的域, $x, y$是$k$上的代数无关元.
-令$K = k(x^p, y^p)$, $L = k(x, y)$. 试证明: 
-\begin{enumerate}[(1)]
-    \item $\mathrm{Gal}(L/K) = \{1\}$ (但$[L:K] = p^2)$;
-    \item $K \,\red{\subseteq}\, L$有无穷多个中间域;
-    \item $K \,\red{\subseteq}\, L$不是单扩张, 即不存在$\alpha \in L$
-使得$L = K[\alpha]$.
-\end{enumerate}
-\end{problem}
+\begin{remark}
+    这题教材答案的错误比较严重, $K$并不是完全域, $x^p$不是$K$中任何一个元素的$p$次方, 但$L/K$确实不是一个可分扩张, $x$在$K$上的极小多项式$t^p - x^p$在$K$上不是可分的. 事实上教材的定理3.3.4已经告诉我们完全域的代数扩张一定是可分扩张, 而$L/K$是有限扩张, 自然是代数扩张, 因此教材的答案是前后矛盾的.
 
-\begin{proof}
-    
-\end{proof}
+    事实上, 完全域应该定义为任意代数扩张都是可分扩张的域, 因此包括所有特征零的域. 在完全域上取分裂域得到的扩张一定是Galois扩张(教材定理3.4.1), 这也是为什么要有完全域这个概念.
+\end{remark}

@@ -1,18 +1,11 @@
-\subsection{教材p77}
+\documentclass{../solutions-cn}
 
-\begin{problem}
-    设群$G = AB$, 其中$A, B$都是$G$的Abel子群(即交换子群), 且$AB = BA$. 令$G^{(1)}$表示$G$的换位子群, 证明: 
-    \begin{enumerate}[(1)]
-        \item $\forall a, x \in A$, $b, y \in B$, 总有$[x^{-1}, y^{-1}][a, b][x^{-1}, y^{-1}]^{-1} = [a, b]$;
-        \item $G^{(1)}$是Abel群.
-    \end{enumerate}
-\end{problem}
+\begin{document}
+\section*{第十四周作业参考解答及补充}
 
-\begin{proof}
-    
-\end{proof}
+\subsection*{作业}
 
-\begin{problem}
+\begin{exercise}[习题4.2.2]
     证明: 
     \begin{enumerate}[(1)]
         \item $S_{n} = \left\langle (1\:2),\: (1\:3),\: \cdots,\: (1\:n) \right\rangle$, 即$S_n$由对换$(1\:2),\: (1\:3),\: \cdots,\: (1\:n)$生成;
@@ -21,7 +14,7 @@
             S_n = \big\langle (1\:2),(1\:2\:3 \cdots n) \big\rangle.
         \]
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -30,21 +23,13 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
-    证明: 循环$\pi = (1\:2 \cdots n) \in S_n$的$k$次幂$\pi^k$是$d$个互不相交的循环之积, 每个循环的长度为$q = \frac nd$, 其中$d = (n, k)$是$n$和$k$的最大公因子.
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
+\begin{exercise}[习题4.2.4]
     设$A_n= \{\pi \in S_n \mid \varepsilon_\pi = 1\} \,\red{\subseteq}\, S_n$, 证明: 
     \begin{enumerate}[(1)]
         \item $A_n \lhd S_n$ (即$A_n$是$S_n$的正规子群);
         \item $A_n$由$3$-循环生成, 事实上, $A_n = \left\langle (1\:2\:3),\: (1\:2\:4),\: \cdots (1\:2\:n) \right\rangle$.(提示: 利用$(a\:b) \cdot (b\:c) = (a\:b\:c),\, (a\:b) \cdot (c\:d) = (a\:b) \cdot (b\:c) \cdot (b\:c) \cdot (c\:d)$.)
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -63,7 +48,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题4.2.5]
     群$G$中的两个元素$x, y$称为在$G$中共轭, 如果存在$a \in G$, 使$axa^{-1} = y$. 试证明: 
     \begin{enumerate}[(1)]
         \item $\forall\, \pi \in S_n\, \alpha = (i_1\:i_2 \cdots i_r) \in S_n$有公式
@@ -73,7 +58,7 @@
         \item 所有$3$-循环在$S_n$中相互共轭. (所以$S_n$中包含$3$-循环的正规子群必包含$A_n$.)
         \item 如果$n \geqslant 5$, 则所有$3$-循环在$A_n$中相互共轭, 即对于任意$3$-循环$x,y \in A_n$, 存在$a \in A_n$, 使$axa^{-1} = y$.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -104,21 +89,13 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
-    证明: 对任意给定整数$n > 0$, 在同构意义下仅有有限个$n$阶群. (提示: 任意$n$阶群均同构于$S_n$的一个子群.)
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}\label{ex:4.2.7}
+\begin{exercise}[习题4.2.7]
     证明: 所有$4$阶群$G$都是交换群. 在同构意义下, $G$要么是循环群, 要么同构于下述克莱因$4$元群: 
     \[
         V_4 = \{(1), (12)(34), (13)(24), (14)(23)\} \subseteq S_4.
     \]
     (提示: 如果$x^2 = 1$对$G$中所有元成立, 则$\forall a, b \in G$, 有$abab = 1 \implies ab = b^{-1}a^{-1} = b(b^{-1})^2 \cdot (a^{-1})^2a = ba.$)
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     对于这种阶很小的群, 我们可以直接分析$4$阶群的乘法表, 这其实和数独有点像. 乘法表的每一行或每一列是不能有相同元素的, 因为左乘映射是单的$ga = gb \implies a = b$, 右乘也一样.
@@ -134,7 +111,7 @@
     c & c &  &  &  \\
     \end{array}
     \]
-    由\ref{ex:1.3.10}, $G$有$2$阶元, 不妨设$a^2 = e$, 则$ab \neq e, a, b$, 只能是$c$, $ac, ba, ca$同理, 得到
+    由1.3.10, $G$有$2$阶元, 不妨设$a^2 = e$, 则$ab \neq e, a, b$, 只能是$c$, $ac, ba, ca$同理, 得到
     \[
     \begin{array}{c|c c c c}
       & e & a & b & c \\
@@ -175,7 +152,7 @@
     \[
         |G| = C(G) + \sum_{O(x) > 1} |O(x)|,\quad |O(x)| = [G:H_x]
     \]
-    这里的$H_x$是在共轭作用$g \cdot x = gxg^{-1}$下的稳定子, 又称做$x$的中心化子(所有和$x$交换的元素构成的子群), 和\ref{ex:1.2.4}是类似, 一般记作$C(x)$. 这个等式的每一项都是$|G|$的因子, 因此若$G$不是Abel群, 即$C(G) \neq G$, 那么只能是$|C(G)| = p$. 但这是不可能的. 因为对$x \notin C(G)$, $|C(x)|$也是$p^2$的因子, 而按定义$C(G)$是严格包含于$C(x)$的, $C(G) \subsetneq C(x)$, 这意味着$|C(x)| > |C(G)| = p$, 那么$|C(x)| = p^2$, 这就矛盾了, 因为$x \notin C(G)$, 所以$C(x)$不可能等于$G$.
+    这里的$H_x$是在共轭作用$g \cdot x = gxg^{-1}$下的稳定子, 又称做$x$的中心化子(所有和$x$交换的元素构成的子群), 和1.2.4是类似, 一般记作$C(x)$. 这个等式的每一项都是$|G|$的因子, 因此若$G$不是Abel群, 即$C(G) \neq G$, 那么只能是$|C(G)| = p$. 但这是不可能的. 因为对$x \notin C(G)$, $|C(x)|$也是$p^2$的因子, 而按定义$C(G)$是严格包含于$C(x)$的, $C(G) \subsetneq C(x)$, 这意味着$|C(x)| > |C(G)| = p$, 那么$|C(x)| = p^2$, 这就矛盾了, 因为$x \notin C(G)$, 所以$C(x)$不可能等于$G$.
 
     对一般的群作用$G \times X \to X$, $X$是有限集, 教材的引理4.5.2事实上可以表示为分类公式(class formula)
     \[
@@ -187,10 +164,4 @@
     \]
 \end{remark}
 
-\begin{problem}
-    找出交错群$A_4$的所有子群.
-\end{problem}
-
-\begin{proof}
-
-\end{proof}
+\end{document}

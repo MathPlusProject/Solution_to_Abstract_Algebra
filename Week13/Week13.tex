@@ -1,19 +1,24 @@
-\subsection{教材p72}
+\documentclass{../solutions-cn}
 
-\begin{problem}
+\begin{document}
+\section*{第十三周作业参考解答及补充}
+
+\subsection*{作业}
+
+\begin{exercise}[习题4.1.1]
     设$G$是一个群, 定义映射$G \xrightarrow\varphi G,\, x \mapsto x^{-1}$. 试证明: $\varphi$是$G$的自同构当且仅当$G$是阿贝尔群.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item 若$\varphi$是同态, 对$\forall g, h \in G$, 有$g^{-1}h^{-1}gh = (gh)^{-1}gh = 1$, 而$g^{-1}h^{-1} = (hg)^{-1}$(\ref{ex:1.3.2}), 从而有$gh = hg$.
+        \item 若$\varphi$是同态, 对$\forall g, h \in G$, 有$g^{-1}h^{-1}gh = (gh)^{-1}gh = 1$, 而$g^{-1}h^{-1} = (hg)^{-1}$(1.3.2), 从而有$gh = hg$.
         \item "$\impliedby$", $G$是Abel群则有$(gh)^{-1} = h^{-1}g^{-1} = g^{-1}h^{-1}$. 因此$\varphi$是同态.
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题4.1.2]
     证明: 子群$H \,\red{\subseteq}\, G$是正规子群当且仅当, $\forall g \in G$, $gHg^{-1} \,\red{\subseteq}\, H$.
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     即教材的推论4.1.6.
@@ -21,7 +26,7 @@
     由定义, $H \lhd G \iff \forall g \in G, gHg^{-1} = gg^{-1}H = H$. 那么我们实际上要证明的是$\forall g \in G, gHg^{-1} \subseteq H \implies gHg^{-1} = H$. 即只需说明此时也有反向的包含. 对$\forall h \in H, g \in G$, 考虑$g^{-1} \in G$, 则有$g^{-1}Hg \subseteq H$. 则$g^{-1}hg \in H$, 即$g^{-1}hg = h' \implies h = gh'g^{-1} \in gHg^{-1}$. 因此$H \subseteq gHg^{-1}$.
 \end{proof}
 
-\begin{problem}\label{ex:4.1.3}
+\begin{exercise}[习题4.1.3]
     设$G \xrightarrow\varphi G'$是群同态, $K = \ker(\varphi)$是同态$\varphi$的核. 试证明: \begin{enumerate}[(1)]
         \item 对于任意子群$H' \,\red{\subseteq}\, G', H = \varphi^{-1}(H') \,\red{\subseteq}\, G$是子群, 且包含$K$.
         \item 当$\varphi$是满射时, $H' \mapsto \varphi^{-1}(H')$建立了集合
@@ -30,13 +35,13 @@
         \]
         与集合$\Gamma = \{H \,\red{\subseteq}\, G \mid H \text{ 是 }G \text{ 的子群, 且 } H \,\red{\supseteq}\, K\}$之间的双射, 此时$H' \,\red{\subseteq}\, G'$是正规子群当且仅当$\varphi^{-1}(H') \,\red{\subseteq}\, G$是正规子群.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     类似定理2.1.2.
 
     \begin{enumerate}[(1)]
-        \item 注意到$1 \in H'$而按定义$K = \ker(\varphi) = \varphi^{-1}(1)$. 故有$K \subseteq \varphi^{-1}(H')$. 验证是一个子群用\ref{ex:1.3.12}后提到的命题即可, $\forall a, b \in \varphi^{-1}(H'),$
+        \item 注意到$1 \in H'$而按定义$K = \ker(\varphi) = \varphi^{-1}(1)$. 故有$K \subseteq \varphi^{-1}(H')$. 验证是一个子群用1.3.12后提到的命题即可, $\forall a, b \in \varphi^{-1}(H'),$
         \[
             \varphi(a), \varphi(b) \in H' \implies \varphi(ab^{-1}) = \varphi(a)\varphi(b)^{-1} \in H' \implies ab^{-1} \in \varphi^{-1}(H')
         \]
@@ -71,7 +76,7 @@
 \end{proof}
 
 \begin{remark}
-    和\ref{ex:2.1.8}一样, 群同态基本定理也要推广为商群的泛性质:
+    和2.1.8一样, 群同态基本定理也要推广为商群的泛性质:
     \begin{thmstar}
         设$G$是群, $H \lhd G$, 对任意的同态$G \stackrel{f}{\to} G'$, 若$H \subseteq \ker(f)$, 则存在唯一的同态$\overline{f}:G/H \to G'$使得图表交换:
         \[
@@ -84,23 +89,23 @@
     同样的有$\ker(\overline{f}) = \ker(f)/H$, $H = \ker(f)$时就是同态基本定理.
 \end{remark}
 
-\begin{problem}
+\begin{exercise}[习题4.1.4]
     设$H, N$都是$G$的正规子群, 并且$N \subseteq H$. 令$\overline{H} = H/N, \overline{G} = G/N$.
     \begin{enumerate}[(1)]
         \item 证明$\overline{H}$是$\overline{G}$的正规子群.
         \item 证明$G/H \cong \overline{G}/\overline{H}$.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     这题实际上是上题的推论, 此处我们考虑的同态是商同态$\pi:G \to G/N$.
     \begin{enumerate}[(1)]
-        \item 根据\ref{ex:4.1.3}, $\overline{H} = \pi(H)$, $\overline{G} = \pi(G)$. 由于$H \lhd G$, 所以有$\overline{H} = \pi(H) \lhd G/N = \overline{G}$.
-        \item 这里的同构实际上是在\ref{ex:4.1.3}"$\impliedby$"的部分最后再用一下同态基本定理. 记商同态$f:G \to G/H$, 则有$N \subseteq H = \ker(f)$, 由商群的泛性质, 存在唯一的同态$\overline{f}:G/N \to G/H$, 且$\ker(\overline{f}) = H/N$, 因此有同构$\overline{G}/\overline{H} = \frac{G/N}{H/N} \cong G/H$.
+        \item 根据4.1.3, $\overline{H} = \pi(H)$, $\overline{G} = \pi(G)$. 由于$H \lhd G$, 所以有$\overline{H} = \pi(H) \lhd G/N = \overline{G}$.
+        \item 这里的同构实际上是在4.1.3"$\impliedby$"的部分最后再用一下同态基本定理. 记商同态$f:G \to G/H$, 则有$N \subseteq H = \ker(f)$, 由商群的泛性质, 存在唯一的同态$\overline{f}:G/N \to G/H$, 且$\ker(\overline{f}) = H/N$, 因此有同构$\overline{G}/\overline{H} = \frac{G/N}{H/N} \cong G/H$.
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题4.1.5]
     设$H \,\red{\subseteq}\, G$是$G$的子群, $K \lhd G$, 试证明: 
     \begin{enumerate}[(1)]
         \item $H \cdot K = \{hk \mid \forall h \in H, k \in K\}$是$G$中包含$H$和$K$的子群;
@@ -108,7 +113,7 @@
         \item $\varphi:H \to (HK)/K$, ($\varphi(h) = \overline{h}$)的核是$H \cap K$;
         \item $\varphi$诱导群同构$H/(H \cap K) \cong (HK)/K$.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -116,7 +121,7 @@
         \[
             \pi(H) = \{hK \mid h \in H\} \implies \pi^{-1}(\pi(H)) = \bigcup_{h \in H} hK = HK.
         \]
-        因此$HK$是$G$的子群(\ref{ex:4.1.3}的(1)).
+        因此$HK$是$G$的子群(4.1.3的(1)).
         \item 见(1).
         \item 由(1), 把$\pi$限制在$H$上, 就得到
         \[
@@ -129,3 +134,5 @@
         \item 对(3)中的$\varphi$用同态基本定理.
     \end{enumerate}
 \end{proof}
+
+\end{document}

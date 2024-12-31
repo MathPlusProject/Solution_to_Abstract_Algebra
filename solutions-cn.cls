@@ -80,7 +80,9 @@
 \theoremstyle{dotless}
 \newtheorem{problem}{}[subsection]
 \newtheorem*{propstar}{\bfseries\heiti 命题}
-\newtheorem*{definitionstar}{\bfseries\heiti 定义}
+\newtheorem*{defstar}{\bfseries\heiti 定义}
+\newtheorem*{thmstar}{\bfseries\heiti 定理}
+
 
 % exercise environment
 \newcounter{exercise}

@@ -5,16 +5,29 @@
 \end{problem}
 
 \begin{proof}
-    
+    事实上正五边形是可以由尺规作图得到的, 因此$54^\circ$是可构造的, 又由于$60^\circ$是可构造的, 故$6^\circ$可构造, 进而$3^\circ$可构造.
 \end{proof}
 
 \begin{problem}
-    设$\zeta_{17} = \cos(2\pi/17) + i\sin(2\pi/17)$,
-$L = \mathbb{Q}[\zeta_{17}]$. 请利用高斯关于
-$\cos(2\pi/17)$的公式写出$\mathbb{Q} \,\red{\subseteq}\, L$的中间域
-使$L = \mathbb{Q}[\zeta_{17}]$成为$\mathbb{Q}$上的一个二次根塔.
+    设$\zeta_{17} = \cos(2\pi/17) + i\sin(2\pi/17)$, $L = \mathbb{Q}[\zeta_{17}]$. 请利用高斯关于$\cos(2\pi/17)$的公式写出$\mathbb{Q} \,\red{\subseteq}\, L$的中间域使$L = \mathbb{Q}[\zeta_{17}]$成为$\mathbb{Q}$上的一个二次根塔.
 \end{problem}
 
 \begin{proof}
-    
+    记$\alpha = \sqrt{17}$. 根据教材p59页的公式, 先做二次扩张$\mathbb{Q} \subseteq \mathbb{Q}[\alpha]$, 得到
+    \[
+        \cos(\frac{2\pi}{17}) = -\frac{1}{16} + \frac{1}{16}\alpha + \frac{1}{16}\sqrt{2\alpha^2 - 2\alpha} + \frac{1}{8}\sqrt{\alpha^2 + 3\alpha - \sqrt{2\alpha^2 - 2\alpha} - 2\sqrt{2\alpha^2 + 2\alpha}}
+    \]
+    那么令$\beta = \sqrt{2\alpha^2 - 2\alpha}$, 得到$\mathbb{Q} \subseteq \mathbb{Q}[\alpha] \subseteq \mathbb{Q}[\alpha, \beta]$. 注意到
+    \[
+        \frac{\alpha}{\beta} = \frac{\alpha}{\sqrt{2\alpha^2 - 2\alpha}} = \frac{\alpha\sqrt{2\alpha^2 + 2\alpha}}{\sqrt{4\alpha^4 - 4\alpha^2}} = \frac{\sqrt{2\alpha^2 + 2\alpha}}{2 \cdot \sqrt{\alpha^2 - 1}} = \frac{1}{8}\sqrt{2\alpha^2 + 2\alpha} 
+    \]
+    因此有
+    \[
+        \cos(\frac{2\pi}{17}) = -\frac{1}{16} + \frac{1}{16}\alpha + \frac{1}{16}\beta + \frac{1}{8}\sqrt{\alpha^2 + 3\alpha - \beta - 2 \cdot \frac{8\alpha}{\beta}}
+    \]
+    那么令$\gamma = \sqrt{\alpha^2 + 3\alpha - \beta - 2 \cdot \frac{8\alpha}{\beta}}$, 就有$\cos(\frac{2\pi}{17}) \in \mathbb{Q}[\alpha, \beta, \gamma]$. 最后只需构造$\sin(\frac{2\pi}{17}) = \sqrt{1 - \cos^2(\frac{2\pi}{17})}$, 因此令$\delta = \sqrt{1 - \cos^2(\frac{2\pi}{17})}$即可. 那么
+    \[
+        \mathbb{Q} \subseteq \mathbb{Q}[\alpha] \subseteq \mathbb{Q}[\alpha, \beta] \subseteq \mathbb{Q}[\alpha, \beta, \gamma] \subseteq \mathbb{Q}[\alpha, \beta, \gamma, \delta] = L
+    \]
+    是一个二次根塔, 因为由\ref{ex:3.1.5}, $L = \mathbb{Q}[\zeta_{17}] \implies [L:K] = 16 = 2^4$, 而$\zeta_{17} \in \mathbb{Q}[\alpha, \beta, \gamma, \delta], \left[\mathbb{Q}[\alpha, \beta, \gamma, \delta]:\mathbb{Q}\right]\leqslant 2^4$, 从而只能取等号.
 \end{proof}

@@ -31,7 +31,7 @@
 \end{proof}
 
 \begin{remark}
-    零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.(可以参考\cite{atiyah1994introduction}p5)
+    零理想的根$\sqrt{\{0\}} = \{x \in R \mid \exists n \in \mathbb{N}, x^n = 0\}$是所有幂零元(nilpotent)组成的理想, 叫做$R$的幂零根(nilradical), 一般记作$\mathfrak{N}(R)$. 可以证明$\mathfrak{N}(R) = \bigcap_{\mathfrak{p} \text{ 是素理想}} \mathfrak{p}$.(需要Zorn's Lemma, 可以参考\cite{atiyah1994introduction}p5)
 
     对任何的理想$I$可以清楚地看出$I \subseteq \sqrt{I}$. 若$\sqrt{I} = I$, 我们称$I$是一个根理想(radical ideal). 任何的素理想(\ref{ex:2.1.5})都是根理想.
 \end{remark}
@@ -63,7 +63,7 @@
 \end{proof}
 
 \begin{remark}
-    Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了.
+    Frobenius一般在域中使用的多一些. 虽然对交换环Frobenius都是可以定义的, 但是整环才能保证Frobenius是单射. Frobenius一般不是满的, 但对有限域就是自同构了. Frobenius是满射的特征$p$的域是完全域(perfect field, 教材3.3节). 从证明过程可以看出, 这个同态和$x, y$并没有关系, 因此在特征$p$的多项式环上这个映射仍是一个同态.
 \end{remark}
 
 \begin{problem}
@@ -85,7 +85,7 @@
     \[
         (a) \supseteq (a^2) \supseteq \cdots 
     \]
-    因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1_R$.
+    由于理想个数有限, 因此$\exists n \in \mathbb{Z}_{>0},\, (a^n) = (a^{n + 1})$. 即有$a^n \in (a^{n + 1})$, 那么$\exists b \in R,\, a^n = a^{n + 1}b$, 从而$ab = 1$.
 \end{proof}
 
 \begin{remark}
@@ -125,7 +125,7 @@
         他的长度定义为$n$.(可参考\cite{atiyah1994introduction}p89, \cite{aluffi2009algebra}p153)
         
         交换Artin环(\ref{ex:2.1.4})是$0$维的Noether环. $0$维即意味着所有的素理想都是极大理想.
-        \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个Zariski拓扑.(这个就不给参考书了, 自行搜索或查阅代数几何相关书籍吧)
+        \item 对交换环$R$, $\mathrm{Spec}(R) \defeq \{\mathfrak{p} \mid \mathfrak{p} \text{ 是 } R \text{ 的素理想}\}$称为$R$的素谱(spectrum). $\mathrm{Spec}(R)$上有一个拓扑结构, Zariski拓扑, 有兴趣可自行了解.
     \end{enumerate}
 \end{remark}
 
@@ -173,6 +173,11 @@
     \end{aligned}
     \]
     他是所有乘积$ij$生成的理想. 那么一族理想的乘积就是考虑所有可能的有限乘积生成的理想.
+
+    \begin{propstar}
+        设$R$是交换环, 理想$I \neq (1)$, 那么存在极大理想$\mathfrak{m}$使得$I \subseteq \mathfrak{m}$.
+    \end{propstar}
+    证明需要Zorn's Lemma.
 \end{remark}
 
 \begin{problem}
@@ -211,7 +216,18 @@
     \[
         \varphi: R[x] \to \frac{R}{I}[x],\quad a_0 + a_1x + \cdots + a_nx^n \mapsto \overline{a_0} + \overline{a_1}x + \cdots + \overline{a_n}x^n
     \]
-    可以验证这确实是一个同态. 事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.
+    可以验证这确实是一个同态(教材引理2.3.2). 记$f = \sum_{i = 0}^{n} a_ix^i$, $g = \sum_{j = 0}^{m} b_ix^i$, 不妨设$n > m$, 且令$b_j = 0, m < j \leqslant n$. 由于$R \to R/I$是同态, 这个映射是良定义的, 且我们有
+    \[
+    \begin{aligned}
+        \varphi(f + g) &= \varphi\left(\sum_{i = 0}^{n} (a_i + b_i)x^i\right) = \sum_{i = 0}^{n} \overline{(a_i + b_i)}x^i = \sum_{i = 0}^{n} (\overline{a_i} + \overline{b_i})x^i\\
+        &= \varphi(f) + \varphi(g),\\
+        \varphi(fg) &= \varphi\left(\sum_{k = 0}^{n + m}\sum_{i + j = k} a_ib_jx^k\right) = \sum_{k = 0}^{n + m}\sum_{i + j = k} \overline{a_ib_j}x^i = \sum_{k = 0}^{n + m}\sum_{i + j = k} \overline{a_i}\overline{b_j}x^i\\
+        &= \varphi(f)\varphi(g),\\
+        \varphi(1) &= \overline{1}.
+    \end{aligned} 
+    \]
+    
+    事实上, 它是$R \twoheadrightarrow R/I \hookrightarrow \frac{R}{I}[x]$的一个延拓.
     
     回到原题, 有
     \[
@@ -225,11 +241,39 @@
     \[
         (r_1s_1)(r_2s_2) = \varphi(r_1)s_1\varphi(r_2)s_2 = \varphi(r_1)\varphi(r_2)s_1s_2 = \varphi(r_1r_2)s_1s_2 = (r_1r_2)(s_1s_2).
     \]
-    即数乘和$S$本身的乘法是相容的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
+    即数乘和$S$本身的乘法是相容的, 换句话说, $S$上的乘法是$R$-双线性的. 这样的结构我们称为一个$R$-代数($R$-algebra), 这也是\ref{ex:2.1.12}介绍的东西. 因此一个$R$-代数就是带有加法, ($R$-)数乘, 乘法的一个代数结构.
     
     当$S$本身就是交换环时, 此时乘法是交换的, 且$C(S) = S$, 这样会变得简单很多. 这时$S$称为一个交换$R$-代数, 这也是交换代数会考虑的情形. 我们会把$S$看作一个有序对$(S, \varphi)$, 一个交换$R$-代数$S$也叫做一个$R$-(交换)环. 那么交换$R$-代数构成的范畴是交换环范畴的余切片范畴(coslice category).
     
     而这里提到的延拓其实是多项式环的泛性质(universal property), 或者说是自由交换$R$-代数的泛性质, 因为$R[x]$就是一个的自由交换$R$-代数.(可参考\cite{aluffi2009algebra}III.\S6.3)
+
+    既然提到泛性质, 那么需要对同态基本定理进行更详细的说明, 这里以环同态为例, 所谓的同态基本定理是quotient的泛性质, 教材的版本是相对弱一点的版本.
+
+    \begin{thmstar}
+        设$R$是环, $I \subseteq R$是理想. 对任意的环同态$R \stackrel{f}{\to} R'$, 若$I \subseteq \ker(f)$, 则存在唯一的同态$\overline{f}:R/I \to R'$使得图表交换
+        \[
+            \begin{tikzcd}
+                R \arrow[rr, "f"] \arrow[rd, "\pi"', two heads] &                                 & R' \\
+                                                                & R/I \arrow[ru, "\exists!\overline{f}"'] &   
+                \end{tikzcd}
+        \]
+    \end{thmstar}
+    写成等式就是$\overline{f}(\overline{r}) = f(r)$, 要说明这样的$\overline{f}$是良定义的, 这和商同态的做法一样.
+    \[
+        r + I = r' + I \implies r - r' \in I \subseteq \ker(f) \implies \overline{f}(\overline{r}) - \overline{f}(\overline{r'}) = f(r - r') = 0.
+    \]
+    注意到$\ker(\overline{f}) = \ker(f)/I$(作为$R$-模, $\ker(f)/I$是商模), 这意味着$I = \ker(f)$时$\ker(\overline{f}) = \{0\}$, 此时$\overline{f}$是单射, 刚好就是熟知的同态基本定理. 这里用到了一个等价的条件:
+
+    \begin{propstar}
+        设$R \xrightarrow{\varphi} R'$是环同态, 则下列条件等价(最后一条可以不用管):
+        \begin{enumerate}[(i)]
+            \item $\varphi$是单射;
+            \item $\ker(\varphi) = \{0\}$;
+            \item $\varphi \circ \psi_1 = \varphi \circ \psi_2 \implies \psi_1 = \psi_2$, 即$\varphi$是$\mathsf{Ring}$中的单态射.
+        \end{enumerate}
+    \end{propstar}
+    
+    上述讨论对群和模是类似的.
 \end{remark}
 
 \begin{problem}\label{ex:2.1.9}
@@ -272,7 +316,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}\label{ex:2.1.10}
+\begin{problem}[*]\label{ex:2.1.10}
     如果$F$是特征零的域, 则$f'(x) = 0 \Leftrightarrow \deg(f) = 0$或$f(x) = 0$(即常数); 如果$F$的特征是$p > 0$, 则$f'(x) = 0 \Leftrightarrow$存在$g(x) \in F[x]$使得$f(x) = g(x^p)$.
 \end{problem}
 

@@ -108,7 +108,7 @@
 \end{problem}
 
 \begin{proof}
-    不妨设$\sigma: \mathbb{Q} \to \mathbb{Q}$是同构, 根据定义, 有$\sigma(0) = 0, \sigma(1) = 1, \sigma(-a) = -\sigma(a), sigma(a^{-1}) = (\sigma(a))^{-1}$. 因此先用归纳法得到$\sigma|_{\mathbb{N}} = \mathrm{id}_{\mathbb{N}}$, 用负元延拓到$\mathbb{Z}$, 再用逆元延拓到$\mathbb{Q}$得$\sigma = \mathrm{id}_{\mathbb{Q}}$. 事实上, 这个推导对于任何特征$0$的域都是对的, 即$\mathbb{Q}$是特征$0$最小域(环的特征见教材2.1节p27定义2.1.5).
+    不妨设$\sigma: \mathbb{Q} \to \mathbb{Q}$是同构, 根据定义, 有$\sigma(0) = 0, \sigma(1) = 1, \sigma(-a) = -\sigma(a), \sigma(a^{-1}) = (\sigma(a))^{-1}$. 因此先用归纳法得到$\sigma|_{\mathbb{N}} = \mathrm{id}_{\mathbb{N}}$, 用负元延拓到$\mathbb{Z}$, 再用逆元延拓到$\mathbb{Q}$得$\sigma = \mathrm{id}_{\mathbb{Q}}$. 事实上, 这个推导对于任何特征$0$的域都是对的, 即$\mathbb{Q}$是特征$0$最小域(环的特征见教材2.1节p27定义2.1.5).
 
     对$\mathbb{R}$, 首先若$\phi: \mathbb{R} \to \mathbb{R}$是同构, 有上面可知$\phi|_{\mathbb{Q}} = \mathrm{id}_{\mathbb{Q}}$. 另外, 可以证明$\phi$保序结构, 即$x \geqslant 0 \implies \phi(x) \geqslant 0$. 这是因为对$x > 0$总有$\phi(x) = \phi(\sqrt{x} \cdot \sqrt{x}) = \phi(\sqrt{x})^2 > 0$. 保序则保极限, 即对单调有界有理数列$\{q_n\}_{n \in \mathbb{N}}$有$\lim_{n \to \infty} \phi(q_n) = \lim_{n \to \infty} q_n$(实际上保序就可以保持$\mathbb{R}$上的拓扑结构, $\phi$是连续的). 由于$\mathbb{Q}$在$R$中稠密, 从而$\phi = \mathrm{id}_{\mathbb{R}}$.
 
@@ -132,10 +132,10 @@
 \end{proof}
 
 \begin{problem}\label{ex:1.4.9}
-    设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域, $K \supset L$称为域扩张, 试证明:
+    设$K, L$是两个域, 如果$L$是$K$的子域, 则$K$称为$L$的扩域, $K \,\red{\supseteq}\, L$称为域扩张, 试证明:
     \begin{enumerate}[(1)]
-        \item 域的加法和乘法使得$K$是一个$L$-向量空间$([K:L] = \dim_L(K)$称为域扩张$K \supset L$ 的次数);
-        \item 如果$K \supset \mathbb{R}$是一个二次扩张(即$[K:\mathbb{R}] = 2)$, 则$K$必同构于复数域$\mathbb{C}$.
+        \item 域的加法和乘法使得$K$是一个$L$-向量空间$([K:L] = \dim_L(K)$称为域扩张$K \,\red{\supseteq}\, L$ 的次数);
+        \item 如果$K \,\red{\supseteq}\, \mathbb{R}$是一个二次扩张(即$[K:\mathbb{R}] = 2)$, 则$K$必同构于复数域$\mathbb{C}$.
     \end{enumerate}
 \end{problem}
 
@@ -157,23 +157,7 @@
         这些都由域的定义得到.
     
         这也说明若同态$K_1 \to K_2$保持$L$($K_1, K_2$为$L$的两个扩域), 则一定是$L$-线性映射.
-        \item 由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的. 设同构$f: \mathbb{C} \to \mathbb{C}$, 则有$f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且保持乘法, 即
-        \[
-        \begin{gathered}
-            f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1)\\
-            = (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
-            \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right)\\
-            = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
-            \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i)\\
-            = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
-            \implies f(i) \cdot f(i) = -1.
-        \end{gathered}
-        \]
-        因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
-        
-        由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为线性空间同构, 但这是不够的, 只有上述两个线性映射是域同构, 需要做基变换转为恒等或共轭才能保持乘法. 事实上只要存在一个基变换就能变回恒等映射, 恒等映射总是同构, 但前提是承载集合(underlying set)要一样. 比如$\mathbb{Q}(\sqrt{2})$和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们之间没有域同态(\ref{ex:1.4.8}).
-        
-        可取$K$的一组基为$1, \alpha$, 其中$\alpha \in \mathbb{C} \setminus \mathbb{R}$. 不可避免地要考虑$\alpha^2$的结果, 由于$1, \alpha$是基, 因此$\alpha^2$可以被线性表出, 即$\alpha^2 = x + y\alpha$. 由于$\alpha \notin \mathbb{R}$, 有$y^2 + 4x < 0$, 解二次方程得到$\alpha = \frac{y \pm i\sqrt{|y^2 + 4x|}}{2}$. 故映射
+        \item 可取$K$的一组基为$1, \alpha$, 其中$\alpha \in \mathbb{C} \setminus \mathbb{R}$. 因为我们需要的同构是要保持乘法的, 不可避免地要考虑$\alpha^2$的结果, 由于$1, \alpha$是基, 因此$\alpha^2$可以被线性表出, 即$\alpha^2 = x + y\alpha$. 由于$\alpha \notin \mathbb{R}$, 有$y^2 + 4x < 0$, 解二次方程得到$\alpha = \frac{y \pm i\sqrt{|y^2 + 4x|}}{2}$. 故映射
         \[
             f: K \to \mathbb{C},\, u + v\alpha \mapsto u + v\frac{y \pm i\sqrt{|y^2 + 4x|}}{2}
         \]
@@ -182,19 +166,35 @@
 \end{proof}
 
 \begin{remark}
-    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个$R$-模结构
+    事实上, 若有环同态$R \overset{\varphi}\to S$, 则$S$上自动有一个$R$-模结构(教材5.1节)
     \[
         R \times S \to S, \quad (r, s) \mapsto rs = \varphi(r)s
     \]
     $rs$是数乘, $\varphi(r)s$是$S$中的乘法. 域上的模就是线性空间.
     
     (1)对应的同态其实就是包含(inclusion)$L \overset{i}\hookrightarrow K$.
+
+    由(1), 扩域$\mathbb{C}/\mathbb{R}$的自同构一定是$\mathbb{R}$-线性的. 设同构$f: \mathbb{C} \to \mathbb{C}$, 则有$f(x + yi) = x + yf(i),\, x, y \in \mathbb{R}$, 且保持乘法, 即
+    \[
+    \begin{gathered}
+        f\left((x_1 + iy_1) \cdot (x_2 + iy_2)\right) = f(x_1 + iy_1) \cdot f(x_1 + iy_1)\\
+        = (x_1 + y_1f(i)) \cdot (x_2 + y_2f(i))\\
+        \implies f\left(x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)i\right)\\
+        = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies x_1x_2 - y_1y_2 + (x_1y_2 +x_2y_1)f(i)\\
+        = x_1x_2 + y_1y_2f(i) \cdot f(i) + (x_1y_2 +x_2y_1)f(i)\\
+        \implies f(i) \cdot f(i) = -1.
+        \end{gathered}
+    \]
+    因此$f(i) = \pm i$. 也就是说$\mathbb{C}/\mathbb{R}$的自同构都只有恒等映射和共轭, 即$\mathrm{Gal}(\mathbb{C}/\mathbb{R}) = \mathbb{Z}/2\mathbb{Z}$.
+        
+    由线性代数的结论, 可以直接得到$K$和$\mathbb{C}$是作为$\mathbb{R}$-线性空间同构, 但我们需要它们作为$\mathbb{R}$的扩域是同构的, 所以这是不够的. 比如$\mathbb{Q}(\sqrt{2})$和$\mathbb{Q}(\sqrt{3})$作为$\mathbb{Q}$-线性空间也是同构的, 但他们之间没有域同态(\ref{ex:1.4.8}). 根据我们上述的讨论, 对于域扩张$\mathbb{C}/\mathbb{R}$只有恒等和共轭两个线性映射是域同构, 因此我们需要找到一个从$K$到$\mathbb{C}$的$\mathbb{R}$-线性映射, 让它恰好是两者之一才是一个域同构. 这就是(2)的思路来源.
 \end{remark}
 
 \begin{problem}
     设$d$是一个非零整数, 且$\sqrt d \notin \mathbb{Q}$. 证明:
     \[
-        \mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\} \supset \mathbb{Q}
+        \mathbb{Q}[\sqrt{d}] = \{a + b\sqrt{d} \mid a, b \in \mathbb{Q}\} \,\red{\supseteq}\, \mathbb{Q}
     \]
     是一个二次扩张($d < 0$时, $\mathbb{Q}[\sqrt{d}]$称为虚二次域, $d > 0$时称为实二次域).
 \end{problem}
@@ -221,11 +221,11 @@
 \end{proof}
 
 \begin{problem}
-    设$L \supset K$是一个域扩张, 证明: 下述集合
+    设$L \,\red{\supseteq}\, K$是一个域扩张, 证明: 下述集合
     \[
         \mathrm{Gal}(L/K) = \left\{L \xrightarrow{\sigma} L \mid \sigma\text{ 是域同构},\text{ 且 } \sigma(a) = a \text{ 对任意 } a \in K \text{ 成立}\right\}
     \]
-    关于映射的合成是一个群(称为域扩张$L\supset K$的伽罗瓦群).
+    关于映射的合成是一个群(称为域扩张$L \,\red{\supseteq}\, K$的伽罗瓦群).
 \end{problem}
 
 \begin{proof}
@@ -241,7 +241,7 @@
 \begin{proof}
     同\ref{ex:1.4.9}, 若$\sigma \in \mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right)$, 则$\sigma \in \mathrm{Aut}_{\mathbb{Q}-\mathsf{Vect}}\left(\mathbb{Q}[\sqrt{d}]\right)$, 因此$\sigma(a + b\sqrt{d}) = a + b\sigma(\sqrt{d})$. 然后由于保持乘法得到$\sigma(\sqrt{d}) \cdot \sigma(\sqrt{d}) = d$, 得到$\sigma(\sqrt{d}) = \pm\sqrt{d}$.
 
-    因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z}$, 两个同构分别为$\mathrm{id}$和共轭.
+    因此$\mathrm{Gal}\left(\mathbb{Q}[\sqrt{d}]/\mathbb{Q}\right) = \mathbb{Z}/2\mathbb{Z} (= S_2)$, 两个同构分别为$\mathrm{id}$和共轭.
 \end{proof}
 
 \begin{problem}\label{ex:1.4.13}

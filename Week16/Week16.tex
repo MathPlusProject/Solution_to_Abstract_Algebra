@@ -1,12 +1,17 @@
-\subsection{教材p84}
+\documentclass{../solutions-cn}
 
-\begin{problem}
+\begin{document}
+\section*{第十六周作业参考解答及补充}
+
+\subsection*{作业}
+
+\begin{exercise}[习题4.4.1]
     设$E$是$x^4-2$在$\mathbb{Q}$上的分裂域.
     \begin{enumerate}[(1)]
         \item 试求出$E/\mathbb{Q}$的全部中间域;
         \item 试问哪些中间域是$\mathbb{Q}$的伽罗瓦扩张, 哪些域彼此共轭？
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
@@ -29,7 +34,7 @@
         \[
             \mathbb{Q}[i],\, \mathbb{Q}[\sqrt{2}],\, \mathbb{Q}[\sqrt{2}i]
         \]
-        \item $E^H/K$是有限可分扩张(\ref{ex:3.3.6}的注记以及Galois对应), 因此和Galois扩张之间只差正规性, 根据Galois理论的基本定理, $H \lhd \mathrm{Gal}(E/K) \iff E^H/K$正规, 因此只需找出(1)中正规子群对应的不动域$E^H$:
+        \item $E^H/K$是有限可分扩张(\ref{3.3.6}的注记以及Galois对应), 因此和Galois扩张之间只差正规性, 根据Galois理论的基本定理, $H \lhd \mathrm{Gal}(E/K) \iff E^H/K$正规, 因此只需找出(1)中正规子群对应的不动域$E^H$:
         \[
             E^{\langle \alpha^2 \rangle} = \mathbb{Q}[\sqrt{2}, i], E^{\langle \alpha \rangle} = \mathbb{Q}[i], E^{\langle \alpha^2, \beta \rangle} = \mathbb{Q}[\sqrt{2}], E^{\langle \alpha^2, \alpha\beta \rangle} = \mathbb{Q}[\sqrt{2}i]
         \]
@@ -37,27 +42,19 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
-    设$K \,\red{\supseteq}\, F$是伽罗瓦扩张, $f(x)$是$\alpha \in K$在$F$上的极小多项式, \(g(x) = \prod_{\sigma \in \mathrm{Gal}(K/F)} \big(x - \sigma(\alpha) \big).\) 证明: $g(x) \in F[x]$并且存在正整数$n$使得$g = f^n$.
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
-
-\begin{problem}
+\begin{exercise}[习题4.4.3]
     设$\xi = e^{\frac{2\pi i}{13}}, \alpha = \xi + \xi^4 + \xi^3 + \xi^{12} + \xi^9 + \xi^{10}$, 证明: 
     \begin{enumerate}[(1)]
         \item $\mathrm{Gal}\left(\mathbb{Q}[\xi]/\mathbb{Q}\right)$同构于乘法群$\mathbb{F}_{13}^* = \mathbb{F}_{13} \setminus \{0\}$.
         \item $\bigl[\mathbb{Q}[\xi]:\mathbb{Q}[\alpha]\bigr] = 6$.
         \item 求$\alpha$在$\mathbb{Q}$上的极小多项式.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item \ref{ex:3.4.1}.
-        \item 由\ref{ex:3.4.1}, 这是一个Galois扩张, $\mathbb{Q}[\alpha]$是中间域. 记$\sigma_i \in \mathrm{Gal}\left(\mathbb{Q}[\xi]/\mathbb{Q}\right)$是同构$\xi \mapsto \xi^i$. 而$\alpha$的每一项恰好是子群$\langle \sigma_4 \rangle$里的元素, 也就是说$\sigma_4(\alpha) = \alpha$. 那么根据Galois理论基本定理, $\mathbb{Q}[\xi]^{\langle \sigma_4 \rangle} = \mathbb{Q}[\alpha]$, $\bigl[\mathbb{Q}[\xi]:\mathbb{Q}[\alpha]\bigr] = |\langle \sigma_4 \rangle| = 6$.
+        \item 3.4.1.
+        \item 由3.4.1, 这是一个Galois扩张, $\mathbb{Q}[\alpha]$是中间域. 记$\sigma_i \in \mathrm{Gal}\left(\mathbb{Q}[\xi]/\mathbb{Q}\right)$是同构$\xi \mapsto \xi^i$. 而$\alpha$的每一项恰好是子群$\langle \sigma_4 \rangle$里的元素, 也就是说$\sigma_4(\alpha) = \alpha$. 那么根据Galois理论基本定理, $\mathbb{Q}[\xi]^{\langle \sigma_4 \rangle} = \mathbb{Q}[\alpha]$, $\bigl[\mathbb{Q}[\xi]:\mathbb{Q}[\alpha]\bigr] = |\langle \sigma_4 \rangle| = 6$.
         \item 由(2)知$\bigl[\mathbb{Q}[\alpha]:\mathbb{Q}\bigr] = 2$, 极小多项式次数为$2$, 因此计算$\alpha^2$.
         \[
         \begin{aligned}
@@ -75,19 +72,19 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{exercise}[习题4.4.4]
     设$p > 2$是素数, $\xi_p = e^{\frac{2\pi i}p},\, \xi_{p^2}$为$p^2$次本原单位根.
     \begin{enumerate}[(1)]
         \item 求$\mathbb{Q}(\xi_p)/\mathbb{Q}$的扩张次数, 并证明$\mathrm{Gal}(\mathbb{Q}(\xi_p)/\mathbb{Q}) \cong F_p^*$;
         \item 求$\mathbb{Q}(\xi_{p^2})/\mathbb{Q}$的扩张次数, 并确定$\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q})$(提示: 该群是$(\mathbb{Z}/p^2\mathbb{Z})^*$);
         \item 试确定$\mathbb{Q}(\xi_{p^2})/\mathbb{Q}(\xi_p)$的扩张次数, 并证明这是一个伽罗瓦扩张.
     \end{enumerate}
-\end{problem}
+\end{exercise}
 
 \begin{proof}
     \begin{enumerate}[(1)]
-        \item \ref{ex:3.4.1}.
-        \item 由\ref{ex:4.3.3}, $\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q}) \cong U(\mathbb{Z}/p^2\mathbb{Z}) = p(p - 1)$.
+        \item 3.4.1.
+        \item 由4.3.3, $\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q}) \cong U(\mathbb{Z}/p^2\mathbb{Z}) = p(p - 1)$.
         \item 由(2), $\bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}(\xi_p)\bigr]\bigl[\mathbb{Q}(\xi_p):\mathbb{Q}\bigr] = \bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}\bigr] = p(p - 1)$. 从而$\bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}(\xi_p)\bigr] = p$. 它是Galois扩张是因为$\mathbb{Q}(\xi_{p^2})/\mathbb{Q}$是Galois扩张.
     \end{enumerate}
 \end{proof}
@@ -96,15 +93,4 @@
     对于Galois扩张$L/K$, 对中间域$E$来说, $L/E$总是Galois扩张, 这是因为$L$是$K$上可分多项式$f(x)$的分裂域, 从而也能看成$f(x) \in E[x]$的分裂域.
 \end{remark}
 
-\begin{problem}
-    设$\xi_n$是$n$次本原单位根 (即$\xi_n = e^{\frac{2\pi i}n})$.
-    \begin{enumerate}[(1)]
-        \item 证明$\mathbb{Q}(\xi_n)/\mathbb{Q}$是伽罗瓦扩张;
-        \item 当$n = 12$时, 求伽罗瓦群$\mathrm{Gal}(\mathbb{Q}[\xi_n]/\mathbb{Q})$;
-        \item 设$n > 2$为奇数, 证明$\mathbb{Q}[\xi_n] \cap \mathbb{R} = \mathbb{Q}[\xi_n + \xi_n^{-1}]$.
-    \end{enumerate}
-\end{problem}
-
-\begin{proof}
-    
-\end{proof}
+\end{document}

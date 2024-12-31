@@ -1,6 +1,6 @@
 \subsection{教材p52-54}
 
-\begin{problem}
+\begin{problem}\label{ex:3.1.1}
     设$K$是特征零的域, $f(x) \in K[x]$是次数大于零的首项系数为$1$的多项式, $d(x) = (f(x), f'(x))$是$f(x)$与$f'(x)$的最大公因子. 令
     \[
         f(x) = d(x) \cdot g(x).
@@ -9,7 +9,7 @@
 \end{problem}
 
 \begin{proof}
-    由\ref{ex:2.4.3}可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根.
+    我们总可以在$f(x)$的分裂域上考虑因式分解. 由\ref{ex:2.4.3}可知, $a$是$f(x)$和$f'(x)$的公共根当且仅当$a$是$f(x)$的重根. 而$f(x)$和$f'(x)$的公共根当且仅当是$d(x)$的根, 从而$f(x)$的单根为$g(x)$的根. 且若$a$是$k(>1)$重根, 则按定义有$f(x) = (x - a)^kf_1(x)$, $f_1(a) \neq 0$. 那么$f'(x) = (x - a)^{k - 1}(kf_1(x) + (x - a)f_1'(x))$, 记$h(x) = kf_1(x) + (x - a)f_1'(x)$, 有$h(a) = kf_1(a) \neq 0$. 即有$(x - a)^{k - 1} \mid d(x)$但$(x - a)^k \nmid d(x)$, 因此$g(x)$有单因子$(x - a)$, 即重根$a$是$g(x)$的单根.
 \end{proof}
 
 \begin{problem}\label{ex:3.1.2}
@@ -38,7 +38,7 @@
 \begin{remark}
     教材出现了有限生成扩张(p7-8)但并未单独列出这个的定义, 这里需要用一下所以先把这个定义提一下.
 
-    \begin{definitionstar}
+    \begin{defstar}
         设$K \subseteq L$是一个域扩张, $S \subseteq L$是一个子集, $K(S)$称为由$F$和$S$生成的子域, 即包含$F$和$S$的最小域:
         \[
             K(S) \defeq \cap \{E \subseteq L \mid F \cup S \subseteq E\} 
@@ -50,7 +50,7 @@
             K(u_1, u_2, \cdots, u_n) \defeq \cap \{E \subseteq L \mid K \subseteq E,\, u_1, u_2, \cdots, u_n \in E\}
         \]
         $n = 1$时称为单扩张(simple extension).
-    \end{definitionstar}
+    \end{defstar}
     下面要验证的事实是, 当$u_1, u_2, \cdots, u_n$都是$K$上代数元的时候,\par
     $K(u_1, u_2, \cdots, u_n) = K[u_1, u_2, \cdots, u_n]$, 且此时该扩张是有限扩张, 否则是无限扩张. 即对域扩张而言:
     \[
@@ -97,7 +97,7 @@
 
     上面提到的localization可以理解成分式域的推广. 设$A$是交换环, $S \subseteq A$是一个乘法封闭子集(multiplicatively closed subset), 即$\forall s, t \in S \implies st \in S$并要求$1 \in S$. 换句话说, $S$是$(A, \cdot)$的一个子幺半群. 则$A \times S$上有一个等价关系:
     \[
-        (a, s) \sim (a', s') \iff \exists u \in S,\, (as' - a's)u = 0
+        (a, s) \sim (a', s') \iff \exists t \in S,\, (as' - a's)t = 0
     \]
     记商集$A \times S / \sim$为$S^{-1}A$, 可以验证这是一个环, $A$是它的子环, 称为$A$对$S$的分式环. 它是包含$A$的并使得$S$中元素都可逆的“最小”的环. 这个构造通常称为环的局部化(localization). 当$A$是整环且取$S = A \setminus \{0\}$时就是分式域, 如$\mathbb{Q}$, $K(x)$. 若$0 \in S$则得到零环, 因此一般尽量排除这种平凡的情况. 当$\mathfrak{p} \subseteq A$是素理想时, 按素理想的定义可以验证$S = A \setminus \mathfrak{p}$是乘法封闭的(事实上反过来也是对的). 此时$S^{-1}A$一般记作$A_{\mathfrak{p}}$, 这是一个局部环(\ref{ex:2.3.1}), 如$\mathbb{Z}_p$($p$-adic integers).
     
@@ -114,7 +114,18 @@
                                             & A \arrow[ru, "\varphi"'] \arrow[lu, "f_S"] &  
         \end{tikzcd}
     \]
-    $\varphi_S(\frac{a}{s}) = \varphi(a)\varphi(s)^{-1}$. 注意一般情况下$f_S$不一定是单的, 事实上是非整环的情形有零因子导致的, 因此$A$是整环的时候且不考虑$0 \in S$, 等价关系$\sim$简化为和分式域的情况一样, 即
+    事实上$\varphi_S(\frac{a}{s}) = \varphi(a)\varphi(s)^{-1}$, 我们需要验证这个映射是良定义的, 即若$(a, s) \sim (a', s')$, 那么要有$\varphi(a)\varphi(s)^{-1} = \varphi(a')\varphi(s')^{-1}$. 由定义$\exists t \in S$使得$(as' - a's)t = 0$, 用$\varphi$作用在等式两边就有$(\varphi(a)\varphi(s') - \varphi(a')\varphi(s))\varphi(t) = 0$, 根据条件$\varphi(t)$可逆, 所以$\varphi(a)\varphi(s') - \varphi(a')\varphi(s) = 0$, 又$\varphi(s), \varphi(s')$可逆, 则有$\varphi(a)\varphi(s)^{-1} = \varphi(a')\varphi(s')^{-1}$得证. 另外还要说明这确实是一个环同态,
+    \[
+    \begin{aligned}
+        \varphi_S(\frac{a}{s} + \frac{b}{t}) &= \varphi_S(\frac{at + bs}{st}) = (\varphi(a)\varphi(t) + \varphi(b)\varphi(s))\varphi(s)^{-1}\varphi(t)^{-1}\\
+        &= \varphi(a)\varphi(s)^{-1} + \varphi(b)\varphi(t)^{-1} = \varphi_S(\frac{a}{s}) + \varphi_S(\frac{b}{t}).\\
+        \varphi_S(\frac{a}{s} \cdot \frac{b}{t}) &= \varphi_S(\frac{ab}{st}) = \varphi(a)\varphi(b)\varphi(s)^{-1}\varphi(t)^{-1} = (\varphi(a)\varphi(s)^{-1})(\varphi(b)\varphi(t)^{-1})\\
+        &= \varphi_S(\frac{a}{s})\varphi_S(\frac{b}{t}).\\
+        \varphi_S(1) &= \varphi_S(\frac{1}{1}) = \varphi(1)\varphi(1)^{-1} = 1.
+    \end{aligned}
+    \]
+    
+    注意一般情况下$f_S$不一定是单的, 事实上是非整环的情形有零因子导致的, 因此$A$是整环的时候且不考虑$0 \in S$, 等价关系$\sim$简化为和分式域的情况一样, 即
     \[
         (a, s) \sim (a', s') \iff as' = a's
     \]
@@ -145,7 +156,9 @@
 \end{problem}
 
 \begin{proof}
-    参考\ref{ex:1.4.8}, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式, 且$\sqrt{3}$是它的根, 因此是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
+    参考\ref{ex:1.4.8}, $\sqrt{3} \notin \mathbb{Q}[\sqrt{2}]$, 即不存在$\mathbb{Q}[\sqrt{2}]$上的一次多项式使得$\sqrt{3}$是根, 因此$x^2 - 3$是$\mathbb{Q}[\sqrt{2}]$上的不可约多项式. 更详细的说, 若$x^2 - 3$在$\mathbb{Q}[\sqrt{2}]$上可约, 则按定义$x^2 - 3 = (x - \alpha_1)(x - \alpha_2)$, 其中$\alpha_i = a_i + b_i\sqrt{2}$, $a_i, b_i \in \mathbb{Q}$. 右边展开对比系数一样得到矛盾.
+
+    $\sqrt{3}$是$x^2 - 3$的根, 因此它是$\sqrt{3}$对于$\mathbb{Q}[\sqrt{2}]$的极小多项式. 从而有
     \[
         \left[\mathbb{Q}[\sqrt{2}, \sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \left[\mathbb{Q}[\sqrt{2}][\sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] = \deg(x^2 - 3) = 2.
     \]
@@ -154,6 +167,10 @@
         \left[\mathbb{Q}[\sqrt{2}, \sqrt{3}]:\mathbb{Q}\right] = \left[\mathbb{Q}[\sqrt{2}, \sqrt{3}]:\mathbb{Q}[\sqrt{2}]\right] \cdot \left[\mathbb{Q}[\sqrt{2}]:\mathbb{Q}\right] = 4
     \]
 \end{proof}
+
+\begin{remark}
+    对于二次多项式而言, 若能只能分解成一次多项式的乘积, 因此一个二次多项式$f(x) \in K[x]$可约当且仅当它的根$u_1, u_2 \in K$.
+\end{remark}
 
 \begin{problem}\label{ex:3.1.5}
     设$p$是一个素数, $z \in \mathbb{C}$满足$z^p = 1$且$z \neq 1$, 试证明$[\mathbb{Q}[z]:\mathbb{Q}] = p - 1$.
@@ -167,7 +184,7 @@
     这是分圆多项式中$n$为素数的情况.
 \end{remark}
 
-\begin{problem}
+\begin{problem}\label{ex:3.1.6}
     证明:
     \begin{enumerate}[(1)]
         \item $U_n = \{z \in \mathbb{C} \mid z^n = 1\}$是一个循环群;
@@ -194,7 +211,7 @@
 
 \begin{remark}
     \begin{enumerate}[1.]
-        \item 教材循环群的定义为由一个元素生成的(自由)群$\langle a \rangle = \{a^n \mid n \in \mathbb{Z}\}$, 等价的说就是和$\mathbb{Z}/n\mathbb{Z}$同构的群($n = 0$时为$\mathbb{Z}$本身). 对于$\mathbb{Z}/n\mathbb{Z}$有一个和初等数论有关的结论就是Euler函数$\phi(n) = |(\mathbb{Z}/n\mathbb{Z})^\times|$, 其中$(\mathbb{Z}/n\mathbb{Z})^\times$是单位群$U(\mathbb{Z}/n\mathbb{Z}) = \{\overline{m} \in \mathbb{Z}/n\mathbb{Z} \mid (m, n) = 1\}$. 即$\phi(n)$是$0$到$n - 1$中和$n$互素的元素个数. Fermat小定理的推广便是
+        \item (\ref{ex:1.2.9}, \ref{ex:4.3.1})教材循环群的定义为由一个元素生成的(自由)群$\langle a \rangle = \{a^n \mid n \in \mathbb{Z}\}$, 等价的说就是和$\mathbb{Z}/n\mathbb{Z}$同构的群($n = 0$时为$\mathbb{Z}$本身). 对于$\mathbb{Z}/n\mathbb{Z}$有一个和初等数论有关的结论就是Euler函数$\phi(n) = |(\mathbb{Z}/n\mathbb{Z})^\times|$, 其中$(\mathbb{Z}/n\mathbb{Z})^\times$是单位群$U(\mathbb{Z}/n\mathbb{Z}) = \{\overline{m} \in \mathbb{Z}/n\mathbb{Z} \mid (m, n) = 1\}$. 即$\phi(n)$是$0$到$n - 1$中和$n$互素的元素个数. Fermat小定理的推广便是
         \[
             (a, n) = 1 \implies a^{\phi(n)} \equiv 1 \quad (\mathrm{mod}~n)
         \]
@@ -241,7 +258,7 @@
 \end{remark}
 
 \begin{proof}
-    设$\{\alpha_1, \alpha_2, \cdots, \alpha_n\}$是$E_1$的一组$K$-基, $\{\beta_1, \beta_2, \cdots, \beta_m\}$是$E_2$的一组$K$-基, 并要求$\alpha_1 = \beta_1 = 1$(总是可以乘上一个$\alpha_1^{-1}$或$\beta_1^{-1}$, 而这一组元素仍是基). 只需说明$S = \{\alpha_i\beta_j\}$可以生成$E = K(E_1, E_2) = K(E_1 \cup E_2)$. 按定义, 若$e_1 \in E_1, e_2 \in E_2$, $e_1 = \sum_{i = 1}^{n} k_i\alpha_i$, $e_2 = \sum_{j = 1}^{m} l_j\beta_j$. 由于取$\alpha_1 = \beta_1 = 1$, 因此$\alpha_i, \beta_j \in S$, 那么$e_1 \pm e_2, e_1e_2, e_i^{-1}$(若不为零)都可以由$S$生成.
+    设$\{\alpha_1, \alpha_2, \cdots, \alpha_n\}$是$E_1$的一组$K$-基, $\{\beta_1, \beta_2, \cdots, \beta_m\}$是$E_2$的一组$K$-基, 并要求$\alpha_1 = \beta_1 = 1$(总是可以乘上一个$\alpha_1^{-1}$或$\beta_1^{-1}$, 而这一组元素仍是基). 只需说明$S = \{\alpha_i\beta_j\}$可以生成$E = K(E_1, E_2) = K(E_1 \cup E_2)$. 按定义, 若$e_1 \in E_1, e_2 \in E_2$, $e_1 = \sum_{i = 1}^{n} k_i\alpha_i$, $e_2 = \sum_{j = 1}^{m} l_j\beta_j$. 由于取$\alpha_1 = \beta_1 = 1$, 因此$\alpha_i, \beta_j \in S$, 那么$e_1 \pm e_2, e_1e_2, e_i^{-1}$(若$e_i$不为零)都可以由$S$生成.
 \end{proof}
 
 \begin{problem}
@@ -249,7 +266,7 @@
 \end{problem}
 
 \begin{proof}
-    按定义说明$E$中非零元可逆即可. 设$0 \neq u \in E \subseteq L$, 则$u$在$L$上代数, 那么$K(u) = K[u] \subseteq E$是域(包含关系由泛性质得到, \ref{ex:2.3.7}), 则$u \in K[u]$可逆.
+    按定义说明$E$中非零元可逆即可. 设$0 \neq u \in E \subseteq L$, 则$u$在$L$上代数, 那么$K(u) = K[u] \subseteq E$是域扩张, 则$u \in K[u]$可逆.
 \end{proof}
 
 \begin{problem}
@@ -305,25 +322,37 @@
     由Eisenstein判别法知该多项式不可约, 故极小多项式是$x^3 - 6x^2 + 6x - 2$.
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:3.1.14}
     设$K = \mathbb{Q}[\sqrt[3]{3}]$, 证明: $x^5 - 5$在$K[x]$中不可约.
 \end{problem}
 
 \begin{proof}
-    只需说明$x^5 - 5$是$\sqrt[5]{5}$在$K$上的极小多项式. 我们证明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] = 5$即可.
+    只需说明$x^5 - 5$是$\sqrt[5]{5}$在$K$上的极小多项式. 我们证明\\$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] = 5$即可.
 
     由Eisenstein判别法容易说明$x^3 - 3$和$x^5 - 5$在$\mathbb{Q}$上不可约, 从而有$\left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right] = 3$, $\left[\mathbb{Q}[\sqrt[5]{5}]:\mathbb{Q}\right] = 5$. 由于
-    \[
+    \begin{equation}
         \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] \cdot \left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right]
-    \]
-    那么只需说明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = 15$. 记$\alpha = \sqrt[3]{3}$, $\beta = \sqrt[5]{5}$. 则$\mathbb{Q}[\alpha]$的基为$\{1, \alpha, \alpha^2\}$, $\mathbb{Q}[\beta]$的基为$\{1, \beta, \beta^2, \beta^3, \beta^4\}$. 由\ref{ex:3.1.8}, 说明$\{\alpha^i\beta^j \mid 0 \leqslant i \leqslant 2, 0 \leqslant j \leqslant 4\}$是$\mathbb{Q}$-线性无关的即可, 这是比较容易看出来的(虽然很明显但是没想到优雅的证明先挖个坑).
+        \tag{1}
+        \label{eq:3.1.14.1}
+    \end{equation}
+    那么只需说明$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = 15$. 记$\alpha = \sqrt[3]{3}$, $\beta = \sqrt[5]{5}$. 则$\mathbb{Q}[\alpha]$的基为$\{1, \alpha, \alpha^2\}$, $\mathbb{Q}[\beta]$的基为$\{1, \beta, \beta^2, \beta^3, \beta^4\}$. 由\ref{ex:3.1.8}, 说明$\{\alpha^i\beta^j \mid 0 \leqslant i \leqslant 2, 0 \leqslant j \leqslant 4\}$是$\mathbb{Q}$-线性无关的即可, 这是比较直观的但是证明起来有点麻烦.
+
+    更好的一个技巧是还是像\ref{ex:3.1.7}一样分析degree(该方法已在上课时提出).
+
+    注意在等式\eqref{eq:3.1.14.1}中, $\left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right] = 3$. 而$x^5 - 5 \in \mathbb{Q}[x] \subseteq K[x]$且$\sqrt[5]{5}$是它的根, 自然有$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] \leqslant 5$, 那么$\left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right] \leqslant 15$. 另一方面也可以将$\mathbb{Q}[\sqrt[5]{5}]$作为中间域, 有
+    \begin{equation}
+        \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right] = \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[5]{5}]\right] \cdot \left[\mathbb{Q}[\sqrt[5]{5}]:\mathbb{Q}\right]
+        \tag{2}
+        \label{eq:3.1.14.2}
+    \end{equation}
+    这里$\left[\mathbb{Q}[\sqrt[5]{5}]:\mathbb{Q}\right] = 5$(且$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[5]{5}]\right] \leqslant 3$). 但$3$和$5$都是$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right]$的因子且$3$和$5$是两个素数, 因此有$15 \Big| \left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}\right]$, 结合上面的$\left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right] \leqslant 15$, 只能是$\left[\mathbb{Q}[\sqrt[3]{3}]:\mathbb{Q}\right] = 15$. 那么确实有$\left[\mathbb{Q}[\sqrt[3]{3}, \sqrt[5]{5}]:\mathbb{Q}[\sqrt[3]{3}]\right] = 5$.
 \end{proof}
 
 \begin{remark}
-    \ref{ex:3.1.4}是直接证不可约得到扩张次数, 这里是用扩张次数来得到不可约. 当然这里也可以直接证, $x^5 - 5$的根是比较简单的.
+    \ref{ex:3.1.4}是直接证不可约得到扩张次数, 这里是用扩张次数来得到不可约. 当然这里也可以直接按定义证, $x^5 - 5$的根是比较简单的.
 \end{remark}
 
-\begin{problem}
+\begin{problem}\label{ex:3.1.15}
     设$k$是特征$p > 0$的域, $x, y$是$k$上的代数无关元. 令$K = k(x^{p}, y^{p})$, $L = k(x, y)$. 试证明$[L:K] = p^{2}$.
 \end{problem}
 
@@ -334,3 +363,13 @@
 \begin{proof}
     $x, y$代数无关, 按定义$x, y$就是超越元, 根据\ref{ex:3.1.2}的注记, $K$和$L$视为有理函数域处理即可. 考虑中间域$k(x, y^p)$, 由Eisenstein判别法, $x^p$是$k[x^p, y^p]$的不可约元, 则$t^p - x^p \in k[x^p, y^p][t]$是不可约多项式, 而$K$是$k[x^p, y^p]$的分式域, 从而在$K[t]$内也不可约(教材推论2.3.1). 那么$t^p - x^p$是$x \in k(x, y^p)$在$K$上的极小多项式. $[k(x, y^p):K] = \deg(t^p - x^p) = p$. 同理$[L:k(x, y^p)] = p$. 因此$[L:K] = [L:k(x, y^p)] \cdot [k(x, y^p):K] = p^2$.
 \end{proof}
+
+\begin{remark}
+    证明过程没有用到特征$p$, 因此该结论对任意域都是是对的.
+
+    另外对\ref{ex:3.1.2}多元的情况进行补充, 若$u_1, u_2, \cdots, u_n$代数无关, 则由归纳法可知
+    \[
+        K(u_1, \cdots, u_n) = K(u_1, \cdots, u_{n - 1})(u_n) \cong K(x_1, \cdots, x_{n - 1})(x_n) = K(x_1, \cdots, x_n)
+    \]
+    和多元的有理函数域同构.
+\end{remark}

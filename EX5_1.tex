@@ -1,72 +1,114 @@
 \subsection{教材p91}
 
 \begin{problem}
-    设$R \xrightarrow{\varphi} R'$是环同态, $M$是一个$R'$-模.
-证明: 
-\[
-    R \times M \to M,\quad (a, x) \mapsto \varphi(a)x,
-\]
-定义了$M$的一个$R$-模结构使得$M$成为一个$R$-模.
+    设$R \xrightarrow{\varphi} R'$是环同态, $M$是一个$R'$-模. 证明:
+    \[
+        R \times M \to M,\quad (a, x) \mapsto \varphi(a)x,
+    \]
+    定义了$M$的一个$R$-模结构使得$M$成为一个$R$-模.
 \end{problem}
 
 \begin{proof}
-    
+    由\ref{ex:5.1.3}, $M$是一个$R'$-模, 即存在同态$R' \to \mathrm{End}(M)$, 那么复合上$\varphi$就得到同态$R \xrightarrow{\varphi} R' \to \mathrm{End}(M)$, 即$M$有一个$R$-模结构, 正好是题干中的这个定义.
 \end{proof}
 
 \begin{problem}
-    设$M$是一个$R$-模, $\mathrm{Ann}(M) = \{a \in R \mid ax = 0, \forall x \in M\}$,
-证明: 
-\begin{enumerate}[(1)]
-    \item $\mathrm{Ann}(M) \,\red{\subseteq}\, R$是理想；
-    \item 对任意理想$I \,\red{\subseteq}\, R$, 若$I \,\red{\subseteq}\, \mathrm{Ann}(M)$,
-则$R/I \times M \to M,\, (\bar{a},x) \mapsto ax$,
-定义了$M$的一个$R/I$-模结构.
-\end{enumerate}
+    设$M$是一个$R$-模, $\mathrm{Ann}(M) = \{a \in R \mid ax = 0, \forall x \in M\}$, 证明:
+    \begin{enumerate}[(1)]
+        \item $\mathrm{Ann}(M) \,\red{\subseteq}\, R$是理想;
+        \item 对任意理想$I \,\red{\subseteq}\, R$, 若$I \,\red{\subseteq}\, \mathrm{Ann}(M)$, 则$R/I \times M \to M,\, (\overline{a},x) \mapsto ax$, 定义了$M$的一个$R/I$-模结构.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
-    
+    \begin{enumerate}[(1)]
+        \item 直接验证, $\forall a, b \in \mathrm{Ann}(M), r \in R, x \in M$
+        \[
+            (a - b)x = ax - bx = 0, (ra)x = r(ax) = r0 = 0, (ar)x = a(rx) = 0
+        \]
+        \item 我希望在这里用一下\ref{ex:5.1.3}.
+        
+        $M$是$R$-模等价的说是有环同态
+        \[
+            \eta:R \to \mathrm{End}_\mathsf{Ab}(M)
+        \]
+        $\mathrm{End}_\mathsf{Ab}(M)$是$M$作为Abel群的所有群自同态构成的环. 考虑这个同态的kernel, $r \in \ker(\eta)$, 按定义$\eta(r) = 0$, 即$\forall x \in M, rx = \eta(r)(x) = 0$, 也就是说$\mathrm{Ann}(M) = \ker(\eta)$. 因此若$I \subseteq \mathrm{Ann}(M) = \ker(\eta)$, 根据quotient的泛性质(\ref{ex:2.1.8}的注记), 存在唯一的环同态$\overline{\eta}:R/I \to \mathrm{End}_\mathsf{Ab}(M)$, 即$M$有一个$R/I$-模结构.
+    \end{enumerate}
 \end{proof}
 
-\begin{problem}
-    设$M = (M, +, 0)$是加法群, $\mathrm{End}(M) = \{M \xrightarrow{\varphi} M \mid \varphi \text{ 是群同态}\}$
-    是$M$所有群自同态组成的环. 试证明: 
-\begin{enumerate}[(1)]
-    \item $\mathrm{End}(M) \times M \to M,\, (\varphi, x) \mapsto \varphi \cdot x \defeq \varphi(x)$,
-是$M$的一个$\mathrm{End}(M)$-模结构. (因此, $M$是一个$\mathrm{End}(M)$-模.)
-    \item 设$R$是一个环, 则$M$有一个$R$-模结构$R \times M \to M,\, (a, x) \mapsto ax$
-的充要条件是存在环同态$R \xrightarrow{\eta} \mathrm{End}(M)$使得
-$ax = \eta(a)(x)$对任意$a \in R, x \in M$成立.
-\end{enumerate}
+\begin{remark}
+    理想$\mathrm{Ann}(M)$称为$M$的annihilator, 直译过来是消去子, 即$R$中把$M$中所有元素化为零的那些元素.
+\end{remark}
+
+\begin{problem}\label{ex:5.1.3}
+    设$M = (M, +, 0)$是加法群, $\mathrm{End}(M) = \{M \xrightarrow{\varphi} M \mid \varphi \text{ 是群同态}\}$是$M$所有群自同态组成的环. 证明:
+    \begin{enumerate}[(1)]
+        \item $\mathrm{End}(M) \times M \to M,\, (\varphi, x) \mapsto \varphi \cdot x \defeq \varphi(x)$, 是$M$的一个$\mathrm{End}(M)$-模结构. (因此, $M$是一个$\mathrm{End}(M)$-模.)
+        \item 设$R$是一个环, 则$M$有一个$R$-模结构$R \times M \to M,\, (a, x) \mapsto ax$的充要条件是存在环同态$R \xrightarrow{\eta} \mathrm{End}(M)$使得$ax = \eta(a)(x)$对任意$a \in R, x \in M$成立.
+    \end{enumerate}
 \end{problem}
 
 \begin{proof}
+    其中(2)的证明过程类似\ref{ex:4.5.1}.
 
+    \begin{enumerate}[(1)]
+        \item 由(2), $\mathrm{End}(M)$的恒等映射决定了$M$有一个$\mathrm{End}(M)$-模结构.
+        \item 若$M$是$R$-模, 定义
+        \[
+            \eta(a):M \to M,\quad x \mapsto ax
+        \]
+        首先验证$\eta(a) \in \mathrm{End}(M)$, 即验证这是一个群同态,
+        \[
+            \eta(a)(x + y) = a(x + y) = ax + ay = \eta(a)(x) + \eta(a)(y).
+        \]
+        再验证$\eta$是环同态, $\forall a, b \in R, x \in M$,
+        \[
+            \eta(a + b)(x) = (a + b)x = ax + bx = \eta(a)(x) + \eta(b)(x)
+        \]
+        即$\eta(a + b) = \eta(a) + \eta(b)$.
+        \[
+            \eta(ab)(x) = (ab)x = a(bx) = \eta(a)(\eta(b)(x)) = (\eta(a) \circ \eta(b))(x)
+        \]
+        即$\eta(ab) = \eta(a) \circ \eta(b)$.
+        \[
+            \eta(1)(x) = 1x = x
+        \]
+        即$\eta(1) = \mathrm{id}_M = 1$.
+
+        反过来, 若$\eta$是同态, 我们定义$M$上的$R$-模结构为
+        \[
+            R \times M \to M,\quad (a, x) \mapsto \eta(a)(x)
+        \]
+        只需验证这确实是一个$R$-模结构. $\forall a, b \in R, x, y \in M$,
+        \[
+        \begin{aligned}
+            1x &= \eta(1)(x) = \mathrm{id}_M(x) = x,\\
+            (a + b)x &= \eta(a + b)(x) = (\eta(a) + \eta(b))(x) = \eta(a)(x) + \eta(b)(x) = ax + bx,\\
+            a(x + y) &= \eta(a)(x + y) = \eta(a)(x) + \eta(a)(y) = ax + ay,\\
+            (ab)x &= \eta(ab)(x) = (\eta(a) \circ \eta(b))(x) = \eta(a)(\eta(b)(x)) = a(bx).
+        \end{aligned}
+        \]
+    \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:5.1.4}
     设$M = (M, +, 0)$是任意加法群, 证明: $M$有唯一的$\mathbb{Z}$-模结构.
 \end{problem}
 
 \begin{proof}
-    
+    见\ref{ex:1.2.1}的注记.
 \end{proof}
 
 \begin{problem}
-    设$R$-模$M$的模结构由环同态$R \xrightarrow{\eta} \mathrm{End}(M)$确定, 
-$\varphi \in \mathrm{End}(M)$. 试证明: 
-$M \xrightarrow{\varphi} M$是$R$-模同态当且仅当
-$\varphi \circ \eta (a) = \eta (a) \circ \varphi$, $\forall a \in R$.
+    设$R$-模$M$的模结构由环同态$R \xrightarrow{\eta} \mathrm{End}(M)$确定, $\varphi \in \mathrm{End}(M)$. 试证明: $M \xrightarrow{\varphi} M$是$R$-模同态当且仅当$\varphi \circ \eta(a) = \eta(a) \circ \varphi$, $\forall a \in R$.
 \end{problem}
 
 \begin{proof}
-    
+    $\varphi$是模同态即要求它保持$R$-数乘, 即$\forall a \in R, x \in M$, $\varphi(ax) = a\varphi(x)$. 而根据\ref{ex:5.1.3}, 这里的$ax = \eta(a)(x)$. 因此保持数乘即$\varphi \circ \eta(a) = \eta(a) \circ \varphi$成立.
 \end{proof}
 
 \begin{problem}
-    $R$-模$M$称为不可约模, 如果$M \neq 0$且$M$没有非平凡子模.
-证明: $R$-模$M$不可约当且仅当存在极大左理想$I \,\red{\subseteq}\, R$
-使得$M \cong R/I$.
+    $R$-模$M$称为不可约模, 如果$M \neq 0$且$M$没有非平凡子模. 证明: $R$-模$M$不可约当且仅当存在极大左理想$I \,\red{\subseteq}\, R$使得$M \cong R/I$.
 \end{problem}
 
 \begin{proof}
@@ -74,25 +116,27 @@ $\varphi \circ \eta (a) = \eta (a) \circ \varphi$, $\forall a \in R$.
 \end{proof}
 
 \begin{problem}[舒尔(Schur)引理]
-    证明: 如果$M_1, M_2$是不可约$R$-模, 则任何非
-零模同态$M_1 \to M_2$必为同构.
+    证明: 如果$M_1, M_2$是不可约$R$-模, 则任何非零模同态$M_1 \to M_2$必为同构.
 \end{problem}
 
 \begin{proof}
     
 \end{proof}
 
+\begin{remark}
+    Schur's Lemma是研究表示论的一个常用的引理.
+\end{remark}
+
 \begin{problem}[同态基本定理]
     设$\varphi:M\to M^{\prime}$是$R$-模同态.证明: $\varphi$的核
-\[
-    \ker(\varphi) = \{x \in M \mid \varphi(x) = 0\}
-\]
-和像 $\mathrm{Im}(\varphi) = \{\varphi(x) \mid \forall x \in M\}$必为子模, 
-且$\varphi$的诱导映射
-\[
-    \overline{\varphi}:M/\ker(\varphi) \to \mathrm{Im}(\varphi),\: \overline{\varphi}(\bar{x}) = \varphi(x),
-\]
-必为同构.
+    \[
+        \ker(\varphi) = \{x \in M \mid \varphi(x) = 0\}
+    \]
+    和像$\mathrm{Im}(\varphi) = \{\varphi(x) \mid \forall x \in M\}$必为子模, 且$\varphi$的诱导映射
+    \[
+        \overline{\varphi}:M/\ker(\varphi) \to \mathrm{Im}(\varphi),\: \overline{\varphi}(\overline{x}) = \varphi(x),
+    \]
+    必为同构.
 \end{problem}
 
 \begin{proof}
