@@ -29,13 +29,27 @@
         \[
             \mathbb{Q}[i],\, \mathbb{Q}[\sqrt{2}],\, \mathbb{Q}[\sqrt{2}i]
         \]
-        \item $E^H/K$是有限可分扩张(\ref{ex:3.3.6}的注记以及Galois对应), 因此和Galois扩张之间只差正规性, 根据Galois理论的基本定理, $H \lhd \mathrm{Gal}(E/K) \iff E^H/K$正规, 因此只需找出(1)中正规子群对应的不动域$E^H$:
+        \item $E^H/\mathbb{Q}$是有限可分扩张(\ref{ex:3.3.6}的注记以及Galois对应), 因此和Galois扩张之间只差正规性, 根据Galois理论的基本定理, $H \lhd \mathrm{Gal}(E/\mathbb{Q}) \iff E^H/\mathbb{Q}$正规, 因此只需找出(1)中正规子群对应的不动域$E^H$:
         \[
             E^{\langle \alpha^2 \rangle} = \mathbb{Q}[\sqrt{2}, i], E^{\langle \alpha \rangle} = \mathbb{Q}[i], E^{\langle \alpha^2, \beta \rangle} = \mathbb{Q}[\sqrt{2}], E^{\langle \alpha^2, \alpha\beta \rangle} = \mathbb{Q}[\sqrt{2}i]
         \]
         共轭子群对应共轭域: $\mathbb{Q}[\sqrt[4]{2}(1 + i)]$和$\mathbb{Q}[\sqrt[4]{2}(1 - i)]$, $\mathbb{Q}[\sqrt[4]{2}]$和$\mathbb{Q}[\sqrt[4]{2}i]$. 因为$\beta\langle \alpha\beta \rangle\beta^{-1} = \langle \alpha^3\beta \rangle$, $\alpha\langle \beta \rangle\alpha^{-1} = \langle \alpha^2\beta \rangle$.
     \end{enumerate}
 \end{proof}
+
+\begin{remark}
+    证明中的计算细节. 不动域的定义为:
+    \[
+        E^H = \{x \in E \mid \sigma(x) = x, \forall \sigma \in G\}
+    \]
+    而$\mathrm{Gal}(E/\mathbb{Q})$中的同构一定是$\mathbb{Q}$-线性的, 最直接的方法就是找到$E$的一组$\mathbb{Q}$-基, 然后观察不变量, 同时注意扩张次数. 记$a = \sqrt[4]{2}$, 可以取基为$\{1, a, a^2 = \sqrt{2}, a^3, i, ai, a^2i, a^3i\}$ = $\{e_k\}, k = 1, \cdots, 8$.
+    \begin{itemize}
+        \item $H = \langle \beta \rangle$, 有$\beta(a) = a$, $\beta(i) = -i$, 因此$\mathbb{Q}[a, a^2, a^3] = \mathbb{Q}[a] = \mathbb{Q}[\sqrt[4]{2}] \subseteq E^H$. 又因为$[E:E^H] = |H| = 2$, 因此$E^H = \mathbb{Q}[\sqrt[4]{2}]$.
+        \item $H = \langle \alpha\beta \rangle$, 有$\alpha\beta(a) = ai$, $\alpha\beta(ai) = \alpha(-ai) = a$. 因此$\alpha\beta(a + ai) = a + ai$, $\mathbb{Q}[a(1 + i)] \subseteq E^H$. 又因为$[E:E^H] = |H| = 2$, 故相等.
+        \item $H = \langle \alpha^2 \rangle$, $\alpha(a^2) = \alpha(a)^2 = -a^2 \implies \alpha^2(a^2) = a^2$; $\alpha(i) = i$.
+        \item \dots
+    \end{itemize}
+\end{remark}
 
 \begin{problem}
     设$K \,\red{\supseteq}\, F$是伽罗瓦扩张, $f(x)$是$\alpha \in K$在$F$上的极小多项式, \(g(x) = \prod_{\sigma \in \mathrm{Gal}(K/F)} \big(x - \sigma(\alpha) \big).\) 证明: $g(x) \in F[x]$并且存在正整数$n$使得$g = f^n$.
@@ -75,7 +89,7 @@
     \end{enumerate}
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:4.4.4}
     设$p > 2$是素数, $\xi_p = e^{\frac{2\pi i}p},\, \xi_{p^2}$为$p^2$次本原单位根.
     \begin{enumerate}[(1)]
         \item 求$\mathbb{Q}(\xi_p)/\mathbb{Q}$的扩张次数, 并证明$\mathrm{Gal}(\mathbb{Q}(\xi_p)/\mathbb{Q}) \cong F_p^*$;
@@ -87,13 +101,13 @@
 \begin{proof}
     \begin{enumerate}[(1)]
         \item \ref{ex:3.4.1}.
-        \item 由\ref{ex:4.3.3}, $\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q}) \cong U(\mathbb{Z}/p^2\mathbb{Z}) = p(p - 1)$.
+        \item 由\ref{ex:4.3.3}, $\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q}) \cong U(\mathbb{Z}/p^2\mathbb{Z})$, 因此$|\mathrm{Gal}(\mathbb{Q}(\xi_{p^2})/\mathbb{Q})| = p(p - 1)$.
         \item 由(2), $\bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}(\xi_p)\bigr]\bigl[\mathbb{Q}(\xi_p):\mathbb{Q}\bigr] = \bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}\bigr] = p(p - 1)$. 从而$\bigl[\mathbb{Q}(\xi_{p^2}):\mathbb{Q}(\xi_p)\bigr] = p$. 它是Galois扩张是因为$\mathbb{Q}(\xi_{p^2})/\mathbb{Q}$是Galois扩张.
     \end{enumerate}
 \end{proof}
 
 \begin{remark}
-    对于Galois扩张$L/K$, 对中间域$E$来说, $L/E$总是Galois扩张, 这是因为$L$是$K$上可分多项式$f(x)$的分裂域, 从而也能看成$f(x) \in E[x]$的分裂域.
+    对于Galois扩张$L/K$, 对中间域$E$来说, $L/E$总是Galois扩张, 这是因为$L$是$K$上可分多项式$f(x)$的分裂域, 从而也能看成$f(x) \in E[x]$的分裂域(\ref{ex:3.3.6}). 对无穷Galois扩张而言也是对的(\ref{ex:3.3.6}, \ref{ex:3.3.10}), 一般的Galois扩张是可分正规扩张, 有限的Galois对应(即教材介绍的)是比较简单的, 对于无穷Galois对应则需要引入Galois群的Krull拓扑.
 \end{remark}
 
 \begin{problem}
@@ -106,5 +120,9 @@
 \end{problem}
 
 \begin{proof}
-    
+    \begin{enumerate}[(1)]
+        \item \ref{ex:4.3.3}, \ref{ex:3.1.6}. $\mathbb{Q}(\xi_n)$是分圆多项式$\Phi_n(x)$的分裂域.
+        \item \ref{ex:4.3.3}, $\mathrm{Gal}(\mathbb{Q}[\xi_n]/\mathbb{Q}) \cong U(\mathbb{Z}/12\mathbb{Z})$, 是$4$阶的克莱因群(\ref{ex:4.2.7}), 因为$\xi_{12} \mapsto \xi_{12}^5$的阶是$2$.
+        \item 这题要用分析\dots
+    \end{enumerate}
 \end{proof}

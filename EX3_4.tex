@@ -11,9 +11,9 @@
 \begin{remark}
     用到了结论: 当$p$是素数时, $(\mathbb{Z}/p\mathbb{Z})^* \cong \mathbb{Z}/(p - 1)\mathbb{Z}$. 证明这个结论需要一个命题.
     \begin{propstar}
-        设$G$是Abel群, 若$g \in G$有最大的有限阶, 则$\forall h \in G, |h| < \infty \implies |h| \Big| |g|$.
+        设$G$是Abel群, 若$g \in G$有最大的有限阶, 则$\forall h \in G, |h| < \infty \implies |h| \big| |g|$.
     \end{propstar}
-    这个需要对阶进行一些分析. 按阶的定义可以得到一个常用的等式是$|g^n| = \frac{|g|}{(n, |g|)} = \frac{[n, |g|]}{n}$, 这里$[a, b]$表示两个正整数的最小公倍数. 根据这个等式可以得到, 若$gh = hg$且$(|g|, |h|) = 1$, 则$|gh| = |g| \cdot |h|$. 下面用反证发证明这个命题.
+    这个需要对阶进行一些分析. 按阶的定义可以得到一个常用的等式是$|g^n| = \frac{|g|}{(n, |g|)} = \frac{[n, |g|]}{n}$, 这里$[a, b]$表示两个正整数的最小公倍数. 根据这个等式可以得到, 若$gh = hg$且$(|g|, |h|) = 1$, 则$|gh| = |g| \cdot |h|$. 下面用反证法证明这个命题.
     
     假设$|h| \nmid |g|$, 考虑他们的素因子分解, 那么将存在某个素数$p$使得$|g| = p^mr, |h| = p^ns, (p, r) = (p, s) = 1, m < n$. 此时我们计算$g^{p^m}h^s$的阶
     \[
@@ -25,10 +25,10 @@
     \]
     从而和$g$有最大有限阶矛盾. (这个证明的技巧性还是挺强的, 以上都在教材4.3节)
 
-    有了这个命题, 由于$(\mathbb{Z}/p\mathbb{Z})^*$是有限群, 从而存在这样的$g$有最大的有限阶, 我们证明$|g| = p - 1$即可. 一方面根据Fermat小定理$g^{p - 1} = 1$, 因此$|g| \leqslant p - 1$; 另一方面, 任意的$h \in (\mathbb{Z}/p\mathbb{Z})^*$都有$|h| \Big| |g|$, 因此$h^{|g|} = 1$, 也就是说多项式$x^|g| - 1$在$\mathbb{F}_p$上有$p - 1$个根, 那么$|g| \geqslant p - 1$. 从而只能是$|g| = p - 1$.
+    有了这个命题, 由于$(\mathbb{Z}/p\mathbb{Z})^*$是有限群, 从而存在这样的$g$有最大的有限阶, 我们证明$|g| = p - 1$即可. 一方面根据Fermat小定理$g^{p - 1} = 1$, 因此$|g| \leqslant p - 1$; 另一方面, 任意的$h \in (\mathbb{Z}/p\mathbb{Z})^*$都有$|h| \big| |g|$, 因此$h^{|g|} = 1$, 也就是说多项式$x^{|g|} - 1$在$\mathbb{F}_p$上有$p - 1$个根, 那么$|g| \geqslant p - 1$. 从而只能是$|g| = p - 1$.
 \end{remark}
 
-\begin{problem}
+\begin{problem}\label{ex:3.4.2}
     设$K = \mathbb{Q},\, L = K[\sqrt[3]{2}]$. 证明: $G = \mathrm{Gal}(L/K)=\{1\}$ (所以$L^G = L \neq K$). 如果令$\overline{L} = K[\sqrt[3]{2}, \sqrt{-3}]$, 试证明: $\mathrm{Gal}(\overline{L}/K) \cong S_3$. 并求出中间域$K \,\red{\subseteq}\, K[\sqrt{-3}] \,\red{\subseteq}\, \overline{L}$对应的子群$H \,\red{\subseteq}\, \mathrm{Gal}(\overline L/K)$, 即: 求$H \,\red{\subseteq}\, \mathrm{Gal}(\overline L/K)$使得$\overline{L}^{H} = K[\sqrt{-3}]$. (提示: $H = \mathrm{Gal}(\overline L/K[\sqrt{-3}]) \cong A_3$.)
 \end{problem}
 
@@ -37,15 +37,15 @@
 
     由\ref{ex:3.3.2}, $\sqrt[3]{2}$的极小多项式是$x^3 - 2$, 且三个根中只有$\sqrt[3]{2} \in L$, 根据\ref{ex:3.3.6}, 若$\sigma \in \mathrm{Gal}(L/K)$, 则$\sigma(\sqrt[3]{2}) \in L$也是$x^3 - 2$的根, 那么只能是$\sigma(\sqrt[3]{2}) = \sqrt[3]{2}$, 从而$\sigma = \mathrm{id}_L$.
 
-    类似\ref{ex:3.1.14}, \ref{ex:3.3.4}, 同样的分析degree的操作可以得到$[\overline{L}:K] = 3 \cdot 2 = 6$. 注意到$\zeta_3 = e^{\frac{2\pi i}{3}} = -\frac{1}{2} + \frac{\sqrt{-3}}{2}$, 因此$\overline{L} = K[\sqrt[3]{2}, \sqrt{-3}] = K[\sqrt[3]{2}, \zeta_3]$, 正好是$x^3 - 2$的分裂域. 由\ref{ex:3.3.14}的注记, $\overline{L}/K$是Galois扩张. 此时$\eta \in \mathrm{Gal}(\overline{L}/K)$, 对两个中间域$K[\sqrt[3]{2}]$和$K[\zeta_3]$分别考虑\ref{ex:3.3.6}, $\eta(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i, i = 0, 1, 2$, $\eta(\zeta) = \zeta^j, j = 1, 2$. 那么记
+    类似\ref{ex:3.1.14}, \ref{ex:3.3.4}, 同样的分析degree的操作可以得到$[\overline{L}:K] = 3 \cdot 2 = 6$. 注意到$\zeta_3 = e^{\frac{2\pi i}{3}} = -\frac{1}{2} + \frac{\sqrt{-3}}{2}$, 因此$\overline{L} = K[\sqrt[3]{2}, \sqrt{-3}] = K[\sqrt[3]{2}, \zeta_3]$, 正好是$x^3 - 2$的分裂域. 由\ref{ex:3.3.14}的注记, $\overline{L}/K$是Galois扩张. 此时$\eta \in \mathrm{Gal}(\overline{L}/K)$, 对两个中间域$K[\sqrt[3]{2}]$和$K[\zeta_3]$分别考虑\ref{ex:3.3.6}, $\eta(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i, i = 0, 1, 2$, $\eta(\zeta_3) = \zeta_3^j, j = 1, 2$. 那么记
     \[
         \alpha:L \to L,\, \sqrt[3]{2} \mapsto \sqrt[3]{2}\zeta_3, \zeta_3 \mapsto \zeta_3,\, \beta:L \to L,\, \sqrt[3]{2} \mapsto \sqrt[3]{2},\, \zeta_3 \mapsto \zeta_3^2
     \]
-    根据\ref{ex:1.3.5}可以验证$\alpha, \beta$正是生成元, $\mathrm{Gal}(\overline{L}/K) \cong S_3$. 而中间域$K[\sqrt{-3}] = K[\zeta_3]$, 根据Galois对应(教材定理3.4.2, 定理4.4.1), $H = \mathrm{Gal}(\overline{L}/K[\zeta_3]), \overline{L}^H = K[\zeta_3]$. 那么$|[G:H]| = [K[\zeta_3]:K] = 2$, $G/H = \mathbb{Z}/2\mathbb{Z}$; $|H| = [\overline{L}:K[\zeta]] = 3$, $H = A_3$. 
+    根据\ref{ex:1.3.5}可以验证$\alpha, \beta$正是生成元, $\mathrm{Gal}\bigl(\overline{L}/K\bigr) \cong S_3$. 而中间域$K[\sqrt{-3}] = K[\zeta_3]$, 根据Galois对应(教材定理3.4.2, 定理4.4.1), $H = \mathrm{Gal}\bigl(\overline{L}/K[\zeta_3]\bigr), \overline{L}^H = K[\zeta_3]$. 那么$\bigl|[G:H]\bigr| = \bigl[K[\zeta_3]:K\bigr] = 2$, $G/H = \mathbb{Z}/2\mathbb{Z}$; $|H| = \bigl[\overline{L}:K[\zeta]\bigr] = 3$, $H = A_3$. 
 \end{proof}
 
 \begin{remark}
-    阶数$3$以下的群是唯一的, 直接分析乘法表就行, $4$阶群有两种(\ref{ex:4.2.7}).
+    阶数$3$以下的群是唯一的, 直接分析乘法表就行, $4$阶群有两种(\ref{ex:4.2.7}). $A_3$实际上是$3$阶的循环群, $S_3$中所有偶置换显然只能是$3$-循环, 用\ref{ex:1.3.5}的记号的话, $A_3$就是子群$\langle b \rangle$.
 \end{remark}
 
 \begin{problem}

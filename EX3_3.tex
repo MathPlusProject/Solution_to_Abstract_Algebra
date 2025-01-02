@@ -109,7 +109,13 @@
     \begin{propstar}
         已知对任意域$K$存在代数闭域$L$使得$K \subseteq L$. 记$i_K:K \to L$是域嵌入, 那么对任意代数扩张$K \subseteq E$, 存在嵌入$i:E \to L$使得$i|_K = i_K$. 若$E$是代数闭域且$L/i_K(K)$是代数的, 那么$i$是同构. 因此代数闭包在同构的意义下一定唯一. 证明需要Zorn's Lemma. \cite{lang2012algebra} \S V.2 Theorem 2.8. 
     \end{propstar}
-    另外也可以参考\cite{2009近世代数引论}p136 引理1, 这个是单代数扩张的版本, 相对简单一些, 如果只考虑有限扩张, 那么用这个版本就够了. 事实上这只是\ref{ex:3.1.2}的进一步解释, 在此基础上加了一个同构让他变成如下的交换图
+    另外也可以参考\cite{2009近世代数引论}p136 引理1, 这个是单代数扩张的版本, 相对简单一些, 如果只考虑有限扩张, 那么用这个版本就够了. 事实上这只是\ref{ex:3.1.2}的进一步解释, 在此基础上加了一个同构让他变成如下的交换图(实际是教材定理3.3.2最后一段证明).
+    
+    \begin{propstar}
+        若$\eta:K \to K'$是域同构, 则根据教材引理2.3.2, $\eta$可以延拓成环同构$\tilde{\eta}:K[x] \xrightarrow{\sim} K'[x]$. 设$E/K$和$E'/K'$是域扩张, $\alpha \in E$在$K$上代数, $\mu_\alpha(x) \in K[x]$是$\alpha$的极小多项式, 那么$\eta$可以扩充成$\varphi:K[\alpha] \to E'$当且仅当$\tilde{\eta}(\mu_\alpha(x))$在$E'$中有根$\alpha'$, 并且$\alpha' = \varphi(\alpha)$, $\alpha'$的极小多项式$\mu_{\alpha'}(x) = \tilde{\eta}(\mu_\alpha(x))$.
+    \end{propstar}
+
+    画成交换图就是这样:
     \[
         \begin{tikzcd}
             & E                                                              & E'                                          &                                               \\
@@ -117,18 +123,19 @@
             & K \arrow[r, "\eta"] \arrow[u, hook]                            & K' \arrow[u, hook]                          &                                              
         \end{tikzcd}
     \]
-    其中$\eta$是域同构, 那么根据教材引理2.3.2, $\eta$可以延拓成同构$\tilde{\eta}:K[x] \xrightarrow{\sim} K'[x]$. 这个同态会把$\alpha$的极小多项式映到$\alpha'$的极小多项式. 这样就有
+    
+    按定义$\tilde{\eta}$这个同构会把不可约多项式映到不可约多项式. 当延拓后的$\varphi$存在时, $\alpha' = \varphi(\alpha)$自然是不可约多项式$\tilde{\eta}(\mu_\alpha(x))$的根, 因此自然时$\alpha'$的极小多项式. 主要是反过来需要证一下, 若$\alpha' \in E'$是$\tilde{\eta}(\mu_\alpha(x))$的根, 这个多项式不可约, 从而是$\alpha'$的极小多项式. 考虑如下的交换图表:
     \[
         \begin{tikzcd}
             & {K[x]} \arrow[d, "\pi", two heads] \arrow[r, "\tilde{\eta}"]       & {K'[x]} \arrow[d, "\pi'", two heads]                 &            \\
 K(\alpha) \arrow[r, "\sim"] \arrow[rrr, "\varphi"', bend right] & {K[x]/(\mu_\alpha(x))} \arrow[r, "\overline{\tilde{\eta}}"] & {K'[x]/(\mu_{\alpha'}(x))} \arrow[r, "\sim"] & K'(\alpha')
         \end{tikzcd}
     \]
-    注意到$(\mu_\alpha(x)) \subseteq \ker(\pi' \circ \tilde{\eta})$, 由quotient的泛性质(也就是同态基本定理的推广, \ref{ex:2.1.8}增加的命题)得到$\overline{\tilde{\eta}}$, 而这是域之间的满同态, 故只能是同构, 进而得到同构$\varphi$, 且$\varphi|_K = \eta$. 注意根据我们$\varphi$的构造一定是$\varphi(\alpha) = \alpha'$, 若这里$\eta = \mathrm{id}_K$, 那么$\varphi$就是把$\alpha$换成$\mu_\alpha(x)$的其中一个根.
+    注意到$(\mu_\alpha(x)) \subseteq \ker(\pi' \circ \tilde{\eta})$, 由quotient的泛性质(也就是同态基本定理的推广, \ref{ex:2.1.8}增加的命题)得到$\overline{\tilde{\eta}}$, 而这是域之间的满同态, 故只能是同构, 进而得到同构$\varphi$, 且$\varphi|_K = \eta$. 注意根据我们$\varphi$的构造一定是$\varphi(\alpha) = \alpha'$, $\varphi$可能的个数就是$\mu_{\alpha'}(x)$在$E'$中根的个数. 若这里$\eta = \mathrm{id}_K$, 那么$\varphi$就是把$\alpha$换成$\mu_\alpha(x)$的其中一个根.
 
     这也说明我们在同构的意义下考虑域扩张是可行的. 但对代数闭包而言, 不一定是有限扩张, 比如$\overline{\mathbb{Q}}/\mathbb{Q}$.
 
-    有了代数闭包, 可分多项式的等价定义为: $f(x) \in K[x]$是可分的, 即$f(x)$的不可约因子在$\overline{K}$中(或者说在$f(x)$的分裂域中)无重根. 这也解释了\ref{ex:2.4.3}和\ref{ex:3.1.1}的关系, 特征零的不可约多项式可分, 从而特征零的代数扩张一定是可分扩张.
+    有了代数闭包, 可分多项式的等价定义为: $f(x) \in K[x]$是可分的, 即$f(x)$的不可约因子在$\overline{K}$中(或者说在$f(x)$的分裂域中)无重根. 这也解释了\ref{ex:2.4.3}和\ref{ex:3.1.1}的关系, 特征零的不可约多项式可分, 从而特征零的代数扩张一定是可分扩张. 按这个等价定义还可以得到: $L/K$是可分扩张, $E$是中间域, 则$L/E$是可分的(\ref{ex:3.3.10}, \ref{ex:4.4.4}).
 \end{remark}
 
 \begin{problem}
@@ -166,18 +173,36 @@ K(\alpha) \arrow[r, "\sim"] \arrow[rrr, "\varphi"', bend right] & {K[x]/(\mu_\al
     
 \end{proof}
 
-\begin{problem}
+\begin{problem}\label{ex:3.3.10}
     设$K = \mathbb{Q}[u]$, $u^3 + u^2 - 2u - 1 = 0$. 验证$\alpha = u^2 - 2$也是多项式$x^3 + x^2 - 2x - 1$的根. 试确定$\mathrm{Gal}(K/\mathbb{Q})$, 并证明: $K$是$\mathbb{Q}$的正规扩张.
 \end{problem}
 
 \begin{proof}
-    
+    直接带入$\alpha = u^2 - 2$, 得
+    \[
+    \begin{aligned}
+        \alpha^3 + \alpha^2 - 2\alpha - 1 &= u^6 - 6u^4 + 12u^2 - 8 + u^4 - 4u^2 + 4 - 2u^2 + 4 - 1\\
+        &= u^6 - 5u^4 + 6u^2 - 1\\
+        &= (u^2 - 2u - 1)^2 + 5u(u^2 - 2u - 1) + 6u^2 - 1\\
+        &= u^4 + u^3 - 2u^2 - u\\
+        &= u(-u^2 + 2u + 1 + u^2 - 2u - 1)\\
+        &= 0
+    \end{aligned} 
+    \]
+    因此$u^2 - 2$是根, 由韦达定理可知$-u^2 - u + 1$也是根. 因此$K$是$x^3 + x^2 - 2x - 1$的分裂域, 从而是Galois扩张, 自然是正规扩张. 注意$x^3 + x^2 - 2x - 1$是不可约多项式(由于是三次的, 若可约则一定有一次因式, 即意味着有根在$\mathbb{Q}$里, 矛盾, 或用Eisenstein, 因为根据教材的2.3节$\mathbb{Q}$上的不可约等价于在$\mathbb{Z}$上不可约), 故$|\mathrm{Gal}(K/\mathbb{Q})| = [K:\mathbb{Q}] = 3$, 从而$\mathrm{Gal}(K/\mathbb{Q}) = A_3$(\ref{ex:3.4.2}注记).
 \end{proof}
 
 \begin{remark}
-    \cite{lang2012algebra}\S V.3 Theorem3.3给出了正规扩张的三个等价定义, 其中有一条是用到代数闭包的:
+    \cite{lang2012algebra}\S V.3 Theorem3.3给出了正规扩张的三个等价定义, 其中(ii)是用到代数闭包的:
 
-    $L/K$是正规扩张, 当且仅当延拓后的域嵌入$\varphi:L \to \overline{K}$是$L$的自同构, 即$\varphi(L) = L$.
+    设$L/K$是代数扩张,
+    \begin{enumerate}[(i)]
+        \item 若不可约多项式$f(x) \in K[x]$在$L$有根, 则$f(x)$所有根都在$L$中, 即$f(x)$一定在$L$中分裂成一次因式的乘积.
+        \item 任意延拓后的域嵌入$\varphi:L \to \overline{K}$是$L$的自同构, 即$\varphi(L) = L$.
+        \item $L$是一族$K[x]$中多项式的分裂域.
+    \end{enumerate}
+
+    (iii)中一族多项式的分裂域的定义是教材没有的, 但其实差别不大, 仍是两条: 对一族多项式$\{f_i(x)\}_{i \in I}$, $f_i(x)$在$L$上能分解成一次因式的乘积且$L$由所有$f_i(x)$的所有根生成. 即最小的代数扩张使得$f_i(x)$分裂. (iii)加上\ref{ex:3.3.6}证明中提到的, 若$L/F$是正规扩张, $E$是中间域, 那么$L$可以看成是$E$上一族多项式的分裂域, 则$L/E$也是正规扩张(\ref{3.3.6}, \ref{ex:4.4.4}).
 \end{remark}
 
 \begin{problem}
